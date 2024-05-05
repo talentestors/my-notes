@@ -37,6 +37,9 @@ jobs:
           retention-days: 1
           path: src/.vuepress/dist
 
+      - name: git add dist
+        run: git add src/.vuepress/dist
+
       # 将文档产物提交到gh-pages分支
       - name: Deploy for Pages  
         uses: JamesIves/github-pages-deploy-action@v4.4.1
