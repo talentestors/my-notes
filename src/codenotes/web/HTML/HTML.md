@@ -50,7 +50,7 @@ HTML 标题（Heading）是通过\<h1> - \<h6> 标签来定义的。
 <h3>这是一个标题</h3>
 ```
 
-![image-20230102214004924](https://talentestors.gitee.io/img/images/image-20230102214004924.png)
+![image-20230102214004924](https://gitee.com/talentestors/img/raw/master/images/image-20230102214004924.png)
 
 #### HTML 段落
 
@@ -249,8 +249,7 @@ ol： ordered list
 </ol>
 ```
 
-![有序列表](https://talentestors.gitee.io/img/images/image-20230102214237161.png)
-
+![有序列表](https://gitee.com/talentestors/img/raw/master/images/image-20230102214237161.png)
 
 #### 2.无序列表
 
@@ -266,7 +265,7 @@ li：list item （ 列表项）
 </ul>
 ```
 
-![无序列表](https://talentestors.gitee.io/img/images/unorderlist.png)
+![无序列表](https://gitee.com/talentestors/img/raw/master/images/unorderlist.png)
 
 #### 3.多级列表
 
@@ -290,7 +289,7 @@ li：list item （ 列表项）
 </ul>
 ```
 
-![多级列表](https://talentestors.gitee.io/img/images/image-20230102214415944.png)
+![多级列表](https://gitee.com/talentestors/img/raw/master/images/image-20230102214415944.png)
 
 #### 4.自定义列表
 
@@ -307,7 +306,7 @@ li：list item （ 列表项）
 </dl>
 ```
 
-![自定义列表](https://talentestors.gitee.io/img/images/image-20230110210855890.png)
+![自定义列表](https://gitee.com/talentestors/img/raw/master/images/image-20230110210855890.png)
 
 ## HTML Anchor(超链接)
 
@@ -381,7 +380,7 @@ href = "#" 只有#号，表示回到页面顶部
 
 `结果：`
 
-![](https://talentestors.gitee.io/img/images/image-20230104173012362.png)![](https://talentestors.gitee.io/img/images/image-20230104173036601.png)
+![](https://gitee.com/talentestors/img/raw/master/images/image-20230104173012362.png)![](https://gitee.com/talentestors/img/raw/master/images/image-20230104173036601.png)
 
 ## 多媒体
 
@@ -417,7 +416,7 @@ src格式有三种
 
 `Files.readAllBytes(Path.of("path of image"));`+`<CR>`
 
-![image-20230104205017470](https://talentestors.gitee.io/img/images/image-20230104205017470.png)
+![image-20230104205017470](https://gitee.com/talentestors/img/raw/master/images/image-20230104205017470.png)
 
 调用`Base64.getEncoder().encodeToString($*)`方法
 
@@ -447,7 +446,7 @@ src格式有三种
 > <iframe src="//player.bilibili.com/player.html?aid=941207928&bvid=BV13W4y127Ey&cid=807165255&page=46" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 > ```
 
-![B站视频](https://talentestors.gitee.io/img/images/image-20230104195123485.png)
+![B站视频](https://gitee.com/talentestors/img/raw/master/images/image-20230104195123485.png)
 
 #### 3.Audio
 
@@ -586,7 +585,7 @@ rowspan="合并单元格的个数" //跨行合并
 colspan="合并单元格的个数" //跨列合并
 ```
 
-![合并单元格](https://talentestors.gitee.io/img/images/image-020230110205707973.png)
+![合并单元格](https://gitee.com/talentestors/img/raw/master/images/image-020230110205707973.png)
 
 ```html
 <table align="center" border="1" cellpadding="2" cellspacing="0">
