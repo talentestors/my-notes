@@ -21,7 +21,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
@@ -38,7 +38,9 @@ jobs:
           path: src/.vuepress/dist
 
       - name: git add dist
-        run: git add src/.vuepress/dist --force
+        run: |
+           git add -f src/.vuepress/dist
+           git status --ingored
 
       # 将文档产物提交到gh-pages分支
       - name: Deploy for Pages  
