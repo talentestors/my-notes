@@ -38,7 +38,7 @@ jobs:
         with:
           # Upload entire repository
           # path dist directory
-          path: 'src/.vuepress/dist'
+          path: 'src/.vuepress/dist/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
