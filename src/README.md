@@ -12,7 +12,7 @@ actions:
   - text: 【代码笔记】
     link: /codenotes/
   - text: 【博客主页】
-    link: https://talentestors.github.io/
+    link: https://stazxr.cn/
   - text: 【开源项目】
     link: /projects/
 features:

@@ -23,8 +23,8 @@ timeline: false
 
 
 # 
-# [HTML](/my-notes/codenotes/web/HTML/HTML.html)
+# [HTML](/codenotes/web/HTML/HTML.html)
 
-# [Emmet语法](/my-notes/codenotes/web/Emmet语法.html)
+# [Emmet语法](/codenotes/web/Emmet语法.html)
 
-# [CSS](/my-notes/codenotes/web/CSS/)
+# [CSS](/codenotes/web/CSS/)

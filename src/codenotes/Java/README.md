@@ -22,6 +22,6 @@ timeline: false
 
 
 # 
-## [1. javase](/my-notes/codenotes/java/javase/)
+## [1. javase](/codenotes/java/javase/)
 
-## [2. javaGUI](/my-notes/codenotes/java/javaGUI/)
+## [2. javaGUI](/codenotes/java/javaGUI/)

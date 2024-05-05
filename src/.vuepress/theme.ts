@@ -7,7 +7,7 @@ import { zhSidebar } from "./sidebar/index.js";
 // 主题设置
 export default hopeTheme({
   // 当前网站部署到的域名
-  hostname: "https://talentestors.gitee.io/my-notes/",
+  hostname: "https://lib.stazxr.cn/",
 
   // 文章显示的默认作者
   author: {
@@ -70,7 +70,7 @@ export default hopeTheme({
   contributors: false,
 
   // 文章所在仓库
-  docsRepo: "https://gitee.com/talentestors/my-notes.git",
+  docsRepo: "https://github.com/talentestors/my-notes.git",
 
   // 文章所在分支
   docsBranch: "main",
@@ -98,7 +98,7 @@ export default hopeTheme({
 
       // 页面配置信息
       metaLocales: {
-        editLink: "在【Gitee】上编辑此页",
+        editLink: "在【Github】上编辑此页",
       },
     },
   },
