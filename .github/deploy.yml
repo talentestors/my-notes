@@ -1,0 +1,50 @@
+name: Deploy VuePress site to Pages
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  permissions:
+    contents: write
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout  ️
+        uses: actions/checkout@v4
+        with:
+          ref: 'main'
+
+      - name: Install npm
+        run: corepack enable
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Site
+        run: npm run docs:build
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: my-notes
+          retention-days: 1
+          path: src/.vuepress/dist
+
+      # 将文档产物提交到gh-pages分支
+      - name: Deploy for Pages  
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        with:
+          branch: gh-pages
+          folder: .
+          # enable single-commit to reduce the repo size
+          single-commit: true
+          clean: true
+          token: ${{ secrets.GITHUB_TOKEN }}
