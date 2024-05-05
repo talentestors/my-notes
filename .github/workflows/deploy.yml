@@ -39,7 +39,7 @@ jobs:
 
       - name: git add dist
         run: |
-           git add -f src/.vuepress/dist
+           git add -f src/.vuepress/dist/
            git status --ignored
 
       # 将文档产物提交到gh-pages分支
