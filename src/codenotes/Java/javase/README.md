@@ -22,32 +22,32 @@ timeline: false
 
 
 # 
-## [1. java基础](/codenotes/Java/javase/java基础.html)
+## [1. java基础](./java基础.html)
 
-## [2. 流程控制语句](/codenotes/Java/javase/流程控制语句.html)
+## [2. 流程控制语句](./流程控制语句.html)
 
-## [3. 数组和算法](/codenotes/Java/javase/数组和算法.html)
+## [3. 数组和算法](./数组和算法.html)
 
-## [4. 面向对象](/codenotes/Java/javase/面向对象.html)
+## [4. 面向对象](./面向对象.html)
 
-## [5. 常用api](/codenotes/Java/javase/常用api.html)
+## [5. 常用api](./常用api.html)
 
-## [6. 异常机制](/codenotes/Java/javase/异常机制.html)
+## [6. 异常机制](./异常机制.html)
 
-## [7. 泛型和枚举](/codenotes/Java/javase/泛型和枚举.html)
+## [7. 泛型和枚举](./泛型和枚举.html)
 
-## [8. 多线程](/codenotes/Java/javase/多线程.html)
+## [8. 多线程](./多线程.html)
 
-## [9. 树](/codenotes/Java/javase/树.html)
+## [9. 树](./树.html)
 
-## [10. 集合框架](/codenotes/Java/javase/集合框架.html)
+## [10. 集合框架](./集合框架.html)
 
-## [11. IO流](/codenotes/Java/javase/IO流.html)
+## [11. IO流](./IO流.html)
 
-## [12. 注解和反射](/codenotes/Java/javase/注解和反射.html)
+## [12. 注解和反射](./注解和反射.html)
 
-## [13. Java网络编程](/codenotes/Java/javase/网络编程.html)
+## [13. Java网络编程](./网络编程.html)
 
-## [14. nio](/codenotes/Java/javase/nio.html)
+## [14. nio](./nio.html)
 
-## [15. Java网络编程](/codenotes/Java/javase/Java正则表达式.html)
+## [15. Java网络编程](./Java正则表达式.html)

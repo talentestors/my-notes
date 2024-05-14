@@ -35,7 +35,6 @@ jobs:
       - name: set root config
         run: |
           sed -i '5d' .gitignore
-          git add -f --all
           sed -i 's|base: "/"|base: "/my-notes/"|g' src/.vuepress/config.ts
           sed -i 's|hostname: "https://lib.stazxr.cn/",|hostname: "https://www.stazxr.cn/my-notes/",|g' src/.vuepress/theme.ts
 

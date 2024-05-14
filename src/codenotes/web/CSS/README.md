@@ -21,10 +21,10 @@ timeline: false
 
 #
 
-## [1. CSS 简介与选择器](/codenotes/web/CSS/简介与选择器.html)
+## [1. CSS 简介与选择器](./简介与选择器.html)
 
-## [2. CSS 三大特性](/codenotes/web/CSS/三大特性.html)
+## [2. CSS 三大特性](./三大特性.html)
 
-## [3. CSS 盒子模型](/codenotes/web/CSS/CSS盒子模型.html)
+## [3. CSS 盒子模型](./CSS盒子模型.html)
 
-## [4. CSS高级](/codenotes/web/CSS/CSS高级.html)
+## [4. CSS高级](./CSS高级.html)
