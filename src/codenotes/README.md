@@ -14,6 +14,6 @@ timeline: false
 
 ## [Web核心](/codenotes/web/)
 
-## [Java核心](/codenotes/java/)
+## [Java核心](/codenotes/Java/)
 
 ## [MySQL](/codenotes/mysql/)

@@ -57,11 +57,11 @@ export const zhSidebar = sidebar({
         text: "Javase",
         icon: "java",
         collapsible: true,
-        prefix: "/codenotes/java/javase/",
+        prefix: "/codenotes/Java/javase/",
         children: [
           {
             text: "1、java基础",
-            icon: "computer",
+            icon: "computer-fill",
             link: "java基础.md"
           },
           {
@@ -121,7 +121,7 @@ export const zhSidebar = sidebar({
           },
           {
             text: "13、Java网络编程",
-            icon: "change",
+            icon: "network",
             link: "网络编程.md"
           },
           {
@@ -137,13 +137,13 @@ export const zhSidebar = sidebar({
         ],
       },{
         text: "JavaGUI",
-        icon: "computer",
+        icon: "computer-fill",
         collapsible: true,
-        prefix: "/codenotes/java/javaGUI/",
+        prefix: "/codenotes/Java/javaGUI/",
         children: [
           {
             text: "Swing",
-            icon: "window",
+            icon: "window-fill",
             link: "swing.md"
           },
         ]
@@ -151,13 +151,13 @@ export const zhSidebar = sidebar({
     },
     {
       text: "MySQL",
-      icon: "mysql",
+      icon: "MySQL",
       collapsible: true,
       prefix: "/codenotes/mysql/",
       children: [
         {
           text: "1、Mysql入门",
-          icon: "mysql",
+          icon: "MySQL",
           link: "MySQL入门.md"
         },
       ]
