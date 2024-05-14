@@ -1,1 +1,6 @@
 // place your custom styles here
+a.header-anchor:hover:before{
+    top: 0;
+    font-size: 1.1em;
+    color: var(--theme-color);
+}

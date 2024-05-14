@@ -54,4 +54,7 @@ jobs:
         with:
           # 部署文档
           branch: gh-pages
-          folder: src/.vuepress/dist
+          folder: .
+          single-commit: true
+          clean: true
+          token: ${{ secrets.GITHUB_TOKEN }}
