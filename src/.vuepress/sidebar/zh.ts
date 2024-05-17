@@ -116,7 +116,7 @@ export const zhSidebar = sidebar({
           },
           {
             text: "12、反射",
-            icon: "format",
+            icon: "reflect-vertical",
             link: "注解和反射.md"
           },
           {
