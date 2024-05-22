@@ -90,7 +90,7 @@ ubuntu的安装：<https://www.cnblogs.com/panlq/p/13704965.html>
 > 如果你在WSL（Windows Subsystem for Linux）中安装了MySQL，并且遇到了"ERROR 2002 (HY000): Can't connect to local MySQL server through socket"错误，这通常是由于MySQL服务器没有正确启动或配置问题引起的。以下是一些可能的解决方法：
 >
 > 1. 启动MySQL服务：
->    
+>
 >    首先，确保MySQL服务器在WSL中已经正确启动。你可以使用以下命令来启动MySQL服务：
 >
 >    ```
