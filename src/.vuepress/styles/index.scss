@@ -4,3 +4,6 @@ a.header-anchor:hover:before{
     font-size: 1.1em;
     color: var(--theme-color);
 }
+.vp-hero-actions .vp-external-link-icon::after{
+    display: none;
+}

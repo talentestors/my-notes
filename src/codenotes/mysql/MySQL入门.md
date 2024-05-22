@@ -27,9 +27,14 @@ timeline: false
 
 推荐课程视频教程
 
-链接1：<https://www.bilibili.com/video/BV1h5411m747>
+链接1：
 
-链接2：<https://www.bilibili.com/video/BV19d4y147Df>
+- 入门：<https://www.bilibili.com/video/BV1h5411m747>
+- 进阶：<https://www.bilibili.com/video/BV1eU4y117tx>
+
+链接2：
+
+- <https://www.bilibili.com/video/BV19d4y147Df>
 
 :::
 

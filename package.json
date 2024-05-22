@@ -16,7 +16,7 @@
     "@vuepress/plugin-register-components": "2.0.0-rc.30",
     "@vuepress/plugin-search": "2.0.0-rc.30",
     "@vuepress/plugin-shiki": "2.0.0-rc.30",
-    "chart.js": "^4.4.2",
+    "chart.js": "^4.4.3",
     "dashjs": "^4.7.4",
     "echarts": "^5.5.0",
     "element-plus": "^2.7.3",
