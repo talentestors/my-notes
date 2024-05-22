@@ -1448,8 +1448,6 @@ sql语句如下：
 | 李四      | 45  | 87  | 45  |
 | 王五      | 76  | 34  | 89  |
 
-
-
 ```sql
 select user_name,
    max(case course when '数学' then score else 0 end) as '数学',
