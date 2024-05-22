@@ -25,4 +25,4 @@ timeline: false
 
 ## [1. javase](./javase/)
 
-## [2. javaGUI](./javaGUI/)
+## [2. javaGUI](./javagui/)

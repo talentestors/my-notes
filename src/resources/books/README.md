@@ -32,6 +32,4 @@ timeline: true
 | `《具有AI功能加持的终端工具warp使用总结》` | https://www.aliyundrive.com/s/MDahYPF2Kwr |
 | `《Python编程：从入门到实践（第2版）》`    | https://www.aliyundrive.com/s/x3bWWMBeThg |
 
-
 > [一键获取](https://www.aliyundrive.com/s/jXXnsf52E8g)    `提取码:yb66`
-

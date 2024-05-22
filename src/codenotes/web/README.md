@@ -23,8 +23,8 @@ timeline: false
 
 
 # 
-# [HTML](./HTML/HTML.html)
+# [html](./html/html.html)
 
-# [Emmet语法](./Emmet语法.html)
+# [emmet语法](./emmet语法.html)
 
-# [CSS](./CSS/)
+# [css](./css/)

@@ -13,18 +13,18 @@ export const zhSidebar = sidebar({
         {
           text: "HTML",
           icon: "html",
-          link: "HTML/HTML.md",
+          link: "html/html.md",
         },
         {
           text: "Emmet语法",
           icon: "emmet",
-          link: "Emmet语法.md",
+          link: "emmet语法.md",
         },
         {
           text: "CSS",
           icon: "css",
           collapsible: true,
-          prefix: "/codenotes/web/CSS/",
+          prefix: "/codenotes/web/css/",
           children: [
             {
             text: "1、CSS简介与选择器",
@@ -39,25 +39,25 @@ export const zhSidebar = sidebar({
             {
               text: "3、CSS盒子模型",
               icon: "css",
-              link: "CSS盒子模型.md"
+              link: "css盒子模型.md"
             },
             {
               text: "4、CSS高级",
               icon: "css",
-              link: "CSS高级.md"
+              link: "css高级.md"
             },
           ]
         },
       ],
     },{
-      text: "Javase",
+      text: "javase",
       icon: "java",
       collapsible: true,
       children: [{
-        text: "Javase",
+        text: "javase",
         icon: "java",
         collapsible: true,
-        prefix: "/codenotes/Java/javase/",
+        prefix: "/codenotes/java/javase/",
         children: [
           {
             text: "1、java基础",
@@ -112,7 +112,7 @@ export const zhSidebar = sidebar({
           {
             text: "11、IO流",
             icon: "IO",
-            link: "IO流.md"
+            link: "io流.md"
           },
           {
             text: "12、反射",
@@ -120,7 +120,7 @@ export const zhSidebar = sidebar({
             link: "注解和反射.md"
           },
           {
-            text: "13、Java网络编程",
+            text: "13、java网络编程",
             icon: "network",
             link: "网络编程.md"
           },
@@ -130,16 +130,16 @@ export const zhSidebar = sidebar({
             link: "nio.md"
           },
           {
-            text: "15、Java正则表达式",
+            text: "15、java正则表达式",
             icon: "regexp",
-            link: "Java正则表达式.md"
+            link: "java正则表达式.md"
           }
         ],
       },{
-        text: "JavaGUI",
+        text: "JavaGui",
         icon: "computer-fill",
         collapsible: true,
-        prefix: "/codenotes/Java/javaGUI/",
+        prefix: "/codenotes/java/javagui/",
         children: [
           {
             text: "Swing",
@@ -158,7 +158,7 @@ export const zhSidebar = sidebar({
         {
           text: "1、Mysql入门",
           icon: "MySQL",
-          link: "MySQL入门.md"
+          link: "mysql入门.md"
         },
       ]
     },
@@ -240,7 +240,7 @@ export const zhSidebar = sidebar({
     {
       text: "🤖 chat AI合集",
       collapsible: true,
-      link: "/projects/chatAI/",
+      link: "/projects/chatai/",
     },
     // {
     //   text: "实战项目",
