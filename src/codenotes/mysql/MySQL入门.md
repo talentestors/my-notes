@@ -158,13 +158,13 @@ CREATE SCHEMA 数据库名
 
 查看所有数据库:
 
-```text
+```sql
 SHOW DATABASES;
 ```
 
 使用数据库:
 
-```text
+```sql
 USE 数据库名;
 ```
 
@@ -537,7 +537,7 @@ create table `ydlclass`.`book`(
 
 查看表结构:`DESC 表名;`
 
-```text
+```sql
 desc authors;
 ```
 
@@ -575,7 +575,7 @@ desc authors;
 
 - 删除表：
 
-```text
+```sql
 drop table if exists 表名;
 ```
 
