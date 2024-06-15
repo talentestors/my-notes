@@ -16,20 +16,15 @@ export const zhSidebar = sidebar({
           link: "html/html.md",
         },
         {
-          text: "Emmet语法",
-          icon: "emmet",
-          link: "emmet语法.md",
-        },
-        {
           text: "CSS",
           icon: "css",
           collapsible: true,
           prefix: "/codenotes/web/css/",
           children: [
             {
-            text: "1、CSS简介与选择器",
-            icon: "css",
-            link: "简介与选择器.md"
+              text: "1、CSS简介与选择器",
+              icon: "css",
+              link: "简介与选择器.md"
             },
             {
               text: "2、CSS三大特性",
@@ -46,15 +41,30 @@ export const zhSidebar = sidebar({
               icon: "css",
               link: "css高级.md"
             },
+            {
+              text: "5、HTML5与CSS3新增特性",
+              icon: "css",
+              link: "新增特性.md"
+            },
           ]
+        },
+        {
+          text: "SEO优化",
+          icon: "seo-filled",
+          link: "seo.md",
+        },
+        {
+          text: "Emmet语法",
+          icon: "emmet",
+          link: "emmet语法.md",
         },
       ],
     },{
-      text: "javase",
+      text: "Java",
       icon: "java",
       collapsible: true,
       children: [{
-        text: "javase",
+        text: "Javase",
         icon: "java",
         collapsible: true,
         prefix: "/codenotes/java/javase/",
@@ -156,7 +166,7 @@ export const zhSidebar = sidebar({
       prefix: "/codenotes/mysql/",
       children: [
         {
-          text: "1、Mysql入门",
+          text: "1、MySQL入门",
           icon: "MySQL",
           link: "mysql入门.md"
         },
