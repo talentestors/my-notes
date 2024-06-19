@@ -1,12 +1,14 @@
 import { defineUserConfig } from "vuepress";
 import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
 import { getDirname, path } from 'vuepress/utils'
+import { viteBundler } from '@vuepress/bundler-vite'
 import theme from "./theme.js";
 const __dirname = getDirname(import.meta.url)
 
 //自定义用户配置
 export default defineUserConfig({
   base: "/",
+  bundler: viteBundler(),
   // 多语言设置
   locales: {
     "/": {
