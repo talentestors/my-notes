@@ -1,8 +1,8 @@
 ---
 # 当前页面内容标题
-title: Web
+title: HTML
 # 当前页面图标
-icon: code
+icon: html
 # 分类
 category:
   - 目录
@@ -22,11 +22,9 @@ timeline: false
 
 
 
-# 
-# [HTML](./html/)
+#
+# [HTML](./html.html)
 
-# [CSS](./css/)
+# [HTML5 新增特性](./html5.html)
 
-# [Emmet语法](./emmet语法.html)
-
-# [SEO 优化](./seo.html)
+# [HTML 预留字符](./html实体参考.html)

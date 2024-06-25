@@ -13,13 +13,13 @@
   "devDependencies": {
     "@vue/repl": "^4.2.1",
     "@vuepress/bundler-vite": "2.0.0-rc.14",
-    "@vuepress/plugin-register-components": "2.0.0-rc.34",
-    "@vuepress/plugin-search": "2.0.0-rc.36",
-    "@vuepress/plugin-shiki": "2.0.0-rc.36",
+    "@vuepress/plugin-register-components": "2.0.0-rc.37",
+    "@vuepress/plugin-search": "2.0.0-rc.37",
+    "@vuepress/plugin-shiki": "2.0.0-rc.37",
     "chart.js": "^4.4.3",
     "dashjs": "^4.7.4",
     "echarts": "^5.5.0",
-    "element-plus": "^2.7.5",
+    "element-plus": "^2.7.6",
     "flowchart.ts": "^3.0.0",
     "hls.js": "^1.5.11",
     "katex": "^0.16.10",
@@ -29,15 +29,15 @@
     "mathjax-full": "^3.2.2",
     "mermaid": "^10.9.1",
     "reveal.js": "^5.1.0",
-    "vue": "^3.4.29",
+    "vue": "^3.4.30",
     "vuepress": "2.0.0-rc.14",
-    "vuepress-plugin-md-enhance": "2.0.0-rc.49",
-    "vuepress-theme-hope": "2.0.0-rc.49"
+    "vuepress-plugin-md-enhance": "2.0.0-rc.50",
+    "vuepress-theme-hope": "2.0.0-rc.50"
   },
   "dependencies": {
     "aplayer": "^1.10.1",
     "meting": "^2.0.1",
-    "vidstack": "^1.11.23",
+    "vidstack": "^1.11.24",
     "vue-lazyload": "^3.0.0"
   }
 }

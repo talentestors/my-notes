@@ -13,7 +13,25 @@ export const zhSidebar = sidebar({
         {
           text: "HTML",
           icon: "html",
-          link: "html/html.md",
+          collapsible: true,
+          prefix: "/codenotes/web/html/",
+          children: [
+            {
+              text: "1、HTML基础",
+              icon: "html",
+              link: "html.md"
+            },
+            {
+              text: "2、HTML5新增特性",
+              icon: "html",
+              link: "html5.md"
+            },
+            {
+              text: "3、HTML预留字符",
+              icon: "html",
+              link: "html实体参考.md"
+            },
+          ]
         },
         {
           text: "CSS",
@@ -42,7 +60,7 @@ export const zhSidebar = sidebar({
               link: "css高级.md"
             },
             {
-              text: "5、HTML5与CSS3新增特性",
+              text: "5、CSS3新增特性",
               icon: "css",
               link: "新增特性.md"
             },
@@ -172,78 +190,6 @@ export const zhSidebar = sidebar({
         },
       ]
     },
-    // {
-    //   text: "企业级框架",
-    //   icon: "frame",
-    //   collapsible: true,
-    //   prefix: "/codenotes/framework/",
-    //   children: [
-    //     {
-    //       text: "Netty",
-    //       icon: "network",
-    //       collapsible: true,
-    //       prefix: "netty/",
-    //       children: [
-    //         "Netty核心.md",
-    //         "Netty高级.md",
-    //       ],
-    //     },
-    //     {
-    //       text: "Electron核心",
-    //       icon: "write",
-    //       link:"Electron核心.md"
-    //     },
-    //   ]
-    // },
-    // {
-    //   text: "算法和数据结构",
-    //   icon: "ability",
-    //   collapsible: true,
-    //   prefix: "/codenotes/algdata/",
-    //   children: [
-    //     {
-    //       text:"算法小抄",
-    //       icon:"like",
-    //       collapsible:true,
-    //       prefix:"lbld/",
-    //       children:[
-    //         "算法小抄核心套路.md",
-    //         "算法小抄数学运算.md",
-    //         "算法小抄动态规划.md",
-    //         "算法小抄数据结构.md",
-    //         "算法小抄算法思维.md",
-    //         "算法小抄高频面试.md",
-    //       ],
-    //     }
-    //   ],
-    // },
-    // {
-    //   text: "数据库",
-    //   icon: "mysql",
-    //   collapsible: true,
-    //   prefix: "/codenotes/database/",
-    //   children: [
-    //     ""
-    //   ],
-    // },
-    // {
-    //   text: "开发必备",
-    //   icon: "tool",
-    //   collapsible: true,
-    //   prefix: "/codenotes/devtool/",
-    //   children: [
-    //     ""
-    //   ],
-    // },
-    // {
-    //   text: "在线技术文档",
-    //   icon: "read",
-    //   collapsible: true,
-    //   prefix: "/codenotes/cookbook/",
-    //   children: [
-    //     ""
-    //   ],
-    // }
   ],
   // 开源项目的侧边栏
   "/projects/": [
@@ -252,23 +198,5 @@ export const zhSidebar = sidebar({
       collapsible: true,
       link: "/projects/chatai/",
     },
-    // {
-    //   text: "实战项目",
-    //   icon: "workingDirectory",
-    //   collapsible: true,
-    //   link: "/projects/pracprojects/",
-    // },
-    // {
-    //   text: "系统设计",
-    //   icon: "shell",
-    //   collapsible: true,
-    //   link: "/projects/systemdesign/",
-    // },
-    // {
-    //   text: "工具类库",
-    //   icon: "module",
-    //   collapsible: true,
-    //   link: "/projects/toollibrary/",
-    // },
   ],
 });
