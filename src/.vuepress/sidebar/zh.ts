@@ -164,7 +164,7 @@ export const zhSidebar = sidebar({
           }
         ],
       },{
-        text: "JavaGui",
+        text: "JavaGUI",
         icon: "computer-fill",
         collapsible: true,
         prefix: "/codenotes/java/javagui/",
