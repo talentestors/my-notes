@@ -1,0 +1,44 @@
+{
+  "name": "vuepress-theme-hope-lib",
+  "version": "3.0.0",
+  "description": "A project of vuepress-theme-hope",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "docs:build": "vuepress-vite build src",
+    "docs:clean-dev": "vuepress-vite dev src --clean-cache",
+    "docs:dev": "vuepress-vite dev src",
+    "docs:update-package": "pnpm dlx vp-update"
+  },
+  "devDependencies": {
+    "@vue/repl": "^4.2.1",
+    "@vuepress/bundler-vite": "2.0.0-rc.14",
+    "@vuepress/plugin-register-components": "2.0.0-rc.37",
+    "@vuepress/plugin-search": "2.0.0-rc.37",
+    "@vuepress/plugin-shiki": "2.0.0-rc.37",
+    "chart.js": "^4.4.3",
+    "dashjs": "^4.7.4",
+    "echarts": "^5.5.0",
+    "element-plus": "^2.7.6",
+    "flowchart.ts": "^3.0.0",
+    "hls.js": "^1.5.11",
+    "katex": "^0.16.10",
+    "markmap-lib": "^0.17.0",
+    "markmap-toolbar": "^0.17.0",
+    "markmap-view": "^0.17.0",
+    "mathjax-full": "^3.2.2",
+    "mermaid": "^10.9.1",
+    "reveal.js": "^5.1.0",
+    "vue": "^3.4.30",
+    "vuepress": "2.0.0-rc.14",
+    "vuepress-plugin-md-enhance": "2.0.0-rc.50",
+    "vuepress-theme-hope": "2.0.0-rc.50"
+  },
+  "dependencies": {
+    "aplayer": "^1.10.1",
+    "meting": "^2.0.1",
+    "vidstack": "^1.11.24",
+    "vue-lazyload": "^3.0.0"
+  },
+  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a"
+}
