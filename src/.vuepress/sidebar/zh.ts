@@ -67,6 +67,54 @@ export const zhSidebar = sidebar({
           ]
         },
         {
+          text: "JavaScript",
+          icon: "javascript",
+          collapsible: true,
+          prefix: "/codenotes/web/javascript/",
+          children: [
+            {
+              text: "1、基础语法",
+              icon: "javascript",
+              link: "js基础语法.md"
+            },
+            {
+              text: "2、内置对象",
+              icon: "javascript",
+              link: "内置对象.md"
+            },
+            {
+              text: "3、DOM编程",
+              icon: "javascript",
+              link: "dom编程.md"
+            },
+            {
+              text: "4、BOM编程",
+              icon: "javascript",
+              link: "bom编程.md"
+            },
+            {
+              text: "5、事件",
+              icon: "javascript",
+              link: "事件.md"
+            },
+            {
+              text: "6、语法深入",
+              icon: "javascript",
+              link: "语法深入.md"
+            },
+            {
+              text: "7、原型",
+              icon: "javascript",
+              link: "原型.md"
+            },
+            {
+              text: "8、正则表达式",
+              icon: "javascript",
+              link: "正则表达式.md"
+            }
+          ]
+        },
+        {
           text: "SEO优化",
           icon: "seo-filled",
           link: "seo.md",
