@@ -238,6 +238,11 @@ export const zhSidebar = sidebar({
         },
       ]
     },
+    {
+      text: "Linux入门",
+      icon: "linux",
+      link: "/codenotes/os/linux/linux.md"
+    },
   ],
   // 开源项目的侧边栏
   "/projects/": [
