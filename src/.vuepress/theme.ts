@@ -18,7 +18,7 @@ export default hopeTheme({
 	},
 
 	// 使用官方提供的图标库-也可以构建自己的图标库
-	iconAssets: "//at.alicdn.com/t/c/font_4545815_nc0c7g3j3gq.css",
+	iconAssets: "//at.alicdn.com/t/c/font_4545815_1b4bxn7ijk.css",
 	// iconAssets: "//at.alicdn.com/t/c/font_2410206_5vb9zlyghj.css",
 
 	// 网站图标
