@@ -1,0 +1,5 @@
+
+User-agent:*
+Disallow:
+
+Sitemap: https://www.stazxr.cn/my-notes/my-notes/sitemap.xml
