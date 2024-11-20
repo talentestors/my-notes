@@ -171,7 +171,6 @@ export default hopeTheme({
 			align: true,
 			attrs: true,
 			chart: true,
-			hint: true,
 			demo: true,
 			echarts: true,
 			flowchart: true,
@@ -182,29 +181,13 @@ export default hopeTheme({
 			// 剧透文字
 			spoiler: true,
 			mermaid: true,
-			// 使用 KaTeX 启用 TeX 支持
-			katex: true,
-			// 使用 mathjax 启用 TeX 支持
-			mathjax: true,
-			// 启用 figure
-			figure: true,
 			// 启用任务列表
 			tasklist: true,
 			// 启用脚注
 			footnote: true,
-			// 启用代码块分组
-			codetabs: true,
-			// 启用图片懒加载
-			imgLazyload: true,
-			// 启用图片标记
-			imgMark: true,
 			// 启用图片大小
-			imgSize: true,
 			playground: {
 				presets: ["ts", "vue"],
-			},
-			revealJs: {
-				plugins: ["highlight", "math", "search", "notes", "zoom"],
 			},
 			stylize: [
 				{
@@ -221,7 +204,6 @@ export default hopeTheme({
 			],
 			sub: true,
 			sup: true,
-			tabs: true,
 			// vpre: true,
 			vuePlayground: true,
 		},
