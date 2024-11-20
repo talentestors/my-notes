@@ -55,7 +55,7 @@ export default hopeTheme({
 	// 全屏按钮
 	fullscreen: true,
 	// 返回顶部按钮-下滑300px后显示
-	backToTop: true,
+	// backToTop: true,
 	// 纯净模式-禁用
 	pure: false,
 
