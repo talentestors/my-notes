@@ -229,7 +229,7 @@ export const zhSidebar = sidebar({
       text: "MySQL",
       icon: "MySQL",
       collapsible: true,
-      prefix: "/codenotes/mysql/",
+      prefix: "/codenotes/datebase/mysql/",
       children: [
         {
           text: "1、MySQL入门",
