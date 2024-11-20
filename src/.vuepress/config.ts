@@ -19,6 +19,12 @@ export default defineUserConfig({
       head: [['link', { rel: 'icon', href: '/favicon.svg' }]],
     },
   },
+  markdown: {
+    headers: {
+      // 用到哪一级就提取哪一级
+      level: [2, 3, 4, 5],
+    },
+  },
   // 主题设置
   theme,
   // 插件设置

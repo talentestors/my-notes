@@ -5,6 +5,7 @@ import { zhNavbar } from "./navbar/index.js";
 import { zhSidebar } from "./sidebar/index.js";
 import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
 import { searchPlugin } from "@vuepress/plugin-search";
+import { catalogPlugin } from "@vuepress/plugin-catalog";
 
 // 主题设置
 export default hopeTheme({
@@ -18,7 +19,7 @@ export default hopeTheme({
 	},
 
 	// 使用官方提供的图标库-也可以构建自己的图标库
-	iconAssets: "//at.alicdn.com/t/c/font_4545815_1b4bxn7ijk.css",
+	iconAssets: "//at.alicdn.com/t/c/font_4545815_bl4egkaeb1c.css",
 	// iconAssets: "//at.alicdn.com/t/c/font_2410206_5vb9zlyghj.css",
 
 	// 网站图标
@@ -96,6 +97,14 @@ export default hopeTheme({
 				editLink: "在【Github】上编辑此页",
 			},
 		},
+	},
+	extendsPage: (page) => {
+		// 在 routeMeta 中设置目录信息
+		page.routeMeta = {
+		  // 目录标题
+		  title: page.title,
+		  // ... 其他信息
+		}
 	},
 	// // 博客配置
 	// blog: {

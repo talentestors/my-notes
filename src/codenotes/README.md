@@ -16,8 +16,8 @@ timeline: false
 
 ## [Java核心](./Java/)
 
-## [MySQL](./mysql/)
+## [数据库](./database/)
 
-## [操作系统](./os/linux/)
+## [操作系统](./os/)
 
-## [开发工具](./os/devtool/)
+## [开发工具](./devtool/)

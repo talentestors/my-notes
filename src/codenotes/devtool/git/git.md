@@ -1,3 +1,26 @@
+---
+# 当前页面内容标题
+title: Git入门
+# 当前页面图标
+icon: git
+# 分类
+category:
+  - devtool
+  - Git
+# 标签
+tag:
+  - Git
+  - devtool
+  - 版本控制
+sticky: false
+# 是否收藏在博客主题的文章列表中，当填入数字时，数字越大，排名越靠前。
+star: false
+# 是否将该文章添加至文章列表中
+article: false
+# 是否将该文章添加至时间线中
+timeline: false
+---
+
 ## 第一章 Git安装
 
 > [!TIP]
@@ -6,7 +29,7 @@
 >
 > [《Pro Git中文版(第二版)》 - 书栈网 · BookStack](https://www.bookstack.cn/books/pro-git2)
 >
-> https://git-scm.com/book/zh/v2
+> <https://git-scm.com/book/zh/v2>
 >
 > [Git教程 - 廖雪峰的官方网站](https://liaoxuefeng.com/books/git/introduction/index.html)
 >
@@ -1073,7 +1096,6 @@ $ git commit -m '解决冲突'
   ```bash
   git rebase -i HEAD~~
   ```
-
 - **合并特定提交到最新提交**：
   ```bash
   git rebase -i <hash值>
@@ -1146,7 +1168,6 @@ git push origin <branch-name> --force
 ```
 
 > [!NOTE]
-> **注意事项**
 >
 > - **备份**：在执行交互式变基之前，请确保备份你的分支。
 > - **避免在公共分支上执行**：与普通变基一样，避免在其他人可能依赖的公共分支上进行交互式变基。
@@ -1508,9 +1529,7 @@ Note: DeployKey only supports pull/fetch operations
 ![image-20210316162346682](./img/image-20210316162346682-01561211.png)
 
 > 此时开发者的账户汇出现该仓库
-
 > 将项目克隆到本地，进行开发
-
 > 开发完成推送至远程仓库
 
 ```bash

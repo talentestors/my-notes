@@ -227,9 +227,9 @@ export const zhSidebar = sidebar({
     },
     {
       text: "MySQL",
-      icon: "MySQL",
+      icon: "database",
       collapsible: true,
-      prefix: "/codenotes/datebase/mysql/",
+      prefix: "/codenotes/database/mysql/",
       children: [
         {
           text: "1、MySQL入门",
@@ -239,17 +239,30 @@ export const zhSidebar = sidebar({
       ]
     },
     {
+      text: "开发工具",
+      icon: "tool",
+      collapsible: true,
+      prefix: "/codenotes/devtool/",
+      children: [
+        {
+          text: "git",
+          icon: "git",
+          link: "git/git.md"
+        }
+      ]
+    },
+    {
       text: "Linux入门",
       icon: "linux",
       link: "/codenotes/os/linux/linux.md"
     },
   ],
   // 开源项目的侧边栏
-  "/projects/": [
-    {
-      text: "🤖 chat AI合集",
-      collapsible: true,
-      link: "/projects/chatai/",
-    },
-  ],
+  // "/projects/": [
+  //   {
+  //     text: "🤖 chat AI合集",
+  //     collapsible: true,
+  //     link: "/projects/chatai/",
+  //   },
+  // ],
 });
