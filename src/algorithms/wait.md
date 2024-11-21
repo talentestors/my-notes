@@ -20,6 +20,4 @@ article: false
 timeline: false
 ---
 
-更新中。。。
-
-![更新中。。。](https://www.dmoe.cc/random.php)
+<Waiting/>

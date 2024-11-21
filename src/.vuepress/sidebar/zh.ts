@@ -245,9 +245,14 @@ export const zhSidebar = sidebar({
       prefix: "/codenotes/devtool/",
       children: [
         {
-          text: "git",
+          text: "git入门",
           icon: "git",
           link: "git/git.md"
+        },
+        {
+          text: "git进阶",
+          icon: "git",
+          link: "git/git-plus.md"
         }
       ]
     },
