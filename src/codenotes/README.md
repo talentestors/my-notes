@@ -14,7 +14,7 @@ timeline: false
 
 ## [Web核心](./web/)
 
-## [Java核心](./Java/)
+## [Java核心](./java/)
 
 ## [数据库](./database/)
 

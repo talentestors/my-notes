@@ -1,4 +1,5 @@
 ---
+title: 计算机基础
 # 当前页面图标
 icon: computer
 # 分类
@@ -12,11 +13,11 @@ sticky: false
 star: false
 # 是否将该文章添加至文章列表中
 article: false
+# 目录顺序
+order: 1
 # 是否将该文章添加至时间线中
 timeline: false
 ---
-
-# 一、计算机基础
 
 ::: tip
 
