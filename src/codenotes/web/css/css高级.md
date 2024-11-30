@@ -1,6 +1,6 @@
 ---
 # 当前页面内容标题
-title: CSS 高级
+title: 4. CSS 高级
 # 当前页面图标
 icon: css
 # 分类
@@ -17,11 +17,10 @@ sticky: false
 star: false
 # 是否将该文章添加至文章列表中
 article: false
+order: 4
 # 是否将该文章添加至时间线中
 timeline: false
 ---
-
-# CSS 高级
 
 ## 一、精灵图（Sprites）
 

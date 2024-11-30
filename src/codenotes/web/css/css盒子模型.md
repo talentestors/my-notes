@@ -1,6 +1,6 @@
 ---
 # 当前页面内容标题
-title: CSS 盒子模型
+title: 3. CSS 盒子模型
 # 当前页面图标
 icon: css
 # 分类
@@ -17,11 +17,10 @@ sticky: false
 star: false
 # 是否将该文章添加至文章列表中
 article: false
+order: 3
 # 是否将该文章添加至时间线中
 timeline: false
 ---
-
-# CSS 盒子模型(Box Model)
 
 > 所有HTML元素可以看作盒子，在CSS中，"box model"这一术语是用来设计和布局时使用。
 > CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：边距，边框，填充，和实际内容。

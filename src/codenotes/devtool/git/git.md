@@ -1198,7 +1198,7 @@ git push origin <branch-name> --force
 
 ![image-20210316141401006](./img/image-20210316141401006-19f8e475.png)
 
-但是基于网路的原因和学习成本，咱们使用码云。会一个就都回了。
+但是基于网路的原因和学习成本，咱们使用码云。会一个就都会了。
 
 ### 二、基本使用
 
@@ -1639,9 +1639,9 @@ Note: DeployKey only supports pull/fetch operations
 
 > 管理员测试、合并
 
-管理员登陆`gitlab`，看到了开发者对源仓库发起的`pull request``。`
+管理员登陆`gitlab`，看到了开发者对源仓库发起的`pull request`。
 
-管理员需要做的事情就是：对开发者的代码进行**`**review`。
+管理员需要做的事情就是：对开发者的代码进行`review`。
 
 在他的本地测试新建一个测试分支，测试开发者的代码：
 

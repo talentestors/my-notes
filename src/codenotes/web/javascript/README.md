@@ -19,7 +19,7 @@ article: false
 timeline: false
 ---
 
-#
+<!-- <catalog /> -->
 
 ## [第一章 基础语法](./js基础语法.html)
 
