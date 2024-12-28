@@ -20,7 +20,10 @@ article: false
 timeline: false
 ---
 
-<!-- ## [🤖 chat AI合集](./chatAI/README.md) -->
+<!-- ### [🤖 chat AI合集](./chatAI/README.md) -->
+
+### [🤖 Bot 相关](./bot/README.md)
+
 <!-- [技术教程](./techguide/README.md) -->
 
 <!-- [实战项目](./pracprojects/README.md) -->

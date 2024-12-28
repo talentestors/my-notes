@@ -1,7 +1,7 @@
 {
-  "name": "vuepress-theme-hope-lib",
+  "name": "my-lib",
   "version": "3.0.0",
-  "description": "A project of vuepress-theme-hope",
+  "description": "My storehouse of knowledge",
   "license": "MIT",
   "type": "module",
   "scripts": {

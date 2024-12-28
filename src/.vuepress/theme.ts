@@ -14,7 +14,7 @@ export default hopeTheme({
 
 	// 文章显示的默认作者
 	author: {
-		name: "stazxr",
+		name: "talentestors",
 		url: "https://github.com/talentestors",
 	},
 
