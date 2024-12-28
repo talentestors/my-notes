@@ -23,7 +23,7 @@ timeline: false
 <VPCard
   title="nonebot-plugin-oi-helper"
   desc="一个提供 OI/ACM 相关信息的 nonebot2 插件。"
-  logo="https://github.com/A-kirami/nonebot-plugin-template/raw/resources/nbp_logo.png"
+  logo="https://wsrv.nl/?url=github.com/A-kirami/nonebot-plugin-template/raw/resources/nbp_logo.png"
   link="https://github.com/talentestors/nonebot-plugin-oi-helper"
   background="rgba(82, 82, 234, 0.06)"
 />
