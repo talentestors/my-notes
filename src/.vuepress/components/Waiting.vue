@@ -1,6 +1,6 @@
 <template>
     <div class="wait">
-        <div class="wait__content">
+        <div class="wait-content">
             <hr />
             <h3>更新中<div class="loading">
                     <div></div>

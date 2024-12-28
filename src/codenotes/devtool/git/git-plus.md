@@ -46,36 +46,47 @@ timeline: false
 以下是一些常用的 `git worktree` 命令：
 
 1. **添加工作区**：
+
    ```bash
    git worktree add <路径> [<提交号>]
    ```
+
    这个命令会在指定路径下创建一个新的工作区，并检出相应的分支或提交。例如，如果你要在 `node_modules` 文件夹外创建一个新工作区，可以这样做：
+
    ```bash
    git worktree add ../new-feature-branch new-feature
    ```
 
 2. **列出工作区**：
+
    ```bash
    git worktree list
    ```
+
    这个命令会列出当前所有的工作区及其状态。
 
 3. **锁定工作区**：
+
    ```bash
    git worktree lock <工作区>
    ```
+
    如果你想防止某个工作区被意外删除或移动，可以使用此命令进行锁定。
 
 4. **移动工作区**：
+
    ```bash
    git worktree move <工作区> <新路径>
    ```
+
    可以用此命令将已有的工作区移动到新的位置。
 
 5. **删除工作区**：
+
    ```bash
    git worktree remove <工作区>
    ```
+
    当某个工作区不再需要时，可以使用此命令将其删除。
 
 ### 实际应用：Node.js 项目中的 `node_modules`
@@ -83,11 +94,13 @@ timeline: false
 通过使用 `git worktree`，你可以为每个分支创建独立的工作区。例如：
 
 1. **为 bug 修复创建工作区**：
+
    ```bash
    git worktree add ../bug-fix-branch bug-fix
    ```
 
 2. **为新特性创建工作区**：
+
    ```bash
    git worktree add ../feature-branch feature
    ```
@@ -150,7 +163,7 @@ git am fix.patch
 
 如果在应用补丁时遇到冲突，您会看到类似于以下的错误消息：
 
-```
+```text
 Applying: Your commit message here
 error: could not apply <commit-hash>
 ```
@@ -204,7 +217,7 @@ git log --oneline
 
 2. **从标准输入应用补丁**：
 
-   如果您想直接从邮件中应用补丁，可以使用：
+   如果想直接从邮件中应用补丁，可以使用：
 
    ```bash
    git am < email.txt
@@ -221,5 +234,99 @@ git log --oneline
 ### 总结
 
 `git am` 是一个强大的工具，可以方便地将邮件格式的补丁应用到您的 Git 项目中。确保在应用补丁之前，工作目录是干净的，并准备好处理可能出现的冲突。通过上述步骤和示例，您应该能够有效地使用 `git am`。
+
+## 第三节 git stash
+
+### 什么是 `git stash`
+
+`git stash` 是一个非常有用的命令，用于暂存当前工作目录的更改。这在需要切换分支或处理其他任务时非常有用，因为它允许在不提交更改的情况下切换分支。
+
+它处于 `git reset --hard`（完全放弃还修改了一半的代码）与 `git commit`（提交代码）命令之间，很类似于“暂停”按钮。
+
+### 基本语法
+
+```bash
+git stash [save <message>]
+```
+
+### 常用选项
+
+- **`save`**：保存当前工作目录的更改，并可选地添加一条消息。
+- **`list`**：列出所有的 stash 记录。
+- **`pop`**：应用最新的 stash 记录，并从 stash 列表中删除。
+- **`apply`**：应用最新的 stash 记录，但不删除。
+- **`drop`**：删除最新的 stash 记录。
+- **`clear`**：删除所有的 stash 记录。
+- **`show`**：显示 stash 记录的详细信息。
+- **`branch`**：创建一个新分支，并将 stash 记录应用到该分支上。
+- **`create`**：创建一个 stash 记录，但不应用。
+
+### 示例
+
+1. **保存更改**：
+
+   保存当前工作目录的更改：
+
+   ```bash
+   git stash
+   ```
+
+   或者，添加一条消息：
+
+   ```bash
+   git stash save "My changes"
+   ```
+
+2. **列出 stash 记录**：
+
+   列出所有的 stash 记录：
+
+   ```bash
+   git stash list
+   ```
+
+3. **应用 stash 记录**：
+
+    应用最新的 stash 记录：
+  
+    ```bash
+    git stash pop
+    ```
+  
+    或者，应用指定的 stash 记录：
+  
+    ```bash
+    git stash apply stash@{1}
+    ```
+
+4. **删除 stash 记录**：
+
+   删除最新的 stash 记录：
+
+   ```bash
+   git stash drop
+   ```
+
+   或者，删除指定的 stash 记录：
+
+   ```bash
+   git stash drop stash@{1}
+   ```
+
+5. **创建分支**：
+
+   创建一个新分支，并将 stash 记录应用到该分支上：
+
+   ```bash
+   git stash branch new-branch
+   ```
+
+6. **清除 stash 记录**：
+
+   删除所有的 stash 记录：
+
+   ```bash
+   git stash clear
+   ```
 
 <Waiting/>
