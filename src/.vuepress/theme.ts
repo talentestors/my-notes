@@ -157,6 +157,7 @@ export default hopeTheme({
 				// "VideoPlayer",
 				"VidStack",
 				"VPCard",
+        "VPBanner",
 			],
 		},
 		// 代码复制功能-vuepress-plugin-copy-code2
