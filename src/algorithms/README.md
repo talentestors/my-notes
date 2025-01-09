@@ -18,7 +18,7 @@ timeline: false
 
 更新中。。。
 
-![更新中。。。](https://www.dmoe.cc/random.php)
+![更新中。。。](https://v1.yurikoto.com/wallpaper)
 
 [敬请期待。。。:dash:](./wait.html)
 
