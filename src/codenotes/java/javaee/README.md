@@ -1,6 +1,6 @@
 ---
 # 当前页面内容标题
-title: Java
+title: Java EE
 # 当前页面图标
 icon: java
 # 分类
@@ -16,15 +16,8 @@ sticky: false
 star: false
 # 是否将该文章添加至文章列表中
 article: false
+# 目录顺序
+order: 1
 # 是否将该文章添加至时间线中
 timeline: false
 ---
-
-
-#
-
-## [1. javase](./javase/)
-
-## [2. javaGUI](./javagui/)
-
-## [3. javaee](./javaee/)
