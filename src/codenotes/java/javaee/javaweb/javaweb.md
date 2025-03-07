@@ -21,15 +21,19 @@ order: 1
 timeline: false
 ---
 
+> [!TIP]
+>
+> 课程：<https://www.bilibili.com/video/BV14T4y1f7Ho>
+
 ## 第一章 前端和后端的链接
 
 ### 一、 web 概念
 
 这是百度百科的解释：
 
-web（World Wide Web）即全球广域网，也称为万维网，它是一种基于超文本和HTTP的、全球性的、动态交互的、跨平台的分布式图形信息系统。是建立在Internet上的一种网络服务，为浏览者在Internet上查找和浏览信息提供了图形化的、易于访问的直观界面，其中的文档及超级链接将Internet上的信息节点组织成一个互为关联的网状结构。
+web（World Wide Web）即全球广域网，也称为万维网，它是一种基于超文本和HTTP的、全球性的、动态交互的、跨平台的分布式图形信息系统。是建立在 Internet 上的一种网络服务，为浏览者在 Internet 上查找和浏览信息提供了图形化的、易于访问的直观界面，其中的文档及超级链接将 Internet 上的信息节点组织成一个互为关联的网状结构。
 
-万维网不等于互联网，万维网是互联网的一个应用，简单的理解万维网就是由大量的服务器，比如百度、比如淘宝、比如我们的元动力网站组成，用户可以通过在浏览器中使用网址（资源定位符）来获取网络资源。如果我们想开发一个web应用，就需要开发应用，并部署在服务器上，当然这个服务器可以被其他人访问。
+万维网不等于互联网，万维网是互联网的一个应用，简单的理解万维网就是由大量的服务器，比如百度、比如淘宝、比如我们的元动力网站组成，用户可以通过在浏览器中使用网址（资源定位符）来获取网络资源。如果我们想开发一个 web 应用，就需要开发应用，并部署在服务器上，当然这个服务器可以被其他人访问。
 
 #### 1、软件架构
 
@@ -43,58 +47,62 @@ web（World Wide Web）即全球广域网，也称为万维网，它是一种基
 1. **静态资源：** 所有用户访问后，得到的结果都是一样的，称为静态资源。静态资源可以直接被浏览器解析。如图片、视频等。
 2. **动态资源:** 每个用户访问相同资源后，得到的结果可能不一样 , 称为动态资源。动态资源被访问后，需要先转换为静态资源，再返回给浏览器，通过浏览器进行解析。比如我们之前写的登录，不同的人登录后显示的用户名并不相同。
 
-- 如：servlet,jsp,php,asp....
+- 如：servlet, jsp, php, asp....
 
-#### 3、常见的web服务器
+#### 3、常见的 web 服务器
 
 ##### （1）概念
 
 1. 服务器：安装了服务器软件的计算机
 2. 服务器软件：接收用户的请求，处理请求，做出响应
-3. web服务器软件：接收用户的请求，处理请求，做出响应。
+3. web 服务器软件：接收用户的请求，处理请求，做出响应。
 
-在web服务器软件中，可以部署web项目，让用户通过浏览器来访问这些项目
+在 web 服务器软件中，可以部署 web 项目，让用户通过浏览器来访问这些项目
 
 ##### （2）常见服务器软件
 
 > 动态服务器
 
-- webLogic：oracle公司，大型的JavaEE服务器，支持JavaEE规范，收费的。
-- webSphere：IBM公司，大型的JavaEE服务器，支持JavaEE规范，收费的。
-- JBOSS：JBOSS公司的，大型的JavaEE服务器，支持JavaEE规范，收费的。
-- Tomcat：Apache基金组织，中小型的JavaEE服务器，仅仅支持少量的JavaEE规范servlet/jsp。开源的，免费的。（300左右的并发）
+- webLogic：oracle 公司，大型的 JavaEE 服务器，支持 JavaEE 规范，收费的。
+- webSphere：IBM 公司，大型的 JavaEE 服务器，支持 JavaEE 规范，收费的。
+- JBOSS：JBOSS 公司的，大型的 JavaEE 服务器，支持 JavaEE 规范，收费的。
+- Tomcat：Apache 基金组织，中小型的 JavaEE 服务器，仅仅支持少量的 JavaEE 规范 servlet/jsp。开源的，免费的。（300左右的并发）
+
+
 
 > 静态的服务器
 
-- Nginx：（代理，反向代理等）极高的并发 Nginx处理静态文件、索引文件，自动索引的效率非常高。当然除了当做高性能的静态服务器，它还有很多强大的功能，我们后边会有专项课程学习。
+- Nginx：（代理，反向代理等）极高的并发 Nginx 处理静态文件、索引文件，自动索引的效率非常高。当然除了当做高性能的静态服务器，它还有很多强大的功能，我们后边会有专项课程学习。
+
+
 
 ### 二、Hello World
 
-我们已经学习了javase、mysql以及前端知识，jdbc负责java和持久层，那前端怎么和我们的java配合使用呢？
+我们已经学习了 javase、mysql 以及前端知识，jdbc 负责 java 和持久层，那前端怎么和我们的 java 配合使用呢？
 
-我们回想mysql的链接，不同的客户端通过url访问mysql，是通过套接字进行链接的：
+我们回想 mysql 的链接，不同的客户端通过 url 访问 mysql，是通过套接字进行链接的：
 
 ![image-20210922095427403](./img/image-20210922095427403-e201c144.png)
 
-与此同时，我们的浏览器也是使用url访问网站的啊，我们不妨尝试一下，建立一个服务器监听在8888端口，
+与此同时，我们的浏览器也是使用 url 访问网站的啊，我们不妨尝试一下，建立一个服务器监听在8888端口，
 
 很明显，我们启动的服务是基于TCP协议的套接字:
 
 ```java
 public static void main(String[] args) throws Exception {
-        // 启动一个服务器
-        ServerSocket serverSocket = new ServerSocket(8080);
-        Socket accept = serverSocket.accept();
-        // 获得输入流
-        InputStream inputStream = accept.getInputStream();
-        byte[] buf = new byte[1024];
-        int len;
-        while ((len = inputStream.read(buf)) != -1){
-            System.out.print(new String(buf,0,len));
-        }
-        inputStream.close();;
-        accept.close();
+    // 启动一个服务器
+    ServerSocket serverSocket = new ServerSocket(8080);
+    Socket accept = serverSocket.accept();
+    // 获得输入流
+    InputStream inputStream = accept.getInputStream();
+    byte[] buf = new byte[1024];
+    int len;
+    while ((len = inputStream.read(buf)) != -1){
+        System.out.print(new String(buf,0,len));
     }
+    inputStream.close();;
+    accept.close();
+}
 ```
 
 我们打开一个浏览器，在浏览器中输入：
@@ -118,13 +126,13 @@ Accept-Encoding: gzip, deflate, br
 Accept-Language: zh-CN,zh;q=0.9
 ```
 
-我们发现浏览器给我们发送了一系列的消息，当然我们现在可能看不懂。这其实就是一个报文，是浏览器传递给你的一些消息：比如这个`User-Agent`就是告诉服务器我是从什么样的客户端来的，Host就是这个消息的目标主机。
+我们发现浏览器给我们发送了一系列的消息，当然我们现在可能看不懂。这其实就是一个报文，是浏览器传递给你的一些消息：比如这个`User-Agent`就是告诉服务器我是从什么样的客户端来的，Host 就是这个消息的目标主机。
 
-很明显，浏览器貌似也是通过socket和我们的服务器建立了TCP连接。
+很明显，浏览器貌似也是通过 socket 和我们的服务器建立了TCP连接。
 
-我们不妨把浏览器给我们发送的信息称之为`请求`，而这种请求的格式满足了http这样一个协议，在浏览器中我们打开百度后会显示对应的页面，是因为百度的服务器收到请求后会给浏览器响应，而我们刚才写的服务器，并没有对请求做出任何的响应。
+我们不妨把浏览器给我们发送的信息称之为`请求`，而这种请求的格式满足了 http 这样一个协议，在浏览器中我们打开百度后会显示对应的页面，是因为百度的服务器收到请求后会给浏览器响应，而我们刚才写的服务器，并没有对请求做出任何的响应。
 
-这也就意味着，我们接收到http请求后，按照http协议的规范，书写http的响应，就能让浏览器做出相应的回应。
+这也就意味着，我们接收到 http 请求后，按照 http 协议的规范，书写 http 的响应，就能让浏览器做出相应的回应。
 
 这里有一个最简单的响应报文：
 
@@ -142,7 +150,7 @@ Content-Type: text/html;charset=UTF-8
 - 第二行和第三行：是服务器告诉浏览器，我们这个响应的类型是个网页，内容长度是39字符。
 - 最后一行是具体的网页数据。
 
-所以，我们的Java代码可以这样去写：
+所以，我们的 Java 代码可以这样去写：
 
 ```java
 public class Server {
@@ -168,68 +176,68 @@ public class Server {
 
 ![image-20210922104653012](./img/image-20210922104653012-a4b3ac07.png)
 
-发现红色的hello server已经在浏览器上了。
+发现红色的 hello server 已经在浏览器上了。
 
-### 三、深入HTTP协议
+### 三、深入 HTTP 协议
 
-#### 1、HTTP协议简介
+#### 1、HTTP 协议简介
 
-超文本传输协议（英文：**H**yper**T**ext **T**ransfer **P**rotocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的**应用层协议**。HTTP是万维网的数据通信的基础，它和TCP/IP协议簇的其他协议一样，也是用于客户端和服务端的通信。
+超文本传输协议（英文：**H**yper**T**ext **T**ransfer **P**rotocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的**应用层协议**。HTTP 是万维网的数据通信的基础，它和 TCP/IP 协议簇的其他协议一样，也是用于客户端和服务端的通信。
 
-HTTP的发展是由蒂姆·伯纳斯-李于1989年在欧洲核子研究组织（CERN）所发起。HTTP的标准制定由万维网协会（World Wide Web Consortium，W3C）和互联网工程任务组（Internet Engineering Task Force，IETF）进行协调，最终发布了一系列的RFC，其中最著名的是1999年6月公布的 RFC 2616，定义了HTTP协议中现今广泛使用的一个版本——HTTP 1.1。
+HTTP 的发展是由蒂姆·伯纳斯-李于1989年在欧洲核子研究组织（CERN）所发起。HTTP 的标准制定由万维网协会（World Wide Web Consortium，W3C）和互联网工程任务组（Internet Engineering Task Force，IETF）进行协调，最终发布了一系列的 RFC，其中最著名的是1999年6月公布的 RFC 2616，定义了 HTTP 协议中现今广泛使用的一个版本——HTTP 1.1。
 
-2014年12月，互联网工程任务组（IETF）的Hypertext Transfer Protocol Bis（httpbis）工作小组将HTTP/2标准提议递交至IESG进行讨论，于2015年2月17日被批准。 HTTP/2标准于2015年5月以RFC 7540正式发表，取代HTTP 1.1成为HTTP的实现标准。
+2014年12月，互联网工程任务组（IETF）的 Hypertext Transfer Protocol Bis（httpbis）工作小组将 HTTP/2 标准提议递交至IESG进行讨论，于2015年2月17日被批准。 HTTP/2 标准于2015年5月以 RFC 7540 正式发表，取代 HTTP 1.1 成为 HTTP 的实现标准。
 
 注：什么是超文本
 
 在互联网早期，我们输入的信息只能保存在本地，信息都是以文本的形式存在，但随着计算机的发展，人们不再满足与两台电脑之间的文字传输，还想要传输图片、音频、视频，甚至点击文字能实现超链接跳转，此时文本的语义就被扩大了，这种扩大后的文本就称之为超文本。
 
-#### 2、HTTP协议概述
+#### 2、HTTP 协议概述
 
-HTTP是一个客户端终端（用户）和服务器端（网站）**请求和应答**的标准协议。我们通过使用网页浏览器或者其它的工具发起HTTP请求，这个客户端为我们称之为用户代理程序（user agent），服务器上存储着一些资源，比如HTML文件和图像。我们称这个应答服务器为源服务器（origin server）。
+HTTP 是一个客户端终端（用户）和服务器端（网站）**请求和应答**的标准协议。我们通过使用网页浏览器或者其它的工具发起 HTTP 请求，这个客户端为我们称之为用户代理程序（user agent），服务器上存储着一些资源，比如 HTML 文件和图像。我们称这个应答服务器为源服务器（origin server）。
 
-通常，由HTTP客户端发起一个请求，此时创建一个到服务器指定端口（默认是80端口）的tcp连接。HTTP服务器则在那个端口监听客户端的请求。一旦收到请求，服务器会向客户端返回一个状态，比如"HTTP/1.1 200 OK"，以及返回的内容，如请求的文件、错误消息、或者其它信息。
+通常，由 HTTP 客户端发起一个请求，此时创建一个到服务器指定端口（默认是80端口）的 tcp 连接。HTTP服务器则在那个端口监听客户端的请求。一旦收到请求，服务器会向客户端返回一个状态，比如 "HTTP/1.1 200 OK" ，以及返回的内容，如请求的文件、错误消息、或者其它信息。
 
-#### 3、HTTP工作原理
+#### 3、HTTP 工作原理
 
 以下是 HTTP 请求/响应的步骤：
 
-1. 客户端连接到Web服务器。
+1. 客户端连接到 Web 服务器。
 
- 浏览器向 DNS 服务器请求解析该 URL 中的域名所对应的 IP 地址，一个HTTP客户端，通常是浏览器，与 Web服务器的HTTP端口（默认为80）建立一个TCP套接字连接。
+ 浏览器向 DNS 服务器请求解析该 URL 中的域名所对应的 IP 地址，一个 HTTP 客户端，通常是浏览器，与  Web 服务器的 HTTP 端口（默认为80）建立一个 TCP 套接字连接。
 
-1. 发送HTTP请求。
+1. 发送 HTTP 请求。
 
  通过【TCP套接字】，客户端向Web服务器发送一个文本的请求报文，一个请求报文由【请求行、请求头部、空行和请求数据】4部分组成。
 
-2. 服务器接受请求并返回HTTP响应
+2. 服务器接受请求并返回 HTTP 响应
 
- Web服务器【解析请求，定位请求资源】，然后将资源的复本写到TCP套接字，由客户端读取。一个响应由【状态行、响应头部、空行和响应数据】4部分组成。
+ Web 服务器【解析请求，定位请求资源】，然后将资源的复本写到 TCP 套接字，由客户端读取。一个响应由【状态行、响应头部、空行和响应数据】4部分组成。
 
-3. 服务器释放连接TCP连接。
+3. 服务器释放连接 TCP 连接。
 
- 若connection 模式为close，则服务器主动关闭TCP连接，客户端被动关闭连接，释放TCP连接。
+ 若 connection 模式为 close，则服务器主动关闭 TCP 连接，客户端被动关闭连接，释放 TCP 连接。
 
- 若connection 模式为keepalive，则该连接会保持一段时间，在该时间内可以继续接收请求。无论如何都会释放。
+ 若 connection 模式为 keepalive，则该连接会保持一段时间，在该时间内可以继续接收请求。无论如何都会释放。
 
-4. 客户端浏览器解析HTML内容
+4. 客户端浏览器解析 HTML 内容
 
- 客户端浏览器首先解析状态行，查看表明请求是否成功的状态代码。然后解析每一个响应头，响应头告知以下为若干字节的HTML文档和文档的字符集。客户端浏览器读取响应数据HTML，根据HTML的语法对其进行格式化，并在浏览器窗口中显示。
+ 客户端浏览器首先解析状态行，查看表明请求是否成功的状态代码。然后解析每一个响应头，响应头告知以下为若干字节的 HTML 文档和文档的字符集。客户端浏览器读取响应数据 HTML，根据 HTML 的语法对其进行格式化，并在浏览器窗口中显示。
 
 从以上的内容我们大致可以总结出以下几点：
 
-1、Http是基于请求和响应的。
+1、Http 是基于请求和响应的。
 
-2、需要依托TCP协议进行三次握手连接、传输数据。
+2、需要依托 TCP 协议进行三次握手连接、传输数据。
 
-3、TCP的连接会被主动断开，并不是一直保持连接。
+3、TCP 的连接会被主动断开，并不是一直保持连接。
 
-#### 4、HTTP报文格式
+#### 4、HTTP 报文格式
 
-一个完整的HTTP协议的报文主要由以下三个部分组成：
+一个完整的 HTTP 协议的报文主要由以下三个部分组成：
 
 1. 起始行（请求行、响应行）：起始行 start line : 描述请求或响应的基本信息。
-2. 首部字段（请求头、响应头）：使用key-value的形式更加详细的说明报文。
+2. 首部字段（请求头、响应头）：使用 key-value 的形式更加详细的说明报文。
 3. 消息正文（请求体、响应体）：实际的传输数据，不一定是文本，也有可能是图片、音频、视频等二进制数据。
 
 一个请求报文的格式如下：
@@ -240,57 +248,57 @@ HTTP是一个客户端终端（用户）和服务器端（网站）**请求和�
 
 ![image-20210926112949153](./img/image-20210926112949153-5d39d36e.png)
 
-接下来我们一点一点拨开http的面纱。
+接下来我们一点一点拨开 http 的面纱。
 
-##### （1）HTTP请求方法
+##### （1）HTTP 请求方法
 
- HTTP/1.1协议中共定义了八种方法（也叫“动作”）来以不同方式操作指定的资源，我们目前最常见的有两种一种get，另外一种叫post。
+ HTTP/1.1 协议中共定义了八种方法（也叫“动作”）来以不同方式操作指定的资源，我们目前最常见的有两种一种 get，另外一种叫 post。
 
  请求的目的就是获取或操作资源，互联网的任何数据，我们都能称之为资源，数据库内的一条数据，一个网页，一个视频都是资源。请求的方法决定了我们怎么去操作这个资源。
 
 > GET
 
-向指定的资源发出“显示”请求。使用GET方法应该只用在读取数据，而不应当被用于产生“副作用”的操作中，常用语查询数据的请求。
+向指定的资源发出“显示”请求。使用 GET 方法应该只用在读取数据，而不应当被用于产生“副作用”的操作中，常用语查询数据的请求。
 
 > POST
 
 向指定资源提交数据，请求服务器进行处理（例如提交表单或者上传文件）。数据被包含在请求本文中。这个请求可能会创建新的资源或修改现有资源，或二者皆有。常用于对数据的增删改操作。
 
-> 请求方式: get与post请求（通过form表单我们自己写写看）
+> 请求方式: get 与 post 请求（通过 form 表单我们自己写写看）
 
-- GET提交的数据会放在URL之后，也就是请求行里面，以?分割URL和传输数据，参数之间以&相连，如EditBook?name=test1&id=123456.（请求头里面那个content-type做的这种参数形式，后面讲） POST方法是把提交的数据放在HTTP包的请求体中.
-- GET提交的数据大小有限制（因为浏览器对URL的长度有限制），而POST方法提交的数据没有限制.
-- GET与POST请求在服务端获取请求数据方式不同，就是我们自己在服务端取请求数据的时候的方式不同了，这句废话昂。
+- GET 提交的数据会放在 URL 之后，也就是请求行里面，以 `?` 分割 URL 和传输数据，参数之间以 `&` 相连，如 `EditBook?name=test1&id=123456`.（请求头里面那个 content-type 做的这种参数形式，后面讲） POST 方法是把提交的数据放在 HTTP 包的请求体中.
+- GET 提交的数据大小有限制（因为浏览器对 URL 的长度有限制），而 POST 方法提交的数据没有限制.
+- GET 与 POST 请求在服务端获取请求数据方式不同，就是我们自己在服务端取请求数据的时候的方式不同了，这句废话昂。
 
 ##### （2）URI
 
-URI叫统一资源标识符 Uniform Resource Identifier，这是一个比较广的概念。
+URI 叫统一资源标识符 Uniform Resource Identifier，这是一个比较广的概念。
 
 目前，我们有几种方式来表示本机或者网络的一个资源：
 
-1. 通过【定位】的方式来标识资源，这种方式叫【统一资源定位符】，也就是我们说的【URL】（Uniform Resource Locator）。这种方式下我们可以这样表示一个资源，【<http://www.aaa.com/image/girl.png】。很明显URL和位置密切相关，一旦目标主机挂了，或者目标资源更换了位置，URL就失效了。>
+1. 通过【定位】的方式来标识资源，这种方式叫【统一资源定位符】，也就是我们说的【URL】（Uniform Resource Locator）。这种方式下我们可以这样表示一个资源，【http\://www\.aaa\.com/image/girl\.png】。很明显URL和位置密切相关，一旦目标主机挂了，或者目标资源更换了位置，URL就失效了
 2. 通过【命名】的方式来标识资源，这种方式叫【统一资源命名符】，也就是我们说的【URN】（Uniform Resource Name）。这种方式下每一个资源都有一个独立的资源名称，比如【DFAS12B12G3HJK1GHJ3G1HJG23G】，根据这个名字我们就能找到对应的资源，但是这种方式下，我们需要有一个解析器负责根据名字找到对应的资源位置，好处是不管资源怎么变动，我们都可以根据资源名字获取资源。
 
 ![image-20210924170901449](./img/image-20210924170901449-c68153c6.png)
 
- 但是事实上，理论上URN对我们更友好，但是互联网的资源这么多，专门为这么多资源搭建一个资源解析服务器也不太靠谱，所以我们见到的URI主要是以URL为主，可以说URL 约等于 URI。
+ 但是事实上，理论上 URN 对我们更友好，但是互联网的资源这么多，专门为这么多资源搭建一个资源解析服务器也不太靠谱，所以我们见到的 URI 主要是以 URL 为主，可以说 URL 约等于 URI。
 
-我们不妨再回顾一下之前学过的URL格式：
+我们不妨再回顾一下之前学过的 URL 格式：
 
 超文本传输协议（HTTP）的统一资源定位符将从因特网获取信息的五个基本元素包括在一个简单的地址中：
 
-- 协议：一般为http或https。
+- 协议：一般为 http 或 https。
 - URI：直接定位到对应的资源。
-- 主机：通常为域名，有时为IP地址。
+- 主机：通常为域名，有时为 IP 地址。
 - 端口号：以数字方式表示，若为HTTP的默认值“:80”可省略，数字为0~65536。
-- uri：以“/”字符区别路径中的每一个目录名称，根路径为‘/’。
-- 查询：GET模式的窗体参数，以“?”字符为起点，每个参数以“&”隔开，再以“=”分开参数名称与数据，通常以UTF8的URL编码，避开字符冲突的问题。
+- uri：以 “/” 字符区别路径中的每一个目录名称，根路径为 ‘/’。
+- 查询：GET 模式的窗体参数，以“?”字符为起点，每个参数以 “&” 隔开，再以 “=” 分开参数名称与数据，通常以 UTF8 的 URL 编码，避开字符冲突的问题。
 
 ```http
 以http://www.ydlclass.com:80/news/index.html?id=250&age=1 为例, 其中：
 ```
 
-【http】是协议；www\.xinzhi\.com】是服务器； 【80】，是服务器上的默认网络端口号，默认不显示； 【/news/index.html】，是路径（URI：直接定位到对应的资源）； 【?id=250&page=1】，是查询条件。 大多数网页浏览器不要求用户输入网页中“http://”的部分，因为绝大多数网页内容是超文本传输协议文件。 “80”是超文本传输协议文件的常用默认端口号，因此一般也不必写明。一般来说用户只要键入统一资源定位符的一部分
+【http】是协议；www\.xinzhi\.com】是服务器； 【80】，是服务器上的默认网络端口号，默认不显示； 【/news/index.html】，是路径（URI：直接定位到对应的资源）； 【?id=250&page=1】，是查询条件。 大多数网页浏览器不要求用户输入网页中 “http://” 的部分，因为绝大多数网页内容是超文本传输协议文件。 “80” 是超文本传输协议文件的常用默认端口号，因此一般也不必写明。一般来说用户只要键入统一资源定位符的一部分
 
 ##### （3）响应码
 
@@ -302,17 +310,17 @@ URI叫统一资源标识符 Uniform Resource Identifier，这是一个比较广�
 
 一些常见的响应码
 
-|      |                       |                                                              |
-| ---- | --------------------- | ------------------------------------------------------------ |
-| 200  | OK                    | 从客户端发送的请求，服务端已经正常处理了。                   |
-| 204  | No Content            | 服务端已经正常处理了,但是响应中没有实体，也不允许有实体。    |
-| 301  | Moved Permanently     | 永久性，重定向。表示请求的资源已经拥有了新的uri，需要重新访问。 |
-| 302  | Moved Temporarily     | 临时重定向。                                                 |
-| 400  | Bad Request           | 请求报文中存在语法错去。                                     |
-| 401  | Unauthorized          | 请求需要有通过HTTP请求的认证信息。                           |
-| 403  | Forbidden             | 请求被阻止，可能因为某些权限问题，比如访问的文件没有权限等。 |
-| 404  | Not Found             | 表示在服务器上没有你要找的资源                               |
-| 500  | Internal server Error | 服务器执行程序出现异常                                       |
+| 响应码 | 原因短语              | 含义                                                         |
+| ------ | :-------------------- | ------------------------------------------------------------ |
+| 200    | OK                    | 从客户端发送的请求，服务端已经正常处理了。                   |
+| 204    | No Content            | 服务端已经正常处理了,但是响应中没有实体，也不允许有实体。    |
+| 301    | Moved Permanently     | 永久性，重定向。表示请求的资源已经拥有了新的uri，需要重新访问。 |
+| 302    | Moved Temporarily     | 临时重定向。                                                 |
+| 400    | Bad Request           | 请求报文中存在语法错误。                                     |
+| 401    | Unauthorized          | 请求需要有通过HTTP请求的认证信息。                           |
+| 403    | Forbidden             | 请求被阻止，可能因为某些权限问题，比如访问的文件没有权限等。 |
+| 404    | Not Found             | 表示在服务器上没有你要找的资源                               |
+| 500    | Internal server Error | 服务器执行程序出现异常                                       |
 
 我们用一个简单的例子感受一下重定向：
 
@@ -323,14 +331,14 @@ public class Server302 {
         ServerSocket serverSocket = new ServerSocket(8888);
         Socket server = serverSocket.accept();
 
-            OutputStream outputStream = server.getOutputStream();
-            // 按照http协议的格式封装一个可以重定向的报文
-            String response = "HTTP/1.1 302 Moved Temporarily\r\n" +
-                    "Location: https://www.baidu.com\r\n\r\n";
-            // 将报文写出给浏览器
-            outputStream.write(response.getBytes());
-            outputStream.flush();
-            // 这个输出流不要着急关，因为突然的关闭会导致浏览器和服务器的连接断开
+        OutputStream outputStream = server.getOutputStream();
+        // 按照http协议的格式封装一个可以重定向的报文
+        String response = "HTTP/1.1 302 Moved Temporarily\r\n" +
+                "Location: https://www.baidu.com\r\n\r\n";
+        // 将报文写出给浏览器
+        outputStream.write(response.getBytes());
+        outputStream.flush();
+        // 这个输出流不要着急关，因为突然的关闭会导致浏览器和服务器的连接断开
     }
 }
 ```
@@ -339,15 +347,15 @@ public class Server302 {
 
 ![image-20210926121342072](./img/image-20210926121342072-a1bc4abd.png)
 
-##### （3）http首部字段
+##### （3）http 首部字段
 
- http首部字段是构成http报文的重要元素，它能起到传递额外重要信息的作用，首部信息一般会提供报文类型、编码和大小、认证信息，缓存策略等信息。
+ http 首部字段是构成 http 报文的重要元素，它能起到传递额外重要信息的作用，首部信息一般会提供报文类型、编码和大小、认证信息，缓存策略等信息。
 
-**不用记、不用记。**如果需要记忆和深入目前只有一个Content-Type
+**不用记、不用记。**如果需要记忆和深入目前只有一个 Content-Type
 
 HTTP/1.1 规范定义了如下 47 种首部字段，分为四大类，我们大致预览一下，不能一一讲解，详情可以通过看书深入理解
 
-1、通用首部字段 9个
+1、通用首部字段 9 个
 
 | 首部字段名        | 说明                       |
 | ----------------- | -------------------------- |
@@ -361,7 +369,7 @@ HTTP/1.1 规范定义了如下 47 种首部字段，分为四大类，我们大�
 | Via               | 代理服务器的相关信息       |
 | Warning           | 错误通知                   |
 
-2、请求首部字段 共18个
+2、请求首部字段 共 18 个
 
 | 首部字段名          | 说明                                          |
 | ------------------- | --------------------------------------------- |
@@ -385,7 +393,7 @@ HTTP/1.1 规范定义了如下 47 种首部字段，分为四大类，我们大�
 | TE                  | 传输编码的优先级                              |
 | User-Agent          | 客户端程序的信息                              |
 
-3、响应首部字段 共9个
+3、响应首部字段 共 9 个
 
 | 首部字段名         | 说明                         |
 | ------------------ | ---------------------------- |
@@ -414,13 +422,13 @@ HTTP/1.1 规范定义了如下 47 种首部字段，分为四大类，我们大�
 | Expires          | 实体主体过期的日期时间       |
 | Last-Modified    | 资源的最后修改日期时间       |
 
-##### （4）http内容协商
+##### （4）http 内容协商
 
- 同一个web网页可能存在多个相同内容的网页，比如英文版和中文版，它们内容相同，语言却不同。当浏览器默认的语言不同，访问相同uri会出现不同结果，这种机制就是内容协商。
+ 同一个 web 网页可能存在多个相同内容的网页，比如英文版和中文版，它们内容相同，语言却不同。当浏览器默认的语言不同，访问相同 uri 会出现不同结果，这种机制就是内容协商。
 
  内容协商机制是指客户端和服务器就响应的资源内容进行协商交涉，然后提供给客户端最合适的资源。内容协商会以响应资源的语言、字符集、编码等方式作为判断的标准。
 
- 共有3种不同的方法可以决定服务器上哪个页面最适合客户端：**让客户端来选择、服务器自动判定、让中间代理来选。这3种技术分别称为客户端驱动的协商、服务器驱动的协商以及透明协商。**
+ 共有 3 种不同的方法可以决定服务器上哪个页面最适合客户端：**让客户端来选择、服务器自动判定、让中间代理来选。这 3 种技术分别称为客户端驱动的协商、服务器驱动的协商以及透明协商。**
 
 > 客户端驱动
 
@@ -440,14 +448,14 @@ HTTP/1.1 规范定义了如下 47 种首部字段，分为四大类，我们大�
 
 某个中间设备（通常是缓存代理）代表客户端进行协商。
 
-- 优点：免除了web服务器的协商开销，比客户端驱动的协商要快。
-- 缺点：HTTP并没有提供相应的规范。
+- 优点：免除了 web 服务器的协商开销，比客户端驱动的协商要快。
+- 缺点：HTTP 并没有提供相应的规范。
 
 其中，服务器驱动的解决方案应用较为广泛。
 
 > 通用的内容协商首部集
 
-客户端可以用下面列出的HTTP首部集发送用户的偏好信息：
+客户端可以用下面列出的 HTTP 首部集发送用户的偏好信息：
 
 - Accept：告知服务器发送何种媒体类型；
 - Accept-Language：告知服务器发送何种语言；
@@ -456,7 +464,7 @@ HTTP/1.1 规范定义了如下 47 种首部字段，分为四大类，我们大�
 
 【媒体类型】
 
- 因特网上有数千种不同类型的数据，HTTP仔细地给每种要通过web传输的对象都打上了名为MIME类型（MIME type）的数据格式标签。最初设计MIME（Multipurpose Internet Mali Extension，多用途英特网邮件扩藏）是为了解决在不同的电子邮件系统之间搬移报文时存在的问题。MIME 在电子邮件系统中工作得非常好，因此 HTTP 也采纳了它，用它来描述并标记多媒体内容。
+ 因特网上有数千种不同类型的数据，HTTP 仔细地给每种要通过 web 传输的对象都打上了名为 MIME 类型（MIME type）的数据格式标签。最初设计 MIME（Multipurpose Internet Mali Extension，多用途英特网邮件扩藏）是为了解决在不同的电子邮件系统之间搬移报文时存在的问题。MIME 在电子邮件系统中工作得非常好，因此 HTTP 也采纳了它，用它来描述并标记多媒体内容。
 
 MIME 类型是一种文本标记，表示一种【主要的对象类型】和一个特定的【子类型】，中间由一条斜杠来分隔。
 
@@ -471,8 +479,8 @@ MIME 类型是一种文本标记，表示一种【主要的对象类型】和一
 
 而我们以后见的最多的要数以下两种，这两种类型都是用来传递数据：
 
-- application/json，学习了前端知识后，想必大家对json已经不再陌生了。
-- application/x-www-form-urlencoded，我们之前都学习过表单，urlencoded格式，又叫 **form** 格式，它是一种表单格式。它使用键值对的方式进行表示，键和值之间用=，多个键值对之间用&
+- application/json，学习了前端知识后，想必大家对 json 已经不再陌生了。
+- application/x-www-form-urlencoded，我们之前都学习过表单，urlencoded 格式，又叫 **form** 格式，它是一种表单格式。它使用键值对的方式进行表示，键和值之间用=，多个键值对之间用&
 
 比如我们想在客户端和服务之间传递信息：
 
@@ -492,7 +500,7 @@ name=polo&age=35&smoke=false
 }
 ```
 
-更多的mimeType可以查看：<https://www.w3school.com.cn/media/media_mimeref.asp>
+更多的 MIME Type 可以查看：<https://www.w3school.com.cn/media/media_mimeref.asp>
 
 【注意】这些首部与实体首部非常类似。不过，这两种首部的用途截然不同。
 
@@ -500,7 +508,7 @@ name=polo&age=35&smoke=false
 
 而内容协商首部集是由客户端发送给服务器用于交换偏好信息的，以便服务器可以从文档的不同版本中选择出最符合客户端偏好的那个来提供服务。
 
-服务器用下面列出的实体首部集来匹配客户端的Accept首部集：
+服务器用下面列出的实体首部集来匹配客户端的 Accept 首部集：
 
 | Accept首部      | 实体首部         |
 | --------------- | ---------------- |
@@ -509,11 +517,11 @@ name=polo&age=35&smoke=false
 | Accept-Charset  | Content-Type     |
 | Accept-Encoding | Content-Encoding |
 
-目前为止，关于http协议的基础知识我们讲的差不多了，更多的知识会在后期的学习中不断的深入，我们不妨先将我们的小项目完善一下吧。
+目前为止，关于 http 协议的基础知识我们讲的差不多了，更多的知识会在后期的学习中不断的深入，我们不妨先将我们的小项目完善一下吧。
 
 ### 四、项目完善
 
-本次项目的目的是实现一个小程序，在浏览器中输入URL能够打开一个文件夹下的html页面。
+本次项目的目的是实现一个小程序，在浏览器中输入URL能够打开一个文件夹下的 html 页面。
 
 我们不妨将请求和响应封装成两个对象，毕竟字符串的操作实在是痛苦：
 
@@ -521,101 +529,121 @@ name=polo&age=35&smoke=false
 /**
  * 将接收的请求报文转化为请求对象
  */
-public class Request {
+public class HttpRequest implements Serializable {
+	@Serial
+	private static final long serialVersionUID = 4271237259128161246L;
 
-    private String protocol;
-    // 请求方式
-    private String type;
-    // uri
-    private String uri;
-    // 请求头
-    private Map<String,String> header = new HashMap<>();
-    // 请求体
-    private String body;
+	// 协议
+	private String protocol;
+	// 请求方式
+	private String method;
+	// uri
+	private String uri;
+	// 请求头
+	private Map<String, String> header = new HashMap<>();
+	// 请求体
+	private String body;
 
-    public String getType() {
-        return type;
-    }
+	public String getProtocol() {
+		return protocol;
+	}
 
-    public void setType(String type) {
-        this.type = type;
-    }
+	public void setProtocol(String protocol) {
+		this.protocol = protocol;
+	}
 
+	public String getMethod() {
+		return method;
+	}
 
-    public String getUri() {
-        return uri;
-    }
+	public void setMethod(String method) {
+		this.method = method;
+	}
 
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
+	public String getUri() {
+		return uri;
+	}
 
-    public Map<String, String> getHeaders() {
-        return header;
-    }
+	public void setUri(String uri) {
+		this.uri = uri;
+	}
 
-    public void setHeaders(Map<String, String> header) {
-        this.header = header;
-    }
+	public String getHeader(String key) {
+		return header.get(key);
+	}
 
-    public String getBody() {
-        return body;
-    }
+	public void setHeader(String key, String value) {
+		this.header.put(key, value);
+	}
 
-    public void setBody(String body) {
-        this.body = body;
-    }
+	public String getBody() {
+		return body;
+	}
 
-    public String getHeader(String key){
-        return header.get(key);
-    }
+	public void setBody(String body) {
+		this.body = body;
+	}
 
-    public void addHeader(String key,String value){
-        header.put(key,value);
-    }
-
-    public String getProtocol() {
-        return protocol;
-    }
-
-    public void setProtocol(String protocol) {
-        this.protocol = protocol;
-    }
+	@Override
+	public String toString() {
+		return "HttpRequest{" +
+		       "protocol='" + protocol + '\'' +
+		       ", method='" + method + '\'' +
+		       ", uri='" + uri + '\'' +
+		       ", headers='" + header + '\'' +
+		       ", body='" + body + '\'' +
+		       '}';
+	}
 }
+
 /**
- * 处理请求报文
+ * 处理请求
  */
-public class RequestHandler {
+public class HttpRequestHandler {
 
-    /**
-     * 将获取的请求报文封装成一个请求对象
-     * @param requestMessage
-     * @return
-     */
-    public static Request hand(String requestMessage){
-
-        Request request = new Request();
-        // 通过大量的截串获取对应信息
-        String[] headerAndBody = requestMessage.split("\r\n\r\n");
-        // 判断有没有请求体
-        if(headerAndBody.length > 1){
-            request.setBody(headerAndBody[1]);
-        }
-        // 将请求行和首部信息截取
-        String[] lineAndHeader = headerAndBody[0].split("\r\n");
-        String line = lineAndHeader[0];
-        // 使用空格截取请求行信息
-        String[] lines = line.split(" ");
-        request.setType(lines[0]);
-        request.setUri(lines[1]);
-        request.setProtocol(lines[2]);
-        // 遍历请求头
-        for (int i = 1; i < lineAndHeader.length; i++) {
-            String[] split = lineAndHeader[i].split(": ");
-            request.addHeader(split[0],split[1]);
-        }
-        return request;
-    }
+	public static HttpRequest getRequest(InputStream inputStream) throws Exception {
+		// 从流中读取请求报文
+		StringBuilder request = new StringBuilder();
+		try {
+			byte[] buf = new byte[1024];
+			int len;
+			do {
+				len = inputStream.read(buf);
+				request.append(new String(buf, 0, len));
+			} while (inputStream.available() > 0);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println(request);
+		// GET / HTTP/1.1
+		// Host: 127.0.0.1:8888
+		//
+		// a=b&c=d
+		HttpRequest httpRequest = new HttpRequest();
+		String[] headAndBady = request.toString().split("\r\n\r\n");
+		// 先处理实体
+		if (headAndBady.length > 1 && headAndBady[0] != null) {
+			httpRequest.setBody(headAndBady[1]);
+		}
+		// 处理请求行
+		String startAndHeader = headAndBady[0];
+		if (startAndHeader == null) {
+			throw new Exception("请求行为空: 400");
+		}
+		String[] startAndHeaders = startAndHeader.split("\r\n");
+		String startLine = startAndHeaders[0];
+		String[] startLineElement = startLine.split(" ");
+		httpRequest.setMethod(startLineElement[0]);
+		httpRequest.setUri(startLineElement[1]);
+		httpRequest.setProtocol(startLineElement[2]);
+		// 处理首部信息，startAndHeader 除了第一行的其余部分
+		for (int i = 1; i < startAndHeaders.length; i++) {
+			String header = startAndHeaders[i];
+			String[] keyAndValue = header.split(": ");
+			httpRequest.setHeader(keyAndValue[0], keyAndValue[1]);
+		}
+		return httpRequest;
+	}
 }
 ```
 
@@ -810,7 +838,7 @@ public class Server {
 
 我们给项目做一个升级版本，做一个登录的功能，能和数据库交互。
 
-我们在D:/www下新建一个登录的页面，如下：
+我们在 D:/www 下新建一个登录的页面，如下：
 
 ```html
 <!DOCTYPE html>
@@ -862,7 +890,7 @@ public class JDBCUtil {
 }
 ```
 
-//User
+User
 
 ```java
 public class User implements Serializable {
@@ -876,7 +904,7 @@ public class User implements Serializable {
 }
 ```
 
-// 注册的本质就是插入一条数据，登录的本质就是通过用户名获取用户比较密码，我们先将这两个方法准备好。
+注册的本质就是插入一条数据，登录的本质就是通过用户名获取用户比较密码，我们先将这两个方法准备好。
 
 ```java
 public class UserDao {
@@ -918,7 +946,7 @@ public class UserDao {
 
 核心的问题来了，
 
-当页面点击提交按钮实际上是发送一个post请求，从浏览器我们可以看得出来。
+当页面点击提交按钮实际上是发送一个 post 请求，从浏览器我们可以看得出来。
 
 ![image-20210926153535717](./img/image-20210926153535717-32dfc7d2.png)
 
@@ -947,7 +975,7 @@ public interface Servlet {
 }
 ```
 
-将之前的RespsoneHandler改为HTMLRespsoneHandler，专门处理网页
+将之前的 RespsoneHandler 改为 HTMLRespsoneHandler，专门处理网页
 
 ```java
 /**
@@ -1052,7 +1080,7 @@ public class RegisterServlet implements Servlet{
 
 接下来就是登录了：
 
-我们写一个登录的servlet来处理这个uri
+我们写一个登录的 servlet 来处理这个 uri
 
 ```java
 public class LoginServlet implements Servlet{
@@ -1080,39 +1108,39 @@ public class LoginServlet implements Servlet{
 
 并且注册进去
 
-```text
-ENV.put("/login.do",new LoginServlet());
+```java
+ENV.put("/login.do", new LoginServlet());
 ```
 
 登录是成功了，但是登录没有状态，哪里能说明这个客户端登录成功了呢？
 
 ### 六、状态的保存
 
-http本身是不保存状态的，啥意思？就是客户端到服务器的连接不是长时间保持的，一个连接断开后，下一个请求会建立新的tcp连接，服务器不会知道我们之前连接过，说的简单一点就是，你登录了但是服务器不知道。
+http 本身是不保存状态的，啥意思？就是客户端到服务器的连接不是长时间保持的，一个连接断开后，下一个请求会建立新的 tcp 连接，服务器不会知道我们之前连接过，说的简单一点就是，你登录了但是服务器不知道。
 
-所以推出了session和cookie机制
+所以推出了 session 和 cookie 机制
 
-cookie是记录在浏览器端的一个字符串，是一段不超过4KB的小型文本数据，由一个名称（Name）、一个值（Value）和其它几个用于控制Cookie有效期、安全性、使用范围的可选属性组成，
+cookie 是记录在浏览器端的一个字符串，是一段不超过 4KB 的小型文本数据，由一个名称（Name）、一个值（Value）和其它几个用于控制 Cookie 有效期、安全性、使用范围的可选属性组成，
 
-session是保存在服务器端的一个对象，比如map。它们俩互相配合让服务器有了能识别客户端一些状态的能力，意思就是服务就能知道这个客户端有没有登录等。cookie就相当于通行证，session就是门房，进去时需要从门房识别一个身份。
+session 是保存在服务器端的一个对象，比如 map。它们俩互相配合让服务器有了能识别客户端一些状态的能力，意思就是服务就能知道这个客户端有没有登录等。cookie 就相当于通行证，session 就是门房，进去时需要从门房识别一个身份。
 
 > 创建过程：
 
-1. 当浏览器第一次向客户端发送请求时，服务器会为它创建一个session，同时相应会加一个头（Set-Cookie: jsessionid=ewrwerwer123）
-2. 浏览器察觉到这个响应头之后会将信息保存在cookie当中，以后访问这个网站的时候就会一直带着这个cookie。
-3. 当下一个请求发起时，会带着这个cookie的信息，服务器通过查询id找的session，通过session内保存的信息，就能获得这个客户端的状态。
+1. 当浏览器第一次向客户端发送请求时，服务器会为它创建一个 session，同时相应会加一个头（Set-Cookie: jsessionid=ewrwerwer123）
+2. 浏览器察觉到这个响应头之后会将信息保存在cookie当中，以后访问这个网站的时候就会一直带着这个 cookie。
+3. 当下一个请求发起时，会带着这个 cookie 的信息，服务器通过查询 id 找的 session，通过 session 内保存的信息，就能获得这个客户端的状态。
 
 ![image-20210926164444025](./img/image-20210926164444025-146dbf13.png)
 
 那我们继续改造：
 
-我们先看看请求中有没有cookie
+我们先看看请求中有没有 cookie
 
 ![image-20210926164635753](./img/image-20210926164635753-abeef933.png)
 
-我们尝试给它加个cookie
+我们尝试给它加个 cookie
 
-目前代码多了，我们就在打开html的地方处理一下
+目前代码多了，我们就在打开 html 的地方处理一下
 
 ```text
 response.addHeader("set-Cookie", "jsessionid="+UUID.randomUUID());
@@ -1130,7 +1158,7 @@ response.addHeader("set-Cookie", "jsessionid="+UUID.randomUUID());
 
 ![image-20210926165249712](./img/image-20210926165249712-7ba6ea1b.png)
 
-当然我们只是想在没有Cookie的创建：
+当然我们只是想在没有 Cookie 的创建：
 
 ```java
 if(cookie == null || !cookie.contains("jsessionid")){
@@ -1140,11 +1168,11 @@ if(cookie == null || !cookie.contains("jsessionid")){
 
 处理请求和响应事实上是一个很麻烦的工作，我们确实需要一个工具帮我们方便的处理请求和响应。
 
-这样有了id，我们还需要给每个客户端分配一个柜子：
+这样有了 id，我们还需要给每个客户端分配一个柜子：
 
-先搞一个大柜子，每个session我们就用map处理，不就是存一点数据嘛！
+先搞一个大柜子，每个 session 我们就用 map 处理，不就是存一点数据嘛！
 
-```text
+```java
 public static final ConcurrentHashMap<String, Map<String,Object>> SESSIONS
             = new ConcurrentHashMap<>(8);
 ```
@@ -1166,7 +1194,7 @@ if(cookie == null || !cookie.contains("jsessionid")){
 
 登录之后我们就能搞点事情了：
 
-在登录servlet中添加：
+在登录 servlet 中添加：
 
 ```java
 String cookie = request.getHeader("Cookie");
@@ -1244,7 +1272,7 @@ ENV.put("/index.do",new IndexServlet());
 </web-app>
 ```
 
-## 第二章 JAKARTAEE历史
+## 第二章 JAKARTAEE 历史
 
 ### 一、历史渊源
 
@@ -1361,7 +1389,7 @@ Tomcat 的主要目录文件如下 ：
 
 访问
 
-```text
+```url
 http://localhost:8080 
 ```
 
@@ -1717,7 +1745,7 @@ Servlet 容器可以内置到主机 Web 服务器中，也可以通过该服务�
 
 下图展示了Servlet在Web应用程序中的位置：
 
-![img](./img/webp.webp)img
+![img](./img/webp.webp)
 
 ### 二、Servlet核心技术
 
@@ -2076,8 +2104,8 @@ getHeader()， getMethod() ， getSession()
 
  匹配方法只有三种，要么是路径匹配（**以“/”字符开头，并以“/\*”结尾**），要么是扩展名匹配（**以“\*.”开头**），要么是精确匹配，三种匹配方法不能进行组合，不要想当然使用通配符。
 
-- 如<url-pattern>/user/*.action</url-pattern>是非法的
-- 另外注意：<url-pattern>/aa/*/bb</url-pattern>是精确匹配，合法，这里的*不是通配的含义
+- 如 `<url-pattern>/user/*.action</url-pattern>` 是非法的
+- 另外注意：`<url-pattern>/aa/*/bb</url-pattern>` 是精确匹配，合法，这里的*不是通配的含义
 
 > "/*"和"/"含义并不相同
 
@@ -2155,7 +2183,7 @@ Tomcat在%CATALINA_HOME%\conf\web.xml文件中配置了默认的Servlet，配置
 
 ### 四、请求和响应
 
-#### 1、请求-reques
+#### 1、请求-request
 
 ##### **（1）request概述**
 
@@ -2215,7 +2243,7 @@ if(ip.equals("127.0.0.1")) {
 
 - 浏览器地址栏直接输入：一定是GET请求；
 - 超链接：一定是GET请求；
-- 表单：可以是GET，也可以是POST，这取决与<form>的method属性值。
+- 表单：可以是GET，也可以是POST，这取决与 `<form>` 的 method 属性值。
 
 > GET请求和POST请求的区别：
 
@@ -2360,18 +2388,18 @@ response.getWriter()是PrintWriter类型，所以它有缓冲区，缓冲区的�
 
 可以使用response对象的setHeader()方法来设置响应头！使用该方法设置的响应头最终会发送给客户端浏览器！
 
-- response.setHeader(“content-type”, “text/html;charset=utf-8”)：
+- `response.setHeader(“content-type”, “text/html;charset=utf-8”);`
 
-设置content-type响应头，该头的作用是告诉浏览器响应内容为html类型，编码为utf-8。而且同时会设置response的字符流编码为utf-8，即response.setCharaceterEncoding(“utf-8”)；
+设置content-type响应头，该头的作用是告诉浏览器响应内容为html类型，编码为utf-8。而且同时会设置response的字符流编码为utf-8，即 `response.setCharaceterEncoding(“utf-8”);`
 
-- response.setHeader("Refresh","5; URL=<http://www.baidu.cn：5秒后自动跳转到百度主页。>
+- `response.setHeader("Refresh","5; URL=http://www.baidu.cn");` 5秒后自动跳转到百度主页。
 
 ##### （4）设置状态码及其他方法
 
-- response.setContentType("text/html;charset=utf-8")：等同于调用response.setHeader(“content-type”, “text/html;charset=utf-8”)；用它就行了。
-- response.setCharacterEncoding(“utf-8”)：设置字符响应流的字符编码为utf-8；
-- response.setStatus(200)：设置状态码；
-- response.sendError(404, “您要查找的资源不存在”)：当发送错误状态码时，Tomcat会跳转到固定的错误页面去，但可以显示错误信息。
+- `response.setContentType("text/html;charset=utf-8");` 等同于调用`response.setHeader(“content-type”, “text/html;charset=utf-8”);` 用它就行了。
+- `response.setCharacterEncoding(“utf-8”);` 设置字符响应流的字符编码为 utf-8；
+- `response.setStatus(200);` 设置状态码；
+- `response.sendError(404, “您要查找的资源不存在”);` 当发送错误状态码时，Tomcat 会跳转到固定的错误页面去，但可以显示错误信息。
 
 重定向和请求转发
 
@@ -2379,7 +2407,7 @@ response.getWriter()是PrintWriter类型，所以它有缓冲区，缓冲区的�
 
 > 什么是重定向
 
-[当你访问http://www.sun.com时](http://www.sun.xn--com-t28f/)，你会发现浏览器地址栏中的URL会变成<http://www.oracle.com/us/sun/index.htm，这就是重定向了。>
+当你访问 <http://www.sun.com> 时，你会发现浏览器地址栏中的URL会变成 <http://www.oracle.com/us/sun/index.htm>，这就是重定向了。
 
 重定向是服务器通知浏览器去访问另一个地址，即再发出另一个请求。
 
@@ -2422,7 +2450,7 @@ public class AServlet extends HttpServlet {
 }  
 ```
 
-重定向的URL地址为：<http://localhost:8080/hello/BServlet。>
+重定向的URL地址为：<http://localhost:8080/hello/BServlet>
 
 > 重定向小结
 
@@ -2593,7 +2621,7 @@ Object value=作用域对象.getAttribute(String name);
 
 JSP页面中的HTML内容称之为JSP模版元素。JSP模版元素定义了网页的基本骨架，即定义了页面的结构和外观。
 
-```jsp
+```html
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -2632,7 +2660,7 @@ JSP脚本表达式（expression）用于将程序数据输出到客户端，语�
 
 例如：
 
-```jsp
+```html
 <%=name %>
 <%="123" %>
 ```
@@ -2952,7 +2980,7 @@ public abstract class HttpJspBase extends HttpServlet implements HttpJspPage{
 
 #### 1、JSP指令标识的语法格式
 
-```jsp
+```html
 <%@ 指令名  属性1 = "属性1的值" 属性2 = "属性2的值" ....%>
 ```
 
@@ -2996,7 +3024,7 @@ page指令是JSP页面中最常见的指令,用于定义整个JSP页面的相关
 
 这种JSP页面的编码格式,也就是指定文件编码
 
-```jsp
+```html
 <%@ page pageEncoding="GBK" %>
 ```
 
@@ -3338,7 +3366,7 @@ Throwable FillInStackTrace();// 重写异常的执行栈轨迹
 
 注：对应案例
 
-```jsp
+```html
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -3380,7 +3408,7 @@ Throwable FillInStackTrace();// 重写异常的执行栈轨迹
 
 注：对应案例
 
-```jsp
+```html
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -3457,7 +3485,7 @@ D:\javaweb\tomcat\apache-tomcat-10.0.11\apache-tomcat-10.0.11\webapps\examples\W
 
 （2）在jsp中引入JSTL的core包依赖约束
 
-```jsp
+```html
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 ```
 
@@ -3467,7 +3495,7 @@ D:\javaweb\tomcat\apache-tomcat-10.0.11\apache-tomcat-10.0.11\webapps\examples\W
 
 在JSP文件上设置域对象中的共享数据
 
-```jsp
+```html
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
@@ -3497,7 +3525,7 @@ D:\javaweb\tomcat\apache-tomcat-10.0.11\apache-tomcat-10.0.11\webapps\examples\W
 
 控制哪些内容能够输出到响应体
 
-```jsp
+```html
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -3530,7 +3558,7 @@ D:\javaweb\tomcat\apache-tomcat-10.0.11\apache-tomcat-10.0.11\webapps\examples\W
 
 在jsp中进行多分支判断，决定哪个内容写入响应体
 
-```jsp
+```html
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -3572,7 +3600,7 @@ D:\javaweb\tomcat\apache-tomcat-10.0.11\apache-tomcat-10.0.11\webapps\examples\W
 
 使用方式
 
-```jsp
+```html
 <c:forEach var="申明循环变量的名称" begin="初始化循环变量" 
            end="循环变量可以接受的最大值" step="循环变量的递增或递减值">
     *** step属性可以不写，默认递增1
@@ -3582,7 +3610,7 @@ D:\javaweb\tomcat\apache-tomcat-10.0.11\apache-tomcat-10.0.11\webapps\examples\W
 
 例子
 
-```jsp
+```html
 <%@ page import="com.zn.Student" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
@@ -3751,7 +3779,7 @@ response.sendRedirect(request.getContextPath() + "/login.jsp");
 
 3、在具体的地址处使用相对于contextPath的路径。
 
-```jsp
+```html
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
    String path = request.getContextPath();
@@ -3778,7 +3806,7 @@ response.sendRedirect(request.getContextPath() + "/login.jsp");
 
 我们可以在web.xml中根据错误码和异常类型，配置不同异常情况下的错误页面。
 
-```jsp
+```html
 <error-page>
     <error-code>404</error-code>
     <location>/pages/404.jsp</location>
@@ -3804,20 +3832,20 @@ response.sendRedirect(request.getContextPath() + "/login.jsp");
 
 #### 2、生命周期
 
-**（1）servlet：**servlet的生命周期始于它被装入web服务器的内存时，并在web服务器终止或重新装入servlet时结束。servlet一旦被装入web服务器，一般不会从web服务器内存中删除，直至web服务器关闭或重新结束。
+**（1）servlet：** servlet的生命周期始于它被装入web服务器的内存时，并在web服务器终止或重新装入servlet时结束。servlet一旦被装入web服务器，一般不会从web服务器内存中删除，直至web服务器关闭或重新结束。
 
 1. 装入：第一次访问，启动服务器时加载Servlet的实例；
 2. 初始化：web服务器启动时或web服务器接收到请求时，或者两者之间的某个时刻启动。初始化工作有init（）方法负责执行完成；
 3. 调用：从第一次到以后的多次访问，都是只调用doGet()或doPost()方法；
 4. 销毁：停止服务器时调用destroy()方法，销毁实例。
 
-**（2）filter：**一定要实现javax.servlet包的Filter接口的三个方法init()、doFilter()、destroy()，空实现也行
+**（2）filter：** 一定要实现javax.servlet包的Filter接口的三个方法init()、doFilter()、destroy()，空实现也行
 
 1. 启动服务器时加载过滤器的实例，并调用init()方法来初始化实例；
 2. 每一次请求时都只调用方法doFilter()进行处理；
 3. 停止服务器时调用destroy()方法，销毁实例。
 
-**（3）listener：**类似于servlet和filter
+**（3）listener：** 类似于servlet和filter
 
 servlet2.4规范中提供了8个listener接口，可以将其分为三类，分别如下：
 
@@ -4767,4 +4795,4 @@ path: Host的虚拟目录 docBase: 映射的物理目录的地址，可指定相
 
 ![image-20211013153851389](./img/image-20211013153851389-a53aefb6.png)
 
-6、将war包放在tomcat的webapp下启动即可。
+6、将war包放在tomcat的webapp下启动即可。as
