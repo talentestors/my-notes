@@ -653,116 +653,115 @@ public class HttpRequestHandler {
 /**
  * 响应
  */
-public class Response {
+public class HttpResponse implements Serializable {
+	@Serial
+	private static final long serialVersionUID = 5654796044010254626L;
+	// 协议
+	private String protocol = "Http/1.1";
+	// 响应码
+	private String code = "200";
+	// 信息
+	private String message = "ok";
+	// 响应头
+	private Map<String, String> header = new HashMap<>();
+	// 响应体
+	private String body;
 
-    // 协议
-    private String protocol = "Http/1.1";
-    // 响应码
-    private String code = "200";
-    // 信息
-    private String message = "ok";
-    // 响应头
-    private Map<String,String> header = new HashMap<>();
-    // 响应体
-    private String body;
+	public String getProtocol() {
+		return protocol;
+	}
 
-    public String getProtocol() {
-        return protocol;
-    }
+	public void setProtocol(String protocol) {
+		this.protocol = protocol;
+	}
 
-    public void setProtocol(String protocol) {
-        this.protocol = protocol;
-    }
+	public String getCode() {
+		return code;
+	}
 
-    public String getCode() {
-        return code;
-    }
+	public void setCode(String code) {
+		this.code = code;
+	}
 
-    public void setCode(String code) {
-        this.code = code;
-    }
+	public String getMessage() {
+		return message;
+	}
 
-    public String getMessage() {
-        return message;
-    }
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+	public Map<String, String> getHeaders() {
+		return header;
+	}
 
-    public Map<String, String> getHeaders() {
-        return header;
-    }
+	public void setHeaders(Map<String, String> header) {
+		this.header = header;
+	}
 
-    public void setHeaders(Map<String, String> header) {
-        this.header = header;
-    }
+	public String getHeader(String key) {
+		return header.get(key);
+	}
 
-    public String getHeader(String key){
-        return header.get(key);
-    }
+	public void addHeader(String key, String value) {
+		header.put(key, value);
+	}
 
-    public void addHeader(String key,String value){
-        header.put(key,value);
-    }
+	public String getBody() {
+		return body;
+	}
 
-    public String getBody() {
-        return body;
-    }
+	public void setBody(String body) {
+		this.body = body;
+	}
+}
 
-    public void setBody(String body) {
-        this.body = body;
-    }
 /**
- * @author itnanls(私信联系)
  * 处理响应的工具类
  */
-public class ResponseHandler {
+public class HttpResponseHandler {
 
-    // 定义我们网站的根目录
-    public static final String BASE_PATH = "D:/www/";
+	public static String build(HttpResponse httpResponse) {
+		StringBuilder response = new StringBuilder();
+		response.append(httpResponse.getProtocol()).append(" ")
+				.append(httpResponse.getCode()).append(" ")
+				.append(httpResponse.getMessage()).append("\r\n");
+		// 拼接首部信息
+		for (Map.Entry<String, String> entry : httpResponse.getHeaders().entrySet()) {
+			response.append(entry.getKey()).append(": ").append(entry.getValue()).append("\r\n");
+		}
+		response.append("\r\n");
+		if (httpResponse.getBody() != null) {
+			response.append("\r\n").append(httpResponse.getBody());
+		}
+		return response.toString();
+	}
 
-    /**
-     * 此方法用来生成一个响应的字符串
-     * @param path
-     * @return
-     */
-    public static String build(String path){
-        String htmlPath = BASE_PATH + path;
-        try ( FileInputStream fis = new FileInputStream(htmlPath)){
-            // 使用输入流读取文件的内容
-            String body = IOUtils.readString(fis);
+	public static void write(OutputStream outputStream, HttpResponse httpResponse) {
+		String message = build(httpResponse);
+		try {
+			outputStream.write(message.getBytes());
+			outputStream.flush();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
-            Response response = new Response();
-            response.setBody(body);
-            response.addHeader("Content-Type","text/html;charset=UTF-8");
-            response.addHeader("Content-Length",Integer.toString(body.length()));
+	/**
+	 * Test
+	 */
+	public static void main(String[] args) {
+		HttpResponse httpResponse = new HttpResponse();
+		httpResponse.setCode(302);
+		httpResponse.setMessage("Moved Temporarily");
+		httpResponse.setHeaders("location", "https://www.baidu.com");
+		httpResponse.setHeaders("Content-Type", "text/html; charset=UTF-8");
+		System.out.print(HttpResponseHandler.build(httpResponse));
+		System.out.println("-------------------------------------------------");
+	}
 
-            return build(response);
-
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
-    // 将响应对象序列化成字符串报文
-    public static String build(Response response){
-        StringBuilder sb = new StringBuilder();
-        sb.append(response.getProtocol()).append(" ")
-                .append(response.getCode()).append(" ")
-                .append(response.getMessage()).append("\r\n");
-        for(Map.Entry<String,String> entry : response.getHeaders().entrySet()){
-            sb.append(entry.getKey()).append(": ").append(entry.getValue()).append("\r\n");
-        }
-
-        if(response.getBody() != null){
-            sb.append("\r\n").append(response.getBody());
-        }
-        return sb.toString();
-    }
 }
+
 ```
 
 创建一个IO工具类负责从流中读取数据：
@@ -1142,7 +1141,7 @@ session 是保存在服务器端的一个对象，比如 map。它们俩互相�
 
 目前代码多了，我们就在打开 html 的地方处理一下
 
-```text
+```java
 response.addHeader("set-Cookie", "jsessionid="+UUID.randomUUID());
 ```
 
@@ -1278,7 +1277,7 @@ ENV.put("/index.do",new IndexServlet());
 
 #### 1、JavaEE
 
-我们学习Java都知道Java是一门语言，它可以分为以下几个版本：
+我们学习 Java 都知道 Java 是一门语言，它可以分为以下几个版本：
 
 - JavaSE是指Java Standard Edition，Java标准版，就是一般Java程序的开发就可以(如桌面程序)，可以看作是JavaEE的子集。
 - JavaEE是指Java Enterprise Edition，Java企业版，多用于企业级开发，包括web开发等等。也叫J2EE。
