@@ -19,19 +19,19 @@ export const zhSidebar = sidebar({
             {
               text: "1、HTML基础",
               icon: "html",
-              link: "html.md"
+              link: "html.md",
             },
             {
               text: "2、HTML5新增特性",
               icon: "html",
-              link: "html5.md"
+              link: "html5.md",
             },
             {
               text: "3、HTML预留字符",
               icon: "html",
-              link: "html实体参考.md"
+              link: "html实体参考.md",
             },
-          ]
+          ],
         },
         {
           text: "CSS",
@@ -42,29 +42,29 @@ export const zhSidebar = sidebar({
             {
               text: "1、CSS简介与选择器",
               icon: "css",
-              link: "简介与选择器.md"
+              link: "简介与选择器.md",
             },
             {
               text: "2、CSS三大特性",
               icon: "css",
-              link: "三大特性.md"
+              link: "三大特性.md",
             },
             {
               text: "3、CSS盒子模型",
               icon: "css",
-              link: "css盒子模型.md"
+              link: "css盒子模型.md",
             },
             {
               text: "4、CSS高级",
               icon: "css",
-              link: "css高级.md"
+              link: "css高级.md",
             },
             {
               text: "5、CSS3新增特性",
               icon: "css",
-              link: "新增特性.md"
+              link: "新增特性.md",
             },
-          ]
+          ],
         },
         {
           text: "JavaScript",
@@ -75,44 +75,44 @@ export const zhSidebar = sidebar({
             {
               text: "1、基础语法",
               icon: "javascript",
-              link: "js基础语法.md"
+              link: "js基础语法.md",
             },
             {
               text: "2、内置对象",
               icon: "javascript",
-              link: "内置对象.md"
+              link: "内置对象.md",
             },
             {
               text: "3、DOM编程",
               icon: "javascript",
-              link: "dom编程.md"
+              link: "dom编程.md",
             },
             {
               text: "4、BOM编程",
               icon: "javascript",
-              link: "bom编程.md"
+              link: "bom编程.md",
             },
             {
               text: "5、事件",
               icon: "javascript",
-              link: "事件.md"
+              link: "事件.md",
             },
             {
               text: "6、语法深入",
               icon: "javascript",
-              link: "语法深入.md"
+              link: "语法深入.md",
             },
             {
               text: "7、原型",
               icon: "javascript",
-              link: "原型.md"
+              link: "原型.md",
             },
             {
               text: "8、正则表达式",
               icon: "javascript",
-              link: "正则表达式.md"
-            }
-          ]
+              link: "正则表达式.md",
+            },
+          ],
         },
         {
           text: "SEO优化",
@@ -125,105 +125,122 @@ export const zhSidebar = sidebar({
           link: "emmet语法.md",
         },
       ],
-    },{
+    },
+    {
       text: "Java",
       icon: "java",
       collapsible: true,
-      children: [{
-        text: "Javase",
-        icon: "java",
-        collapsible: true,
-        prefix: "/codenotes/java/javase/",
-        children: [
-          {
-            text: "1、java基础",
-            icon: "computer-fill",
-            link: "java基础.md"
-          },
-          {
-            text: "2、流程控制语句",
-            icon: "branch",
-            link: "流程控制语句.md"
-          },
-          {
-            text: "3、数组和算法",
-            icon: "array",
-            link: "数组和算法.md"
-          },
-          {
-            text: "4、面向对象",
-            icon: "class",
-            link: "面向对象.md"
-          },
-          {
-            text: "5、常用api",
-            icon: "api",
-            link: "常用api.md"
-          },
-          {
-            text: "6、异常机制",
-            icon: "debug",
-            link: "异常机制.md"
-          },
-          {
-            text: "7、泛型和枚举",
-            icon: "enum",
-            link: "泛型和枚举.md"
-          },
-          {
-            text: "8、多线程",
-            icon: "asynchronous",
-            link: "多线程.md"
-          },
-          {
-            text: "9、树",
-            icon: "tree",
-            link: "树.md"
-          },
-          {
-            text: "10、集合框架",
-            icon: "folder",
-            link: "集合框架.md"
-          },
-          {
-            text: "11、IO流",
-            icon: "IO",
-            link: "io流.md"
-          },
-          {
-            text: "12、反射",
-            icon: "reflect-vertical",
-            link: "注解和反射.md"
-          },
-          {
-            text: "13、java网络编程",
-            icon: "network",
-            link: "网络编程.md"
-          },
-          {
-            text: "14、nio",
-            icon: "IO",
-            link: "nio.md"
-          },
-          {
-            text: "15、java正则表达式",
-            icon: "regexp",
-            link: "java正则表达式.md"
-          }
-        ],
-      },{
-        text: "JavaGUI",
-        icon: "computer-fill",
-        collapsible: true,
-        prefix: "/codenotes/java/javagui/",
-        children: [
-          {
-            text: "Swing",
-            icon: "window-fill",
-            link: "swing.md"
-          },
-        ]
-      }]
+      children: [
+        {
+          text: "Javase",
+          icon: "java",
+          collapsible: true,
+          prefix: "/codenotes/java/javase/",
+          children: [
+            {
+              text: "1、java基础",
+              icon: "computer-fill",
+              link: "java基础.md",
+            },
+            {
+              text: "2、流程控制语句",
+              icon: "branch",
+              link: "流程控制语句.md",
+            },
+            {
+              text: "3、数组和算法",
+              icon: "array",
+              link: "数组和算法.md",
+            },
+            {
+              text: "4、面向对象",
+              icon: "class",
+              link: "面向对象.md",
+            },
+            {
+              text: "5、常用api",
+              icon: "api",
+              link: "常用api.md",
+            },
+            {
+              text: "6、异常机制",
+              icon: "debug",
+              link: "异常机制.md",
+            },
+            {
+              text: "7、泛型和枚举",
+              icon: "enum",
+              link: "泛型和枚举.md",
+            },
+            {
+              text: "8、多线程",
+              icon: "asynchronous",
+              link: "多线程.md",
+            },
+            {
+              text: "9、树",
+              icon: "tree",
+              link: "树.md",
+            },
+            {
+              text: "10、集合框架",
+              icon: "folder",
+              link: "集合框架.md",
+            },
+            {
+              text: "11、IO流",
+              icon: "IO",
+              link: "io流.md",
+            },
+            {
+              text: "12、反射",
+              icon: "reflect-vertical",
+              link: "注解和反射.md",
+            },
+            {
+              text: "13、java网络编程",
+              icon: "network",
+              link: "网络编程.md",
+            },
+            {
+              text: "14、nio",
+              icon: "IO",
+              link: "nio.md",
+            },
+            {
+              text: "15、java正则表达式",
+              icon: "regexp",
+              link: "java正则表达式.md",
+            },
+          ],
+        },
+        {
+          text: "JavaGUI",
+          icon: "computer-fill",
+          collapsible: true,
+          prefix: "/codenotes/java/javagui/",
+          children: [
+            {
+              text: "Swing",
+              icon: "window-fill",
+              link: "swing.md",
+            },
+          ],
+        },
+        {
+          text: "JavaEE",
+          icon: "java",
+          collapsible: true,
+          prefix: "/codenotes/java/javaee/",
+          children: [
+            {
+              text: "JavaWeb",
+              icon: "javaweb",
+              link: "/codenotes/java/javaee/javaweb/javaweb.md",
+            },
+          ],
+        },
+      ],
     },
     {
       text: "MySQL",
@@ -234,9 +251,9 @@ export const zhSidebar = sidebar({
         {
           text: "1、MySQL入门",
           icon: "MySQL",
-          link: "mysql入门.md"
+          link: "mysql入门.md",
         },
-      ]
+      ],
     },
     {
       text: "开发工具",
@@ -247,19 +264,19 @@ export const zhSidebar = sidebar({
         {
           text: "git入门",
           icon: "git",
-          link: "git/git.md"
+          link: "git/git.md",
         },
         {
           text: "git进阶",
           icon: "git",
-          link: "git/git-plus.md"
-        }
-      ]
+          link: "git/git-plus.md",
+        },
+      ],
     },
     {
       text: "Linux入门",
       icon: "linux",
-      link: "/codenotes/os/linux/linux.md"
+      link: "/codenotes/os/linux/linux.md",
     },
   ],
   // 开源项目的侧边栏

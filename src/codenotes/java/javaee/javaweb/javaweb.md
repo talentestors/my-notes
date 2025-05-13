@@ -347,7 +347,7 @@ public class Server302 {
 
 http 首部字段是构成 http 报文的重要元素，它能起到传递额外重要信息的作用，首部信息一般会提供报文类型、编码和大小、认证信息，缓存策略等信息。
 
-**不用记、不用记。**如果需要记忆和深入目前只有一个 Content-Type
+**不用记、不用记。** 如果需要记忆和深入目前只有一个 Content-Type
 
 HTTP/1.1 规范定义了如下 47 种首部字段，分为四大类，我们大致预览一下，不能一一讲解，详情可以通过看书深入理解
 
@@ -2113,7 +2113,7 @@ getHeader()， getMethod() ， getSession()
 - “/_”属于路径匹配，并且可以匹配所有 request，由于路径匹配的优先级仅次于精确匹配，所以“/_”会覆盖所有的扩展名匹配，很多 404 错误均由此引起，所以这是一种特别恶劣的匹配模式。
 - “/”是 servlet 中特殊的匹配模式，切该模式有且仅有一个实例，优先级最低，不会覆盖其他任何 url-pattern，只是会替换 servlet 容器的内建 default servlet ，该模式同样会匹配所有 request。
 
-Tomcat 在%CATALINA_HOME%\conf\web.xml 文件中配置了默认的 Servlet，配置代码如下:
+Tomcat 在 `%CATALINA_HOME%\conf\web.xml` 文件中配置了默认的 Servlet，配置代码如下:
 
 ```xml
 <servlet>
@@ -2155,7 +2155,7 @@ Tomcat 在%CATALINA_HOME%\conf\web.xml 文件中配置了默认的 Servlet，配
 </servlet-mapping>
 ```
 
-- “/\*”和“/”均会拦截静态资源的加载，需要特别注意
+- “/\*” 和 “/” 均会拦截静态资源的加载，需要特别注意
 
 #### 4、举例
 
@@ -2188,7 +2188,7 @@ Tomcat 在%CATALINA_HOME%\conf\web.xml 文件中配置了默认的 Servlet，配
 
 ##### **（1）request 概述**
 
-request 是 Servlet.service()方法的一个参数，类型为 javax.servlet.http.HttpServletRequest。在客户端发出每个请求时，服务器都会创建一个 request 对象，并把请求数据封装到 request 中，然后再调用 Servlet.service()方法时传递给 service()方法，这说明在 service()方法中可以通过 request 对象来获取请求数据。
+request 是 `Servlet.service()`方法的一个参数，类型为 `javax.servlet.http.HttpServletRequest`。在客户端发出每个请求时，服务器都会创建一个 request 对象，并把请求数据封装到 request 中，然后再调用 `Servlet.service()` 方法时传递给 `service()` 方法，这说明在 `service()` 方法中可以通过 request 对象来获取请求数据。
 
 request 的功能可以分为以下几种：
 
@@ -2207,23 +2207,24 @@ request 与请求头相关的方法有：
 
 ##### **（3）request 获取请求相关的其它方法**
 
-- request 中还提供了与请求相关的其他方法，有些方法是为了我们更加便捷的方法请求头数据而设计，有些是与请求 URL 相关的方法。
-- int getContentLength()：获取请求体的字节数，GET 请求没有请求体，没有请求体返回-1；
-- String getContentType()：获取请求类型，如果请求是 GET，那么这个方法返回 null；如果是 POST 请求，那么默认为 application/x-www-form-urlencoded，表示请求体内容使用了 URL 编码；
-- String getMethod()：返回请求方法，例如：GET
-- Locale getLocale()：返回当前客户端浏览器的 Locale。java.util.Locale 表示国家和言语，这个东西在国际化中很有用；
-- String getCharacterEncoding()：获取请求编码，如果没有 setCharacterEncoding()，那么返回 null，表示使用 ISO-8859-1 编码；
-- void setCharacterEncoding(String code)：设置请求编码，只对请求体有效！注意，对于 GET 而言，没有请求体！！！所以此方法只能对 POST 请求中的参数有效！
-- String getContextPath()：返回上下文路径，例如：/hello
-- String getQueryString()：返回请求 URL 中的参数，例如：name=zhangSan
-- String getRequestURI()：返回请求 URI 路径，例如：/hello/oneServlet
-- StringBuffer getRequestURL()：返回请求 URL 路径，例如：<http://localhost/hello/oneServlet，即返回除了参数以外的路径信息；>
-- String getServletPath()：返回 Servlet 路径，例如：/oneServlet
-- String getRemoteAddr()：返回当前客户端的 IP 地址；
-- String getRemoteHost()：返回当前客户端的主机名，但这个方法的实现还是获取 IP 地址；
-- String getScheme()：返回请求协议，例如：http；
-- String getServerName()：返回主机名，例如：localhost
-- int getServerPort()：返回服务器端口号，例如：8080
+request 中还提供了与请求相关的其他方法，有些方法是为了我们更加便捷的方法请求头数据而设计，有些是与请求 URL 相关的方法。
+
+- `int getContentLength()`：获取请求体的字节数，GET 请求没有请求体，没有请求体返回 -1；
+- `String getContentType()`：获取请求类型，如果请求是 GET，那么这个方法返回 null；如果是 POST 请求，那么默认为 application/x-www-form-urlencoded，表示请求体内容使用了 URL 编码；
+- `String getMethod()`：返回请求方法，例如：GET
+- `Locale getLocale()`：返回当前客户端浏览器的 Locale。java.util.Locale 表示国家和言语，这个东西在国际化中很有用；
+- `String getCharacterEncoding()`：获取请求编码，如果没有 setCharacterEncoding()，那么返回 null，表示使用 ISO-8859-1 编码；
+- `void setCharacterEncoding(String code)`：设置请求编码，只对请求体有效！注意，对于 GET 而言，没有请求体！！！所以此方法只能对 POST 请求中的参数有效！
+- `String getContextPath()`：返回上下文路径，例如：/hello;
+- `String getQueryString()`：返回请求 URL 中的参数，例如：name=zhangSan;
+- `String getRequestURI()`：返回请求 URI 路径，例如：/hello/oneServlet
+- `StringBuffer getRequestURL()`：返回请求 URL 路径，例如：<http://localhost/hello/oneServlet>，即返回除了参数以外的路径信息；
+- `String getServletPath()`：返回 Servlet 路径，例如：/oneServlet;
+- `String getRemoteAddr()`：返回当前客户端的 IP 地址；
+- `String getRemoteHost()`：返回当前客户端的主机名，但这个方法的实现还是获取 IP 地址；
+- `String getScheme()`：返回请求协议，例如：http；
+- `String getServerName()`：返回主机名，例如：localhost;
+- `int getServerPort()`：返回服务器端口号，例如：8080;
 
 > 案例：request.getRemoteAddr()：封 IP
 
@@ -2370,7 +2371,7 @@ response 是响应对象，向客户端输出响应正文（响应体）可以�
 
 （1）字符编码
 
-**重要：**在使用 response.getWriter()时需要注意默认字符编码为 ISO-8859-1，如果希望设置字符流的字符编码为 utf-8，可以使用 response.setCharaceterEncoding(“gbk”)来设置。这样可以保证输出给客户端的字符都是使用 UTF-8 编码的！
+**重要：** 在使用 response.getWriter()时需要注意默认字符编码为 ISO-8859-1，如果希望设置字符流的字符编码为 utf-8，可以使用 response.setCharaceterEncoding(“gbk”)来设置。这样可以保证输出给客户端的字符都是使用 UTF-8 编码的！
 
 但客户端浏览器并不知道响应数据是什么编码的！如果希望通知客户端使用 UTF-8 来解读响应数据，那么还是使用**response.setContentType("text/html;charset=utf-8")**方法比较好，
 
@@ -2378,16 +2379,16 @@ response 是响应对象，向客户端输出响应正文（响应体）可以�
 
 （2）缓冲区
 
-response.getWriter()是 PrintWriter 类型，所以它有缓冲区，缓冲区的默认大小为 8KB。也就是说，在响应数据没有输出 8KB 之前，数据都是存放在缓冲区中，而不会立刻发送到客户端。当 Servlet 执行结束后，服务器才会去刷新流，使缓冲区中的数据发送到客户端。
+`response.getWriter()` 是 PrintWriter 类型，所以它有缓冲区，缓冲区的默认大小为 8KB。也就是说，在响应数据没有输出 8KB 之前，数据都是存放在缓冲区中，而不会立刻发送到客户端。当 Servlet 执行结束后，服务器才会去刷新流，使缓冲区中的数据发送到客户端。
 
 如果希望响应数据马上发送给客户端：
 
 - 向流中写入大于 8KB 的数据；
-- 调用 response.flushBuffer()方法来手动刷新缓冲区；
+- 调用 `response.flushBuffer()` 方法来手动刷新缓冲区；
 
 ##### （3）设置响应头信息
 
-可以使用 response 对象的 setHeader()方法来设置响应头！使用该方法设置的响应头最终会发送给客户端浏览器！
+可以使用 response 对象的 `setHeader()` 方法来设置响应头！使用该方法设置的响应头最终会发送给客户端浏览器！
 
 - `response.setHeader(“content-type”, “text/html;charset=utf-8”);`
 
@@ -2458,7 +2459,7 @@ public class AServlet extends HttpServlet {
 - 重定向是两次请求，请求转发是一次
 - 重定向的 URL 可以是其它应用，不局限于当前应用；
 - 重定向的响应头为 302，并且必须要有 Location 响应头；
-- 重定向就不要再使用 response.getWriter()或 response.getOutputStream()输出数据，不然可能会出现异常。
+- 重定向就不要再使用 `response.getWriter()` 或 `response.getOutputStream()` 输出数据，不然可能会出现异常。
 
 #### 3、重定向和转发的区别
 
@@ -2523,16 +2524,16 @@ cookie 的 httponly 属性。若此属性为 true，则只有在 http 请求头�
 
 > Path 字段
 
-path 字段为可以访问此 cookie 的页面路径。 比如 domain 是 abc.com，path 是/test，那么只有/test 路径下的页面可以读取此 cookie。
+path 字段为可以访问此 cookie 的页面路径。 比如 domain 是 abc.com，path 是 /test，那么只有 /test 路径下的页面可以读取此 cookie。
 
 - 路径，指定与 cookie 关联的 WEB 页。
-- 值可以是一个目录，或者是一个路径。如果/head/index.html 建立了一个 cookie，那么在/head/目录里的所有页面，以及该目录下面任何子目录里的页面都可以访问这个 cookie。这就是说，在/head/stories/articles 里的任何页面都可以访问/head/index.html 建立的 cookie。但是，如果/zdnn/ 需要访问/head/index.html 设置的 cookies，该怎么办?这时，我们要把 cookies 的 path 属性设置成“/”。在指定路径的时候，凡是来自同一服务器，URL 里有相同路径的所有 WEB 页面都可以共享 cookies。现在看另一个例子：如果想让 /head/filters/ 和/head/stories/共享 cookies，就要把 path 设成“/head”。
+- 值可以是一个目录，或者是一个路径。如果 /head/index.html 建立了一个 cookie，那么在 /head/ 目录里的所有页面，以及该目录下面任何子目录里的页面都可以访问这个 cookie。这就是说，在 /head/stories/articles 里的任何页面都可以访问 /head/index.html 建立的 cookie。但是，如果 /zdnn/ 需要访问 /head/index.html 设置的 cookies，该怎么办？这时，我们要把 cookies 的 path 属性设置成“/”。在指定路径的时候，凡是来自同一服务器，URL 里有相同路径的所有 WEB 页面都可以共享 cookies。现在看另一个例子：如果想让 /head/filters/ 和 /head/stories/ 共享 cookies，就要把 path 设成“/head”。
 
 ##### （2）session
 
 创建时机：
 
-服务器端第一次调用 getSession()的时候会创建；(保存在服务器内存中)
+服务器端第一次调用 getSession() 的时候会创建；(保存在服务器内存中)
 
 ```java
 HttpSession session = req.getSession();
@@ -3106,11 +3107,11 @@ JSP 标签也称之为 Jsp Action(JSP 动作)元素，它用于在 Jsp 页面中
 
 #### 2、 常用的内置标签
 
-##### **（1）标签**一<jsp:include>
+##### **（1）标签**一\<jsp:include>
 
-<jsp:include>标签用于把另外一个资源的输出内容插入进当前 JSP 页面的输出内容之中，这种在 JSP 页面执行时的引入方式称之为动态引入。
+`<jsp:include>` 标签用于把另外一个资源的输出内容插入进当前 JSP 页面的输出内容之中，这种在 JSP 页面执行时的引入方式称之为动态引入。
 
-语法：``
+语法：
 
 | page  | 用于指定被引入资源的相对路径，它也可以通过执行一个表达式来获得。                  |
 | ----- | --------------------------------------------------------------------------------- |
@@ -3118,11 +3119,11 @@ JSP 标签也称之为 Jsp Action(JSP 动作)元素，它用于在 Jsp 页面中
 
 **标签与 include 指令的区别：**
 
-<jsp:include>标签是动态引入， <jsp:include>标签涉及到的 2 个 JSP 页面会被翻译成 2 个 servlet，这 2 个 servlet 的内容在执行时进行合并。 而 include 指令是静态引入，涉及到的 2 个 JSP 页面会被翻译成一个 servlet，其内容是在源文件级别进行合并。
+\<jsp:include> 标签是动态引入， \<jsp:include> 标签涉及到的 2 个 JSP 页面会被翻译成 2 个 servlet，这 2 个 servlet 的内容在执行时进行合并。 而 include 指令是静态引入，涉及到的 2 个 JSP 页面会被翻译成一个 servlet，其内容是在源文件级别进行合并。
 
-##### **（2）标签**<jsp:forward>和<jsp:param>
+##### **（2）标签** \<jsp:forward> 和 \<jsp:param>
 
-<jsp:forward>标签用于把请求转发给另外一个资源（服务器跳转，地址不变）。
+\<jsp:forward> 标签用于把请求转发给另外一个资源（服务器跳转，地址不变）。
 
 ```xml
 <%--使用jsp:forward标签进行请求转发--%>
@@ -3549,24 +3550,24 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 ```jsp
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib
-		uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-	<title>c:choose</title>
+ <title>c:choose</title>
 </head>
 <body>
 <c:set scope="page" var="age" value="6"/>
 <br/>------------------------------使用java语言-------------------------------------<br/>
 <% if (Integer.parseInt((String) pageContext.getAttribute("age")) == 18) { %>
 输出：您今年成年了 <% } else if (
-		Integer.parseInt((String) pageContext.getAttribute("age")) > 18) { %>
+  Integer.parseInt((String) pageContext.getAttribute("age")) > 18) { %>
 输出：您已经成年了 <% } else {%> 输出：您还是个孩子 <% } %>
 <br/>------------------------------使用JSTL标签-------------------------------------<br/>
 
 <c:choose>
-	<c:when test="${age eq 18}"> 输出：您今年成年了 </c:when>
-	<c:when test="${age gt 18}"> 输出：您已经成年了 </c:when>
-	<c:otherwise> 输出：您还是个孩子 </c:otherwise>
+ <c:when test="${age eq 18}"> 输出：您今年成年了 </c:when>
+ <c:when test="${age gt 18}"> 输出：您已经成年了 </c:when>
+ <c:otherwise> 输出：您还是个孩子 </c:otherwise>
 </c:choose>
 </body>
 </html>
@@ -3602,84 +3603,84 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-	<title> c:forEach </title>
+ <title> c:forEach </title>
 </head>
 <body>
 <%
-	pageContext.setAttribute("students", new ArrayList() {{
-		add(new Student("s1", "zhangsan", 16));
-		add(new Student("s2", "lisi", 19));
-		add(new Student("s3", "wangwu", 15));
-	}});
-	pageContext.setAttribute("stuMap", new HashMap() {{
-		put("m1", new Student("s1", "zhangsan", 16));
-		put("m2", new Student("s2", "lisi", 18));
-		put("m3", new Student("s3", "wangwu", 15));
-	}});
+ pageContext.setAttribute("students", new ArrayList() {{
+  add(new Student("s1", "zhangsan", 16));
+  add(new Student("s2", "lisi", 19));
+  add(new Student("s3", "wangwu", 15));
+ }});
+ pageContext.setAttribute("stuMap", new HashMap() {{
+  put("m1", new Student("s1", "zhangsan", 16));
+  put("m2", new Student("s2", "lisi", 18));
+  put("m3", new Student("s3", "wangwu", 15));
+ }});
 %>
 <br>------------------------使用java语言------------------------------<br>
 <table>
-	<tr>
-		<td>学号</td>
-		<td>姓名</td>
-		<td>年龄</td>
-	</tr>
-	<%
-		List<Student> stus = (ArrayList<Student>) pageContext.getAttribute("students");
-		for (int i = 0; i < stus.size(); i++) {
-	%>
-	<tr>
-		<td><%=stus.get(i).getSid()%>
-		</td>
-		<td><%=stus.get(i).getName()%>
-		</td>
-		<td><%=stus.get(i).getAge()%>
-		</td>
-	</tr>
-	<% } %>
+ <tr>
+  <td>学号</td>
+  <td>姓名</td>
+  <td>年龄</td>
+ </tr>
+ <%
+  List<Student> stus = (ArrayList<Student>) pageContext.getAttribute("students");
+  for (int i = 0; i < stus.size(); i++) {
+ %>
+ <tr>
+  <td><%=stus.get(i).getSid()%>
+  </td>
+  <td><%=stus.get(i).getName()%>
+  </td>
+  <td><%=stus.get(i).getAge()%>
+  </td>
+ </tr>
+ <% } %>
 </table>
 
 <br>----------------------使用JSTL标签读取list-----------------------<br>
 <table>
-	<tr>
-		<td>学号</td>
-		<td>姓名</td>
-		<td>年龄</td>
-	</tr>
-	<c:forEach var="student" items="${students}">
-		<tr>
-			<td>${student.sid}</td>
-			<td>${student.name}</td>
-			<td>${student.age}</td>
-		</tr>
-	</c:forEach>
+ <tr>
+  <td>学号</td>
+  <td>姓名</td>
+  <td>年龄</td>
+ </tr>
+ <c:forEach var="student" items="${students}">
+  <tr>
+   <td>${student.sid}</td>
+   <td>${student.name}</td>
+   <td>${student.age}</td>
+  </tr>
+ </c:forEach>
 </table>
 
 <br>---------------------使用JSTL标签读取map------------------------<br>
 <table>
-	<tr>
-		<td>key</td>
-		<td>学号</td>
-		<td>姓名</td>
-		<td>年龄</td>
-	</tr>
-	<c:forEach var="student" items="${stuMap}">
-		<tr>
-			<td>${student.key}</td>
-			<td>${student.value.sid}</td>
-			<td>${student.value.name}</td>
-			<td>${student.value.age}</td>
-		</tr>
-	</c:forEach>
+ <tr>
+  <td>key</td>
+  <td>学号</td>
+  <td>姓名</td>
+  <td>年龄</td>
+ </tr>
+ <c:forEach var="student" items="${stuMap}">
+  <tr>
+   <td>${student.key}</td>
+   <td>${student.value.sid}</td>
+   <td>${student.value.name}</td>
+   <td>${student.value.age}</td>
+  </tr>
+ </c:forEach>
 </table>
 
 <br>--------------使用JSTL标签读取指定for循环-----------------------<br>
 <label>
-	<select>
-		<c:forEach var="item" begin="1" end="10" step="1">
-			<option> ${item} </option>
-		</c:forEach>
-	</select>
+ <select>
+  <c:forEach var="item" begin="1" end="10" step="1">
+   <option> ${item} </option>
+  </c:forEach>
+ </select>
 </label>
 
 </body>
@@ -3784,8 +3785,8 @@ response.sendRedirect(request.getContextPath() + "/login.jsp");
 ```html
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+ String path = request.getContextPath();
+ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <html>
   <head>
@@ -4039,7 +4040,7 @@ JNDI（Java Naming and Directory Interface，Java 命名和目录接口）是一
 
 怎么理解这一项技术呢？我们可以给每个资源起一个名字，并且构建一成个目录结构，就好比 linux 系统当中的目录结构一样，这样我们就可以像访问文件这样`/usr/local/config/web.xml`，去访问一个资源，这个资源可以是任意我们可以用 java 定义的资源，比如我们的数据源。
 
-资源引用和资源定义的默认 JNDI 命名空间必须始终是 *java:comp/env*，这就好比一个默认的文件夹。
+资源引用和资源定义的默认 JNDI 命名空间必须始终是 _java:comp/env_，这就好比一个默认的文件夹。
 
 看这个图，我们怎么表示一个 mysql 的数据源呢？
 
@@ -4668,11 +4669,27 @@ public class IdentityServlet extends HttpServlet {
 }
 ```
 
+> [!TIP]
+>
+> Java 8 之后
+>
+> ```diff
+> //转成JPEG格式
+> ServletOutputStream out = response.getOutputStream();
+> - //编码器
+> - JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
+> - //对图片进行编码
+> - encoder.encode(bi);
+> + // 使用 ImageIO 替代 JPEGImageEncoder
+> + ImageIO.write(bi, "jpeg", out);
+> out.flush();
+> ```
+
 在前端的显示我们这么处理：
 
 ```html
 <div class="form-group">
-  <label for="password">验证码：</label>
+  <label for="verify">验证码：</label>
   <input
     type="password"
     class="form-control"
@@ -4687,7 +4704,7 @@ public class IdentityServlet extends HttpServlet {
 除此之外我们还需要使用 session 进行配合：
 
 ```java
-String verification = (String)session.getAttribute("verification");
+String verification = (String) session.getAttribute("verification");
 
 resp.setHeader("Content-Type","text/plain;charset=utf-8");
 if(!verification.equals(verify)){
@@ -4794,14 +4811,27 @@ public class DownLoadServlet extends HttpServlet {
 配置虚拟路径可以帮我们搭建一个简易的图片服务器，让我们上传的图片可以用 url 访问。
 
 ```html
-<Context path="/xinzhi/image" docBase="D:\\img" debug="0" reloadbale="true" />
+<Context path="/image" docBase="F://www//img//" debug="0" reloadbale="true"/>
 ```
 
-path: Host 的虚拟目录 docBase: 映射的物理目录的地址，可指定相对路径，相对 appBase 下，也可以指定绝对路径（例如：D:\Workes\testtomcat\WebRoot）。如果无此项则默认为 appBase/ROOT 。
+- **path**: Host 的虚拟目录
+- **docBase**: 映射的物理目录的地址，可指定相对路径，相对 appBase 下，也可以指定绝对路径（例如：`D:\Workes\testtomcat\WebRoot`）。如果无此项则默认为 `appBase/ROOT` 。
 
 #### 6、分页
 
-此处不赘述，可以看视频
+如果是 MySQL 数据库可以使用 limit
+
+‘limit offset len’
+
+`limit 0,10`: 0-9 页
+
+`limit 10 20` 10-19 页
+
+```text
+currentPage 1
+
+pageSize 10
+```
 
 ### 三、项目打包
 
@@ -4825,4 +4855,4 @@ path: Host 的虚拟目录 docBase: 映射的物理目录的地址，可指定�
 
 ![image-20211013153851389](./img/image-20211013153851389-a53aefb6.png)
 
-6、将 war 包放在 tomcat 的 webapp 下启动即可。as
+6、将 war 包放在 tomcat 的 webapp 下启动即可。
