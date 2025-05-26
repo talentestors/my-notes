@@ -360,7 +360,7 @@ create table 表名 (
 
 非空约束指的是，如果我们要在这张表中添加数据，设定了非空约束的列必须赋值，不能为空：
 
-```mysql
+```sql
 create table `ydlclass`.`author`(
  `aut_id` int ,
  `aut_name` varchar(50) not null,     # 这就是非空约束
@@ -638,7 +638,7 @@ delete from 表名 (where 条件);
 
 不加 where 条件时会删除表中所有的记录，所以为了防止这种失误操作，很多数据库往往都会有备份。
 
-```mssql
+```sql
 delete from author where auth_id = 1;
 ```
 
@@ -1102,7 +1102,7 @@ select * from student where age > (
 
 （2）查询有一门学科分数大于九十分的学生信息 (列子查询)
 
-```mysql
+```sql
 select * from student where id in(
  select distinct s_id from scores where score > 90
 )
@@ -1600,7 +1600,7 @@ from mystudent group by user_name
 
 可能有这种需求，需要给个某个账户对学生表的操作，但是有些私密信息又不能暴露，就可以拆分。
 
-```undefined
+```text
 第一种方案：分两张表存储，共享主键
 第二种方案：分两张表存储，外键唯一
 ```
@@ -1611,7 +1611,7 @@ from mystudent group by user_name
 
 两张表 外键建在多的一方
 
-```undefined
+```text
 分两张表存储，在多的一方添加外键，
 这个外键字段引用一的一方中的主键字段
 ```
@@ -1620,7 +1620,7 @@ from mystudent group by user_name
 
 第二范式的例子
 
-```undefined
+```text
 分三张表存储，在学生表中存储学生信息，在课程表中存储课程信息，
 在成绩表中存储学生和课程的关系信息
 ```
