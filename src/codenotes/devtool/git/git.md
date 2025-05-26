@@ -23,21 +23,21 @@ order: 1
 timeline: false
 ---
 
-## 第一章 Git安装
+## 第一章 Git 安装
 
 > [!TIP]
 >
 > 相关网站和文章：
 >
-> [《Pro Git中文版(第二版)》 - 书栈网 · BookStack](https://www.bookstack.cn/books/pro-git2)
+> [《Pro Git 中文版(第二版)》 - 书栈网 · BookStack](https://www.bookstack.cn/books/pro-git2)
 >
 > <https://git-scm.com/book/zh/v2>
 >
-> [Git教程 - 廖雪峰的官方网站](https://liaoxuefeng.com/books/git/introduction/index.html)
+> [Git 教程 - 廖雪峰的官方网站](https://liaoxuefeng.com/books/git/introduction/index.html)
 >
-> [图解Git](https://marklodato.github.io/visual-git-guide/index-zh-cn.html)
+> [图解 Git](https://marklodato.github.io/visual-git-guide/index-zh-cn.html)
 
-windows安装：进入网站 <https://git-scm.com/> 下载安装，然后在cmd命令行配置
+windows 安装：进入网站 <https://git-scm.com/> 下载安装，然后在 cmd 命令行配置
 
 还可以去清华源上下载！<https://mirrors.tuna.tsinghua.edu.cn>
 
@@ -45,7 +45,7 @@ windows安装：进入网站 <https://git-scm.com/> 下载安装，然后在cmd�
 > git config --global user.name "talentestors"
 > git config --global user.email "talentestors@gmail.com"
 #检查信息是否写入成功
-git config --list 
+git config --list
 ```
 
 也可以直接修改配置文件（我的配置如下）
@@ -67,17 +67,17 @@ git config --list
     ui = always
 ```
 
-配置文件在**home目录**下的`.gitconfig`文件（没有需要自己建）
+配置文件在**home 目录**下的`.gitconfig`文件（没有需要自己建）
 
 > windows: `C:\Users\<YourUsername>\.gitconfig`
 >
 > Linux: `~/.gitconfig`
 
-- ubuntu配置：`apt-get install git`
-- centos配置：`yum install git`
-- msys2配置：`pacman -S git` (windows)
-- scoop配置：`scoop install git` (windows)
-- arch配置：`sudo pacman -S git`
+- ubuntu 配置：`apt-get install git`
+- centos 配置：`yum install git`
+- msys2 配置：`pacman -S git` (windows)
+- scoop 配置：`scoop install git` (windows)
+- arch 配置：`sudo pacman -S git`
 
 ## 第二章 理论基础
 
@@ -129,7 +129,7 @@ Git 中使用这种哈希值的情况很多，你将经常看到这种哈希值�
 
 ## 第三章 实战
 
-### 1、初始化Git
+### 1、初始化 Git
 
 #### （1）初次运行 Git 前的配置
 
@@ -142,7 +142,7 @@ Git 自带一个 `git config` 的工具来帮助设置控制 Git 外观和行为
 你可以通过以下命令查看所有的配置以及它们所在的文件：
 
 ```bash
-$ git config --list --show-origin
+git config --list --show-origin
 ```
 
 #### （2）用户信息
@@ -150,8 +150,8 @@ $ git config --list --show-origin
 安装完 Git 之后，要做的第一件事就是设置你的用户名和邮件地址。 这一点很重要，因为每一个 Git 提交都会使用这些信息，它们会写入到你的每一次提交中，不可更改：
 
 ```bash
-$ git config --global user.name "itnanls"
-$ git config --global user.email "510180298@qq.com"
+git config --global user.name "itnanls"
+git config --global user.email "510180298@qq.com"
 ```
 
 再次强调，如果使用了 `--global` 选项，那么该命令只需要运行一次，因为之后无论你在该系统上做任何事情， Git 都会使用那些信息。 当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行没有 `--global` 选项的命令来配置。
@@ -211,7 +211,7 @@ IdentityFile ~/.ssh/id_rsa.github
 
 #### （4）尝试
 
-在自己方便的盘中新建一个文件夹，这里以MyProject为例，注意路径中不要含有中文字符。打开cmd命令窗口，操作如下：
+在自己方便的盘中新建一个文件夹，这里以 MyProject 为例，注意路径中不要含有中文字符。打开 cmd 命令窗口，操作如下：
 
 找一个空文件夹：
 
@@ -223,12 +223,12 @@ IdentityFile ~/.ssh/id_rsa.github
 $ git init
 Initialized empty Git repository in C:/Users/51018/Desktop/git-study/.git/
 51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)
-    
+
 // 添加一个文件
 $ touch a.txt
 $ echo 123 > a.txt
 51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)
-    
+
 // 提交至缓存区
 $ git add a.txt
 51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)
@@ -247,14 +247,14 @@ $ git commit -m 'first'
 若你使用 Git 时需要获取帮助，有三种等价的方法可以找到 Git 命令的综合手册（manpage）：
 
 ```bash
-$ git help <verb>
-$ git <verb> --help
+git help <verb>
+git <verb> --help
 ```
 
 例如，要想获得 `git config` 命令的手册，执行
 
 ```bash
-$ git help config
+git help config
 ```
 
 此外，如果你不需要全面的手册，只需要可用选项的快速参考，那么可以用 `-h` 选项获得更简明的 “help” 输出：
@@ -292,17 +292,17 @@ nothing to commit, working tree clean
 $ git add b.txt
 ```
 
-如果代码报错：git上传代码报错-The file will have its original line endings in your working directory
+如果代码报错：git 上传代码报错-The file will have its original line endings in your working directory
 
 原因是因为文件中换行符的差别导致的。
 
-> 这里需要知道CRLF和LF的区别：
+> 这里需要知道 CRLF 和 LF 的区别：
 
-windows下的换行符是CRLF而Unix的换行符格式是LF。git默认支持LF。
+windows 下的换行符是 CRLF 而 Unix 的换行符格式是 LF。git 默认支持 LF。
 
-上面的报错的意思是会把CRLF（也就是回车换行）转换成Unix格式（LF），这些是转换文件格式的警告，不影响使用。
+上面的报错的意思是会把 CRLF（也就是回车换行）转换成 Unix 格式（LF），这些是转换文件格式的警告，不影响使用。
 
-一般commit代码时git会把CRLF转LF，pull代码时LF换CRLF。
+一般 commit 代码时 git 会把 CRLF 转 LF，pull 代码时 LF 换 CRLF。
 
 解决方案：
 
@@ -313,11 +313,11 @@ git config core.autocrlf false
 
 然后重新上传代码即可。
 
-为true时，Git会将你add的所有文件视为文本问价你，将结尾的CRLF转换为LF，而checkout时会再将文件的LF格式转为CRLF格式。
+为 true 时，Git 会将你 add 的所有文件视为文本问价你，将结尾的 CRLF 转换为 LF，而 checkout 时会再将文件的 LF 格式转为 CRLF 格式。
 
-为false时，line endings不做任何改变，文本文件保持其原来的样子。
+为 false 时，line endings 不做任何改变，文本文件保持其原来的样子。
 
-为input时，add时Git会把CRLF转换为LF，而check时仍旧为LF，所以Windows操作系统不建议设置此值。
+为 input 时，add 时 Git 会把 CRLF 转换为 LF，而 check 时仍旧为 LF，所以 Windows 操作系统不建议设置此值。
 
 输入**git status**命令，提示如下：
 
@@ -377,7 +377,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)
 ```
 
-修改文件后，使用git status查看数据。
+修改文件后，使用 git status 查看数据。
 
 > git log 查看历史操作记录
 
@@ -399,14 +399,14 @@ Date:   Sat Mar 13 15:53:38 2021 +0800
 * d5a12d8a966da5bf36c1f4a080c5d507398f5f59 (HEAD -> master) first
 ```
 
-结果中：有head代表当前所处的分之，master代表当前是master分支。可以按下不表。
+结果中：有 head 代表当前所处的分之，master 代表当前是 master 分支。可以按下不表。
 
 两次的提交记录看到了。--pretty=oneline
 
 head git 中的分支，其实本质上仅仅是个指向 commit 对象的可变指针。git 是如何知道你当前在哪个分支上工作的呢？ 其实答案也很简单，它保存着一个名为 HEAD 的特别指针。在 git 中，它是一个指向你正在工作中的本地分支的指针，可以将 HEAD 想象为当前分支的别名。
 
 ```bash
-$ git log --graph
+git log --graph
 ```
 
 ### 3、时光回退
@@ -415,17 +415,17 @@ $ git log --graph
 
 #### （1）回滚快照
 
-*注：快照即提交的版本，每个版本我们称之为一个快照。*
+_注：快照即提交的版本，每个版本我们称之为一个快照。_
 
 现在我们利用 reset 命令回滚快照，并看看 Git 仓库和三棵树分别发生了什么。
 
 执行 git reset HEAD~ 命令：
 
-*注：HEAD 表示最新提交的快照，而 HEAD~ 表示 HEAD 的上一个快照，HEAD~~表示上上个快照，如果表示上10个快照，则可以用HEAD ~10*
+_注：HEAD 表示最新提交的快照，而 HEAD~ 表示 HEAD 的上一个快照，HEAD~~表示上上个快照，如果表示上 10 个快照，则可以用 HEAD ~10_
 
 此时我们的快找回滚到了第二棵数（暂存区域）
 
-记住：head永远指向当前分支的当前快照
+记住：head 永远指向当前分支的当前快照
 
 ```bash
 $ git  --hard reset head~
@@ -451,7 +451,7 @@ Date:   Sat Mar 13 15:53:38 2021 +0800
 
 reset 不仅移动 HEAD 的指向，将快照回滚动到暂存区域，它还将暂存区域的文件还原到工作目录。
 
---mixed: 回退版本库，暂存区。(--mixed为git reset的默认参数，即当任何参数都不加的时候的参数)
+--mixed: 回退版本库，暂存区。(--mixed 为 git reset 的默认参数，即当任何参数都不加的时候的参数)
 
 --soft: 回退版本库。
 
@@ -477,16 +477,16 @@ git reset --hard  c7c0e3bf6d64404e3e68632c24ca13eac38b02e2
 
 唯一的一个前提条件是：你需要知道指定快照的 ID 号。
 
-**那如果不小心把命令窗口关了不记得ID号怎么办？** 命令：
+**那如果不小心把命令窗口关了不记得 ID 号怎么办？** 命令：
 
 ```bash
 git reflog
 ```
 
-Git记录的每一次操作的版本ID号
+Git 记录的每一次操作的版本 ID 号
 
 ```bash
-$ git reset --hard 7ce4954
+git reset --hard 7ce4954
 ```
 
 ### 4、版本对比
@@ -495,7 +495,7 @@ $ git reset --hard 7ce4954
 
 目的：对比版本之间有哪些不同
 
-在已经存在的文件b.txt中添加内容：
+在已经存在的文件 b.txt 中添加内容：
 
 ```bash
 $ git diff
@@ -512,9 +512,9 @@ index 9ab39d5..4d37a8a 100644
 
 现在来解释一下上面每一行的含义：
 
-**第一行：** diff --git a/b.txt b/b.txt 表示对比的是存放在暂存区域和工作目录的b.txt
+**第一行：** diff --git a/b.txt b/b.txt 表示对比的是存放在暂存区域和工作目录的 b.txt
 
-**第二行：** index 9ab39d5..4d37a8a 100644 表示对应文件的 ID 分别是 9ab39d5和 4d37a8a，左边暂存区域，后边当前目录。最后的 100644 是指定文件的类型和权限
+**第二行：** index 9ab39d5..4d37a8a 100644 表示对应文件的 ID 分别是 9ab39d5 和 4d37a8a，左边暂存区域，后边当前目录。最后的 100644 是指定文件的类型和权限
 
 **第三行：** --- a/b.txt
 
@@ -599,7 +599,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 提醒使用 checkout 命令可以将暂存区域的文件恢复到工作目录：
 
 ```bash
-$ git checkout -- b.txt
+git checkout -- b.txt
 ```
 
 文件就会重新返回。
@@ -608,7 +608,7 @@ $ git checkout -- b.txt
 
 假如你不小心把小黄图下载到了工作目录，然后又不小心提交到了 Git 仓库：
 
-新增一个c.txt文件
+新增一个 c.txt 文件
 
 ```bash
 51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)
@@ -632,7 +632,7 @@ $ git rm c.txt
 rm 'c.txt'
 ```
 
-此时工作目录中的c.txt已经被删除……
+此时工作目录中的 c.txt 已经被删除……
 
 ```bash
 51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)
@@ -659,9 +659,9 @@ Changes to be committed:
 
 > 缓冲区和工作树的内容不一致，怎么删除
 
-1、修改b.txt 添加至缓冲区
+1、修改 b.txt 添加至缓冲区
 
-2、再修改b.txt
+2、再修改 b.txt
 
 3、git rm c.txt
 
@@ -681,7 +681,7 @@ error: the following file has changes staged in the index:
 (use --cached to keep the file, or -f to force removal)
 ```
 
-因为两个不同内容的同名文件，谁知道你是不是搞清楚了都要删掉？还是提醒一下好，别等一下出错了又要赖机器…… 根据提示，执行 git rm -f b.txt命令就可以把两个都删除。
+因为两个不同内容的同名文件，谁知道你是不是搞清楚了都要删掉？还是提醒一下好，别等一下出错了又要赖机器…… 根据提示，执行 git rm -f b.txt 命令就可以把两个都删除。
 
 > 我只想删除暂存区域的文件，保留工作目录的，应该怎么操作？
 
@@ -689,7 +689,7 @@ error: the following file has changes staged in the index:
 
 ### 6、重命名文件
 
-直接在工作目录重命名文件，执行git status出现错误：
+直接在工作目录重命名文件，执行 git status 出现错误：
 
 ```bash
 $ git status
@@ -729,17 +729,17 @@ Changes to be committed:
 
 ### 7、忽略文件
 
-**如何让Git 识别某些格式的文件，然后自主不跟踪它们？** 
+**如何让 Git 识别某些格式的文件，然后自主不跟踪它们？**
 
-比如工作目录中有三个文件1.temp、2.temp 和 3.temp，我们不希望后缀名为 temp 的文件被追踪，可是每次执行git status都会出现：
+比如工作目录中有三个文件 1.temp、2.temp 和 3.temp，我们不希望后缀名为 temp 的文件被追踪，可是每次执行 git status 都会出现：
 
 解决办法：在工作目录创建一个名为 .gitignore 的文件。
 
-然后你发现 Windows 压根儿不允许你在文件管理器中创建以点（.）开头的文件。windows需要在命令行窗口创建（.）开头的文件。执行 echo *.temp > .gitignore 命令，创建一个 .gitignore 文件，并让 Git 忽略所有 .temp 后缀的文件：
+然后你发现 Windows 压根儿不允许你在文件管理器中创建以点（.）开头的文件。windows 需要在命令行窗口创建（.）开头的文件。执行 echo \*.temp > .gitignore 命令，创建一个 .gitignore 文件，并让 Git 忽略所有 .temp 后缀的文件：
 
 ```bash
-$ echo *.temp > .gitignore
-$ echo *.temp > .gitignore
+echo *.temp > .gitignore
+echo *.temp > .gitignore
 ```
 
 在工作目录创建 a.temp
@@ -761,7 +761,7 @@ Untracked files:
 51018@DESKTOP-6R8BLO2 MINGW64 ~/Desktop/git-study (master)
 ```
 
-好了，Git 已经忽略了所有的 *.temp 文件（你还可以把 .gitignore 文件也一并忽略）。
+好了，Git 已经忽略了所有的 \*.temp 文件（你还可以把 .gitignore 文件也一并忽略）。
 
 ## 8、创建和切换分支
 
@@ -777,7 +777,7 @@ Untracked files:
 
 ### （2）创建分支
 
-执行git status查看状态：
+执行 git status 查看状态：
 
 ```bash
 $ git status
@@ -787,12 +787,12 @@ On branch master
 创建分支，使用 git branch 分支名 命令：
 
 ```bash
-$ git branch feature-login
+git branch feature-login
 ```
 
 没有任何提示说明分支创建成功（一般也不会失败啦，除非创建了同名的分支会提醒你一下），此时可以执行 git log --decorate 命令查看：
 
-*如果希望以“精简版”的方式显示，可以加上一个 --oneline 选项（即 git log --decorate --oneline），这样就只用一行来显示一个快照记录。*
+_如果希望以“精简版”的方式显示，可以加上一个 --oneline 选项（即 git log --decorate --oneline），这样就只用一行来显示一个快照记录。_
 
 ```bash
 $ git log
@@ -839,7 +839,7 @@ nothing to commit, working tree clean
 
 现在我们进行一次提交（暂存区域还有一个更改的文件没有提交呢）：
 
-创建d.txt文件
+创建 d.txt 文件
 
 ```sh
 $ git add d.txt
@@ -851,7 +851,7 @@ $ git commit -am 'feature01'
  create mode 100644 d.txt
 ```
 
-现在仓库中的快照应该是酱紫（提交的快照由当前HEAD指针指向的分支来管理）：
+现在仓库中的快照应该是酱紫（提交的快照由当前 HEAD 指针指向的分支来管理）：
 
 ![image-20210316221845292](./img/image-20210316221845292-8f628f66.png)
 
@@ -996,9 +996,9 @@ $ git log --decorate --all --graph --oneline
 * c7c0e3b first
 ```
 
-合并分支我们使用 merge 命令，执行 git merge feature01命令，将 feature 分支合并到 HEAD 所在的分支（master）上：
+合并分支我们使用 merge 命令，执行 git merge feature01 命令，将 feature 分支合并到 HEAD 所在的分支（master）上：
 
-第一步 切出一个feature2分支，修改master分支中a.txt第一行数据，
+第一步 切出一个 feature2 分支，修改 master 分支中 a.txt 第一行数据，
 
 ```bash
 // 先切出一个分支
@@ -1033,7 +1033,7 @@ CONFLICT (content): Merge conflict in a.txt
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-a.txt内容变成了如下：
+a.txt 内容变成了如下：
 
 ```txt
 <<<<<<< HEAD
@@ -1086,7 +1086,7 @@ $ git commit -m '解决冲突'
 
 由于 Git 的分支原理实际上只是通过一个指针记载，所以创建和删除分支都几乎是瞬间完成。
 
-*注意：如果试图删除未合并的分支，Git 会提示你“该分支未完全合并，如果你确定要删除，请使用 git branch -D 分支名 命令。*
+_注意：如果试图删除未合并的分支，Git 会提示你“该分支未完全合并，如果你确定要删除，请使用 git branch -D 分支名 命令。_
 
 ## 11. 变基（Rebase）
 
@@ -1095,10 +1095,13 @@ $ git commit -m '解决冲突'
 ### 基本用法
 
 - **合并前两次提交**：
+
   ```bash
   git rebase -i HEAD~~
   ```
+
 - **合并特定提交到最新提交**：
+
   ```bash
   git rebase -i <hash值>
   ```
@@ -1176,11 +1179,11 @@ git push origin <branch-name> --force
 
 ## 第四章 码云的使用
 
-既然git是一个团队合作开发的工具，那本地的仓库肯定不能满足团队开发的需求！就必须要有一个远程仓库统一管理我们的代码。
+既然 git 是一个团队合作开发的工具，那本地的仓库肯定不能满足团队开发的需求！就必须要有一个远程仓库统一管理我们的代码。
 
-这类的工具有很多，公网上的有github，国内的有码云 gitee
+这类的工具有很多，公网上的有 github，国内的有码云 gitee
 
-公司内部直接使用 gitlab （等学习了docker后我们部署一个gitlab）
+公司内部直接使用 gitlab （等学习了 docker 后我们部署一个 gitlab）
 
 ![image-20210316223001173](./img/image-20210316223001173-3b39b549.png)
 
@@ -1194,7 +1197,7 @@ git push origin <branch-name> --force
 
 ![image-20210316141308572](./img/image-20210316141308572-271089e2.png)
 
-#### （3）gitlab独立部署
+#### （3）gitlab 独立部署
 
 ![image-20210316141401006](./img/image-20210316141401006-19f8e475.png)
 
@@ -1228,9 +1231,9 @@ git push origin <branch-name> --force
 
 2、Wiki 该功能通常用作文档手册的编写当中
 
-3、Issues：是将一个任务或问题分配给一个issue进行跟踪和管理，可以当做bug管理系统使用，每一个功能的更正或修改都应该对应一个issue，只要看issues就能看到关于这个更改的所有信息
+3、Issues：是将一个任务或问题分配给一个 issue 进行跟踪和管理，可以当做 bug 管理系统使用，每一个功能的更正或修改都应该对应一个 issue，只要看 issues 就能看到关于这个更改的所有信息
 
-4、统计就是仓库各项数据的数据统计，devOPs是持续继承、持续交付的服务，服务：其他码云提供的一些服务。
+4、统计就是仓库各项数据的数据统计，devOPs 是持续继承、持续交付的服务，服务：其他码云提供的一些服务。
 
 5、管理：对仓库的一些修改删除等操作：
 
@@ -1298,13 +1301,13 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 > 第一个关键：添加一个远程仓库
 
 ```bash
-$ git remote add origin https://gitee.com/zhangnan716/git-study.git
+git remote add origin https://gitee.com/zhangnan716/git-study.git
 ```
 
 > 把代码推送到远程仓库
 
 ```bash
-$ git push -u origin master
+git push -u origin master
 ```
 
 > 列出所有的远程仓库
@@ -1324,26 +1327,26 @@ git remote show [remote]
 这几个常见的用法已足以满足我们日常开发的使用了，还有几个扩展的用法，如下：
 
 ```bash
- git push -u origin master 
+ git push -u origin master
 ```
 
-如果当前分支与多个主机存在追踪关系，则可以使用 -u 参数指定一个默认主机，这样后面就可以不加任何参数使用git push，
+如果当前分支与多个主机存在追踪关系，则可以使用 -u 参数指定一个默认主机，这样后面就可以不加任何参数使用 git push，
 
-不带任何参数的git push，默认只推送当前分支，这叫做simple方式，还有一种matching方式，会推送所有有对应的远程分支的本地分支， Git 2.0之前默认使用matching，现在改为simple方式
+不带任何参数的 git push，默认只推送当前分支，这叫做 simple 方式，还有一种 matching 方式，会推送所有有对应的远程分支的本地分支， Git 2.0 之前默认使用 matching，现在改为 simple 方式
 
-如果想更改设置，可以使用git config命令。git config --global push.default matching OR git config --global push.default simple；可以使用git config -l 查看配置
+如果想更改设置，可以使用 git config 命令。git config --global push.default matching OR git config --global push.default simple；可以使用 git config -l 查看配置
 
 ```bash
- git push --all origin 
+ git push --all origin
 ```
 
 当遇到这种情况就是不管是否存在对应的远程分支，将本地的所有分支都推送到远程主机，这时需要 -all 选项
 
 ```bash
- git push --force origin 
+ git push --force origin
 ```
 
-git push的时候需要本地先git pull更新到跟服务器版本一致，如果本地版本库比远程服务器上的低，那么一般会提示你git pull更新，如果一定要提交，那么可以使用这个命令。
+git push 的时候需要本地先 git pull 更新到跟服务器版本一致，如果本地版本库比远程服务器上的低，那么一般会提示你 git pull 更新，如果一定要提交，那么可以使用这个命令。
 
 ![image-20210316144809258](./img/image-20210316144809258-c175de5a.png)
 
@@ -1386,63 +1389,63 @@ git push的时候需要本地先git pull更新到跟服务器版本一致，如�
 
 ##### （2）开发者仓库(本地仓库)
 
-任何开发者都不会对源仓库进行直接的操作，源仓库建立以后，每个开发者需要做的事情就是把源仓库的“复制”一份，作为自己日常开发的仓库。这个复制是gitlab上面的`fork`。
+任何开发者都不会对源仓库进行直接的操作，源仓库建立以后，每个开发者需要做的事情就是把源仓库的“复制”一份，作为自己日常开发的仓库。这个复制是 gitlab 上面的`fork`。
 
-每个开发者所fork的仓库是完全独立的，互不干扰，甚至与源仓库都无关。每个开发者仓库相当于一个源仓库实体的影像，开发者在这个影像中进行编码，提交到自己的仓库中，这样就可以轻易地实现团队成员之间的并行开发工作。而开发工作完成以后，开发者可以向源仓库发送pull request，请求管理员把自己的代码合并到源仓库中，这样就实现了**分布式开发工作**和**集中式的管理**。
+每个开发者所 fork 的仓库是完全独立的，互不干扰，甚至与源仓库都无关。每个开发者仓库相当于一个源仓库实体的影像，开发者在这个影像中进行编码，提交到自己的仓库中，这样就可以轻易地实现团队成员之间的并行开发工作。而开发工作完成以后，开发者可以向源仓库发送 pull request，请求管理员把自己的代码合并到源仓库中，这样就实现了**分布式开发工作**和**集中式的管理**。
 
 #### 2、分支划分（Branch）
 
 ##### （1）master branch：主分支
 
-**master**：主分支从项目一开始便存在，它用于存放经过测试，已经完全稳定代码；在项目开发以后的任何时刻当中，`master`存放的代码应该是可作为产品供用户使用的代码。所以，应该随时保持`master`仓库代码的清洁和稳定，确保入库之前是通过完全测试和代码reivew的。master分支是所有分支中最不活跃的，大概每个月或每两个月更新一次，每一次master更新的时候都应该用`git`打上`tag`，来说明产品有新版本发布。
+**master**：主分支从项目一开始便存在，它用于存放经过测试，已经完全稳定代码；在项目开发以后的任何时刻当中，`master`存放的代码应该是可作为产品供用户使用的代码。所以，应该随时保持`master`仓库代码的清洁和稳定，确保入库之前是通过完全测试和代码 reivew 的。master 分支是所有分支中最不活跃的，大概每个月或每两个月更新一次，每一次 master 更新的时候都应该用`git`打上`tag`，来说明产品有新版本发布。
 
 ##### （2）develop branch：开发分支
 
-**develop**：开发分支，一开始从`master`分支中分离出来，用于开发者存放基本稳定代码。每个开发者的仓库相当于源仓库的一个镜像，每个开发者自己的仓库上也有master和develop。开发者把功能做好以后，是存放到自己的develop中，当测试完以后，可以向管理者发起一个pull request，请求把自己仓库的develop分支合并到源仓库的develop中。所有开发者开发好的功能会在源仓库的develop分支中进行汇总，当develop中的代码经过不断的测试，已经逐渐趋于稳定了，接近产品目标了。这时候，就可以把`develop`分支合并到`master`分支中，发布一个新版本。
+**develop**：开发分支，一开始从`master`分支中分离出来，用于开发者存放基本稳定代码。每个开发者的仓库相当于源仓库的一个镜像，每个开发者自己的仓库上也有 master 和 develop。开发者把功能做好以后，是存放到自己的 develop 中，当测试完以后，可以向管理者发起一个 pull request，请求把自己仓库的 develop 分支合并到源仓库的 develop 中。所有开发者开发好的功能会在源仓库的 develop 分支中进行汇总，当 develop 中的代码经过不断的测试，已经逐渐趋于稳定了，接近产品目标了。这时候，就可以把`develop`分支合并到`master`分支中，发布一个新版本。
 
 注:任何人不应该向`master`直接进行无意义的合并、提交操作。正常情况下，`master`只应该接受`develop`的合并，也就是说，`master`所有代码更新应该源于合并`develop`的代码。
 
 ##### （3）feature branch：功能分支
 
-**feature**：功能性分支，是用于开发项目的功能的分支，是开发者主要战斗阵地。开发者在本地仓库从`develop`分支分出功能分支，在该分支上进行功能的开发，开发完成以后再合并到`develop`分支上，这时候功能性分支已经完成任务，可以删除。功能性分支的命名一般为`feature-*`，|*为需要开发的功能的名称。
+**feature**：功能性分支，是用于开发项目的功能的分支，是开发者主要战斗阵地。开发者在本地仓库从`develop`分支分出功能分支，在该分支上进行功能的开发，开发完成以后再合并到`develop`分支上，这时候功能性分支已经完成任务，可以删除。功能性分支的命名一般为`feature-*`，|\*为需要开发的功能的名称。
 
 ##### （4）协议选择
 
 ![image-20210316154759831](./img/image-20210316154759831-f5926af7.png)
 
-> http好还是ssh好
+> http 好还是 ssh 好
 
-- git可以使用四种主要的协议来传输资料: 本地协议（Local），HTTP 协议，SSH（Secure Shell）协议及 git 协议。其中，本地协议由于目前大都是进行远程开发和共享代码所以一般不常用，而git协议由于缺乏授权机制且较难架设所以也不常用。
-- 最常用的便是SSH和HTTP(S)协议。git关联远程仓库可以使用http协议或者ssh协议。
+- git 可以使用四种主要的协议来传输资料: 本地协议（Local），HTTP 协议，SSH（Secure Shell）协议及 git 协议。其中，本地协议由于目前大都是进行远程开发和共享代码所以一般不常用，而 git 协议由于缺乏授权机制且较难架设所以也不常用。
+- 最常用的便是 SSH 和 HTTP(S)协议。git 关联远程仓库可以使用 http 协议或者 ssh 协议。
 
-> HTTPS优缺点
+> HTTPS 优缺点
 
-- 优点1: 相比 SSH 协议，可以使用用户名／密码授权是一个很大的优势，这样用户就不必须在使用 Git 之前先在本地生成 SSH 密钥对再把公钥上传到服务器。 对非资深的使用者，或者系统上缺少 SSH 相关程序的使用者，HTTP 协议的可用性是主要的优势。 与 SSH 协议类似，HTTP 协议也非常快和高效
-- 优点2: 企业防火墙一般会打开 80 和 443 这两个常见的http和https协议的端口，使用http和https的协议在架设了防火墙的企业里面就可以绕过安全限制正常使用git，非常方便
-- 缺点: 使用http/https除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令. 但是现在操作系统或者其他git工具都提供了 `keychain` 的功能，可以把你的账户密码记录在系统里，例如OSX 的 Keychain 或者 Windows 的凭证管理器。所以也只需要输一次密码就搞定了。
+- 优点 1: 相比 SSH 协议，可以使用用户名／密码授权是一个很大的优势，这样用户就不必须在使用 Git 之前先在本地生成 SSH 密钥对再把公钥上传到服务器。 对非资深的使用者，或者系统上缺少 SSH 相关程序的使用者，HTTP 协议的可用性是主要的优势。 与 SSH 协议类似，HTTP 协议也非常快和高效
+- 优点 2: 企业防火墙一般会打开 80 和 443 这两个常见的 http 和 https 协议的端口，使用 http 和 https 的协议在架设了防火墙的企业里面就可以绕过安全限制正常使用 git，非常方便
+- 缺点: 使用 http/https 除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令. 但是现在操作系统或者其他 git 工具都提供了 `keychain` 的功能，可以把你的账户密码记录在系统里，例如 OSX 的 Keychain 或者 Windows 的凭证管理器。所以也只需要输一次密码就搞定了。
 
-> SSH的优缺点
+> SSH 的优缺点
 
-- 优点1: 架设 Git 服务器时常用 SSH 协议作为传输协议。 因为大多数环境下已经支持通过 SSH 访问 —— 即时没有也比较很容易架设。 SSH 协议也是一个验证授权的网络协议；并且，因为其普遍性，架设和使用都很容易。
-- 缺点1: SSH服务端一般使用22端口，企业防火墙可能没有打开这个端口。
-- 缺点2: SSH 协议的缺点在于你不能通过他实现匿名访问。 即便只要读取数据，使用者也要有通过 SSH 访问你的主机的权限，这使得 SSH 协议不利于开源的项目。 如果你只在公司网络使用，SSH 协议可能是你唯一要用到的协议。 如果你要同时提供匿名只读访问和 SSH 协议，那么你除了为自己推送架设 SSH 服务以外，还得架设一个可以让其他人访问的服务。
+- 优点 1: 架设 Git 服务器时常用 SSH 协议作为传输协议。 因为大多数环境下已经支持通过 SSH 访问 —— 即时没有也比较很容易架设。 SSH 协议也是一个验证授权的网络协议；并且，因为其普遍性，架设和使用都很容易。
+- 缺点 1: SSH 服务端一般使用 22 端口，企业防火墙可能没有打开这个端口。
+- 缺点 2: SSH 协议的缺点在于你不能通过他实现匿名访问。 即便只要读取数据，使用者也要有通过 SSH 访问你的主机的权限，这使得 SSH 协议不利于开源的项目。 如果你只在公司网络使用，SSH 协议可能是你唯一要用到的协议。 如果你要同时提供匿名只读访问和 SSH 协议，那么你除了为自己推送架设 SSH 服务以外，还得架设一个可以让其他人访问的服务。
 
 > 总结
 
-HTTPS利于匿名访问，适合开源项目可以方便被别人克隆和读取(但他没有push权限)；毕竟为了克隆别人一个仓库学习一下你就要生成个ssh-key折腾一番还是比较麻烦，所以github除了支持ssh协议必然提供了https协议的支持。
+HTTPS 利于匿名访问，适合开源项目可以方便被别人克隆和读取(但他没有 push 权限)；毕竟为了克隆别人一个仓库学习一下你就要生成个 ssh-key 折腾一番还是比较麻烦，所以 github 除了支持 ssh 协议必然提供了 https 协议的支持。
 
-而SSH协议使用公钥认证比较适合内部项目。 当然了现在的代码管理平台例如github、gitliab，两种协议都是支持的，基本上看自己喜好和需求来选择就可以了。
+而 SSH 协议使用公钥认证比较适合内部项目。 当然了现在的代码管理平台例如 github、gitliab，两种协议都是支持的，基本上看自己喜好和需求来选择就可以了。
 
-> 生成/添加SSH公钥
+> 生成/添加 SSH 公钥
 
-[SSH Key](https://gitee.com/help/labels/19)  &  [SSH 公钥](https://gitee.com/help/labels/29)
+[SSH Key](https://gitee.com/help/labels/19) & [SSH 公钥](https://gitee.com/help/labels/29)
 
-Gitee 提供了基于SSH协议的Git服务，在使用SSH协议访问仓库仓库之前，需要先配置好账户/仓库的SSH公钥。
+Gitee 提供了基于 SSH 协议的 Git 服务，在使用 SSH 协议访问仓库仓库之前，需要先配置好账户/仓库的 SSH 公钥。
 
 你可以按如下命令来生成 sshkey:
 
 ```bash
-ssh-keygen -t rsa -C "510180298@qq.com"  
+ssh-keygen -t rsa -C "510180298@qq.com"
 # Generating public/private rsa key pair...
 ```
 
@@ -1455,7 +1458,7 @@ cat ~/.ssh/id_rsa.pub
 # ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6eNtGpNGwstc....
 ```
 
-![SSH生成](./img/170141_5aa5bc98_551147-5983bb6e.png)SSH生成
+![SSH生成](./img/170141_5aa5bc98_551147-5983bb6e.png)SSH 生成
 
 复制生成后的 ssh key，通过仓库主页 **「管理」->「部署公钥管理」->「添加部署公钥」** ，添加生成的 public key 添加到仓库中。
 
@@ -1467,11 +1470,11 @@ cat ~/.ssh/id_rsa.pub
 ssh -T git@gitee.com
 ```
 
-首次使用需要确认并添加主机到本机SSH可信列表。若返回 `Hi XXX! You've successfully authenticated, but Gitee.com does not provide shell access.` 内容，则证明添加成功。
+首次使用需要确认并添加主机到本机 SSH 可信列表。若返回 `Hi XXX! You've successfully authenticated, but Gitee.com does not provide shell access.` 内容，则证明添加成功。
 
-![SSH添加提示](./img/170837_4c5ef029_551147-20915a65.png)SSH添加提示
+![SSH添加提示](./img/170837_4c5ef029_551147-20915a65.png)SSH 添加提示
 
-添加成功后，就可以使用SSH协议对仓库进行操作了。
+添加成功后，就可以使用 SSH 协议对仓库进行操作了。
 
 ```bash
 $ ssh -T git@gitee.com
@@ -1484,9 +1487,9 @@ Note: DeployKey only supports pull/fetch operations
 
 为了便于用户在多个项目仓库下使用一套公钥，免于重复部署和管理的繁琐，Gitee 推出了「可部署公钥」功能，支持在一个仓库空间下使用当前账户名下/参与的另一个仓库空间的部署公钥，实现公钥共用。
 
-部署公钥允许以只读的方式访问仓库，主要用于仓库在生产服务器的部署上，免去HTTP方式每次操作都要输入密码和普通SSH方式担心不小心修改仓库代码的麻烦。
+部署公钥允许以只读的方式访问仓库，主要用于仓库在生产服务器的部署上，免去 HTTP 方式每次操作都要输入密码和普通 SSH 方式担心不小心修改仓库代码的麻烦。
 
-部署公钥配置后的机器，只支持clone与pull等只读操作。如果您想要对仓库进行写操作，请 [添加个人公钥](https://gitee.com/profile/sshkeys)
+部署公钥配置后的机器，只支持 clone 与 pull 等只读操作。如果您想要对仓库进行写操作，请 [添加个人公钥](https://gitee.com/profile/sshkeys)
 
 个人公钥的添加地址：<https://gitee.com/profile/sshkeys>
 
@@ -1498,7 +1501,7 @@ Note: DeployKey only supports pull/fetch operations
 
 ![image-20210318143710841](./img/image-20210318143710841-89588c83.png)
 
-1、首先项目经理初始化仓库建立好分支。一般会建立两个，一个master分支，一个develop分支。当然，也可能建立一个预发布版本的分支用于测试不如 realse分支。
+1、首先项目经理初始化仓库建立好分支。一般会建立两个，一个 master 分支，一个 develop 分支。当然，也可能建立一个预发布版本的分支用于测试不如 realse 分支。
 
 2、对个分支设置保护行为。
 
@@ -1563,7 +1566,7 @@ Note: DeployKey only supports pull/fetch operations
 
 > 跨团队成员的合作方式
 
-1、将代码fork到自己的仓库，同样可以进行相关的配置。
+1、将代码 fork 到自己的仓库，同样可以进行相关的配置。
 
 2、项目克隆到本地。
 
@@ -1571,13 +1574,13 @@ Note: DeployKey only supports pull/fetch operations
 
 4、开发完成后合并到自己的仓库
 
-5、发起pull request请求给源仓库管理员
+5、发起 pull request 请求给源仓库管理员
 
-6、源仓库管理员进行code review（重新检查代码，审核代码），测试审核，通过则进行合并。
+6、源仓库管理员进行 code review（重新检查代码，审核代码），测试审核，通过则进行合并。
 
 > 源仓库的构建
 
-这一步通常由项目发起人(项目管理员)来操作，源仓库为op/Chanjet_Asset_Management,并初始化两个分支master和develop.
+这一步通常由项目发起人(项目管理员)来操作，源仓库为 op/Chanjet_Asset_Management,并初始化两个分支 master 和 develop.
 
 > 1、新建仓库
 
@@ -1587,11 +1590,11 @@ Note: DeployKey only supports pull/fetch operations
 
 ![image-20210316161514694](./img/image-20210316161514694-f908097f.png)
 
-> 开发者fork仓库到自己的账户下，作为自己开发所用的仓库。
+> 开发者 fork 仓库到自己的账户下，作为自己开发所用的仓库。
 
 ![image-20210316162529369](./img/image-20210316162529369-89eebb82.png)
 
-> 把自己开发者仓库clone到本地
+> 把自己开发者仓库 clone 到本地
 
 ```bash
 >>> git clone https://gitee.com/zhao-dengkai/git-study.git
@@ -1625,11 +1628,11 @@ Note: DeployKey only supports pull/fetch operations
 # 把develop提交到自己的远程仓库中
 ```
 
-此时，上自己gitlab的项目主页中`develop`分支中查看，已经有`discuss.java`这个文件了：
+此时，上自己 gitlab 的项目主页中`develop`分支中查看，已经有`discuss.java`这个文件了：
 
-> 向项目经理提交pull request
+> 向项目经理提交 pull request
 
-> 提交pullrequest请求页面
+> 提交 pullrequest 请求页面
 
 ![image-20210316162936698](./img/image-20210316162936698-574f16d7.png)
 
@@ -1669,15 +1672,15 @@ http://gitlab.rd.chanjet.com/op/Chanjet_Asset_Management.git develop
 
 > 总结：
 
-1、自己先fork代码到自己账户
+1、自己先 fork 代码到自己账户
 
 2、拉倒本地，写代码
 
 3、推到远程仓库
 
-4、提交issue
+4、提交 issue
 
-5、管理员测试，review后统一，就合并了
+5、管理员测试，review 后统一，就合并了
 
 6、如发生冲突，解决冲突即可
 

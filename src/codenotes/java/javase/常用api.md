@@ -21,23 +21,23 @@ order: 5
 timeline: false
 ---
 
-## 一、api是什么
+## 一、api 是什么
 
 （1）概述
 
- API（Application Programming Interface）应用程序接口，是一些预先定义的接口。我们现在理解接口课程很狭隘，因为jdk中本身就有接口的概念。
+API（Application Programming Interface）应用程序接口，是一些预先定义的接口。我们现在理解接口课程很狭隘，因为 jdk 中本身就有接口的概念。
 
- 其实我们类的方法，接口的方法在宏观上都能称之为接口。
+其实我们类的方法，接口的方法在宏观上都能称之为接口。
 
-（2）api文档
+（2）api 文档
 
- 我们现在可以狭义的去理解它，就是一个文档，描述了jdk内置类的说明。
+我们现在可以狭义的去理解它，就是一个文档，描述了 jdk 内置类的说明。
 
- 文档地址：<https://www.matools.com/api/java8>
+文档地址：<https://www.matools.com/api/java8>
 
- 在学习这一章节的时候，千万不要陷入记忆的魔障，api文档不是用来背的，是用来查的。我们要做到心中大概知道有一个类能实现某一类方法就好了，剩下的我们在使用的时候去查阅就好了。
+在学习这一章节的时候，千万不要陷入记忆的魔障，api 文档不是用来背的，是用来查的。我们要做到心中大概知道有一个类能实现某一类方法就好了，剩下的我们在使用的时候去查阅就好了。
 
-（3）idea打包api doc
+（3）idea 打包 api doc
 
 ![image-20210825103101043](./img/image-20210825103101043-0053154b.png)
 
@@ -49,21 +49,19 @@ timeline: false
 -encoding utf-8 -charset utf-8
 ```
 
-## 二、时间相关api
+## 二、时间相关 api
 
 #### 概述
 
 学习时间类我们先要了解两个概念：
 
-1、时间：需要解释的吗？就是1991年4月8日12点12分40秒，时间会因为时区的不同而不同。
+1、时间：需要解释的吗？就是 1991 年 4 月 8 日 12 点 12 分 40 秒，时间会因为时区的不同而不同。
 
 2、时区：都学过，都知道东八区吧！
 
 ![image-20210809160109166](./img/image-20210809160109166-e5cefa2d.png)
 
-
-
-2、时间戳：时间戳是指格林威治时间1970年01月01日00时00分00秒(北京时间1970年01月01日08时00分00秒)起至现在的总毫秒数。时间戳在全世界都是固定的。
+2、时间戳：时间戳是指格林威治时间 1970 年 01 月 01 日 00 时 00 分 00 秒(北京时间 1970 年 01 月 01 日 08 时 00 分 00 秒)起至现在的总毫秒数。时间戳在全世界都是固定的。
 
 格林尼治标（英国伦敦郊区的皇家格林尼治天文台的标准时间）准时间的正午是指当太阳横穿格林尼治子午线时（也就是在格林尼治时）的时间。因为本初子午线被定义在通过那里的经线。
 
@@ -71,13 +69,11 @@ timeline: false
 System.currentTimeMillis();
 ```
 
-
-
-我们思考，java中一切皆对象，那时间也是对象，时区也是对象，但时间戳只是个毫秒数，就是个Long类型的数字。
+我们思考，java 中一切皆对象，那时间也是对象，时区也是对象，但时间戳只是个毫秒数，就是个 Long 类型的数字。
 
 ### 1、Date
 
-####  （1）初步使用
+#### （1）初步使用
 
 ```java
 // 不能引入错误的包哈
@@ -96,7 +92,7 @@ Mon Aug 09 15:46:13 GMT+08:00 2021
 
 **GMT**(Greenwich Mean Time)是格林尼治标准时间 ，格林尼治标准时间的正午是指当太阳横穿格林尼治子午线时（也就是在格林尼治时）的时间。
 
-+08:00 就是北京时间，这是时间区域的标示，用以区别时间，以英国格林威治标准时间为基准，台湾,香港,中国为往东8个时区。
++08:00 就是北京时间，这是时间区域的标示，用以区别时间，以英国格林威治标准时间为基准，台湾,香港,中国为往东 8 个时区。
 
 #### （2）构造方法
 
@@ -104,7 +100,7 @@ Mon Aug 09 15:46:13 GMT+08:00 2021
 Date()
 ```
 
-创建一个当时的时间对象，就是new的那一瞬间，精确到毫秒。
+创建一个当时的时间对象，就是 new 的那一瞬间，精确到毫秒。
 
 ```java
 Date(long date)
@@ -112,7 +108,7 @@ Date(long date)
 
 创建一个时间对象，需要传入一个时间戳，代表时间戳表示的时间。
 
-其实我们能看到，Date中的很多的构造器已经被启用了，只留下几个常用的。但是我们不能否认Date是十分常用的一个类。我会给大家介绍时间api的演进。
+其实我们能看到，Date 中的很多的构造器已经被启用了，只留下几个常用的。但是我们不能否认 Date 是十分常用的一个类。我会给大家介绍时间 api 的演进。
 
 ![image-20210809160955704](./img/image-20210809160955704-bdfc98cd.png)
 
@@ -134,7 +130,7 @@ boolean before(Date when)
 getTime()
 ```
 
-返回自1970年1月1日以来，由此 Date对象表示的00:00:00 GMT的毫秒数
+返回自 1970 年 1 月 1 日以来，由此 Date 对象表示的 00:00:00 GMT 的毫秒数
 
 ![image-20210809161151339](./img/image-20210809161151339-193d18f2.png)
 
@@ -142,7 +138,7 @@ getTime()
 
 小作业（案例）：
 
-仅仅使用Date类，计算七天后是哪一天：
+仅仅使用 Date 类，计算七天后是哪一天：
 
 ```java
 Date date = new Date(System.currentTimeMillis() + 7*24*60*60*1000);
@@ -153,14 +149,14 @@ System.out.println(date);
 
 #### （1）简介
 
-一个相对比较新的日期类，Calendar是一个抽象类，它本身就是日历的意思
+一个相对比较新的日期类，Calendar 是一个抽象类，它本身就是日历的意思
 
 ![image-20210809161855620](./img/image-20210809161855620-da6f5979.png)
 
 #### （2）初始化
 
-- Calendar类是一个日历抽象类，提供了一组对“年月日时分秒星期”等日期信息的操作的函数，并针对不同国家和地区的日历提供了相应的子类，即本地化。比如公历GregorianCalendar，佛历BuddhistCalendar，日本帝国历JapaneseImperialCalendar等。
-- 从JDK1.1版本开始，在处理日期和时间时，系统推荐使用Calendar类进行实现(Date的一些方法都过时了)。在设计上，Calendar类的功能要比Date类强大很多，而且在实现方式上也比Date类要复杂一些，下面就介绍一下Calendar类的使用。 
+- Calendar 类是一个日历抽象类，提供了一组对“年月日时分秒星期”等日期信息的操作的函数，并针对不同国家和地区的日历提供了相应的子类，即本地化。比如公历 GregorianCalendar，佛历 BuddhistCalendar，日本帝国历 JapaneseImperialCalendar 等。
+- 从 JDK1.1 版本开始，在处理日期和时间时，系统推荐使用 Calendar 类进行实现(Date 的一些方法都过时了)。在设计上，Calendar 类的功能要比 Date 类强大很多，而且在实现方式上也比 Date 类要复杂一些，下面就介绍一下 Calendar 类的使用。
 
 我们看一下源代码：
 
@@ -174,7 +170,7 @@ public static Calendar getInstance(TimeZone zone,
     private static Calendar createCalendar(TimeZone zone,
                                            Locale aLocale)
     {
-	......
+ ......
 
         if (aLocale.hasExtensions()) {
             String caltype = aLocale.getUnicodeLocaleType("ca");
@@ -202,8 +198,8 @@ public static Calendar getInstance(TimeZone zone,
 由以上代码我们也能知道，我们可以通过子类直接构造：
 
 ```java
-Calendar calendar = new GregorianCalendar(); 
-Calendar calendar = new BuddhistCalendar(); 
+Calendar calendar = new GregorianCalendar();
+Calendar calendar = new BuddhistCalendar();
 ```
 
 #### （3）常用的方法
@@ -216,66 +212,66 @@ Calendar calendar = new BuddhistCalendar();
 calendar.get(int field)
 ```
 
- 用来获取实例化的Calendar对象储存的“年月日时分秒星期”等等信息。方法的参数通过Calendar.XXXX的形式填写，比如要想获取年份信息就用Calendar.YEAR、月份Calendar.MONTH、日期Calendar.Date、时Calendar.HOUR、分Calendar.MINUTE、秒Calendar.SECOND等等。
+用来获取实例化的 Calendar 对象储存的“年月日时分秒星期”等等信息。方法的参数通过 Calendar.XXXX 的形式填写，比如要想获取年份信息就用 Calendar.YEAR、月份 Calendar.MONTH、日期 Calendar.Date、时 Calendar.HOUR、分 Calendar.MINUTE、秒 Calendar.SECOND 等等。
 
 其实参数就是一堆静态常量，1、2、3...
 
 ![image-20210809173447284](./img/image-20210809173447284-e93bf840.png)
 
-所以你使用`calendar.get(1)` 也是能够获取到年份的，我们这里就要体会了，静态常量能给我们带来什么好处，问你一下，这里把final去掉可以吗？
+所以你使用`calendar.get(1)` 也是能够获取到年份的，我们这里就要体会了，静态常量能给我们带来什么好处，问你一下，这里把 final 去掉可以吗？
 
 ```java
 calendar.set((int field, int value));
 calendar.set(int year, int month, int date)
 ```
 
-set方法有很多重载的方法，从api文档中我们也能看明白。
+set 方法有很多重载的方法，从 api 文档中我们也能看明白。
 
-具体的参数 field 就是上边的Calendar.YEAR、Calendar.MONTH....
+具体的参数 field 就是上边的 Calendar.YEAR、Calendar.MONTH....
 
-当然Calendar有非常多的方法：
+当然 Calendar 有非常多的方法：
 
 我们可以预览一下：
 
 ```java
 add(int field, int amount)
 根据日历的规则，将指定的时间量添加或减去给定的日历字段。
-    
+
 after(Object when)
 返回 Calendar是否 Calendar指定时间之后的时间 Object 。
-    
+
 before(Object when)
 返回此 Calendar是否 Calendar指定的时间之前指定的时间 Object 。
-    
+
 Date getTime()
 返回一个 Date表示此物体 Calendar的时间值（毫秒从偏移 Epoch “）。
-    
+
 long getTimeInMillis()
 以毫秒为单位返回此日历的时间值。
-    
+
 TimeZone getTimeZone()
 获取时区。
-    
+
 int getWeeksInWeekYear()
 返回由这个 Calendar表示的星期内的星期 Calendar 。
-    
+
 int getWeekYear()
 返回这个 Calendar 。
-    
+
 void setTime(Date date)
 使用给定的 Date设置此日历的时间。
-    
+
 void setTimeInMillis(long millis)
 从给定的长值设置此日历的当前时间。
-    
+
 void setTimeZone(TimeZone value)
 以给定的时区值设置时区。
-    
+
 Instant toInstant()
 将此对象转换为Instant 。
 ```
 
-小例子，显示1949年10月1号的时间戳！
+小例子，显示 1949 年 10 月 1 号的时间戳！
 
 ```java
 Calendar calendar = Calendar.getInstance();
@@ -283,10 +279,10 @@ calendar.set(2019,10,1);
 long timeInMillis = calendar.getTimeInMillis();
 System.out.println(timeInMillis);
 
-结果：1572599846380     
+结果：1572599846380
 ```
 
-### 3、时区TimeZone
+### 3、时区 TimeZone
 
 时区也是通过静态方法获取
 
@@ -300,17 +296,17 @@ System.out.println(TimeZone.getDefault());
 sun.util.calendar.ZoneInfo[id="GMT+08:00",offset=28800000,dstSavings=0,useDaylight=false,transitions=0,lastRule=null]
 ```
 
-| static String[] | getAvailableIDs()获取支持的所有可用ID。                      |
-| --------------- | ------------------------------------------------------------ |
-| static String[] | getAvailableIDs(int rawOffset)根据给定的时区偏移（以毫秒为单位）获取可用ID。 |
-| static TimeZone | getDefault()获取Java虚拟机的默认值 `TimeZone` 。             |
-| static TimeZone | getTimeZone(String ID)获取给定ID的 `TimeZone` 。             |
-| static TimeZone | getTimeZone(ZoneId zoneId)获取 `TimeZone`对于给定 `zoneId` 。 |
-| static void     | setDefault(TimeZone zone)设置 `TimeZone`由返回 `getDefault`方法。 |
+| static String[] | getAvailableIDs()获取支持的所有可用 ID。                                      |
+| --------------- | ----------------------------------------------------------------------------- |
+| static String[] | getAvailableIDs(int rawOffset)根据给定的时区偏移（以毫秒为单位）获取可用 ID。 |
+| static TimeZone | getDefault()获取 Java 虚拟机的默认值 `TimeZone` 。                            |
+| static TimeZone | getTimeZone(String ID)获取给定 ID 的 `TimeZone` 。                            |
+| static TimeZone | getTimeZone(ZoneId zoneId)获取 `TimeZone`对于给定 `zoneId` 。                 |
+| static void     | setDefault(TimeZone zone)设置 `TimeZone`由返回 `getDefault`方法。             |
 
 比如现在想获取美国的时间：
 
-注：美国本土横跨西五区至西八区，共四个时区，每个时区对应一个标准时间。以华盛顿的西五区为例，西五区的id就是（GMT-05:00）；
+注：美国本土横跨西五区至西八区，共四个时区，每个时区对应一个标准时间。以华盛顿的西五区为例，西五区的 id 就是（GMT-05:00）；
 
 ```java
 public static void main(String[] args) {
@@ -331,7 +327,7 @@ Mon Aug 09 18:20:12 GMT+08:00 2021
 
 ### 4、ZoneId
 
-ZoneId是指区域ID，可以这样表示 Europe/London Asia/Shanghai America/New_York Japan
+ZoneId 是指区域 ID，可以这样表示 Europe/London Asia/Shanghai America/New_York Japan
 
 也可以这样 GMT+8:00 也行
 
@@ -346,9 +342,9 @@ System.out.println(calendar);
 
 ### 5、simpleDateFormat
 
-我们有这种需求，将时间显示成 1999年10月1号。
+我们有这种需求，将时间显示成 1999 年 10 月 1 号。
 
-java给我们提供了时间的格式化器。
+java 给我们提供了时间的格式化器。
 
 （2）构造方法
 
@@ -359,7 +355,7 @@ SimpleDateFormat();
 用默认的模式和默认语言环境的日期格式符号构造 `SimpleDateFormat`。
 
 ```java
-SimpleDateFormat(String pattern); 
+SimpleDateFormat(String pattern);
 ```
 
 用给定的模式和日期符号构造 `SimpleDateFormat`。
@@ -372,14 +368,14 @@ SimpleDateFormat(String pattern);
 
 从这张图中我们了解：
 
-- yyyy 代表年 yy只显示后两位
+- yyyy 代表年 yy 只显示后两位
 - MM 代表月
 - dd 代表日
-- HH代表小时 24小时制 hh 12小时
-- mm代表分钟
-- ss代表秒
+- HH 代表小时 24 小时制 hh 12 小时
+- mm 代表分钟
+- ss 代表秒
 
-yyyy年MM月dd日 HH小时mm分ss秒 就是一种日期时间模式。
+yyyy 年 MM 月 dd 日 HH 小时 mm 分 ss 秒 就是一种日期时间模式。
 
 ```java
 public static void main(String[] args) {
@@ -393,30 +389,30 @@ public static void main(String[] args) {
 （3）主要方法
 
 ```java
-applyPattern(String pattern) 
+applyPattern(String pattern)
 ```
 
 给定的模式字符串应用于此日期格式。
 
 ```java
-String format(Date date) 
+String format(Date date)
 ```
 
 将日期格式化成日期/时间字符串。–进行了重写
 
 ```java
-Date parse(String source) 
+Date parse(String source)
 ```
 
 从给定字符串的开始解析文本以生成日期。–进行了重写
 
 小案例，写一个工具类，能够将时间和字符优雅转化：
 
-## 三、jdk8的时间类
+## 三、jdk8 的时间类
 
- 在JDK8之前，处理日期时间，我们用的都是上边几个类，所谓百足之虫死而不僵，即使上边几个类的方法大面积过时，同时还存在一些问题，比如`SimpleDateFormat` 不是线程安全的，比如 `Date` 和 `Calendar` 获取到的月份是0到11，而不是现实生活中的1到12，我们还是能在绝大部分代码中看到它的影子。
+在 JDK8 之前，处理日期时间，我们用的都是上边几个类，所谓百足之虫死而不僵，即使上边几个类的方法大面积过时，同时还存在一些问题，比如`SimpleDateFormat` 不是线程安全的，比如 `Date` 和 `Calendar` 获取到的月份是 0 到 11，而不是现实生活中的 1 到 12，我们还是能在绝大部分代码中看到它的影子。
 
- 阿里巴巴规约中这样说，如果是jdk8的应用，可以使用`Instant`代替`date`，`LocalDateTime`代替`Canlendar`，`DateTimeFormatter`代替`SimpleDateFormat`。
+阿里巴巴规约中这样说，如果是 jdk8 的应用，可以使用`Instant`代替`date`，`LocalDateTime`代替`Canlendar`，`DateTimeFormatter`代替`SimpleDateFormat`。
 
 我们今天就从以下几个类讲讲新的时间类，主要是下面几个：
 
@@ -434,7 +430,7 @@ Date parse(String source)
 
 我们会发现，这货又将构造器私有化了。
 
-#### （1）构造一个Instant
+#### （1）构造一个 Instant
 
 事实上它给我们提供了很多静态方法，方便我们使用：
 
@@ -449,7 +445,7 @@ System.out.println(instant);
 2021-08-11T06:24:42.051Z
 ```
 
-细心的你会发现，这个时间比北京时间少了8个小时，如果要输出北京时间，可以加上默认时区：
+细心的你会发现，这个时间比北京时间少了 8 个小时，如果要输出北京时间，可以加上默认时区：
 
 ```java
 System.out.println(instant.atZone(ZoneId.systemDefault()));
@@ -470,7 +466,7 @@ System.out.println(instant.toEpochMilli());
 
 当然，也可以通过`System.currentTimeMillis()`获取当前毫秒数。
 
-#### （3）将时间戳转换为Instant
+#### （3）将时间戳转换为 Instant
 
 根据秒数时间戳转换：
 
@@ -493,7 +489,7 @@ long epochMilli = instant.toEpochMilli();
 System.out.println(Instant.ofEpochMilli(epochMilli));
 ```
 
-#### （4）将表达式转换为Instant
+#### （4）将表达式转换为 Instant
 
 ```java
 String text = "2020-06-10T08:46:55.967Z";
@@ -503,13 +499,13 @@ System.out.println("毫秒时间戳:" + parseInstant.toEpochMilli());
 System.out.println("纳秒:" + parseInstant.getNano());
 ```
 
-Instant给我们提供了非常多的实用的方法，我们要独自尝试。
+Instant 给我们提供了非常多的实用的方法，我们要独自尝试。
 
 ### 2、Duration
 
-Duration（持续时间）是TemporalAmount（时间量）的子类。
+Duration（持续时间）是 TemporalAmount（时间量）的子类。
 
-主要用在，instant的日期计算
+主要用在，instant 的日期计算
 
 ```java
 Instant instant = Instant.now();
@@ -518,7 +514,7 @@ Instant plus = instant.plus(Duration.ofDays(5));
 System.out.println(LocalDateTime.ofInstant(plus,ZoneId.systemDefault()));
 ```
 
-我们可以轻易的通过of方法获取一段持续的时间，用来做计算。
+我们可以轻易的通过 of 方法获取一段持续的时间，用来做计算。
 
 ```java
 Duration.ofDays(3);
@@ -561,7 +557,7 @@ Month month = today.getMonth();
 System.out.println(month.getValue());
 ```
 
-我们发现Month是一个枚举类，而且LocalDate的月份居然是从1开始的，从此月份的困扰就解决了。
+我们发现 Month 是一个枚举类，而且 LocalDate 的月份居然是从 1 开始的，从此月份的困扰就解决了。
 
 ![image-20210811144447836](./img/image-20210811144447836-2b0a92a0.png)
 
@@ -617,7 +613,7 @@ System.out.println(today.getYear() + " is leap year:" + today.isLeapYear());
 
 ### 6、DateTimeFormatter
 
-JDK8中推出了`java.time.format.DateTimeFormatter`来处理日期格式化问题，《阿里巴巴Java开发手册》中也是建议使用`DateTimeFormatter`代替`SimpleDateFormat`，因为SimpleDateFormate不是线程安全的。
+JDK8 中推出了`java.time.format.DateTimeFormatter`来处理日期格式化问题，《阿里巴巴 Java 开发手册》中也是建议使用`DateTimeFormatter`代替`SimpleDateFormat`，因为 SimpleDateFormate 不是线程安全的。
 
 ```java
 LocalDate today = LocalDate.now();
@@ -629,7 +625,7 @@ System.out.println(format);
 2021年08月11日
 ```
 
-LocalTime和 LocalDateTime自行脑补，DateTimeFormatter同时给我们提供了很多国际时间格式化的规则，自己看看就行了。
+LocalTime 和 LocalDateTime 自行脑补，DateTimeFormatter 同时给我们提供了很多国际时间格式化的规则，自己看看就行了。
 
 ```text
 LocalDateTime today = LocalDateTime.now();
@@ -643,23 +639,23 @@ System.out.println(format);
 
 ### 7. 类型相互转换
 
-#### （1）Instant和Date
+#### （1）Instant 和 Date
 
-JDK8中，`Date`新增了`from()`方法，将`Instant`转换为`Date`，代码如下所示：
+JDK8 中，`Date`新增了`from()`方法，将`Instant`转换为`Date`，代码如下所示：
 
 ```java
 Date date = Date.from(instant);
 Instant dateToInstant = date.toInstant();
 ```
 
-#### （2）Instance和LocalDateTime
+#### （2）Instance 和 LocalDateTime
 
 ```java
 LocalDateTime localDateTime = LocalDateTime.ofInstant(instant)
 Instant instant1 = LocalDateTime.now().toInstant(ZoneOffset.UTC);
 ```
 
-#### （3）Date和LocalDateTime
+#### （3）Date 和 LocalDateTime
 
 ```java
 Date date = new Date();
@@ -694,24 +690,24 @@ System.out.println(Math.cbrt(8.0)); // 输出2.0
 System.out.println(Math.abs(-10)); // 输出10
 ```
 
-这个类其实超级简单但是不用背诵啊，只要我们能想到的和数学有关系的代码，我们都可以在Math中找一找，说不定就会有收获啊。
+这个类其实超级简单但是不用背诵啊，只要我们能想到的和数学有关系的代码，我们都可以在 Math 中找一找，说不定就会有收获啊。
 
 ### 2、BigDecimal
 
-#### （1）为什么不能用double表示钱
+#### （1）为什么不能用 double 表示钱
 
- 因为浮点数不能准确代表我们用于货币的基数10的倍数。这个问题不仅仅针对Java，而且还针对任何使用base 2浮点类型的编程语言。适用于几乎所有语言的解决方案是改用整数，然后计算分。例如，1025为$ 10.25。
+因为浮点数不能准确代表我们用于货币的基数 10 的倍数。这个问题不仅仅针对 Java，而且还针对任何使用 base 2 浮点类型的编程语言。适用于几乎所有语言的解决方案是改用整数，然后计算分。例如，1025 为$ 10.25。
 
 - 举一个例子：钱，我们有一百块 五十块 十块 五块 一块 一毛 五毛 一分 ，不知道你见过两分没？
-- 大于零的无所谓，但是一毛钱也就是0.1元，二进制是无法表示的，两毛也是，五毛倒是可以，一分又不行了。 至于为什么，我们之前讲浮点数的时候讲过。
+- 大于零的无所谓，但是一毛钱也就是 0.1 元，二进制是无法表示的，两毛也是，五毛倒是可以，一分又不行了。 至于为什么，我们之前讲浮点数的时候讲过。
 
- 在商业计算中要用java.math.BigDecimal。BigDecimal所创建的是对象，我们不能使用传统的+、-、*、/等算术运算符直接对其对象进行数学运算，而必须调用其相对应的方法。方法中的参数也必须是BigDecimal的对象。
+在商业计算中要用 java.math.BigDecimal。BigDecimal 所创建的是对象，我们不能使用传统的+、-、\*、/等算术运算符直接对其对象进行数学运算，而必须调用其相对应的方法。方法中的参数也必须是 BigDecimal 的对象。
 
- 十进制整数在转化成二进制数时不会有精度问题，那么把十进制小数扩大N倍让它在整数的维度上进行计算，并保留相应的精度信息。所以本质是记录一个精度信息，使用正数进行计算，然后再转化为二进制数。
+十进制整数在转化成二进制数时不会有精度问题，那么把十进制小数扩大 N 倍让它在整数的维度上进行计算，并保留相应的精度信息。所以本质是记录一个精度信息，使用正数进行计算，然后再转化为二进制数。
 
 #### （2）构造器
 
-BigDecimal 有很多重载的构造器，我们几乎可以将任何数字相关的类型转化为一个BigDecimal 对象。
+BigDecimal 有很多重载的构造器，我们几乎可以将任何数字相关的类型转化为一个 BigDecimal 对象。
 
 | 构造器             |                                                  |
 | ------------------ | ------------------------------------------------ |
@@ -722,31 +718,31 @@ BigDecimal 有很多重载的构造器，我们几乎可以将任何数字相关
 
 #### （3）常用方法
 
-BigDecimal提供了大量的计算方法，我们举几个例子
+BigDecimal 提供了大量的计算方法，我们举几个例子
 
-|            |                                                              |                                              |
-| ---------- | ------------------------------------------------------------ | -------------------------------------------- |
-| BigDecimal | add(BigDecimal)                                              | BigDecimal对象中的值相加，然后返回这个对象。 |
-| BigDecimal | subtract(BigDecimal)                                         | BigDecimal对象中的值相减，然后返回这个对象。 |
-| BigDecimal | multiply(BigDecimal)                                         | BigDecimal对象中的值相乘，然后返回这个对象。 |
-| BigDecimal | divide(BigDecimal)                                           | BigDecimal对象中的值相除，然后返回这个对象。 |
-| BigDecimal | **[max](https://www.matools.com/file/manual/jdk_api_1.8_google/java/math/BigDecimal.html#max-java.math.BigDecimal-)**([BigDecimal](https://www.matools.com/file/manual/jdk_api_1.8_google/java/math/BigDecimal.html) val) |                                              |
-| BigDecimal | min(BigDecimal val)                                          |                                              |
+|            |                                                                                                                                                                                                                           |                                               |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| BigDecimal | add(BigDecimal)                                                                                                                                                                                                           | BigDecimal 对象中的值相加，然后返回这个对象。 |
+| BigDecimal | subtract(BigDecimal)                                                                                                                                                                                                      | BigDecimal 对象中的值相减，然后返回这个对象。 |
+| BigDecimal | multiply(BigDecimal)                                                                                                                                                                                                      | BigDecimal 对象中的值相乘，然后返回这个对象。 |
+| BigDecimal | divide(BigDecimal)                                                                                                                                                                                                        | BigDecimal 对象中的值相除，然后返回这个对象。 |
+| BigDecimal | **[max](https://www.matools.com/file/manual/jdk_api_1.8_google/java/math/BigDecimal.html#max-java.math.BigDecimal-)**([BigDecimal](https://www.matools.com/file/manual/jdk_api_1.8_google/java/math/BigDecimal.html) val) |                                               |
+| BigDecimal | min(BigDecimal val)                                                                                                                                                                                                       |                                               |
 
-我们可以从BigDecimal中获取对应的值：
+我们可以从 BigDecimal 中获取对应的值：
 
-| 返回值 | 方法          | 描述                                 |
-| ------ | ------------- | ------------------------------------ |
-| double | doubleValue() | 将BigDecimal对象中的值以双精度数返回 |
-| float  | floatValue()  | 将BigDecimal对象中的值以单精度数返回 |
-| long   | longValue()   | 将BigDecimal对象中的值以长整数返回   |
-| int    | intValue()    | 将BigDecimal对象中的值以整数返回     |
+| 返回值 | 方法          | 描述                                   |
+| ------ | ------------- | -------------------------------------- |
+| double | doubleValue() | 将 BigDecimal 对象中的值以双精度数返回 |
+| float  | floatValue()  | 将 BigDecimal 对象中的值以单精度数返回 |
+| long   | longValue()   | 将 BigDecimal 对象中的值以长整数返回   |
+| int    | intValue()    | 将 BigDecimal 对象中的值以整数返回     |
 
-### 3、Random类
+### 3、Random 类
 
-Random类位于java.util.Random包下，是产生随机数的类。
+Random 类位于 java.util.Random 包下，是产生随机数的类。
 
-当然 Math类的Random方法可以生成随机数
+当然 Math 类的 Random 方法可以生成随机数
 
 [https://blog.csdn.net/weixin_37730482/article/details/80664928](https://blog.csdn.net/weixin_37730482/article/details/80664928)
 
@@ -756,7 +752,7 @@ Random类位于java.util.Random包下，是产生随机数的类。
 
 2. `Random(long seed)`：使用单个 long 种子创建一个新的随机数生成器。
 
-我们可以在构造Random对象的时候指定种子。如：`Random r1 = new Random(20);`
+我们可以在构造 Random 对象的时候指定种子。如：`Random r1 = new Random(20);`
 
 也可以默认当前系统时间的毫秒数作为种子数:`Random r1 = new Random();`
 
@@ -764,19 +760,19 @@ Random类位于java.util.Random包下，是产生随机数的类。
 
 1. `protected int next(int bits)`：生成下一个伪随机数。
 
-2. `boolean nextBoolean()`：返回下一个伪随机数，它是取自此随机数生成器序列的均匀分布的boolean值。
+2. `boolean nextBoolean()`：返回下一个伪随机数，它是取自此随机数生成器序列的均匀分布的 boolean 值。
 
 3. `void nextBytes(byte[] bytes)`：生成随机字节并将其置于用户提供的 byte 数组中。
 
-4. `double nextDouble()`：返回下一个伪随机数，它是取自此随机数生成器序列的、在0.0和1.0之间均匀分布的 double值。
+4. `double nextDouble()`：返回下一个伪随机数，它是取自此随机数生成器序列的、在 0.0 和 1.0 之间均匀分布的 double 值。
 
-5. `float nextFloat()`：返回下一个伪随机数，它是取自此随机数生成器序列的、在0.0和1.0之间均匀分布float值。
+5. `float nextFloat()`：返回下一个伪随机数，它是取自此随机数生成器序列的、在 0.0 和 1.0 之间均匀分布 float 值。
 
-6. `double nextGaussian()`：返回下一个伪随机数，它是取自此随机数生成器序列的、呈高斯（“正态”）分布的double值，其平均值是0.0 标准差是1.0。
+6. `double nextGaussian()`：返回下一个伪随机数，它是取自此随机数生成器序列的、呈高斯（“正态”）分布的 double 值，其平均值是 0.0 标准差是 1.0。
 
 7. `int nextInt()`：返回下一个伪随机数，它是此随机数生成器的序列中均匀分布的 int 值。
 
-8. `int nextInt(int n)`：返回一个伪随机数，它是取自此随机数生成器序列的、在（包括和指定值（不包括）之间均匀分布的int值。
+8. `int nextInt(int n)`：返回一个伪随机数，它是取自此随机数生成器序列的、在（包括和指定值（不包括）之间均匀分布的 int 值。
 
 9. `long nextLong()`：返回下一个伪随机数，它是取自此随机数生成器序列的均匀分布的 long 值。
 
@@ -886,25 +882,25 @@ System.out.println(Arrays.equals(nums,nums2));
 
 其余的方法，可以自行研究。
 
-### 2、System类
+### 2、System 类
 
 ```java
   //用于垃圾回收
   public static void gc()
-  
+
   //终止正在运行的java虚拟机。参数用作状态码，根据惯例，非0表示异常终止
   public static void exit(int status)
-  
+
   //System.out.println(System.currentTimeMillis());
   //返回从1970年1月1日到现在时间的毫秒数（协调时间）
   public static native long currentTimeMillis();
 public static native long nanoTime();
-  
+
   public static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
-  //src - 源数组。 
-  //srcPos - 源数组中的起始位置。 
-  //dest - 目标数组。 
-  //destPos - 目的地数据中的起始位置。 
+  //src - 源数组。
+  //srcPos - 源数组中的起始位置。
+  //dest - 目标数组。
+  //destPos - 目的地数据中的起始位置。
   //length - 要复制的数组元素的数量。
     public static String getProperty(String key) {
       // 查看系统信息
@@ -1040,26 +1036,26 @@ private static Properties props;
 
 ## 六、其他
 
-### 1、StringBuffer和StringBuilder
+### 1、StringBuffer 和 StringBuilder
 
-可变的字符序列，这个String是有本质的区别的
+可变的字符序列，这个 String 是有本质的区别的
 
-| 构造器说明                      |                                                              |
-| ------------------------------- | ------------------------------------------------------------ |
-| StringBuilder()                 | 构造一个没有字符的字符串构建器，初始容量为16个字符。         |
-| StringBuilder(CharSequence seq) | 构造一个包含与指定的相同字符的字符串构建器 `CharSequence` 。 |
+| 构造器说明                      |                                                                  |
+| ------------------------------- | ---------------------------------------------------------------- |
+| StringBuilder()                 | 构造一个没有字符的字符串构建器，初始容量为 16 个字符。           |
+| StringBuilder(CharSequence seq) | 构造一个包含与指定的相同字符的字符串构建器 `CharSequence` 。     |
 | StringBuilder(int capacity)     | 构造一个没有字符的字符串构建器，由 `capacity`参数指 定的初始容量 |
-| StringBuilder(String str)       | 构造一个初始化为指定字符串内容的字符串构建器。               |
+| StringBuilder(String str)       | 构造一个初始化为指定字符串内容的字符串构建器。                   |
 
-首先这两个类有大量的重载方法，一个是append
+首先这两个类有大量的重载方法，一个是 append
 
 ![image-20210811152631410](./img/image-20210811152631410-afa9a0bc.png)
 
-还有insert
+还有 insert
 
 ![image-20210811152653212](./img/image-20210811152653212-e3ff61b9.png)
 
-和String一样，它还有一些好用的方法：
+和 String 一样，它还有一些好用的方法：
 
 | 返回值        | 方法                          | 描述                                       |
 | ------------- | ----------------------------- | ------------------------------------------ |
@@ -1068,12 +1064,12 @@ private static Properties props;
 | StringBuilder | reverse() 。                  | 字符序列反转                               |
 | int           | lastIndexOf(String str)       | 返回指定子字符串最右边出现的字符串内的索引 |
 | StringBuilder | delete(int start, int end)    | 删除此序列的子字符串中的字符。             |
-| StringBuilder | deleteCharAt(int index)       | 删除 char在这个序列中的指定位置。          |
-| String        | toString()                    | 转为String                                 |
+| StringBuilder | deleteCharAt(int index)       | 删除 char 在这个序列中的指定位置。         |
+| String        | toString()                    | 转为 String                                |
 
-## 七、附表：
+## 七、附表
 
-可用的ZoneId
+可用的 ZoneId
 
 ```text
 Asia/Aden

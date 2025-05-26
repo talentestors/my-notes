@@ -22,15 +22,15 @@ timeline: false
 
 ## 一、概述
 
-BOM是浏览器对象模型。
+BOM 是浏览器对象模型。
 
-BOM提供了独立于内容 而与浏览器窗口进行交互的对象；
+BOM 提供了独立于内容 而与浏览器窗口进行交互的对象；
 
-BOM的核心对象是window；
+BOM 的核心对象是 window；
 
-BOM由一系列相关的对象构成，并且每个对象都提供了很多方法与属性；
+BOM 由一系列相关的对象构成，并且每个对象都提供了很多方法与属性；
 
-打开浏览器，F12打开调试窗口，console里输入window，就能看到这个对象。里边有很多的方法和属性，能够帮助我们查看和浏览器相关的一些内容，比如浏览器的版本啦（navigator）、浏览的历时记录啦（history）、网站的地址信息啦（location），和屏幕相关的内容啦（带screende）等等，自己可以浏览一下即可。
+打开浏览器，F12 打开调试窗口，console 里输入 window，就能看到这个对象。里边有很多的方法和属性，能够帮助我们查看和浏览器相关的一些内容，比如浏览器的版本啦（navigator）、浏览的历时记录啦（history）、网站的地址信息啦（location），和屏幕相关的内容啦（带 screende）等等，自己可以浏览一下即可。
 
 ## 二、常用方法
 
@@ -130,12 +130,12 @@ VM1452:2 123
 //一次性定时器，会在多少毫秒后执行这个函数
 //里边的是匿名函数，也叫回调函数（就是等过了两秒后回过头来再调用这个函数）
 //返回值是个定时器，这个方法是在未来去执行某个函数
-var timer = setTimeout( function(){
-    console.log(123)
-},2000 )
+var timer = setTimeout(function () {
+  console.log(123);
+}, 2000);
 
 //如果时间未到，不想让他执行了，就需要取消这个定时器
-clearTimeout(timer)
+clearTimeout(timer);
 ```
 
 ### 2、setInterval
@@ -144,12 +144,12 @@ clearTimeout(timer)
 //周期性定时器，会每隔多少毫秒后执行这个函数
 //里边的是匿名函数，也叫回调函数（就是等过了两秒后回过头来再调用这个函数）
 //返回值是个定时器，这个方法是在未来去执行某个函数
-var timer = setInterval( function(){
-    console.log(123)
-},2000 )
+var timer = setInterval(function () {
+  console.log(123);
+}, 2000);
 
 //如果时间未到，或者中途不想让他执行了，就需要取消这个定时器
-clearInterval(timer)
+clearInterval(timer);
 ```
 
 ### 3、浏览器自带小型数据库
@@ -159,23 +159,23 @@ clearInterval(timer)
 ```javascript
 //localStorage只要不人为删除，会浏览器被删除数据会一直在
 //增加或修改一个
-window.localStorage.setItem("name","lucy")
+window.localStorage.setItem("name", "lucy");
 //获取
-window.localStorage.getItem("name")
+window.localStorage.getItem("name");
 //删除一个
-window.localStorage.removeItem("name")
+window.localStorage.removeItem("name");
 //清空
-window.localStorage.clear()
+window.localStorage.clear();
 
 //sessionStorage网页被关闭就没有了
 //增加或修改一个
-window.sessionStorage.setItem("name","lucy")
+window.sessionStorage.setItem("name", "lucy");
 //获取
-window.sessionStorage.getItem("name")
+window.sessionStorage.getItem("name");
 //删除一个
-window.sessionStorage.removeItem("name")
+window.sessionStorage.removeItem("name");
 //清空
-window.sessionStorage.clear()
+window.sessionStorage.clear();
 ```
 
 ### 4、弹窗其实没求用
@@ -214,13 +214,13 @@ var message = window.prompt("请输入名字：","liankun")
 
 ```javascript
 //回退
-history.go(-1)
+history.go(-1);
 //向前
-history.go(1)
+history.go(1);
 //回退
-history.back()
+history.back();
 //向前
-window.history.forward()
+window.history.forward();
 ```
 
 ### 6、navigator
@@ -229,15 +229,15 @@ window.history.forward()
 
 ### 7、一点注意
 
-在浏览器模型中，调用的方法或属性其实是属于window对象的
+在浏览器模型中，调用的方法或属性其实是属于 window 对象的
 
-你在最外层定义一个方法或者一个变量其实是赋给了window对象
+你在最外层定义一个方法或者一个变量其实是赋给了 window 对象
 
-在浏览器模型中，调用window的方法可以省略window. 也可以不省略，如下：
+在浏览器模型中，调用 window 的方法可以省略 window. 也可以不省略，如下：
 
 ```javascript
-window.localStorage.setItem("name","lucy")
-localStorage.setItem("name","lucy")
+window.localStorage.setItem("name", "lucy");
+localStorage.setItem("name", "lucy");
 ```
 
-浏览器编程中，全局的变量，就是直接在最外边定义变量的时候尽量避开name，应为window有name属性，你再定义就覆盖了人家的了，当然在方法里，对象中可以随便使用。
+浏览器编程中，全局的变量，就是直接在最外边定义变量的时候尽量避开 name，应为 window 有 name 属性，你再定义就覆盖了人家的了，当然在方法里，对象中可以随便使用。

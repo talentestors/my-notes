@@ -22,12 +22,12 @@ order: 3
 timeline: false
 ---
 
-> 所有HTML元素可以看作盒子，在CSS中，"box model"这一术语是用来设计和布局时使用。
-> CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：边距，边框，填充，和实际内容。
+> 所有 HTML 元素可以看作盒子，在 CSS 中，"box model"这一术语是用来设计和布局时使用。
+> CSS 盒子模型本质上是一个盒子，封装周围的 HTML 元素，它包括：边距，边框，填充，和实际内容。
 > 盒模型允许我们在其它元素和周围元素边框之间的空间放置元素
 
 1. 先准备好相关的网页元素，网页元素基本都是盒子 Box。
-2. 利用CSS设置好的盒子样式，然后摆放到相应的位置。
+2. 利用 CSS 设置好的盒子样式，然后摆放到相应的位置。
 3. 往盒子里装内容。
 
 ## 一、组成
@@ -43,13 +43,13 @@ timeline: false
 
 ![image-20230210212115175](./img/image-20230210212115175.png)
 
-border可以设置元素的边框。边框有三部分组成：边框宽度、边框颜色、边框样式
+border 可以设置元素的边框。边框有三部分组成：边框宽度、边框颜色、边框样式
 
 语法：`border :border-width | border-style | border-color`
 
 #### border-style
 
-border-style属性设置一个元素的四个边框的样式。此属性可以有一到四个值。
+border-style 属性设置一个元素的四个边框的样式。此属性可以有一到四个值。
 
 实例:
 
@@ -73,25 +73,25 @@ border-style属性设置一个元素的四个边框的样式。此属性可以�
 
 `border-style:dotted;`
 
-- 所有4个边框都是点状
+- 所有 4 个边框都是点状
 
 ---
 
 > ### 属性值
 >
-> | 值      | 描述                                                         |
-> | :------ | :----------------------------------------------------------- |
-> | none    | 定义无边框。                                                 |
+> | 值      | 描述                                                                  |
+> | :------ | :-------------------------------------------------------------------- |
+> | none    | 定义无边框。                                                          |
 > | hidden  | 与 "none" 相同。不过应用于表时除外，对于表，hidden 用于解决边框冲突。 |
-> | dotted  | 定义点状边框。在大多数浏览器中呈现为实线。                   |
-> | dashed  | 定义虚线。在大多数浏览器中呈现为实线。                       |
-> | solid   | 定义实线。                                                   |
-> | double  | 定义双线。双线的宽度等于 border-width 的值。                 |
-> | groove  | 定义 3D 凹槽边框。其效果取决于 border-color 的值。           |
-> | ridge   | 定义 3D 垄状边框。其效果取决于 border-color 的值。           |
-> | inset   | 定义 3D inset 边框。其效果取决于 border-color 的值。         |
-> | outset  | 定义 3D outset 边框。其效果取决于 border-color 的值。        |
-> | inherit | 规定应该从父元素继承边框样式。                               |
+> | dotted  | 定义点状边框。在大多数浏览器中呈现为实线。                            |
+> | dashed  | 定义虚线。在大多数浏览器中呈现为实线。                                |
+> | solid   | 定义实线。                                                            |
+> | double  | 定义双线。双线的宽度等于 border-width 的值。                          |
+> | groove  | 定义 3D 凹槽边框。其效果取决于 border-color 的值。                    |
+> | ridge   | 定义 3D 垄状边框。其效果取决于 border-color 的值。                    |
+> | inset   | 定义 3D inset 边框。其效果取决于 border-color 的值。                  |
+> | outset  | 定义 3D outset 边框。其效果取决于 border-color 的值。                 |
+> | inherit | 规定应该从父元素继承边框样式。                                        |
 
 ---
 
@@ -114,29 +114,29 @@ border-collapse: collapse;
 
 #### CSS 边框属性
 
-| 属性                                                         | 描述                                                         |
-| :----------------------------------------------------------- | :----------------------------------------------------------- |
-| border       | 简写属性，用于把针对四个边的属性设置在一个声明。             |
-|border-style| 用于设置元素所有边框的样式，或者单独地为各边设置边框样式。   |
-| border-width | 简写属性，用于为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。 |
-| border-color | 简写属性，设置元素的所有边框中可见部分的颜色，或为 4 个边分别设置颜色。 |
-| border-bottom | 简写属性，用于把下边框的所有属性设置到一个声明中。           |
-| border-bottom-color | 设置元素的下边框的颜色。                                     |
-| border-bottom-style | 设置元素的下边框的样式。                                     |
-| border-bottom-width | 设置元素的下边框的宽度。                                     |
-| border-left | 简写属性，用于把左边框的所有属性设置到一个声明中。           |
-| border-left-color | 设置元素的左边框的颜色。                                     |
-| [order-left-style | 设置元素的左边框的样式。                                     |
-| border-left-width| 设置元素的左边框的宽度。                                     |
-| border-right | 简写属性，用于把右边框的所有属性设置到一个声明中。           |
-|border-right-color | 设置元素的右边框的颜色。                                     |
-| border-right-style| 设置元素的右边框的样式。                                     |
-| border-right-width | 设置元素的右边框的宽度。                                     |
-| border-top | 简写属性，用于把上边框的所有属性设置到一个声明中。           |
-| border-top-color | 设置元素的上边框的颜色。                                     |
-| border-top-style | 设置元素的上边框的样式。                                     |
-|border-top-width | 设置元素的上边框的宽度。                                     |
-| border-radius| 设置圆角的边框。                                             |
+| 属性                | 描述                                                                    |
+| :------------------ | :---------------------------------------------------------------------- |
+| border              | 简写属性，用于把针对四个边的属性设置在一个声明。                        |
+| border-style        | 用于设置元素所有边框的样式，或者单独地为各边设置边框样式。              |
+| border-width        | 简写属性，用于为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。  |
+| border-color        | 简写属性，设置元素的所有边框中可见部分的颜色，或为 4 个边分别设置颜色。 |
+| border-bottom       | 简写属性，用于把下边框的所有属性设置到一个声明中。                      |
+| border-bottom-color | 设置元素的下边框的颜色。                                                |
+| border-bottom-style | 设置元素的下边框的样式。                                                |
+| border-bottom-width | 设置元素的下边框的宽度。                                                |
+| border-left         | 简写属性，用于把左边框的所有属性设置到一个声明中。                      |
+| border-left-color   | 设置元素的左边框的颜色。                                                |
+| [order-left-style   | 设置元素的左边框的样式。                                                |
+| border-left-width   | 设置元素的左边框的宽度。                                                |
+| border-right        | 简写属性，用于把右边框的所有属性设置到一个声明中。                      |
+| border-right-color  | 设置元素的右边框的颜色。                                                |
+| border-right-style  | 设置元素的右边框的样式。                                                |
+| border-right-width  | 设置元素的右边框的宽度。                                                |
+| border-top          | 简写属性，用于把上边框的所有属性设置到一个声明中。                      |
+| border-top-color    | 设置元素的上边框的颜色。                                                |
+| border-top-style    | 设置元素的上边框的样式。                                                |
+| border-top-width    | 设置元素的上边框的宽度。                                                |
+| border-radius       | 设置圆角的边框。                                                        |
 
 > **边框会影响盒子的实际大小。**
 
@@ -154,15 +154,15 @@ border-collapse: collapse;
 `padding: 15px;`
 
 ```css
-padding: 15px;  /* 顺时针 */
+padding: 15px; /* 顺时针 */
 padding: 15px 5px;
 padding: 15px 3px 5px;
 padding: 15px 3px 5px 6px;
 ```
 
 ---
-> **内边距会影响盒子的实际大小。**
-> **如果盒子没有指定width/height属性，则此时padding不会撑开盒子**
+
+> **内边距会影响盒子的实际大小。** > **如果盒子没有指定 width/height 属性，则此时 padding 不会撑开盒子**
 
 ### 3.外边距
 
@@ -172,23 +172,23 @@ padding: 15px 3px 5px 6px;
 
 ![www.runoob.com](https://www.runoob.com/wp-content/uploads/2013/08/VlwVi.png)
 
-| 值       | 说明                                        |
-| :------- | :------------------------------------------ |
-| auto     | 设置浏览器边距。 这样做的结果会依赖于浏览器 |
-| *length* | 定义一个固定的margin（使用像素，pt，em等）  |
-| *%*      | 定义一个使用百分比的边距                    |
+| 值       | 说明                                         |
+| :------- | :------------------------------------------- |
+| auto     | 设置浏览器边距。 这样做的结果会依赖于浏览器  |
+| _length_ | 定义一个固定的 margin（使用像素，pt，em 等） |
+| _%_      | 定义一个使用百分比的边距                     |
 
 ```css
-margin-top:100px;
-margin-bottom:100px;
-margin-right:50px;
-margin-left:50px;
+margin-top: 100px;
+margin-bottom: 100px;
+margin-right: 50px;
+margin-left: 50px;
 ```
 
 #### 简写
 
 ```css
-margin:100px 50px;
+margin: 100px 50px;
 ```
 
 #### 外边距典型应用
@@ -215,8 +215,8 @@ margin:100px 50px;
 
 ```css
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 ```
 
@@ -326,7 +326,7 @@ text-shadow: 2px 2px 5px red;
 
 ### 2.浮动
 
-  很多布局效果，标准流没办法完成，此时就可以利用浮动完成布局。浮动可以改变元素标签默认排列方式。
+很多布局效果，标准流没办法完成，此时就可以利用浮动完成布局。浮动可以改变元素标签默认排列方式。
 
 - 浮动最典型应用：让多个块级元素一行显示。
 
@@ -369,7 +369,7 @@ float: 属性值;
 
 为了约束元素位置，一般采取：
 
-  先用标准流父元素上下排列位置，之后内部子元素采取浮动排列左右位置，符合网页布局第一准则。
+先用标准流父元素上下排列位置，之后内部子元素采取浮动排列左右位置，符合网页布局第一准则。
 
 ### 3. 常见网页布局
 
@@ -396,7 +396,7 @@ float: 属性值;
 ```css
 选择器: {
   clear: 属性值;
-} 
+}
 ```
 
 | 属性值 | 描述                 |
@@ -424,7 +424,7 @@ float: 属性值;
 <style>
   clear: both;
 </style>
-<div class="clear"></div> 
+<div class="clear"></div>
 ```
 
 - 优点：通俗易懂，书写方便
@@ -468,7 +468,7 @@ float: 属性值;
 .clearfix {
   /*IE6、7专有*/
   *zoom: 1;
-} 
+}
 ```
 
 #### 双伪元素法
@@ -486,7 +486,7 @@ float: 属性值;
 }
 .clearfix {
   *zoom: 1;
-} 
+}
 ```
 
 - 优点：代码更简洁
@@ -530,7 +530,7 @@ float: 属性值;
 ```css
 选择器 {
   position: static;
-} 
+}
 ```
 
 静态定位按照标准流特性摆放位置，它没有边偏移静态定位在布局时很少用到。
@@ -547,7 +547,7 @@ float: 属性值;
 ```css
 选择器 {
   position: relative;
-} 
+}
 ```
 
 **相对定位的特点**：
@@ -565,7 +565,7 @@ float: 属性值;
 ```css
 选择器 {
   position: absolute;
-} 
+}
 ```
 
 绝对定位的特点：
@@ -593,7 +593,7 @@ float: 属性值;
 ```css
 选择器 {
   position: fixed;
-} 
+}
 ```
 
 **固定定位的特点：**
@@ -616,7 +616,7 @@ float: 属性值;
 选择器 {
   position: sticky;
   top: 10px;
-} 
+}
 ```
 
 粘性定位的特点：
@@ -634,7 +634,7 @@ float: 属性值;
 ```css
 选择器 {
   z-index: 1;
-} 
+}
 ```
 
 - 数值可以是正整数、负整数或 0，默认是 auto ，数值越大，盒子越靠上
@@ -755,7 +755,7 @@ Cutterman 是一款在 PS 中的插件，能够自动将你需要的图层进行
 
 ### 属性书写顺序（重点）
 
-1. **布局定位属性**：display/position/float/clear/visibility/overflow（建议display第一个写，毕竟关系到模式）
+1. **布局定位属性**：display/position/float/clear/visibility/overflow（建议 display 第一个写，毕竟关系到模式）
 2. **自身属性**：width/height/margin/padding/border/background
 3. **文本属性**：color/font/text-decoration/text-align/vertical-align/white-space/break-word
 4. **其他属性(CSS3)**：content/cursor/border-radius/box-shadow/text-shadow/background:linear-gradient…
@@ -778,5 +778,5 @@ Cutterman 是一款在 PS 中的插件，能够自动将你需要的图层进行
 1. 必须确定页面的版心（可视区），我们测量可得知。
 2. 分析页面中的行模块，以及每个行模块中的列模块。其实页面布局第一准则，
 3. 行中的列模块经常浮动布局，先确定每个列的大小，之后确定列的位置.页面布局第二准则
-4. 制作HTML结构。我们还是遵循，先有结构，后有样式的原则。结构永远最重要
+4. 制作 HTML 结构。我们还是遵循，先有结构，后有样式的原则。结构永远最重要
 5. 所以，先理清楚**布局结构**，再写代码尤为重要这需要我们多写多积累

@@ -113,7 +113,7 @@ timeline: false
 > - 通过 `prune` 命令清理已删除的工作区，以保持环境整洁。
 > - 定期使用 `list` 命令检查当前的工作区状态，避免混淆。
 
-## 第二节 git补丁
+## 第二节 git 补丁
 
 ### 什么是 `git am`
 
@@ -168,7 +168,7 @@ Applying: Your commit message here
 error: could not apply <commit-hash>
 ```
 
-##### 解决冲突的步骤：
+##### 解决冲突的步骤
 
 1. **查看冲突文件**：
    使用 `git status` 查看哪些文件存在冲突。
@@ -287,17 +287,17 @@ git stash [save <message>]
 
 3. **应用 stash 记录**：
 
-    应用最新的 stash 记录：
-  
-    ```bash
-    git stash pop
-    ```
-  
-    或者，应用指定的 stash 记录：
-  
-    ```bash
-    git stash apply stash@{1}
-    ```
+   应用最新的 stash 记录：
+
+   ```bash
+   git stash pop
+   ```
+
+   或者，应用指定的 stash 记录：
+
+   ```bash
+   git stash apply stash@{1}
+   ```
 
 4. **删除 stash 记录**：
 

@@ -1,35 +1,33 @@
-# Emmet语法
+# Emmet 语法
 
-> Emmet是一种介于标记性语言（如HTML、XML）和规范之外的逻辑输入方法，是一种能大幅提高前端开发效率的工具。
+> Emmet 是一种介于标记性语言（如 HTML、XML）和规范之外的逻辑输入方法，是一种能大幅提高前端开发效率的工具。
 
 ## HTML 文档类型和结构初始化
 
-- `html:5` 或`!`：用于 HTML5文档类型
+- `html:5` 或`!`：用于 HTML5 文档类型
 - `html:xt`：用于 XHTML 过渡文档类型
 - `html:4s`：用于 HTML4 严格文档类型
 
 ```html
-html:5
-!
+html:5 !
 ```
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
-</body>
+  </head>
+  <body></body>
 </html>
 ```
 
-#### 点号 
+#### 点号
 
-表示class属性。
+表示 class 属性。
 
 `div.jpf`
 
@@ -39,7 +37,7 @@ html:5
 
 #### 井号
 
-表示id属性。
+表示 id 属性。
 
 `div#jpf`
 
@@ -52,6 +50,7 @@ html:5
 表示标签的内部属性。
 
 `a[href="123" class="a"]`
+
 ```html
 <a href="123" class="a"></a>
 ```
@@ -74,10 +73,10 @@ html:5
 
 ```html
 <a href="">
-    <h1></h1>
+  <h1></h1>
 </a>
 <b>
-    <h2></h2>
+  <h2></h2>
 </b>
 ```
 
@@ -87,7 +86,7 @@ html:5
 
 ```html
 <ul>
-    <li class="jpf"></li>
+  <li class="jpf"></li>
 </ul>
 ```
 
@@ -95,7 +94,7 @@ html:5
 
 ```html
 <label for="content">
-    <span id="content"></span>
+  <span id="content"></span>
 </label>
 ```
 
@@ -111,7 +110,7 @@ html:5
 
 ```html
 <ul>
-    <li></li>
+  <li></li>
 </ul>
 ```
 
@@ -127,10 +126,11 @@ html:5
 ```
 
 `ul>li+a`
+
 ```html
 <ul>
-    <li></li>
-    <a href=""></a>
+  <li></li>
+  <a href=""></a>
 </ul>
 ```
 
@@ -142,10 +142,10 @@ html:5
 
 ```html
 <div>
-    <ul>
-        <li></li>
-    </ul>
-    <p></p>
+  <ul>
+    <li></li>
+  </ul>
+  <p></p>
 </div>
 ```
 
@@ -153,9 +153,9 @@ html:5
 
 ```html
 <div>
-    <ul>
-        <li></li>
-    </ul>
+  <ul>
+    <li></li>
+  </ul>
 </div>
 <p></p>
 ```
@@ -164,10 +164,10 @@ html:5
 
 ```html
 <ul>
-    <li></li>
+  <li></li>
 </ul>
 <ul>
-    <li></li>
+  <li></li>
 </ul>
 ```
 
@@ -186,30 +186,32 @@ html:5
     </div>
 </div>
 ```
+
 `div>(tr>td*5)*2+div>p`
+
 ```html
 <div>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <div>
-        <p></p>
-    </div>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <div>
+    <p></p>
+  </div>
 </div>
 ```
 
-####  星号
+#### 星号
 
 表示批量复制。
 
@@ -217,11 +219,11 @@ html:5
 
 ```html
 <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
 </ul>
 ```
 
@@ -235,7 +237,7 @@ html:5
 <div></div>
 ```
 
-####  美元符
+#### 美元符
 
 表示数字通配符。
 
@@ -263,11 +265,11 @@ html:5
 
 ```html
 <div>
-    <ul>
-        <li class="item-1"></li>
-        <li class="item-2"></li>
-        <li class="item-3"></li>
-    </ul>
+  <ul>
+    <li class="item-1"></li>
+    <li class="item-2"></li>
+    <li class="item-3"></li>
+  </ul>
 </div>
 ```
 
@@ -275,9 +277,9 @@ html:5
 
 ```html
 <ul>
-    <li class="1"></li>
-    <li class="2"></li>
-    <li class="3"></li>
+  <li class="1"></li>
+  <li class="2"></li>
+  <li class="3"></li>
 </ul>
 ```
 
@@ -285,9 +287,9 @@ html:5
 
 ```html
 <ul>
-    <li id="item1">第001条数据</li>
-    <li id="item2">第002条数据</li>
-    <li id="item3">第003条数据</li>
+  <li id="item1">第001条数据</li>
+  <li id="item2">第002条数据</li>
+  <li id="item3">第003条数据</li>
 </ul>
 ```
 
@@ -305,7 +307,7 @@ html:5
 
 #### 占位标记
 
-`lorem`表示占位标记，作用是随机生成一个文本。lorem1表示生成的文本包含一个单词，lorem2表示生成的文本包含两个单词，以此类推，loremN表示生成的文本包含N个单词。
+`lorem`表示占位标记，作用是随机生成一个文本。lorem1 表示生成的文本包含一个单词，lorem2 表示生成的文本包含两个单词，以此类推，loremN 表示生成的文本包含 N 个单词。
 
 `p*4>lorem2`
 
@@ -317,16 +319,17 @@ html:5
 ```
 
 `div>lorem2`
+
 ```html
 <div>Lorem, ipsum.</div>
 ```
 
- [官网:](https://emmet.io/)https://emmet.io/
+[官网:](https://emmet.io/)<https://emmet.io/>
 
-## 快速生成CSS样式
+## 快速生成 CSS 样式
 
 CSS 基本采取简写形式
 
-1.`w200`生成width: `200px;`
+1.`w200`生成 width: `200px;`
 
 2.`lh26`生成`line-height: 26px;`

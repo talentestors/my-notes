@@ -23,9 +23,9 @@ timeline: false
 
 ## 一、 Java IO 流的概念
 
- Java中的IO（input和output）是实现输入和输出的基础，可以方便的实现数据的输入和输出操作。`java.io` 包下提供了大量的供我们使用的操作【流】的方法和接口，用于进行各类数据的处理和传输。
+Java 中的 IO（input 和 output）是实现输入和输出的基础，可以方便的实现数据的输入和输出操作。`java.io` 包下提供了大量的供我们使用的操作【流】的方法和接口，用于进行各类数据的处理和传输。
 
- 计算机的输入和输出都是通过二进制来完成的。在网络中我们要传递数据就要将数据【流化】，换句话说就是将文件、复杂的对象转化成能够在网络上传输的一个个的0和1，我在这里先画几幅图帮助大家理解一下。
+计算机的输入和输出都是通过二进制来完成的。在网络中我们要传递数据就要将数据【流化】，换句话说就是将文件、复杂的对象转化成能够在网络上传输的一个个的 0 和 1，我在这里先画几幅图帮助大家理解一下。
 
 文件在磁盘的输入输出：
 
@@ -45,31 +45,31 @@ timeline: false
 
 正斜杠，又称左斜杠，符号是"/"；反斜杠，也称右斜杠，符号是"\" 。
 
-在Unix/Linux中，路径的分隔采用正斜杠"/"，比如"/home/hutaow"；而在Windows中，路径分隔采用反斜杠""，比如"C:\Windows\System"
+在 Unix/Linux 中，路径的分隔采用正斜杠"/"，比如"/home/hutaow"；而在 Windows 中，路径分隔采用反斜杠""，比如"C:\Windows\System"
 
 ![image-20210910104203903](./img/image-20210910104203903-6afa67b0.png)
 
-在Java当中反斜杠代表的是转义：
+在 Java 当中反斜杠代表的是转义：
 
 比如:
 
-制表符（也叫制表位）的功能是在不使用表格的情况下在垂直方向按列对齐文本，就是咱们的Tab键。
+制表符（也叫制表位）的功能是在不使用表格的情况下在垂直方向按列对齐文本，就是咱们的 Tab 键。
 
 - \" 将双引号转义为真正的双引号
 - ‘\r’ (回车)：即将光标回到当前行的行首(而不会换到下一行)，之后的输出会把之前的输出覆盖
 - ‘\n’ 换行，换到当前位置的下一位置，而不会回到行首
 
-### 2、File类简介
+### 2、File 类简介
 
- 在 Java 中，File 类是 `java.io` 包中唯一代表磁盘文件本身的对象。File 类定义了一些与平台无关的方法来操作文件，File类主要用来获取或处理与磁盘文件相关的信息，像文件名、 文件路径、访问权限和修改日期等，还可以浏览子目录层次结构。   File 类表示处理文件和文件系统的相关信息。也就是说，File 类不具有从文件读取信息和向文件写入信息的功能，它仅描述文件本身的属性。
+在 Java 中，File 类是 `java.io` 包中唯一代表磁盘文件本身的对象。File 类定义了一些与平台无关的方法来操作文件，File 类主要用来获取或处理与磁盘文件相关的信息，像文件名、 文件路径、访问权限和修改日期等，还可以浏览子目录层次结构。   File 类表示处理文件和文件系统的相关信息。也就是说，File 类不具有从文件读取信息和向文件写入信息的功能，它仅描述文件本身的属性。
 
 ### 3、构造方法
 
-| 构造器                           | 描述                                                   |
-| -------------------------------- | ------------------------------------------------------ |
-| File(String pathname)            | 通过将给定路径名字符串来创建一个新 File 实例           |
-| File(String parent,String child) | 根据指定的父路径和文件路径创建一个新File对象实例       |
-| File(File parent,String child)   | 根据指定的父路径对象和文件路径创建一个新的File对象实例 |
+| 构造器                           | 描述                                                     |
+| -------------------------------- | -------------------------------------------------------- |
+| File(String pathname)            | 通过将给定路径名字符串来创建一个新 File 实例             |
+| File(String parent,String child) | 根据指定的父路径和文件路径创建一个新 File 对象实例       |
+| File(File parent,String child)   | 根据指定的父路径对象和文件路径创建一个新的 File 对象实例 |
 
 其实很简单的，其实这个意思：
 
@@ -80,16 +80,16 @@ File file = new File("D:\\code");
 File child = new File(file,"a.txt");
 ```
 
-### 4、File类创建和删除功能
+### 4、File 类创建和删除功能
 
-| 返回值  | 方法            | 描述                                                         |
-| ------- | --------------- | ------------------------------------------------------------ |
-| boolean | createNewFile() | 指定路径不存在该文件时创建文件，返回true 否则false           |
-| boolean | mkdir()         | 当指定的单击文件夹不存在时创建文件夹并返回true 否则false     |
-| boolean | mkdirs()        | 当指定的多级文件夹在某一级文件夹不存在时，创建多级文件夹并返回true 否则false |
-| boolean | delete()        | 删除文件或者删除单级文件夹                                   |
+| 返回值  | 方法            | 描述                                                                           |
+| ------- | --------------- | ------------------------------------------------------------------------------ |
+| boolean | createNewFile() | 指定路径不存在该文件时创建文件，返回 true 否则 false                           |
+| boolean | mkdir()         | 当指定的单击文件夹不存在时创建文件夹并返回 true 否则 false                     |
+| boolean | mkdirs()        | 当指定的多级文件夹在某一级文件夹不存在时，创建多级文件夹并返回 true 否则 false |
+| boolean | delete()        | 删除文件或者删除单级文件夹                                                     |
 
-### 5、File类的判断功能
+### 5、File 类的判断功能
 
 | 返回值  | 方法          | 描述                               |
 | ------- | ------------- | ---------------------------------- |
@@ -99,18 +99,18 @@ File child = new File(file,"a.txt");
 | boolean | isFile()      | 判断当前的目录是否是一个文件       |
 | boolean | isHidden()    | 判断当前路径是否是一隐藏文件       |
 
-### 6、File类的获取功能和修改名字功能
+### 6、File 类的获取功能和修改名字功能
 
-| 返回值  | 方法                | 描述                                                 |
-| ------- | ------------------- | ---------------------------------------------------- |
-| File    | getAbsoluteFile()   | 获取文件的绝对路径，返回File对象                     |
-| String  | getAbsolutePath()   | 获取文件的绝对路径，返回路径的字符串                 |
-| String  | getParent()         | 获取当前路径的父级路径，以字符串形式返回该父级路径   |
-| String  | getName()           | 获取文件或文件夹的名称                               |
-| String  | getPath()           | 获取File对象中封装的路径                             |
-| long    | lastModified()      | 以毫秒值返回最后修改时间                             |
-| long    | length()            | 返回文件的字节数                                     |
-| boolean | renameTo(File dest) | 将当前File对象所指向的路径修改为指定File所指向的路径 |
+| 返回值  | 方法                | 描述                                                     |
+| ------- | ------------------- | -------------------------------------------------------- |
+| File    | getAbsoluteFile()   | 获取文件的绝对路径，返回 File 对象                       |
+| String  | getAbsolutePath()   | 获取文件的绝对路径，返回路径的字符串                     |
+| String  | getParent()         | 获取当前路径的父级路径，以字符串形式返回该父级路径       |
+| String  | getName()           | 获取文件或文件夹的名称                                   |
+| String  | getPath()           | 获取 File 对象中封装的路径                               |
+| long    | lastModified()      | 以毫秒值返回最后修改时间                                 |
+| long    | length()            | 返回文件的字节数                                         |
+| boolean | renameTo(File dest) | 将当前 File 对象所指向的路径修改为指定 File 所指向的路径 |
 
 ### 7、文件夹列表操作
 
@@ -132,7 +132,7 @@ public class ListAllPng {
     public static void main(String[] args) throws IOException {
         listAll(new File("D:\\code\\image"));
     }
-    
+
     // 单独列出方法获取目录下的图片
     public static void listAll(File parent)  {
         MyFilter myFilter = new MyFilter();
@@ -158,13 +158,13 @@ public class ListAllPng {
 }
 ```
 
-## 三、 IO流的分类：
+## 三、 IO 流的分类
 
- Java中一切皆对象，流也是对象，在学习之前我们不妨先看分类和概念，至于是哪个类其实没那么重要。
+Java 中一切皆对象，流也是对象，在学习之前我们不妨先看分类和概念，至于是哪个类其实没那么重要。
 
- 其实说到流，我们能想到流水，其实这已经很形象了，水从汪洋大海流入湖泊就是要通过河流。如果你还不知道，接着往下看。
+其实说到流，我们能想到流水，其实这已经很形象了，水从汪洋大海流入湖泊就是要通过河流。如果你还不知道，接着往下看。
 
- 其实到目前为止，我们对流已经有了基本的概念，接下来我们就要深入学习流了。按照不同的分类方式，可以把流分为不同的类型。常用的分类有三种：
+其实到目前为止，我们对流已经有了基本的概念，接下来我们就要深入学习流了。按照不同的分类方式，可以把流分为不同的类型。常用的分类有三种：
 
 ### 1、 按照流向分
 
@@ -177,7 +177,7 @@ public class ListAllPng {
 
 ![image-20210812161248102](./img/image-20210812161248102-f66641be.png)
 
- 当然系统级别的方法调用我们可以暂时不用考虑。但是我们确确实实看到一个文件在传输过程中经历了很多次的拷贝，IO的性能本来就不是很高，所以后来又有了零拷贝、Nio等技术，这些知识点我们计划在附加课讲解。
+当然系统级别的方法调用我们可以暂时不用考虑。但是我们确确实实看到一个文件在传输过程中经历了很多次的拷贝，IO 的性能本来就不是很高，所以后来又有了零拷贝、Nio 等技术，这些知识点我们计划在附加课讲解。
 
 ### 2 、按照操作单元划分
 
@@ -186,14 +186,14 @@ public class ListAllPng {
 
 ### 3、 按照角色划分
 
-- 节点流：直接从/向一个特定的IO设备（如磁盘，网络）读/写数据的流，称为节点流。
+- 节点流：直接从/向一个特定的 IO 设备（如磁盘，网络）读/写数据的流，称为节点流。
 - 处理流：“连接”在已存在的流（节点流或处理流）之上通过对数据的处理为程序提供更为强大的读写功能的流。
 
 ![image-20210812162235651](./img/image-20210812162235651-3b24f9a8.png)
 
-### 4、Java输入/输出流体系中常用的流的分类表
+### 4、Java 输入/输出流体系中常用的流的分类表
 
-| 分类 | 字节输入流 |字节输出流|字符输入流|字符输出流|
+|      分类      |      字节输入流      |      字节输出流       |   字符输入流    |   字符输出流    |
 | :------------: | :------------------: | :-------------------: | :-------------: | :-------------: |
 |    抽象基类    |     InputStream      |     OutputStream      |     Reader      |     Writer      |
 |    访问文件    |   FileInputStream    |   FileOutputStream    |   FileReader    |   FileWriter    |
@@ -206,25 +206,25 @@ public class ListAllPng {
 
 ### 1、继承结构
 
-InputStream和OutputStream
+InputStream 和 OutputStream
 
 ![image-20210812164824415](./img/image-20210812164824415-c409c8f0.png)
 
-Reader和Writer
+Reader 和 Writer
 
 ![image-20210812164846302](./img/image-20210812164846302-0a51b470.png)
 
 ### 2、流到底怎么用
 
-#### （1）将一个流对象插在一个节点上：
+#### （1）将一个流对象插在一个节点上
 
-其实通过名字我们就可以很好的理解了：FileInputStream就是怼在文件上的输入流啊！
+其实通过名字我们就可以很好的理解了：FileInputStream 就是怼在文件上的输入流啊！
 
 ```java
 public abstract class InputStream implements Closeable
 ```
 
-InputStream本身是抽象类，我们需要使用它的子类去构造对象：
+InputStream 本身是抽象类，我们需要使用它的子类去构造对象：
 
 ```java
 InputStream inputStream = new FileInputStream(file);
@@ -234,7 +234,7 @@ InputStream inputStream = new FileInputStream(file);
 
 ![image-20210812165322884](./img/image-20210812165322884-ea67f517.png)
 
-其实inputStream的方法并不多，关键在于几个read方法，管子已经插上了，接下来就是读了。
+其实 inputStream 的方法并不多，关键在于几个 read 方法，管子已经插上了，接下来就是读了。
 
 ```java
 // 读一个字节
@@ -249,17 +249,17 @@ int read = inputStream.read(new byte[1024],0,120);
 
 #### 方法读取
 
-它的读取流程大概是这个样子的，inputStream内部有一个游标，它会记录目前读到哪里了，看下图：
+它的读取流程大概是这个样子的，inputStream 内部有一个游标，它会记录目前读到哪里了，看下图：
 
 ![image-20210812173337468](./img/image-20210812173337468-84da8cba.png)
 
 我们不妨尝试一下：
 
-我的D盘的code目录下新建一个文本：
+我的 D 盘的 code 目录下新建一个文本：
 
 ![image-20210812170548644](./img/image-20210812170548644-3552d4cb.png)
 
-我知道：read返回-1时就代表文件读完了，所以我写了如下代码：
+我知道：read 返回-1 时就代表文件读完了，所以我写了如下代码：
 
 ```java
 public static void main(String[] args) throws IOException {
@@ -269,13 +269,13 @@ public static void main(String[] args) throws IOException {
         System.out.print(read+" ");
     }
 }
-72 101 108 108 111 32 87 111 114 108 100 33 
+72 101 108 108 111 32 87 111 114 108 100 33
 H  e   l   l   0      W  o   r   l   d   !
 ```
 
-read就是每次读出的字节，直到-1就停止。
+read 就是每次读出的字节，直到-1 就停止。
 
-小tips：一个流我读完了一次还能读第二次吗？
+小 tips：一个流我读完了一次还能读第二次吗？
 
 ```java
  public static void main(String[] args) throws IOException {
@@ -290,12 +290,12 @@ read就是每次读出的字节，直到-1就停止。
             System.out.print(read+" ");
         }
     }
-    
-    72 101 108 108 111 32 87 111 114 108 100 33 
+
+    72 101 108 108 111 32 87 111 114 108 100 33
 再读一次---------------
 ```
 
-我们发现一个流读完了就没有了，就不能在读了。当然文档里有mark和reset方法，我们在系统中测试是不可用的。
+我们发现一个流读完了就没有了，就不能在读了。当然文档里有 mark 和 reset 方法，我们在系统中测试是不可用的。
 
 ```java
 System.out.println(inputStream.markSupported());
@@ -319,7 +319,7 @@ public static void main(String[] args) throws IOException {
 
 我们想向深入走一步，看看源码：
 
-但是发现，源码目前位置看不了了，这些方法都带有native，这更加说明了读文件一定是JVM调用系统方法读取的。
+但是发现，源码目前位置看不了了，这些方法都带有 native，这更加说明了读文件一定是 JVM 调用系统方法读取的。
 
 ![image-20210812171830458](./img/image-20210812171830458-e92f4d23.png)
 
@@ -329,7 +329,7 @@ public static void main(String[] args) throws IOException {
 
 有一个小知识点：
 
- 在定义文件输出流时，有两个参数，第二个如果是true代表追加文件，如果false代表覆盖文件，意思就是如果人家这个文件原来有内容，就覆盖的没了，这一点要注意。
+在定义文件输出流时，有两个参数，第二个如果是 true 代表追加文件，如果 false 代表覆盖文件，意思就是如果人家这个文件原来有内容，就覆盖的没了，这一点要注意。
 
 ```java
 OutputStream outputStream = new FileOutputStream("D:/code/a.txt",true);
@@ -340,7 +340,7 @@ outputStream.write(97);
 // 97是一个字节啊
 ```
 
-我们发现文件中被写入的是一个a
+我们发现文件中被写入的是一个 a
 
 ![image-20210812175544376](./img/image-20210812175544376.png)
 
@@ -367,15 +367,15 @@ public static void main(String[] args) throws IOException {
 
 #### （5）资源的释放
 
-一个IO流的标准写法是什么呢？
+一个 IO 流的标准写法是什么呢？
 
-我们发现IO有以下几点需要我们处理：
+我们发现 IO 有以下几点需要我们处理：
 
-1、绝大部分的对IO的操作都需要处理可能出现的IO异常。
+1、绝大部分的对 IO 的操作都需要处理可能出现的 IO 异常。
 
 ![image-20210812175913456](./img/image-20210812175913456-375e966f.png)
 
-2、我们发现不管是inputStream还是outputStream都有一个close方法，IO是需要消耗系统资源的，每一个stream都需要系统分配资源，是弥足珍贵的，所以没有流一旦使用完成就一定要关闭资源。
+2、我们发现不管是 inputStream 还是 outputStream 都有一个 close 方法，IO 是需要消耗系统资源的，每一个 stream 都需要系统分配资源，是弥足珍贵的，所以没有流一旦使用完成就一定要关闭资源。
 
 经过反复修改我们写出了如下代码：
 
@@ -415,11 +415,11 @@ public static void main(String[] args) throws IOException {
     }
 ```
 
-【AutoCloseable接口的好处】
+【AutoCloseable 接口的好处】
 
-以上代码如此繁杂，jdk1.7之后，很多资源类的类都实现了AutoCloseable接口
+以上代码如此繁杂，jdk1.7 之后，很多资源类的类都实现了 AutoCloseable 接口
 
-实现了这个接口的类可以在try中定义资源，并会主动释放资源：
+实现了这个接口的类可以在 try 中定义资源，并会主动释放资源：
 
 这样就极大的简化了代码的编写，但是你这么写了可能会有人看不懂呦！
 
@@ -488,11 +488,11 @@ public void testWriter() throws Exception{
 
 ### 1、对象序列化
 
-- 序列化：将对象写入到IO流中，说的简单一点就是将内存模型的对象变成字节数字，可以进行存储和传输。
-- 反序列化：从IO流中恢复对象，将存储在磁盘或者从网络接收的数据恢复成对象模型。
-- 使用场景：所有可在网络上传输的对象都必须是可序列化的，否则会出错；所有需要保存到磁盘的Java对象都必须是可序列化的。
+- 序列化：将对象写入到 IO 流中，说的简单一点就是将内存模型的对象变成字节数字，可以进行存储和传输。
+- 反序列化：从 IO 流中恢复对象，将存储在磁盘或者从网络接收的数据恢复成对象模型。
+- 使用场景：所有可在网络上传输的对象都必须是可序列化的，否则会出错；所有需要保存到磁盘的 Java 对象都必须是可序列化的。
 
-该对象必须实现Serializable接口，才能被序列化。
+该对象必须实现 Serializable 接口，才能被序列化。
 
 ```java
 import java.io.Serializable;
@@ -549,9 +549,9 @@ public void testObjectOut() throws Exception{
 
 ### 2、序列化版本号
 
- 我们知道，**反序列化必须拥有class文件，但随着项目的升级，class文件也会升级，序列化怎么保证升级前后的兼容性呢？**
+我们知道，**反序列化必须拥有 class 文件，但随着项目的升级，class 文件也会升级，序列化怎么保证升级前后的兼容性呢？**
 
- Java序列化提供了一个``private static final long serialVersionUID` 的序列化版本号，只要版本号相同，即使更改了序列化属性，对象也可以正确被反序列化回来。
+Java 序列化提供了一个``private static final long serialVersionUID` 的序列化版本号，只要版本号相同，即使更改了序列化属性，对象也可以正确被反序列化回来。
 
 ```java
 public class Person implements Serializable {
@@ -563,15 +563,15 @@ public class Person implements Serializable {
 }
 ```
 
- 如果反序列化使用的版本号与序列化时使用的不一致，反序列化会报InvalidClassException’异常。
+如果反序列化使用的版本号与序列化时使用的不一致，反序列化会报 InvalidClassException’异常。
 
 ![img](./img/1603499-20190521180432865-1645890598-65ae1e4f.jpg)
 
- 序列化版本号可自由指定，如果不指定，JVM会根据类信息自己计算一个版本号，这样随着class的升级、代码的修改等因素无法正确反序列化；
+序列化版本号可自由指定，如果不指定，JVM 会根据类信息自己计算一个版本号，这样随着 class 的升级、代码的修改等因素无法正确反序列化；
 
- 不指定版本号另一个明显隐患是，不利于jvm间的移植，可能class文件没有更改，但不同jvm可能计算的规则不一样，这样也会导致无法反序列化。
+不指定版本号另一个明显隐患是，不利于 jvm 间的移植，可能 class 文件没有更改，但不同 jvm 可能计算的规则不一样，这样也会导致无法反序列化。
 
-什么情况下需要修改serialVersionUID呢：
+什么情况下需要修改 serialVersionUID 呢：
 
 - 如果只是修改了方法，反序列化不容影响，则无需修改版本号；
 - 如果只是修改了静态变量，瞬态变量（`transient`修饰的变量），反序列化不受影响，无需修改版本号。
@@ -579,14 +579,14 @@ public class Person implements Serializable {
 ### 3、总结
 
 1. 所有需要网络传输的对象都需要实现序列化接口。
-2. 对象的类名、实例变量（包括基本类型，数组，对其他对象的引用）都会被序列化；方法、类变量、transient实例变量都不会被序列化。
-3. 如果想让某个变量不被序列化，使用transient修饰。
+2. 对象的类名、实例变量（包括基本类型，数组，对其他对象的引用）都会被序列化；方法、类变量、transient 实例变量都不会被序列化。
+3. 如果想让某个变量不被序列化，使用 transient 修饰。
 4. 序列化对象的引用类型成员变量，也必须是可序列化的，否则，会报错。
-5. 反序列化时必须有序列化对象的class文件。
+5. 反序列化时必须有序列化对象的 class 文件。
 6. 同一对象序列化多次，只有第一次序列化为二进制流，以后都只是保存序列化编号，不会重复序列化。
-7. 建议所有可序列化的类加上serialVersionUID 版本号，方便项目升级。
+7. 建议所有可序列化的类加上 serialVersionUID 版本号，方便项目升级。
 
-Intellij idea用快捷键自动生成序列化id，类继承了Serializable接口之后，使用alt+enter快捷键自动创建序列化id
+Intellij idea 用快捷键自动生成序列化 id，类继承了 Serializable 接口之后，使用 alt+enter 快捷键自动创建序列化 id
 
 方法：进入*setting→inspections→serialization issues→*选择图中的选项。`serializable class without ‘serialVersionUID`
 
@@ -609,7 +609,7 @@ public void deepCopyTest() throws  CloneNotSupportedException {
 }
 ```
 
-（2）浅拷贝：实现clonable接口，重写clone方法。
+（2）浅拷贝：实现 clonable 接口，重写 clone 方法。
 
 ![image-20210910182958539](./img/image-20210910182958539-bab117b1.png)
 
@@ -632,7 +632,7 @@ public void deepCopyTest() throws  CloneNotSupportedException {
 }
 ```
 
-深拷贝：使用对象流先写入byte数组，再读出来。
+深拷贝：使用对象流先写入 byte 数组，再读出来。
 
 ![image-20210910183035282](./img/image-20210910183035282-6431cb17.png)
 
@@ -662,7 +662,7 @@ public void deepCopyTest2() throws CloneNotSupportedException, IOException, Clas
 }
 ```
 
-## 六、大作业：
+## 六、大作业
 
 写一个程序，能够给一个商品文件进行增、删、改、查。
 

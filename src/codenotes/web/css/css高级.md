@@ -38,10 +38,10 @@ timeline: false
 
 ```css
 .box1 {
-    width: 60px;
-    height: 60px;
-    margin: 100px auto;
-    background: url(../images/sprites.png) no-repeat -182px 0;
+  width: 60px;
+  height: 60px;
+  margin: 100px auto;
+  background: url(../images/sprites.png) no-repeat -182px 0;
 }
 ```
 
@@ -179,7 +179,7 @@ text-overflow: ellipsis;
 ### 6.2 多行溢出文字显示省略号
 
 > [!tip]
-> 多行文本溢出显示省略号，有较大兼容性问题，适合于webKit浏览器或移动端（移动端大部分是webkit内核）
+> 多行文本溢出显示省略号，有较大兼容性问题，适合于 webKit 浏览器或移动端（移动端大部分是 webkit 内核）
 
 ```css
 overflow: hidden;
@@ -238,73 +238,75 @@ Unicode 编码字体： 把中文字体的名称用相应的 Unicode 编码来�
 - 宋体：`\5B8B\4F53`
 - 微软雅黑：`\5FAE\8F6F196C519ED1`
 
-> 京东css初始化
+> 京东 css 初始化
 
 ```css
 /* 把我们所有标签的内外边距清零 */
 * {
-    margin: 0;
-    padding: 0
+  margin: 0;
+  padding: 0;
 }
 /* em 和 i 斜体的文字不倾斜 */
 em,
 i {
-    font-style: normal
+  font-style: normal;
 }
 /* 去掉li 的小圆点 */
 li {
-    list-style: none
+  list-style: none;
 }
 
 img {
-    /* border 0 照顾低版本浏览器 如果 图片外面包含了链接会有边框的问题 */
-    border: 0;
-    /* 取消图片底侧有空白缝隙的问题 */
-    vertical-align: middle
+  /* border 0 照顾低版本浏览器 如果 图片外面包含了链接会有边框的问题 */
+  border: 0;
+  /* 取消图片底侧有空白缝隙的问题 */
+  vertical-align: middle;
 }
 
 button {
-    /* 当我们鼠标经过button 按钮的时候，鼠标变成小手 */
-    cursor: pointer
+  /* 当我们鼠标经过button 按钮的时候，鼠标变成小手 */
+  cursor: pointer;
 }
 
 a {
-    color: #666;
-    text-decoration: none
+  color: #666;
+  text-decoration: none;
 }
 
 a:hover {
-    color: #c81623
+  color: #c81623;
 }
 
 button,
 input {
-    /* "\5B8B\4F53" 就是宋体的意思 这样浏览器兼容性比较好 */
-    font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif
+  /* "\5B8B\4F53" 就是宋体的意思 这样浏览器兼容性比较好 */
+  font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53",
+    sans-serif;
 }
 
 body {
-    /* CSS3 抗锯齿形 让文字显示的更加清晰 */
-    -webkit-font-smoothing: antialiased;
-    background-color: #fff;
-    font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
-    color: #666
+  /* CSS3 抗锯齿形 让文字显示的更加清晰 */
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53",
+    sans-serif;
+  color: #666;
 }
 
 .hide,
 .none {
-    display: none
+  display: none;
 }
 /* 清除浮动 */
 .clearfix:after {
-    visibility: hidden;
-    clear: both;
-    display: block;
-    content: ".";
-    height: 0
+  visibility: hidden;
+  clear: both;
+  display: block;
+  content: ".";
+  height: 0;
 }
 
 .clearfix {
-    *zoom: 1;
+  *zoom: 1;
 }
 ```

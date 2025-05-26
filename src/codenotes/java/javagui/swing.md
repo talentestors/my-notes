@@ -29,27 +29,25 @@ timeline: false
 
 :::
 
-# GUI程序开发
+# GUI 程序开发
 
 注意：开始学习之前请确保你完成了《Java SE》篇视频教程。
 
-前面我们已经完成了JavaSE部分的全部内容学习，只不过我们在初学阶段一直都是开发的控制台程序，也就是最原始的命令窗口形式的程序，而Java也可以开发桌面图形化程序，所以我们接着来学习一下Java的图形化界面的开发。
+前面我们已经完成了 JavaSE 部分的全部内容学习，只不过我们在初学阶段一直都是开发的控制台程序，也就是最原始的命令窗口形式的程序，而 Java 也可以开发桌面图形化程序，所以我们接着来学习一下 Java 的图形化界面的开发。
 
-## AWT组件介绍
+## AWT 组件介绍
 
-在Java正式推出的时候，它还包含一个用于基本GUI程序设计的类库，名字叫 Abstract Window Toolkit，简称AWT，抽象窗口工具包，我们可以直接使用Java为我们提供的工具包来进行桌面应用程序的开发。只不过这套工具包依附于操作系统提供的UI，具体样式会根据不同操作系统提供的界面元素进行展示。
+在 Java 正式推出的时候，它还包含一个用于基本 GUI 程序设计的类库，名字叫 Abstract Window Toolkit，简称 AWT，抽象窗口工具包，我们可以直接使用 Java 为我们提供的工具包来进行桌面应用程序的开发。只不过这套工具包依附于操作系统提供的 UI，具体样式会根据不同操作系统提供的界面元素进行展示。
 
-实际上我们现代操作系统都是图形化界面，应用程序都是以一个窗口的形式展示出来的，我们可以直接使用鼠标点击窗口内的元素来使用应用程序，相比传统的命令行形式，可方便太多了，比如在Windows和MacOS这两种操作系统下：
+实际上我们现代操作系统都是图形化界面，应用程序都是以一个窗口的形式展示出来的，我们可以直接使用鼠标点击窗口内的元素来使用应用程序，相比传统的命令行形式，可方便太多了，比如在 Windows 和 MacOS 这两种操作系统下：
 
 ![image-20221026164200924](./img/fMQDFCmyqIvJeTl.jpg)
 
-
-
-可以看到，不同的操作系统的窗口样式稍微有一些不一样，但是大致的使用方式是差不多的，我们接着来看一下如何使用Java编写简单的桌面图形化程序。
+可以看到，不同的操作系统的窗口样式稍微有一些不一样，但是大致的使用方式是差不多的，我们接着来看一下如何使用 Java 编写简单的桌面图形化程序。
 
 ### 基本框架
 
-既然我们要编写一个桌面程序，那么肯定是需要窗口来展示我们程序的内容的，所以说，我们可以使用AWT为我们提供的组件来创建窗口：
+既然我们要编写一个桌面程序，那么肯定是需要窗口来展示我们程序的内容的，所以说，我们可以使用 AWT 为我们提供的组件来创建窗口：
 
 ```java
 public static void main(String[] args) {
@@ -65,7 +63,7 @@ public static void main(String[] args) {
 
 在不同的操作系统下，窗口的样式会不同。
 
-我们可以通过Frame的各种方法来设置窗口的各项属性：
+我们可以通过 Frame 的各种方法来设置窗口的各项属性：
 
 ```java
 public static void main(String[] args) {
@@ -89,7 +87,7 @@ public static void main(String[] args) {
 frame.setLocation(100, 200);   //setLocation可以调整窗口位置
 ```
 
-注意，这里的窗口位置以及窗口大小都是以像素为单位。整个屏幕有多少个像素，是根据各位小伙伴电脑的显示器屏幕分辨率来决定的，比如我们的电脑显示器屏幕分辨率为 1920 x 1080，那么我们显示器就可以显示长为1920个像素，宽1080个像素的矩形，只要是在这个范围内的窗口，都可以显示到屏幕上：
+注意，这里的窗口位置以及窗口大小都是以像素为单位。整个屏幕有多少个像素，是根据各位小伙伴电脑的显示器屏幕分辨率来决定的，比如我们的电脑显示器屏幕分辨率为 1920 x 1080，那么我们显示器就可以显示长为 1920 个像素，宽 1080 个像素的矩形，只要是在这个范围内的窗口，都可以显示到屏幕上：
 
 ![image-20221026170449235](./img/CknumyFjpz659Ya.jpg)
 
@@ -109,17 +107,17 @@ public static void main(String[] args) {
 }
 ```
 
-这样我们的窗口打开之后默认就是居中放置的了，是不是感觉用Java开发图形界面好像也不是那么难？
+这样我们的窗口打开之后默认就是居中放置的了，是不是感觉用 Java 开发图形界面好像也不是那么难？
 
 ::: tip
 
 让窗口居中的方法：
 
- `frame.setLocationRelativeTo(null); //设置窗口居中`
+`frame.setLocationRelativeTo(null); //设置窗口居中`
 
 :::
 
-得益于Java已经为我们封装好了各种方法，所以说要实现什么功能直接调用对应的方法即可，比如我们想要个性化光标，我们可以使用`setCursor`方法来实现，JDK已经为我们提供了一些预设的光标样式：
+得益于 Java 已经为我们封装好了各种方法，所以说要实现什么功能直接调用对应的方法即可，比如我们想要个性化光标，我们可以使用`setCursor`方法来实现，JDK 已经为我们提供了一些预设的光标样式：
 
 ![image-20221027151713661](./img/drC1nx2NSK9Ewaf.jpg)
 
@@ -133,7 +131,7 @@ public static void main(String[] args) {
 
 ![image-20221027161611050](./img/DAz1hnUekV6RNqd.jpg)
 
-比如我们现在希望点击关闭按钮关闭当前的窗口，但是我们发现默认情况下实际上是关不掉的，因为我们并没有对关闭事件进行处理，默认情况下对于这种点击时没有设定任何动作的，万一我们点了之后并不是要关闭窗口呢。要实现关闭窗口，我们可以使用`addXXXListener`来添加对应的事件监听器，比如窗口相关的操作那么就是WindowListener：
+比如我们现在希望点击关闭按钮关闭当前的窗口，但是我们发现默认情况下实际上是关不掉的，因为我们并没有对关闭事件进行处理，默认情况下对于这种点击时没有设定任何动作的，万一我们点了之后并不是要关闭窗口呢。要实现关闭窗口，我们可以使用`addXXXListener`来添加对应的事件监听器，比如窗口相关的操作那么就是 WindowListener：
 
 ![image-20221027155830335](./img/IiwomHF7YWe8Vuh.jpg)
 
@@ -150,12 +148,12 @@ frame.addWindowListener(new WindowAdapter() {
     @Override
     public void windowClosed(WindowEvent e) {   //对应窗口已关闭事件
         System.out.println("窗口已关闭！");   //当窗口成功关闭后，会执行这里重写的内容
-      	System.exit(0);    //窗口关闭后退出当前Java程序
+       System.exit(0);    //窗口关闭后退出当前Java程序
     }
 });
 ```
 
-我们可以来看看效果，现在我们点击X号关闭窗口就可以成功执行了，并且窗口关闭后我们的Java程序就结束了。当然，监听器可以添加多个，并不是只能有一个。
+我们可以来看看效果，现在我们点击 X 号关闭窗口就可以成功执行了，并且窗口关闭后我们的 Java 程序就结束了。当然，监听器可以添加多个，并不是只能有一个。
 
 这里总结一下窗口常用的事件：
 
@@ -207,9 +205,7 @@ frame.addMouseListener(new MouseAdapter() {
 
 ![image-20221027164500070](./img/VQm7FjSNidLhI1r.jpg)
 
-
-
-注意这里的坐标并不是按照我们在数学中学习的平面直角坐标系来的，它的X轴是从左往右，但是Y轴是从上往下，原点也不是整个屏幕开始，而是我们的窗口左上角。所以说当我们点击右下角时，就会得到一个接近于窗口大小的坐标了。
+注意这里的坐标并不是按照我们在数学中学习的平面直角坐标系来的，它的 X 轴是从左往右，但是 Y 轴是从上往下，原点也不是整个屏幕开始，而是我们的窗口左上角。所以说当我们点击右下角时，就会得到一个接近于窗口大小的坐标了。
 
 我们也可以获取鼠标是使用哪个键点击的，我们的鼠标一般情况下有三个按键：
 
@@ -239,19 +235,19 @@ frame.addMouseWheelListener(new MouseAdapter() {
 });
 ```
 
-MacOS下的鼠标滚动是平滑滚动，会触发很多次，不像Windows下是一格一格的僵硬滚动。
+MacOS 下的鼠标滚动是平滑滚动，会触发很多次，不像 Windows 下是一格一格的僵硬滚动。
 
-通过使用这些监听器，我们就可以更好的控制我们的GUI程序了。
+通过使用这些监听器，我们就可以更好的控制我们的 GUI 程序了。
 
 ### 常用组件
 
 前面我们介绍了监听器，我们接着来看看常用的一些组件，那么什么是组件呢？
 
-组件实际上是AWT为我们预设好的一些可以直接使用的界面元素，比如**按钮、文本框、标签**等等，我们可以使用这些已经帮我们写好的组件来快速拼凑出一个好看且功能强大的程序：
+组件实际上是 AWT 为我们预设好的一些可以直接使用的界面元素，比如**按钮、文本框、标签**等等，我们可以使用这些已经帮我们写好的组件来快速拼凑出一个好看且功能强大的程序：
 
 ![image-20221027170224462](./img/D6hslN2pHybmVdF.jpg)
 
-在开始学习组件之前，我们先将布局设定为`null`（因为默认情况下会采用BorderLayout作为布局）有关布局我们会在下一部分中进行介绍，这节课我们先介绍没有布局的情况下如何使用这些组件。
+在开始学习组件之前，我们先将布局设定为`null`（因为默认情况下会采用 BorderLayout 作为布局）有关布局我们会在下一部分中进行介绍，这节课我们先介绍没有布局的情况下如何使用这些组件。
 
 ```java
 frame.setLayout(null);
@@ -272,7 +268,7 @@ frame.add(label);    //使用add方法添加组件到窗口中
 
 ![image-20221027175842110](./img/VjCdNbAUIi5R61Z.jpg)
 
-> windows下中文可能乱码或无法正常显示，但在之后使用Swing里面的JLabel可以解决这个问题。也可以添加JVM选项`-Dfile.encoding=gbk`,文件编码设置为GBK。
+> windows 下中文可能乱码或无法正常显示，但在之后使用 Swing 里面的 JLabel 可以解决这个问题。也可以添加 JVM 选项`-Dfile.encoding=gbk`,文件编码设置为 GBK。
 
 我们可以自由修改文本的字体和大小：
 
@@ -344,7 +340,7 @@ frame.add(field);
 
 ![image-20221027184138604](./img/ZhpojvR6u5DTmVP.jpg)
 
-我们经常要在一些软件上登录，那么就要输入我们的用户名和密码，所以说文本框的作用还是非常明显的，我们也可以通过AWT组件来实现这些功能，我们可以来试试看：
+我们经常要在一些软件上登录，那么就要输入我们的用户名和密码，所以说文本框的作用还是非常明显的，我们也可以通过 AWT 组件来实现这些功能，我们可以来试试看：
 
 ```java
 TextField field = new TextField();
@@ -431,11 +427,9 @@ frame.add(textArea);
 
 ```java
 button.addActionListener(e->{
-	System.out.println(textArea.getText());
+ System.out.println(textArea.getText());
 });
 ```
-
-
 
 ![image-20231202204055139](./img/image-20231202204055139.png)
 
@@ -451,7 +445,7 @@ button.addActionListener(e->{
 
 可以看到窗口的大小可以自由移动并且组件的位置会根据窗口大小自己进行调整。
 
-这正是因为使用了布局实现的，布局可以根据自己的一些性质，对容器（这里可以是我们的窗口）内部的组件自动进行调整，包括组件的位置、组件的大小等，Java为我们提供了各种各样的布局管理器，我们来看看吧。
+这正是因为使用了布局实现的，布局可以根据自己的一些性质，对容器（这里可以是我们的窗口）内部的组件自动进行调整，包括组件的位置、组件的大小等，Java 为我们提供了各种各样的布局管理器，我们来看看吧。
 
 #### BorderLayout（边界布局）
 
@@ -472,7 +466,7 @@ frame.add(new Button("5号按钮"), BorderLayout.CENTER);
 
 可以看到，分别在东、南、西、北、中心位置都可以添加组件，组件的大小会被自动调整，并且随着我们的窗口大小变化，组件的大小也会跟着自动调整，是不是感觉挺方便的？边界布局的性质：
 
-- BorderLayout布局的容器某个位置的某个组件会直接充满整个区域。
+- BorderLayout 布局的容器某个位置的某个组件会直接充满整个区域。
 - 如果在某个位置重复添加组件，只有最后一个添加的组件可见。
 - 缺少某个位置的组件时，其他位置的组件会延伸到该位置。
 
@@ -517,7 +511,7 @@ frame.setLayout(new FlowLayout(FlowLayout.RIGHT));   //指定为右对齐
 
 ![image-20221028142506961](./img/QlU8IPoVA2j4E6t.jpg)
 
-我们同样可以使用Hgap和Vgap来调整组件之间的间距：
+我们同样可以使用 Hgap 和 Vgap 来调整组件之间的间距：
 
 ```java
 FlowLayout flowLayout = new FlowLayout();
@@ -529,11 +523,9 @@ flowLayout.setVgap(0);
 
 #### CardLayout（卡片布局）
 
-我们接着来看卡片布局，CardLayout对象将卡片作为一个容器中的每个组件，这个卡片布局怎么说呢，有点像iOS14新出的叠放小组件（安卓应该也有）就像很多张卡片叠在一起，每次只能看到最顶上的这张卡片，但是我们可以将下层的卡片切到顶上来：
+我们接着来看卡片布局，CardLayout 对象将卡片作为一个容器中的每个组件，这个卡片布局怎么说呢，有点像 iOS14 新出的叠放小组件（安卓应该也有）就像很多张卡片叠在一起，每次只能看到最顶上的这张卡片，但是我们可以将下层的卡片切到顶上来：
 
 ![image-20221028143949323](./img/CqE9FkVSMJXOLY8.jpg)
-
-
 
 卡片布局就是这样，我们可以添加多个组件：
 
@@ -555,7 +547,7 @@ while (true) {
 
 #### GridLayout（网格布局）
 
-我们接着来看网格布局，GridLayout以矩形网格的形式对组件进行管理：
+我们接着来看网格布局，GridLayout 以矩形网格的形式对组件进行管理：
 
 ```java
 frame.setLayout(new GridLayout());
@@ -583,7 +575,7 @@ for (int i = 0; i < 10; i++)
 
 #### GridBagLayout（网格包布局管理器）
 
-最后一种布局是GridBagLayout，是最灵活的布局管理器，它同样是按照网格进行划分，但是一个组件可以同时占据多个网格。这种情况其实也是经常会出现的，比如计算器上的按钮虽然看起来也是按照网格排列的，但是有些按钮同时占据了横向或是纵向的两个网格，这种情况使用GridBagLayout布局就可以很好的处理：
+最后一种布局是 GridBagLayout，是最灵活的布局管理器，它同样是按照网格进行划分，但是一个组件可以同时占据多个网格。这种情况其实也是经常会出现的，比如计算器上的按钮虽然看起来也是按照网格排列的，但是有些按钮同时占据了横向或是纵向的两个网格，这种情况使用 GridBagLayout 布局就可以很好的处理：
 
 ![image-20221028145752545](./img/JNmjEVWIG2nkxbf.jpg)
 
@@ -591,7 +583,7 @@ for (int i = 0; i < 10; i++)
 
 #### Panel（面板）
 
-虽然认识了这么多的布局，但是我们发现，很多应用程序并不只是由单一的布局组成的，而是多种布局相互嵌套的结果，比如我们的IDEA界面，就不仅仅是一个布局完成的（这里只是举个例子）而是多种布局在嵌套使用：
+虽然认识了这么多的布局，但是我们发现，很多应用程序并不只是由单一的布局组成的，而是多种布局相互嵌套的结果，比如我们的 IDEA 界面，就不仅仅是一个布局完成的（这里只是举个例子）而是多种布局在嵌套使用：
 
 ![image-20221028151242522](./img/9ZfvOxThctdPS6N.jpg)
 
@@ -601,11 +593,7 @@ for (int i = 0; i < 10; i++)
 
 ![image-20221028151701189](./img/jVGTNmd3i2ZRg5h.jpg)
 
- 
-
 ![image-20221028151845514](./img/6PGem8qMrV7NOZS.jpg)
-
-
 
 面板本身也是容器，所以说也可以单独设置面板内部的布局，比如现在我们想要分两个区域，上半部分区域是流式布局，下半部分区域采用网格布局，那么我们就可以先将窗口采用网格布局，并在上下各添加一个面板：
 
@@ -659,7 +647,7 @@ frame.add(bottom);
 
 此时就会出现滚动条来让我们进行拖拽，这样就可以向下滑动查看没有完全展示出来的内容了。而我们之前开发的程序都没办法做到这样的滚动，超出部分会直接无法显示。
 
-AWT也为我们提供了滚动面板组件，滚动面板也是一个容器，但是我们无法修改它的布局，它只能容纳单个组件，比如展示一个图片、或者是列表等，我们也可以将其与Panel配合使用，比如：
+AWT 也为我们提供了滚动面板组件，滚动面板也是一个容器，但是我们无法修改它的布局，它只能容纳单个组件，比如展示一个图片、或者是列表等，我们也可以将其与 Panel 配合使用，比如：
 
 ```java
 ScrollPane scrollPane = new ScrollPane();   //创建滚动面板
@@ -692,11 +680,9 @@ for (int i = 0; i < 20; i++) {
 
 ![image-20221028155443331](./img/SQZapDy6vdLkHNx.jpg)
 
-
-
 当然，首选大小可能不太好理解，还需要各位小伙伴多多尝试才能理解。
 
-实际上滚动面板的最佳搭档就是List列表（注意这里的列表不是我们集合类里面学习的列表，而是展示出来的列表组件）
+实际上滚动面板的最佳搭档就是 List 列表（注意这里的列表不是我们集合类里面学习的列表，而是展示出来的列表组件）
 
 ```java
 List list = new List();   //注意是awt包下的List，别导错了
@@ -749,7 +735,7 @@ scrollPane.add(list);
 
 ![image-20221028161209224](./img/Konar26QHWMTwqd.jpg)
 
-在MacOS下是整合到状态栏中的：
+在 MacOS 下是整合到状态栏中的：
 
 ![image-20221028161239672](./img/G3NiRaBMkJLneVl.jpg)
 
@@ -757,10 +743,10 @@ scrollPane.add(list);
 
 ![image-20221028161118028](./img/hc354p1ri6NmGgA.jpg)
 
-而我们编写AWT程序也可以添加这样的菜单，只需要为窗口设定一个菜单栏即可：
+而我们编写 AWT 程序也可以添加这样的菜单，只需要为窗口设定一个菜单栏即可：
 
 ```java
-MenuBar bar = new MenuBar();    //创建菜单栏 
+MenuBar bar = new MenuBar();    //创建菜单栏
 Menu menu = new Menu("我是1号菜单");
 menu.add(new MenuItem("测试1"));
 menu.add(new MenuItem("测试2"));
@@ -768,15 +754,15 @@ bar.add(menu);
 frame.setMenuBar(bar);    //为窗口设定刚刚定义好的菜单栏
 ```
 
-设定好MenuBar之后，我们的程序就有菜单了：
+设定好 MenuBar 之后，我们的程序就有菜单了：
 
 ![image-20221028161741397](./img/wIWdRo2velTj1VS.jpg)
 
-虽然有点丑，但是确实是内味，不过还是MacOS下好看：
+虽然有点丑，但是确实是内味，不过还是 MacOS 下好看：
 
 ![image-20221028161910928](./img/7Dq6L1hbreYIy39.jpg)
 
-我们着重来看一下MenuItem，这是我们菜单的每一个选项，我们可以为其添加监听器来监听用户是否点击：
+我们着重来看一下 MenuItem，这是我们菜单的每一个选项，我们可以为其添加监听器来监听用户是否点击：
 
 ```java
 MenuItem item = new MenuItem("测试1");
@@ -796,7 +782,7 @@ item.setShortcut(new MenuShortcut('A'));   //MenuShortcut就是指定快捷键�
 //item.setShortcut(new MenuShortcut('A', true));   //第二个参数指定为true表示需要Ctrl+Shift+指定按键
 ```
 
-这里的效果就是Ctrl+A触发快捷键：
+这里的效果就是 Ctrl+A 触发快捷键：
 
 ![image-20221030173320786](./img/lwrjgRxu46UXHZk.jpg)
 
@@ -806,15 +792,13 @@ item.setShortcut(new MenuShortcut('A'));   //MenuShortcut就是指定快捷键�
 menu.add(new CheckboxMenuItem("测试2"));
 ```
 
-CheckboxMenuItem是可以勾选的选项，它能够对状态进行记录，我们点击选项之后会变成勾选状态：
+CheckboxMenuItem 是可以勾选的选项，它能够对状态进行记录，我们点击选项之后会变成勾选状态：
 
 ![image-20221028162655033](./img/Q1RgUn7ejZXzH5E.jpg)
 
 实际上要添加这样的菜单栏还是挺简单的的，我们接着来看弹出菜单，弹出菜单其实也经常出现，比如我们要新建一个类，我们就可以右键对应的包：
 
 ![image-20221028214019648](./img/IKe1NL5wm834WdP.jpg)
-
-
 
 弹出一个浮在窗口之上的，并且可以进行选择的菜单，这个就是弹出菜单。
 
@@ -828,12 +812,12 @@ frame.add(menu);    //注意，弹出菜单也要作为组件加入到窗口中�
 
 frame.addMouseListener(new MouseAdapter() {
     @Override
-    public void mousePressed(MouseEvent e) { 
+    public void mousePressed(MouseEvent e) {
         if (e.getButton() == MouseEvent.BUTTON3) {  //监听鼠标右键
             menu.show(frame, e.getX(), e.getY());   //要展示弹出菜单，我们只需要调用show方法即可
-          	//注意，第一个参数必须是弹出菜单所加入的窗口或是窗口中的任意一个组件
-          	//后面的坐标就是相对于这个窗口或是组件的原点（左上角）这个位置进行弹出
-          	//我们这里写的就是相对于当前窗口的左上角，鼠标点击位置的x、y位置弹出窗口
+           //注意，第一个参数必须是弹出菜单所加入的窗口或是窗口中的任意一个组件
+           //后面的坐标就是相对于这个窗口或是组件的原点（左上角）这个位置进行弹出
+           //我们这里写的就是相对于当前窗口的左上角，鼠标点击位置的x、y位置弹出窗口
         }
     }
 });
@@ -851,10 +835,10 @@ frame.addMouseListener(new MouseAdapter() {
 
 ![image-20221028220721666](./img/VUshJzZXxC51gpb.jpg)
 
-实际上像这样弹出的的一个对话框，在很多时候都很关键，我们也可以使用AWT为我们提供的对话框，比如我们现在希望在关闭窗口时询问我们是否真的要关闭：
+实际上像这样弹出的的一个对话框，在很多时候都很关键，我们也可以使用 AWT 为我们提供的对话框，比如我们现在希望在关闭窗口时询问我们是否真的要关闭：
 
 ```java
-Dialog dialog = new Dialog(frame, "我是对话框", true);   
+Dialog dialog = new Dialog(frame, "我是对话框", true);
 //第一个参数是父窗口或是父对话框（没错，对话框也可以由对话框唤起）
 //最后一个参数是当对话框展示时，是否让父窗口（对话框）无法点击
 dialog.setSize(200, 80);
@@ -870,8 +854,6 @@ frame.addWindowListener(new WindowAdapter() {
 当我们点击关闭时：
 
 ![image-20221028223431754](./img/VmajcUlSD6GPsrv.jpg)
-
-
 
 可以看到这里确实弹出了一个对话框（这个对话框无法最小化到图标）也就是说我们只能通过操作对话框来关闭它。
 
@@ -889,8 +871,6 @@ dialog.setSize(200, 80);
 这样我们退出时，就有对应的提示了：
 
 ![image-20221028224410637](./img/3v7ZJio9mMnK8zk.jpg)
-
-
 
 对话框就像一个特殊的窗口一样，各位小伙伴可以自由发挥。
 
@@ -920,7 +900,7 @@ frame.addWindowListener(new WindowAdapter() {
     @Override
     public void windowClosing(WindowEvent e) {
         dialog.setVisible(true);   //注意，需要将对话框展示出来之后，才能进行选择
-      	//选择完成之后getDirectory和getFile方法就可以返回结果了，否则会阻塞
+       //选择完成之后getDirectory和getFile方法就可以返回结果了，否则会阻塞
         System.out.println("选择的文件为："+dialog.getDirectory() + dialog.getFile());
     }
 });
@@ -938,19 +918,19 @@ frame.addWindowListener(new WindowAdapter() {
 
 要自己编写一个组件，需要完成下面的步骤：
 
-- 必须继承自Component类，表示这是一个AWT组件。
+- 必须继承自 Component 类，表示这是一个 AWT 组件。
 - 需要自己实现`paintComponent`方法，这个方法就是组件的绘制方法，最终绘制出来的结果就是展示出来的结果了。
 
 首先我们先把最简单的事情做了：
 
 ```java
 public class ImageView extends Component {   //继承自Component表示是一个组件
-    
+
     public ImageView(){}
 
     @Override
     public void paint(Graphics g) {    //重写paint方法，这个方法就是组件的绘制方法
-        
+
     }
 }
 ```
@@ -963,9 +943,9 @@ frame.add(new ImageView());
 
 这里用的是边界布局，默认情况下组件会被添加到中心，占满整个窗口。但是由于我们并没有编写任何绘制内容，所以说组件是空白的一片。
 
-我们来看看这个`paint`方法该如何重写，这个方法实际上是在窗口绘制时自动调用，那么到底什么是绘制呢？实际上绘制就是需要我们进行画图操作，当窗口首次展示或是修改大小时就会调用这个方法绘制组件（使用过OpenGL的小伙伴应该能够很容易上手）
+我们来看看这个`paint`方法该如何重写，这个方法实际上是在窗口绘制时自动调用，那么到底什么是绘制呢？实际上绘制就是需要我们进行画图操作，当窗口首次展示或是修改大小时就会调用这个方法绘制组件（使用过 OpenGL 的小伙伴应该能够很容易上手）
 
-这个方法给了我们一个Graphics对象，实际上这个对象就是我们用于绘制图形的工具，比如我们这个组件需要绘制的是一个矩形：
+这个方法给了我们一个 Graphics 对象，实际上这个对象就是我们用于绘制图形的工具，比如我们这个组件需要绘制的是一个矩形：
 
 ```java
 @Override
@@ -986,7 +966,7 @@ public void paint(Graphics g) {
     g.setColor(Color.BLACK);
     g.fillRect(0, 0, getWidth(), getHeight());
     g.setColor(Color.RED);    //画笔改成红色
-  	//在中间画个圆角矩形边框
+   //在中间画个圆角矩形边框
     g.drawRoundRect(getWidth() / 4, getHeight() / 4, getWidth() / 2, getHeight() / 2, 30, 30);
 }
 ```
@@ -995,13 +975,11 @@ public void paint(Graphics g) {
 
 ![image-20221028233307877](./img/xBsuijLa6beOwJy.jpg)
 
-
-
-是不是感觉还挺好玩的，就像我们在玩画画游戏一样。这里列一下Graphics接口提供的所有功能：
+是不是感觉还挺好玩的，就像我们在玩画画游戏一样。这里列一下 Graphics 接口提供的所有功能：
 
 ```java
 public abstract class Graphics {
-   	//移动画笔原点到指定坐标，默认是(0,0)
+    //移动画笔原点到指定坐标，默认是(0,0)
     public abstract void translate(int x, int y);
     //设定画笔颜色
     public abstract void setColor(Color c);
@@ -1013,7 +991,7 @@ public abstract class Graphics {
     public abstract void setFont(Font font);
 
     //设置裁剪区域，一旦设置裁剪区域，那么裁剪区域以外的地方即使绘制，也不会生效，绘制
-  	//只会在裁剪区域内生效（有点像图层蒙版？）
+   //只会在裁剪区域内生效（有点像图层蒙版？）
     public abstract void setClip(int x, int y, int width, int height);
     //设定自定义形状的裁剪区域
     public abstract void setClip(Shape clip);
@@ -1027,7 +1005,7 @@ public abstract class Graphics {
     public abstract void fillRect(int x, int y, int width, int height);
     //绘制矩形边框
     public void drawRect(int x, int y, int width, int height);
-		//绘制圆角矩形边框
+  //绘制圆角矩形边框
     public abstract void drawRoundRect(int x, int y, int width, int height,
                                        int arcWidth, int arcHeight);
     //填充圆角矩形区域
@@ -1046,13 +1024,13 @@ public abstract class Graphics {
     //绘制弧线边框
     public abstract void drawArc(int x, int y, int width, int height,
                                  int startAngle, int arcAngle);
-		//填充扇形区域
+  //填充扇形区域
     public abstract void fillArc(int x, int y, int width, int height,
                                  int startAngle, int arcAngle);
     //绘制折线（需要提供多个坐标）
     public abstract void drawPolyline(int xPoints[], int yPoints[],
                                       int nPoints);
-		//绘制多边形边框
+  //绘制多边形边框
     public abstract void drawPolygon(int xPoints[], int yPoints[],
                                      int nPoints);
     //填充多边形区域
@@ -1060,10 +1038,10 @@ public abstract class Graphics {
                                      int nPoints);
     //绘制文本
     public abstract void drawString(String str, int x, int y);
-   	//绘制图片（绘制大小为图片原本大小）
+    //绘制图片（绘制大小为图片原本大小）
     public abstract boolean drawImage(Image img, int x, int y,
                                       ImageObserver observer);
-   	//绘制按自定义大小缩放后的图片
+    //绘制按自定义大小缩放后的图片
     public abstract boolean drawImage(Image img, int x, int y,
                                       int width, int height,
                                       ImageObserver observer);
@@ -1094,7 +1072,7 @@ public abstract class Graphics {
 
 ```java
 public class ImageView extends Component {
-    private final Image image;   
+    private final Image image;
     public ImageView(String filename) throws IOException {
         File file = new File(filename);
         image = ImageIO.read(file);   //我们可以使用ImageIO类来快速将图片文件读取为Image对象
@@ -1102,7 +1080,7 @@ public class ImageView extends Component {
 
     @Override
     public void paint(Graphics g) {
-      	//绘制图片需要提供Image对象
+       //绘制图片需要提供Image对象
         g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
     }
 }
@@ -1111,8 +1089,6 @@ public class ImageView extends Component {
 我们来试试看效果吧：
 
 ![image-20221028235756338](./img/5adDsGr2iRxywCX.jpg)
-
-
 
 可以看到图片成功绘制出来了，这样，我们就提供自己编写绘制逻辑，成功完成了一个简单的自定义组件。
 
@@ -1123,7 +1099,7 @@ Image image = ImageIO.read(new File("test.png"));
 frame.setIconImage(image);
 ```
 
-注意，在MacOS下这样写没用，得用专用的增强包：
+注意，在 MacOS 下这样写没用，得用专用的增强包：
 
 ```java
 Image image = ImageIO.read(new File("test.png"));
@@ -1162,8 +1138,8 @@ public static void main(String[] args) throws IOException {
     Frame frame = new Frame("我是窗口");
     frame.setUndecorated(true);
     frame.setSize(200, 200);
-  	//注意，只有窗口在非修饰状态下才能设定形状
-  	//这里我们使用圆角矩形，形状最好跟窗口大小一样
+   //注意，只有窗口在非修饰状态下才能设定形状
+   //这里我们使用圆角矩形，形状最好跟窗口大小一样
     frame.setShape(new RoundRectangle2D.Double(0, 0, 200, 200, 20, 20));
     frame.setVisible(true);
 }
@@ -1183,7 +1159,7 @@ Frame frame = new Frame("我是窗口") {    //使用匿名内部类（或者自
     public void paint(Graphics g) {
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0, 0, getWidth(), 28);   //先绘制标题栏
-        g.setColor(Color.BLACK); 
+        g.setColor(Color.BLACK);
         g.drawString(getTitle(), getWidth() / 2, 20);   //绘制标题名称
         super.paint(g);   //原本的绘制别覆盖了，该怎么做还要怎么做
     }
@@ -1213,21 +1189,21 @@ frame.addMouseMotionListener(new MouseMotionAdapter() {   //只需要写一个�
 });
 ```
 
-至此，有关AWT相关的内容，我们就讲解到这里，相信各位小伙伴肯定已经跃跃欲试想要开发一个自己的桌面应用程序了。只不过很遗憾，Java官方并没有再对AWT相关内容进行维护，因为AWT采用的是取不同操作系统交集策略，因为有些功能只有部分操作系统才有，这就导致很多功能都被砍掉，维护起来也很困难。下节课开始，我们会继续介绍Swing相关组件。
+至此，有关 AWT 相关的内容，我们就讲解到这里，相信各位小伙伴肯定已经跃跃欲试想要开发一个自己的桌面应用程序了。只不过很遗憾，Java 官方并没有再对 AWT 相关内容进行维护，因为 AWT 采用的是取不同操作系统交集策略，因为有些功能只有部分操作系统才有，这就导致很多功能都被砍掉，维护起来也很困难。下节课开始，我们会继续介绍 Swing 相关组件。
 
-## Swing组件介绍
+## Swing 组件介绍
 
-前面我们介绍了AWT，通过Java官方为我们提供的GUI框架，我们就可以编写出自己的桌面应用程序了，现在各位小伙伴应该已经有着良好的图形化界面开发基础了。
+前面我们介绍了 AWT，通过 Java 官方为我们提供的 GUI 框架，我们就可以编写出自己的桌面应用程序了，现在各位小伙伴应该已经有着良好的图形化界面开发基础了。
 
-而Swing组件才是我们要学习的重点内容，它也是一套GUI框架，但是它是基于AWT编写的上层框架。
+而 Swing 组件才是我们要学习的重点内容，它也是一套 GUI 框架，但是它是基于 AWT 编写的上层框架。
 
-> Swing 是在AWT的基础上构建的一套新的图形界面系统，它提供了AWT 所能够提供的所有功能，并且用纯粹的Java代码对AWT 的功能进行了大幅度的扩充。例如说并不是所有的操作系统都提供了对树形控件的支持， Swing 利用了AWT 中所提供的基本作图方法对树形控件进行模拟。由于 Swing 控件是用100%的Java代码来实现的，因此在一个平台上设计的树形控件可以在其他平台上使用。由于在Swing 中没有使用本地方法来实现图形功能，我们通常把Swing控件称为轻量级控件。
+> Swing 是在 AWT 的基础上构建的一套新的图形界面系统，它提供了 AWT 所能够提供的所有功能，并且用纯粹的 Java 代码对 AWT 的功能进行了大幅度的扩充。例如说并不是所有的操作系统都提供了对树形控件的支持， Swing 利用了 AWT 中所提供的基本作图方法对树形控件进行模拟。由于 Swing 控件是用 100%的 Java 代码来实现的，因此在一个平台上设计的树形控件可以在其他平台上使用。由于在 Swing 中没有使用本地方法来实现图形功能，我们通常把 Swing 控件称为轻量级控件。
 
-其实简单来说，这玩意就是AWT那一套东西的扩展，或者说是强化版，很多东西还是沿用的AWT中的。
+其实简单来说，这玩意就是 AWT 那一套东西的扩展，或者说是强化版，很多东西还是沿用的 AWT 中的。
 
 ### 基本使用
 
-我们来看看如何使用Swing编写桌面程序，首先还是最重要的窗口：
+我们来看看如何使用 Swing 编写桌面程序，首先还是最重要的窗口：
 
 ```java
 public static void main(String[] args) {
@@ -1238,16 +1214,16 @@ public static void main(String[] args) {
 }
 ```
 
-是不是感觉学会AWT之后再看Swing也太简单了？
+是不是感觉学会 AWT 之后再看 Swing 也太简单了？
 
-当然，既然是AWT的扩展，那肯定是有更多的新增功能的，比如我们之前想要实现点击X号关闭Java程序，这里我们只需要使用一个方法就可以设定了，不需要我们自己去写监听器：
+当然，既然是 AWT 的扩展，那肯定是有更多的新增功能的，比如我们之前想要实现点击 X 号关闭 Java 程序，这里我们只需要使用一个方法就可以设定了，不需要我们自己去写监听器：
 
 ```java
 //我们可以直接为窗口设定关闭操作，JFrame已经为我们预设好了一些常用的操作了
 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  //EXIT_ON_CLOSE就是直接退出程序，默认是只隐藏
 ```
 
-Swing为我们提供了所有原本AWT中的组件的升级版，他们的名字前面都加上了J，比如按钮组件：
+Swing 为我们提供了所有原本 AWT 中的组件的升级版，他们的名字前面都加上了 J，比如按钮组件：
 
 ```java
 public static void main(String[] args) {
@@ -1261,13 +1237,13 @@ public static void main(String[] args) {
 }
 ```
 
-Swing不像AWT那样，平台组件长啥样，就用什么，它的组件都是自行绘制的：
+Swing 不像 AWT 那样，平台组件长啥样，就用什么，它的组件都是自行绘制的：
 
 ![image-20221029120313940](./img/dy6R2VNuOYIJamA.jpg)
 
-这样，我们在不同的平台上，看到的组件UI样式，都会是一样的，不会出现长得不一样的情况。并且我们可以为组件自由替换皮肤，我们会在后面进行介绍。
+这样，我们在不同的平台上，看到的组件 UI 样式，都会是一样的，不会出现长得不一样的情况。并且我们可以为组件自由替换皮肤，我们会在后面进行介绍。
 
-还有，Swing在没有设定布局时，组件的坐标原点并不是窗口的左上角，而是窗口标题栏下方的左上角：
+还有，Swing 在没有设定布局时，组件的坐标原点并不是窗口的左上角，而是窗口标题栏下方的左上角：
 
 ```java
 JFrame frame = new JFrame("我是窗口");
@@ -1284,7 +1260,7 @@ frame.setVisible(true);
 
 ![image-20221105171035570](./img/RMJWl576CiSDs8b.jpg)
 
-这一点确实比AWT好很多，不然咱都不知道不同平台的标题栏到底是多高。至于为什么是这样，这是因为JFrame内部实际上单独维护了一个面板来存放组件，很多操作都被重定向给了内部的面板，这里就不深入说了，知道就行。
+这一点确实比 AWT 好很多，不然咱都不知道不同平台的标题栏到底是多高。至于为什么是这样，这是因为 JFrame 内部实际上单独维护了一个面板来存放组件，很多操作都被重定向给了内部的面板，这里就不深入说了，知道就行。
 
 同样的，如果我们要使用菜单，直接使用对应的类即可：
 
@@ -1300,13 +1276,13 @@ frame.setSize(500, 300);
 frame.setVisible(true);
 ```
 
-这个菜单也是Swing自己绘制的，如果是AWT的话，不同系统菜单位置还不一样，虽然这里是自己画的，但是效果看着还行：
+这个菜单也是 Swing 自己绘制的，如果是 AWT 的话，不同系统菜单位置还不一样，虽然这里是自己画的，但是效果看着还行：
 
 ![image-20221029120737715](./img/aMGHTu8sl2Sg4vm.jpg)
 
-所以，Swing相关组件在使用上其实和我们之前学习的AWT是差不多的，只要前面AWT学的没问题，这里简直So Easy。
+所以，Swing 相关组件在使用上其实和我们之前学习的 AWT 是差不多的，只要前面 AWT 学的没问题，这里简直 So Easy。
 
-因为Swing是沿用的AWT框架体系，所以说AWT提供的旧组件，也是可以用的，但是这里不推荐：
+因为 Swing 是沿用的 AWT 框架体系，所以说 AWT 提供的旧组件，也是可以用的，但是这里不推荐：
 
 ```java
 public static void main(String[] args) {
@@ -1321,7 +1297,7 @@ public static void main(String[] args) {
 
 ### 新增组件介绍
 
-Swing除了强化AWT提供的组件之外，还自行实现了各种各样新式的组件，我们来依次介绍一下。
+Swing 除了强化 AWT 提供的组件之外，还自行实现了各种各样新式的组件，我们来依次介绍一下。
 
 首先是进度条组件：
 
@@ -1356,7 +1332,7 @@ button.addActionListener(e -> new Thread(() -> {
         while ((len = in.read(bytes)) > 0) {
             current += len;
             bar.setValue((int) (bar.getMaximum() * (double)current / size));   //每次拷贝都更新进度条
-          	bar.repaint();  //因为并不是每次更新值都会使得组件重新绘制，如果视觉上比较卡，可以每次拷贝都重新绘制组件
+           bar.repaint();  //因为并不是每次更新值都会使得组件重新绘制，如果视觉上比较卡，可以每次拷贝都重新绘制组件
             out.write(bytes, 0, len);
         }
     } catch (IOException exception) {
@@ -1399,9 +1375,9 @@ chooser.setBounds(0, 0, 600, 300);
 
 ![image-20221105170745920](./img/T6Vld1NMB9AJfct.jpg)
 
-完了，这Mac越用咋越像Windows了。
+完了，这 Mac 越用咋越像 Windows 了。
 
-当然，Swing考虑得不止这些，甚至连工具提示都有，啥是工具提示？
+当然，Swing 考虑得不止这些，甚至连工具提示都有，啥是工具提示？
 
 ![image-20221105171336948](./img/mGaU6X2ILvqQT1g.jpg)
 
@@ -1421,7 +1397,7 @@ button.setToolTipText("这个按钮是用来解决你毕设的！");
 
 ![image-20221105171728838](./img/gcCnLterFaqPvkK.jpg)
 
-我们的文件实际上在硬盘上就是以树形存储的，而Swing也为我们提供了能够显示树形关系的组件：
+我们的文件实际上在硬盘上就是以树形存储的，而 Swing 也为我们提供了能够显示树形关系的组件：
 
 ```java
 JTree tree = new JTree();
@@ -1453,7 +1429,7 @@ tree.setBounds(0, 0, 200, 200);
 
 ### 多面板和分割面板
 
-前面我们介绍了Swing为我们提供的丰富组件，我们接着来看多面板。
+前面我们介绍了 Swing 为我们提供的丰富组件，我们接着来看多面板。
 
 ![image-20221105173345221](./img/keDg2pnsJolaUZH.jpg)
 
@@ -1466,19 +1442,17 @@ pane.addTab("一号", new JPanel(){{setBackground(Color.ORANGE);}});
 pane.addTab("二号", new JPanel(){{setBackground(Color.PINK);}});
 ```
 
-JTabbedPane跟我们之前认识的Panel很像，相当于也是将我们的组件装进了内部，但是它可以同时装很多个，并且支持自由切换，所以说是很高级的。
+JTabbedPane 跟我们之前认识的 Panel 很像，相当于也是将我们的组件装进了内部，但是它可以同时装很多个，并且支持自由切换，所以说是很高级的。
 
 这里我们创建两个面板，将一号面板设定为橙色，二号面板设定为粉色，分别添加到里面：
 
 ![image-20221105173821177](./img/4jp1N9LnmwJGtOl.jpg)
 
-
-
 这样，我们就可以布置一号面板做某些事情，二号面板做另外一些事情了：
 
 ```java
 JTabbedPane pane = new JTabbedPane();
-pane.setBounds(0, 0, 500, 300); 
+pane.setBounds(0, 0, 500, 300);
 pane.addTab("一号", new JColorChooser());   //一号面板当颜色选择器
 pane.addTab("二号", new JFileChooser());    //二号面板当文件选择器
 ```
@@ -1491,11 +1465,11 @@ pane.addTab("二号", new JFileChooser());    //二号面板当文件选择器
 
 ![image-20221105174239436](./img/2gMxOrFGkHCJ73o.jpg)
 
-分割面板将一块完整的面板分割为两个部分，这样，我们就可以分别在左右两边进行操作了，而且中间的分割线是可以拖动的，实际上我们的IDEA也是这样的：
+分割面板将一块完整的面板分割为两个部分，这样，我们就可以分别在左右两边进行操作了，而且中间的分割线是可以拖动的，实际上我们的 IDEA 也是这样的：
 
 ![image-20221105174326135](./img/21l4GHg75fCaFzP.jpg)
 
-IDEA的左边是文件管理器，右边就是编辑区域，同样支持拖动中间的分割线，这样的设计是非常人性化的。
+IDEA 的左边是文件管理器，右边就是编辑区域，同样支持拖动中间的分割线，这样的设计是非常人性化的。
 
 我们来看看如何创建分割面板：
 
@@ -1509,9 +1483,7 @@ pane.setRightComponent(new JPanel(){{setBackground(Color.PINK);}});
 
 ![image-20221105174609500](./img/3VjoCckOZG2qNIf.jpg)
 
-
-
-配合我们之前的JTree组件和JTextArea组件，我们也可以写一个简单的IDEA软件出来：
+配合我们之前的 JTree 组件和 JTextArea 组件，我们也可以写一个简单的 IDEA 软件出来：
 
 ```java
 JTextArea area = new JTextArea();   //右边就是我们需要编辑的文本域
@@ -1538,15 +1510,15 @@ pane.setLeftComponent(new JScrollPane(tree));   //文件树和编辑区域都套
 pane.setRightComponent(new JScrollPane(area));
 ```
 
-我们来看看我们自己写的IDEA软件怎么样吧：
+我们来看看我们自己写的 IDEA 软件怎么样吧：
 
 ![image-20221105180609195](./img/rwik4EqaOeMYWfz.jpg)
 
-嗯，真不错，各位小伙伴赶紧去JetBrains投简历吧！
+嗯，真不错，各位小伙伴赶紧去 JetBrains 投简历吧！
 
 ### 选项窗口
 
-前面我们介绍过对话框，但是AWT提供的对话框太过原始，很多功能都需要我们自行实现，而Swing为我们提供了一套已经实现好的预设选项对话框，我们只需要直接使用即可。
+前面我们介绍过对话框，但是 AWT 提供的对话框太过原始，很多功能都需要我们自行实现，而 Swing 为我们提供了一套已经实现好的预设选项对话框，我们只需要直接使用即可。
 
 ```java
 JFrame frame = new JFrame("我是窗口");
@@ -1572,7 +1544,7 @@ frame.addWindowListener(new WindowAdapter() {   //我们自己来实现窗口关
 JOptionPane.showConfirmDialog(frame, "你真的要退出吗？", "退出程序", JOptionPane.YES_NO_OPTION);
 ```
 
-除了这种简单的对话框，Swing还为我们提供了一些其他类型的对话框，比如单纯的消息提示框：
+除了这种简单的对话框，Swing 还为我们提供了一些其他类型的对话框，比如单纯的消息提示框：
 
 ```java
 JOptionPane.showMessageDialog(frame, "我是简单的提示消息！");
@@ -1601,15 +1573,15 @@ frame.addWindowListener(new WindowAdapter() {
 
 ### 自定义主题
 
-Swing早就考虑到了不同平台可能会出现的组件样式差异，因此推出了皮肤机制。
+Swing 早就考虑到了不同平台可能会出现的组件样式差异，因此推出了皮肤机制。
 
-就像我们可以给英雄换皮肤一样，我们的组件UI也是可以换皮肤的，官方名称叫做LookAndFeel，Swing官方为我们提供了很多套皮肤，这些皮肤都是可以跨平台的，当然也有某些平台专属的限定皮肤：
+就像我们可以给英雄换皮肤一样，我们的组件 UI 也是可以换皮肤的，官方名称叫做 LookAndFeel，Swing 官方为我们提供了很多套皮肤，这些皮肤都是可以跨平台的，当然也有某些平台专属的限定皮肤：
 
 - MetalLookAndFeel - 官方默认皮肤
-- WindowsLookAndFeel - Windows操作系统限定皮肤，其他平台无法使用
+- WindowsLookAndFeel - Windows 操作系统限定皮肤，其他平台无法使用
 - MotifLookAndFeel - 官方皮肤
 - NimbusLookAndFeel - 官方皮肤
-- AquaLookAndFeel - MacOS操作系统限定皮肤，其他平台无法使用
+- AquaLookAndFeel - MacOS 操作系统限定皮肤，其他平台无法使用
 
 更换皮肤很简单，我们只需要执行一个方法就可以，它是全局生效的：
 
@@ -1617,7 +1589,7 @@ Swing早就考虑到了不同平台可能会出现的组件样式差异，因此
 UIManager.setLookAndFeel(new AquaLookAndFeel());
 ```
 
-这里我们将皮肤设定为MacOS的冰雪节限定皮肤AquaLookAndFeel：
+这里我们将皮肤设定为 MacOS 的冰雪节限定皮肤 AquaLookAndFeel：
 
 ![image-20221106170921703](./img/L7HyUlVpA5P9iTZ.jpg)
 
@@ -1627,9 +1599,9 @@ UIManager.setLookAndFeel(new AquaLookAndFeel());
 
 ![image-20221106171110930](./img/BOtWrIe7CuklMcZ.jpg)
 
-实际上Swing组件的绘制并不是由组件本身编写的，而是在各个UI实现类中编写的，所以说要修改组件样式只需要更换皮肤即可。
+实际上 Swing 组件的绘制并不是由组件本身编写的，而是在各个 UI 实现类中编写的，所以说要修改组件样式只需要更换皮肤即可。
 
-除了全局设定皮肤之外，我们也可以单独对某些组件设定皮肤，每个组件都有自己的`getUI`方法，这个方法就是获取当前组件使用的UI样式的：
+除了全局设定皮肤之外，我们也可以单独对某些组件设定皮肤，每个组件都有自己的`getUI`方法，这个方法就是获取当前组件使用的 UI 样式的：
 
 ```java
 System.out.println(tree.getUI());
@@ -1639,7 +1611,7 @@ System.out.println(tree.getUI());
 
 ![image-20221106224348544](./img/2NChELXRkoqJGMQ.jpg)
 
-我们可以自己编写一个UI样式来为组件进行设定：
+我们可以自己编写一个 UI 样式来为组件进行设定：
 
 ```java
 public static class TestJButtonUI extends ButtonUI {   //继承对应的UI父类
@@ -1655,7 +1627,7 @@ public static class TestJButtonUI extends ButtonUI {   //继承对应的UI父类
 }
 ```
 
-我们只需要使用set方法来设定即可：
+我们只需要使用 set 方法来设定即可：
 
 ```java
 JButton button = new JButton("我是按钮");
@@ -1667,4 +1639,4 @@ button.setUI(new TestJButtonUI());   //将UI设定为我们自己定义的即可
 
 ![image-20221106231437842](./img/53kHx2zTZ7wtUfC.jpg)
 
-各位小伙伴甚至可以编写一套自己的UI，并制作成一个LookAndFeel，这样我们写出来的程序就非常个性化了。
+各位小伙伴甚至可以编写一套自己的 UI，并制作成一个 LookAndFeel，这样我们写出来的程序就非常个性化了。

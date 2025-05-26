@@ -20,9 +20,9 @@ article: false
 timeline: false
 ---
 
-# HTML入门
+# HTML 入门
 
-> HTML简介
+> HTML 简介
 
 超文本标记语言（英语：HyperText Markup Language，简称：HTML）是一种用于创建网页的标准标记语言。
 
@@ -87,7 +87,7 @@ HTML 图像是通过标签 \<img> 来定义的.
 
 `br`换行
 
-## HTML页面
+## HTML 页面
 
 模板
 
@@ -109,7 +109,7 @@ HTML 图像是通过标签 \<img> 来定义的.
 
 ## 元素
 
-- `<html lang="zh-CN">` `lang` 表示该页面的语言   `"en"` 英语  `"zh"` 中文
+- `<html lang="zh-CN">` `lang` 表示该页面的语言 `"en"` 英语 `"zh"` 中文
 
 - `<p id="p1" title="show1">Hello,world!</p>` `id` 给标签命名`title`定义鼠标指向元素显示的信息
 
@@ -125,7 +125,7 @@ HTML 图像是通过标签 \<img> 来定义的.
 
 开始标签常被称为**起始标签（opening tag）**，结束标签常称为**闭合标签（closing tag）**。
 
-------
+---
 
 ### HTML 元素语法
 
@@ -138,7 +138,7 @@ HTML 图像是通过标签 \<img> 来定义的.
 
 **注释:** 您将在本教程的下一章中学习更多有关属性的内容。
 
-------
+---
 
 ### 嵌套的 HTML 元素
 
@@ -146,24 +146,22 @@ HTML 图像是通过标签 \<img> 来定义的.
 
 HTML 文档由相互嵌套的 HTML 元素构成。
 
-------
+---
 
 ### HTML 文档实例
 
 ```html
 <!DOCTYPE html>
 <html>
-
-<body>
-<p>这是第一个段落。</p>
-</body>
-
+  <body>
+    <p>这是第一个段落。</p>
+  </body>
 </html>
 ```
 
 以上实例包含了三个 HTML 元素。
 
-------
+---
 
 #### HTML 实例
 
@@ -181,7 +179,7 @@ HTML 文档由相互嵌套的 HTML 元素构成。
 
 ```html
 <body>
-<p>这是第一个段落。</p>
+  <p>这是第一个段落。</p>
 </body>
 ```
 
@@ -193,11 +191,9 @@ HTML 文档由相互嵌套的 HTML 元素构成。
 
 ```html
 <html>
-
-<body>
-<p>这是第一个段落。\</p>
-</body>
-
+  <body>
+    <p>这是第一个段落。\</p>
+  </body>
 </html>
 ```
 
@@ -215,7 +211,7 @@ HTML 文档由相互嵌套的 HTML 元素构成。
 
 但不要依赖这种做法。忘记使用结束标签会产生不可预料的结果或错误。
 
-------
+---
 
 ### HTML 空元素
 
@@ -271,21 +267,21 @@ li：list item （ 列表项）
 
 ```html
 <ul>
-    <li>
-      北京市
-      <ul>
-        <li>海滨区</li>
-        <li>朝阳区</li>
-        <li>昌平区</li>
-      </ul>
-    </li>
-    <li>
-      河北省
-      <ul>
-        <li>石家庄</li>
-        <li>保定</li>
-      </ul>
-    </li>
+  <li>
+    北京市
+    <ul>
+      <li>海滨区</li>
+      <li>朝阳区</li>
+      <li>昌平区</li>
+    </ul>
+  </li>
+  <li>
+    河北省
+    <ul>
+      <li>石家庄</li>
+      <li>保定</li>
+    </ul>
+  </li>
 </ul>
 ```
 
@@ -299,10 +295,10 @@ li：list item （ 列表项）
 
 ```html
 <dl>
-    <dt>look</dt>
-    <dd>解释1</dd>
-    <dd>解释2</dd>
-    <dd>解释3</dd>
+  <dt>look</dt>
+  <dd>解释1</dd>
+  <dd>解释2</dd>
+  <dd>解释3</dd>
 </dl>
 ```
 
@@ -319,7 +315,7 @@ li：list item （ 列表项）
 #### 1.本地网页
 
 ```html
- <a href="index01.html">本地网页</a>
+<a href="index01.html">本地网页</a>
 ```
 
 #### 2.互联网网页
@@ -332,49 +328,50 @@ li：list item （ 列表项）
 
 ```html
 <a href="#p1">页面内锚点</a>
-    <hr /><!-- <hr>分割线 -->
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
- <!-- <br>换行 -->
-    <p id="p1">很下面的内容<a href="#">回到顶部</a></p>
+<hr />
+<!-- <hr>分割线 -->
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<!-- <br>换行 -->
+<p id="p1">很下面的内容<a href="#">回到顶部</a></p>
 ```
 
 href = "#" 只有#号，表示回到页面顶部
 
 ```html
-<a href = "跳转目标" target="目标窗口弹出方式">文本或图像</a>
+<a href="跳转目标" target="目标窗口弹出方式">文本或图像</a>
 ```
 
-- `target` 指定链接页面的打开方式，_self为默认值，\_blank为在新窗口打开。
+- `target` 指定链接页面的打开方式，\_self 为默认值，\_blank 为在新窗口打开。
 
 > 案例
 >
 > ```html
 > <!DOCTYPE html>
 > <html lang="zh">
-> <head>
->  <meta charset="UTF-8" />
->  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
->  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
->  <title>Document</title>
-> </head>
-> <body>
->  <a href="index01.html">本地网页</a>
->  <hr/>
->  <a href="http://www.bilibili.com">互联网网页</a>
->  <hr/>
->  <a href="#p1">页面内锚点</a>
->  <hr/>
->  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
->  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
->  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
->  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
->  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
->  <p id="p1">很下面的内容<a href="#">回到顶部</a></p>
-> </body>
+>   <head>
+>     <meta charset="UTF-8" />
+>     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+>     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+>     <title>Document</title>
+>   </head>
+>   <body>
+>     <a href="index01.html">本地网页</a>
+>     <hr />
+>     <a href="http://www.bilibili.com">互联网网页</a>
+>     <hr />
+>     <a href="#p1">页面内锚点</a>
+>     <hr />
+>     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+>     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+>     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+>     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+>     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+>     <p id="p1">很下面的内容<a href="#">回到顶部</a></p>
+>   </body>
 > </html>
 > ```
 
@@ -387,24 +384,23 @@ href = "#" 只有#号，表示回到页面顶部
 #### 1.Image
 
 ```html
-<img src="文件路径">
-<img src="文件路径" alt="error" width="200">
+<img src="文件路径" /> <img src="文件路径" alt="error" width="200" />
 ```
 
 `border`边框
 
-src格式有三种
+src 格式有三种
 
 - 文件地址
-- data URL  将图片的二进制数据嵌入网页
+- data URL 将图片的二进制数据嵌入网页
 
 ```html
- data:媒体类型;base64,数据
+data:媒体类型;base64,数据
 ```
 
 - object URL
 
-> base64编码
+> base64 编码
 
 **java：**
 
@@ -435,15 +431,23 @@ src格式有三种
 ```
 
 ```html
- <video src="../video/tscg.mp4" width="800" controls></video>
+<video src="../video/tscg.mp4" width="800" controls></video>
 ```
 
 `controls`显示控件
 
-> 案例：嵌入B站视频
+> 案例：嵌入 B 站视频
 >
 > ```html
-> <iframe src="//player.bilibili.com/player.html?aid=941207928&bvid=BV13W4y127Ey&cid=807165255&page=46" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+> <iframe
+>   src="//player.bilibili.com/player.html?aid=941207928&bvid=BV13W4y127Ey&cid=807165255&page=46"
+>   scrolling="no"
+>   border="0"
+>   frameborder="no"
+>   framespacing="0"
+>   allowfullscreen="true"
+> >
+> </iframe>
 > ```
 
 ![B站视频](https://gitee.com/talentestors/img/raw/master/images/image-20230104195123485.png)
@@ -451,8 +455,7 @@ src格式有三种
 #### 3.Audio
 
 ```html
-<audio src="文件路径"></audio>
-<audio src="文件路径" controls></audio>
+<audio src="文件路径"></audio> <audio src="文件路径" controls></audio>
 ```
 
 ## HTML \<div> 和\<span>
@@ -485,24 +488,24 @@ HTML \<span> 元素是**内联元素**，可用作**文本**的容器
 
 ## HTML 字符实体
 
-| 显示结果 | 描述        | 实体名称           | 实体编号 |
-| -------- | ----------- | ------------------ | -------- |
-| &nbsp;   | 空格        | \&nbsp;            | \&#160;  |
-| <        | 小于号      | \&lt;              | \&#60;   |
-| >        | 大于号      | \&gt;              | \&#62;   |
-| &        | 和号        | \&amp;             | \&#38;   |
-| "        | 引号        | \&quot;            | \&#34;   |
-| '        | 撇号        | \&apos; (IE不支持) | \&#39;   |
-| ￠       | 分          | \&cent;            | \&#162;  |
-| £        | 镑          | \&pound;           | \&#163;  |
-| ¥        | 人民币/日元 | \&yen;             | \&#165;  |
-| €        | 欧元        | \&euro;            | \&#8364; |
-| §        | 小节        | \&sect;            | \&#167;  |
-| ©        | 版权        | \&copy;            | \&#169;  |
-| ®        | 注册商标    | \&reg;             | \&#174;  |
-| ™        | 商标        | \&trade;           | \&#8482; |
-| ×        | 乘号        | \&times;           | \&#215;  |
-| ÷        | 除号        | \&divide;          | \&#247;  |
+| 显示结果 | 描述        | 实体名称            | 实体编号 |
+| -------- | ----------- | ------------------- | -------- |
+| &nbsp;   | 空格        | \&nbsp;             | \&#160;  |
+| <        | 小于号      | \&lt;               | \&#60;   |
+| >        | 大于号      | \&gt;               | \&#62;   |
+| &        | 和号        | \&amp;              | \&#38;   |
+| "        | 引号        | \&quot;             | \&#34;   |
+| '        | 撇号        | \&apos; (IE 不支持) | \&#39;   |
+| ￠       | 分          | \&cent;             | \&#162;  |
+| £        | 镑          | \&pound;            | \&#163;  |
+| ¥        | 人民币/日元 | \&yen;              | \&#165;  |
+| €        | 欧元        | \&euro;             | \&#8364; |
+| §        | 小节        | \&sect;             | \&#167;  |
+| ©        | 版权        | \&copy;             | \&#169;  |
+| ®        | 注册商标    | \&reg;              | \&#174;  |
+| ™        | 商标        | \&trade;            | \&#8482; |
+| ×        | 乘号        | \&times;            | \&#215;  |
+| ÷        | 除号        | \&divide;           | \&#247;  |
 
 虽然 html 不区分大小写，但实体字符对大小写敏感。
 
@@ -514,11 +517,11 @@ HTML \<span> 元素是**内联元素**，可用作**文本**的容器
 
 ```html
 <table>
-    <tr>
-        <td>单元格中的文字</td>
-        <td>1</td>
-    </tr>
-     ...
+  <tr>
+    <td>单元格中的文字</td>
+    <td>1</td>
+  </tr>
+  ...
 </table>
 ```
 
@@ -528,7 +531,7 @@ HTML \<span> 元素是**内联元素**，可用作**文本**的容器
 
 3. `<td>1</td>`用于定义表格中的单元格
 
-   想要表格居中的话，要在\<table>中添加align="center"
+   想要表格居中的话，要在\<table>中添加 align="center"
 
 #### 表头单元格标签
 
@@ -538,18 +541,18 @@ HTML \<span> 元素是**内联元素**，可用作**文本**的容器
 
 ```html
 <table border="1">
-    <tr>
-        <th>Header 1</th>
-        <th>Header 2</th>
-    </tr>
-    <tr>
-        <td>row 1, cell 1</td>
-        <td>row 1, cell 2</td>
-    </tr>
-    <tr>
-        <td>row 2, cell 1</td>
-        <td>row 2, cell 2</td>
-    </tr>
+  <tr>
+    <th>Header 1</th>
+    <th>Header 2</th>
+  </tr>
+  <tr>
+    <td>row 1, cell 1</td>
+    <td>row 1, cell 2</td>
+  </tr>
+  <tr>
+    <td>row 2, cell 1</td>
+    <td>row 2, cell 2</td>
+  </tr>
 </table>
 ```
 
@@ -559,8 +562,8 @@ HTML \<span> 元素是**内联元素**，可用作**文本**的容器
 | ----------- | ------------------- | ---------------------------------------- |
 | align       | left、center、right | 规定表格的对齐方式。                     |
 | border      | 1 or ""             | 规定表格的边框，默认为""，表示没有边框。 |
-| cellpadding | px                  | 规定单元边沿与内容之间的空白，默认为1。  |
-| cellspacing | px                  | 规定单元格之间的空白，默认为2。          |
+| cellpadding | px                  | 规定单元边沿与内容之间的空白，默认为 1。 |
+| cellspacing | px                  | 规定单元格之间的空白，默认为 2。         |
 | width       | px 或 百分比%       | 规定表格的宽度。                         |
 
 #### 表格结构标签
@@ -581,39 +584,38 @@ HTML \<span> 元素是**内联元素**，可用作**文本**的容器
 ### 合并单元格
 
 ```html
-rowspan="合并单元格的个数" //跨行合并
-colspan="合并单元格的个数" //跨列合并
+rowspan="合并单元格的个数" //跨行合并 colspan="合并单元格的个数" //跨列合并
 ```
 
 ![合并单元格](https://gitee.com/talentestors/img/raw/master/images/image-020230110205707973.png)
 
 ```html
 <table align="center" border="1" cellpadding="2" cellspacing="0">
-        <thead>
-          <tr>
-            <th>Header 1</th>
-            <th colspan="3">Header 2</th>
-          </tr>
-        </thead>
-        <tbody align="center">
-          <tr>
-            <td rowspan="3">单元格</td>
-            <td>单元格中的文字</td>
-            <td>单元格中的文字</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>单元格中的文字</td>
-            <td>单元格中的文字</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>单元格</td>
-            <td>单元格</td>
-            <td>1</td>
-          </tr>
-      </tbody>
-    </table>
+  <thead>
+    <tr>
+      <th>Header 1</th>
+      <th colspan="3">Header 2</th>
+    </tr>
+  </thead>
+  <tbody align="center">
+    <tr>
+      <td rowspan="3">单元格</td>
+      <td>单元格中的文字</td>
+      <td>单元格中的文字</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>单元格中的文字</td>
+      <td>单元格中的文字</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>单元格</td>
+      <td>单元格</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
 ```
 
 ## 表单
@@ -622,9 +624,9 @@ colspan="合并单元格的个数" //跨列合并
 
 ```html
 <form action="服务器地址" method="请求方式" enctype="数据格式">
-    <!-- 表单项 -->
-    
- <input type="submit" value="提交按钮">
+  <!-- 表单项 -->
+
+  <input type="submit" value="提交按钮" />
 </form>
 ```
 
@@ -632,12 +634,12 @@ colspan="合并单元格的个数" //跨列合并
 
 method 请求方式有
 
-- **get**（默认）提交是，数据跟在URL地址之后
+- **get**（默认）提交是，数据跟在 URL 地址之后
 - **post**提交时，数据在请求体内
 
 #### enctype
 
-enctype在post请求时，指定数据格式
+enctype 在 post 请求时，指定数据格式
 
 - **application/x-www-form-urlencoded**（默认）
 - **multipart/form-data**
@@ -648,7 +650,7 @@ enctype在post请求时，指定数据格式
 
 有\<input>输入\<select>下拉\<textarea>文本域
 
-有**name属性**的表单项数据，才会被发送到服务器
+有**name 属性**的表单项数据，才会被发送到服务器
 
 ### 常见表单项
 
@@ -657,26 +659,26 @@ enctype在post请求时，指定数据格式
 ##### 1.文本框
 
 ```html
-<input type="text" name="username">
+<input type="text" name="username" />
 ```
 
 ##### 2.密码框
 
 ```html
-<input type="password" name="password" maxlength="20">
+<input type="password" name="password" maxlength="20" />
 <!-- "maxlength"设置输入最大值 -->
 ```
 
 ##### 3.隐藏框
 
 ```html
-<input type="hidden" name="id">
+<input type="hidden" name="id" />
 ```
 
 ##### 4.日期框
 
 ```html
-<input type="date" name="birthday">
+<input type="date" name="birthday" />
 ```
 
 ##### 5.单选
@@ -690,15 +692,15 @@ enctype在post请求时，指定数据格式
 ##### 6.多选
 
 ```html
-<input type="CheckBox" name="fav" value="1">
-<input type="CheckBox" name="fav" value="2">
-<input type="CheckBox" name="fav" value="3">
+<input type="CheckBox" name="fav" value="1" />
+<input type="CheckBox" name="fav" value="2" />
+<input type="CheckBox" name="fav" value="3" />
 ```
 
 ##### 7.文件上传
 
 ```html
-<input type="file" name="avatar">
+<input type="file" name="avatar" />
 ```
 
 #### \<select>
@@ -707,26 +709,26 @@ enctype在post请求时，指定数据格式
 
 ```html
 籍贯<select name="jiguan">
-        <option value="0">长沙</option>
-        <option value="0">上海</option>
-        <option value="0" selected>北京</option>
-        <option value="0">杭州</option>
-      </select>
+  <option value="0">长沙</option>
+  <option value="0">上海</option>
+  <option value="0" selected>北京</option>
+  <option value="0">杭州</option>
+</select>
 ```
 
 selected:默认选择项
 
 #### \<label>
 
-`<label>`标签为input元素定义标注(标签)。
+`<label>`标签为 input 元素定义标注(标签)。
 
 用于绑定一个表单元素，可以增加用户体验。
 
 ```html
-<label for="m" >男</label>
+<label for="m">男</label>
 <input type="radio" name="sex" value="男" id="m" checked />
 <label for="f">女</label>
-<input type="radio" name="sex" value="女"  id="f" />
+<input type="radio" name="sex" value="女" id="f" />
 ```
 
 #### \<textarea>
@@ -735,9 +737,10 @@ selected:默认选择项
 
 ```html
 <form>
-反馈：<br />
-	<textarea name="feedback" id="feed" cols="30" rows="10">
+  反馈：<br />
+  <textarea name="feedback" id="feed" cols="30" rows="10">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet veritatis ipsum quasi, maxime deleniti deserunt ducimus officia nostrum? Alias assumenda dolorum, illum molestias deserunt eaque rem cumque incidunt recusandae quasi?
-	</textarea>
+ </textarea
+  >
 </form>
 ```
