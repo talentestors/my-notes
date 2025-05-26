@@ -21,135 +21,124 @@ article: false
 timeline: false
 ---
 
-## 第一章 Mysql数据库
+## 第一章 MySQL 数据库
 
-::: tip
-
-推荐课程视频教程
-
-链接1：
-
-- 入门：<https://www.bilibili.com/video/BV1h5411m747>
-- 进阶：<https://www.bilibili.com/video/BV1eU4y117tx>
-
-链接2：
-
-- <https://www.bilibili.com/video/BV19d4y147Df>
-
-:::
+> [!TIP]
+>
+> 推荐课程视频教程
+>
+> 链接 1：<https://www.bilibili.com/video/BV1h5411m747>
+>
+> 链接 2：<https://www.bilibili.com/video/BV19d4y147Df>
 
 ### 一、数据库的概念
 
 - 数据库是【按照数据结构来组织、存储和管理数据的仓库】。是一个长期存储在计算机内的、有组织的、可共享的、统一管理的大量数据的集合。
 - 数据对于公司来说是最宝贵的财富之一，而程序员的工作就是对数据的管理，包括运算、流转、存储、展示等，数据库的最重要的功能就是【存储数据】，绝大部分的数据需要进行持久化，长期保存，而数据库就可以很好的帮助我们完成这个工作。
 
-### 二、mysql介绍
+### 二、mysql 介绍
 
-- MySQL是一个【关系型数据库管理系统】，由瑞典【MySQL AB】公司开发，属于 【Oracle】旗下产品。MySQL 是最流行的【关系型数据库管理系统】之一，在 【WEB】应用方面，MySQL是最好的 【RDBMS】 (Relational Database Management System，关系数据库管理系统) 应用软件之一。
-- MySQL是一种关系型数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。
-- MySQL所使用的 【SQL 语言是】用于访问【数据库】的最常用标准化语言。MySQL 软件采用了双授权政策，分为社区版和商业版，由于其体积小、速度快、总体拥有成本低，尤其是【开放源码】这一特点，一般中小型网站的开发都选择 MySQL 作为网站数据库。
+- MySQL 是一个【关系型数据库管理系统】，由瑞典【MySQL AB】公司开发，属于 【Oracle】旗下产品。MySQL 是最流行的【关系型数据库管理系统】之一，在 【WEB】应用方面，MySQL 是最好的 【RDBMS】 (Relational Database Management System，关系数据库管理系统) 应用软件之一。
+- MySQL 是一种关系型数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。
+- MySQL 所使用的 【SQL 语言是】用于访问【数据库】的最常用标准化语言。MySQL 软件采用了双授权政策，分为社区版和商业版，由于其体积小、速度快、总体拥有成本低，尤其是【开放源码】这一特点，一般中小型网站的开发都选择 MySQL 作为网站数据库。
 
-### 三、mysql的安装
+### 三、mysql 的安装
 
 官方网站：
 
-![image-20220419112900954](.\img\image-20220419112900954-0817b298.png)
+![image-20220419112900954](./img/image-20220419112900954-0817b298.png)
 
 基本的安装过程如下：
 
-![image-20220419111843961](.\img\image-20220419111843961-1b721a3e.png)
+![image-20220419111843961](./img/image-20220419111843961-1b721a3e.png)
 
 下载后我们可以自定义安装：
 
-![image-20220419111843961](.\img\image-20220421193852670-647a430b.png)
+![image-20220419111843961](./img/image-20220421193852670-647a430b.png)
 
-选择安装server和两个客户端进行体验：
+选择安装 server 和两个客户端进行体验：
 
-![image-20220419111843961](.\img\image-20220421193949698-6e202212.png)
+![image-20220419111843961](./img/image-20220421193949698-6e202212.png)
 
-自己可以体验一下workbench和mysqlsh。
+自己可以体验一下 workbench 和 mysqlsh。
 
-### 四、从WSl安装MySQL
+### 四、从 WSl 安装 MySQL
 
-在wsl可用时，用自己对应发行版的方法安装。
+在 wsl 可用时，用自己对应发行版的方法安装。
 
-ubuntu的安装：<https://www.cnblogs.com/panlq/p/13704965.html>
+ubuntu 的安装：<https://www.cnblogs.com/panlq/p/13704965.html>
 
-![image-20231030185747243](.\img\image-20231030185747243.png)
+> [!TIP]
+>
+> 建议安装后重启一下（不是重启 wsl！）。
 
-::: tip
-
-建议安装后重启一下（不是重启wsl！）。
-
-:::
-
-`mysql -uroot -p root`
+mysql -uroot -p root
 
 > 错误解决：ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
 >
-> 如果你在WSL（Windows Subsystem for Linux）中安装了MySQL，并且遇到了"ERROR 2002 (HY000): Can't connect to local MySQL server through socket"错误，这通常是由于MySQL服务器没有正确启动或配置问题引起的。以下是一些可能的解决方法：
+> 如果你在 WSL（Windows Subsystem for Linux）中安装了 MySQL，并且遇到了"ERROR 2002 (HY000): Can't connect to local MySQL server through socket"错误，这通常是由于 MySQL 服务器没有正确启动或配置问题引起的。以下是一些可能的解决方法：
 >
-> 1. 启动MySQL服务：
+> 1. 启动 MySQL 服务：
 >
->    首先，确保MySQL服务器在WSL中已经正确启动。你可以使用以下命令来启动MySQL服务：
+>     首先，确保 MySQL 服务器在 WSL 中已经正确启动。你可以使用以下命令来启动 MySQL 服务：
 >
->    ```
->    sudo service mysql start
->    ```
+>     ```
+>     sudo service mysql start
+>     ```
 >
->    或者使用以下命令：
+>     或者使用以下命令：
 >
->    ```
->    sudo systemctl start mysql
->    ```
+>     ```
+>     sudo systemctl start mysql
+>     ```
 >
-> 2. 检查MySQL配置：
+> 2. 检查 MySQL 配置：
 >
->    确保MySQL的配置文件中没有错误。MySQL的配置文件通常位于`/etc/mysql/mysql.conf.d/`目录下。你可以检查该目录下的配置文件，确保MySQL的配置是正确的。
+>     确保 MySQL 的配置文件中没有错误。MySQL 的配置文件通常位于`/etc/mysql/mysql.conf.d/`目录下。你可以检查该目录下的配置文件，确保 MySQL 的配置是正确的。
 >
-> 3. 检查MySQL套接字文件路径：
+> 3. 检查 MySQL 套接字文件路径：
 >
->    错误信息中提到了套接字文件路径，确保该路径正确。默认情况下，MySQL套接字文件的路径是`/var/run/mysqld/mysqld.sock`，但也可能因配置不同而有所不同。你可以在MySQL配置文件中查找套接字文件的路径，然后将其与错误信息中的路径进行比较。
+>     错误信息中提到了套接字文件路径，确保该路径正确。默认情况下，MySQL 套接字文件的路径是`/var/run/mysqld/mysqld.sock`，但也可能因配置不同而有所不同。你可以在 MySQL 配置文件中查找套接字文件的路径，然后将其与错误信息中的路径进行比较。
 >
-> 4. 确保MySQL正在运行：
+> 4. 确保 MySQL 正在运行：
 >
->    使用以下命令检查MySQL服务器是否正在运行：
+>     使用以下命令检查 MySQL 服务器是否正在运行：
 >
->    ```bash
->    sudo service mysql status
->    ```
+>     ```bash
+>     sudo service mysql status
+>     ```
 >
->    或者
+>     或者
 >
->    ```bash
->    sudo systemctl status mysql
->    ```
+>     ```bash
+>     sudo systemctl status mysql
+>     ```
 >
->    如果MySQL没有运行，你可以尝试重新启动它：
+>     如果 MySQL 没有运行，你可以尝试重新启动它：
 >
->    ```bash
->    sudo service mysql restart
->    ```
+>     ```bash
+>     sudo service mysql restart
+>     ```
 >
->    或者
+>     或者
 >
->    ```bash
->    sudo systemctl restart mysql
->    ```
+>     ```bash
+>     sudo systemctl restart mysql
+>     ```
 >
-> 如果上述步骤没有解决问题，你可能需要更多的信息来排除问题。你可以查看MySQL的错误日志，通常位于MySQL的数据目录下，以查看更多有关连接问题的信息。如果问题仍然存在，你可能需要检查WSL的网络配置以确保MySQL可以通过套接字连接。
+> 如果上述步骤没有解决问题，你可能需要更多的信息来排除问题。你可以查看 MySQL 的错误日志，通常位于 MySQL 的数据目录下，以查看更多有关连接问题的信息。如果问题仍然存在，你可能需要检查 WSL 的网络配置以确保 MySQL 可以通过套接字连接。
 
 ### 五、基本概念
 
 #### 1、数据库
 
-数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。在mysql中可以创建多个数据库，一个数据库可以管理很多张表。
+数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。在 mysql 中可以创建多个数据库，一个数据库可以管理很多张表。
 
-有个很形象的对比，例如execl中的一个execl文件就是一个数据库，一个sheet页就是一张表，表里边可以有所需要的数据：
+有个很形象的对比，例如 execl 中的一个 execl 文件就是一个数据库，一个 sheet 页就是一张表，表里边可以有所需要的数据：
 
-![image-20220420200137281](.\img\image-20220420200137281-ebd4620c.png)
+![image-20220420200137281](./img/image-20220420200137281-ebd4620c.png)
 
-我们可以在登陆 MySQL 服务后，使用 **create** 命令创建数据库，语法如下，两条sql等效:
+我们可以在登陆 MySQL 服务后，使用 **create** 命令创建数据库，语法如下，两条 sql 等效:
 
 ```sql
 CREATE DATABASE 数据库名;
@@ -158,13 +147,13 @@ CREATE SCHEMA 数据库名
 
 查看所有数据库:
 
-```sql
+```text
 SHOW DATABASES;
 ```
 
 使用数据库:
 
-```sql
+```text
 USE 数据库名;
 ```
 
@@ -174,30 +163,30 @@ USE 数据库名;
 
 ## 第二章、SQL
 
-SQL是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统。
+SQL 是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统。
 
-### 一、SQL语句分类
+### 一、SQL 语句分类
 
 - DCL(Data Control Language)：数据控制语言，用来定义访问权限和安全级别。
 - DDL(Data Definition Language)：数据定义语言，用来定义数据库对象：库、表、列等。功能：创建、删除、修改库和表结构。
 - DML(Data Manipulation Language)：数据操作语言，用来定义数据库记录：增、删、改表记录。
 - DQL(Data Query Language)：数据查询语言，用来查询记录。也是本章学习的重点。
 
-###  二、DCL(数据控制语言)语法（不重要）
+### 二、DCL(数据控制语言)语法（不重要）
 
 该语言用来定义【访问权限和安全级别】，理解即可，直接使用命令控制权限的场景不多，更多情况是使用图形化界面进行操作。
 
-mysql中的权限无非是针对不同的用户而言，不同的用户的权限提现在以下几点：可否链接mysql服务 、可否访问数据库 、可否访问某张数据库表 、可否对表进行一些操作等。
+mysql 中的权限无非是针对不同的用户而言，不同的用户的权限提现在以下几点：可否链接 mysql 服务 、可否访问数据库 、可否访问某张数据库表 、可否对表进行一些操作等。
 
 #### 1、创建用户
 
-创建一个用户，该用户只能在指定ip地址上登录mysql：
+创建一个用户，该用户只能在指定 ip 地址上登录 mysql：
 
 ```sql
 create user 用户名@IP地址 identified by ‘密码’;
 ```
 
-创建一个用户，该用户可以在任意ip地址上登录mysql:
+创建一个用户，该用户可以在任意 ip 地址上登录 mysql:
 
 ```sql
 create user 'ydl'@'%' identified by 'root';
@@ -212,7 +201,7 @@ set password for zn@'%' = password('newpwd');
 set password for zn@'%' = 'newpwd';
 ```
 
-如果直接修改表，也是可以创建用户修改密码的，【mysql数据库下的user表】但是通过修改数据库创建用户，修改密码，都需要刷新权限：
+如果直接修改表，也是可以创建用户修改密码的，【mysql 数据库下的 user 表】但是通过修改数据库创建用户，修改密码，都需要刷新权限：
 
 ```sql
 flush privileges;
@@ -262,7 +251,7 @@ drop user 'ydl'@'%';
 
 ### 三、DDL(数据定义语言)语法
 
-DDL主要是用在定义或改变表（TABLE）的结构，主要的命令有CREATE、ALTER、DROP等：
+DDL 主要是用在定义或改变表（TABLE）的结构，主要的命令有 CREATE、ALTER、DROP 等：
 
 #### 1、创建表的基本语法
 
@@ -286,70 +275,70 @@ create table 表名 (
 
 > 整型
 
-| MySQL数据类型 | 含义（有符号）                        |
-| ------------- | ------------------------------------- |
-| tinyint       | 1字节，范围（-128~127）               |
-| smallint      | 2字节，范围（-32768~32767）           |
-| mediumint     | 3字节，范围（-8388608~8388607）       |
-| int           | 4字节，范围（-2147483648~2147483647） |
-| bigint        | 8字节，范围（+-9.22*10的18次方）      |
+| MySQL 数据类型 | 含义（有符号）                         |
+| -------------- | -------------------------------------- |
+| tinyint        | 1 字节，范围（-128~127）               |
+| smallint       | 2 字节，范围（-32768~32767）           |
+| mediumint      | 3 字节，范围（-8388608~8388607）       |
+| int            | 4 字节，范围（-2147483648~2147483647） |
+| bigint         | 8 字节，范围（+-9.22\*10 的 18 次方）  |
 
-在整形中我们默认使用的都是【有符号】的，当然了，我们也可以加上unsigned关键字，定义成无符号的类型，那么对应的取值范围就会发生改变：
+在整形中我们默认使用的都是【有符号】的，当然了，我们也可以加上 unsigned 关键字，定义成无符号的类型，那么对应的取值范围就会发生改变：
 
-比如：tinyint unsigned的取值范围为0~255，
+比如：tinyint unsigned 的取值范围为 0~255，
 
-宽度n的作用需要配合zerofill进行使用： 如：int(4) UNSIGNED zerofill 查询结果: 0001 0002 1000
+宽度 n 的作用需要配合 zerofill 进行使用： 如：int(4) UNSIGNED zerofill 查询结果: 0001 0002 1000
 
 > 浮点型
 
-| MySQL数据类型 | 含义                                                    |
-| ------------- | ------------------------------------------------------- |
-| float(m, d)   | 4字节，单精度浮点型，m总长度，d小数位                   |
-| double(m, d)  | 8字节，双精度浮点型，m总长度，d小数位                   |
-| decimal(m, d) | decimal是存储为字符串的浮点数，对应我们java的Bigdecimal |
+| MySQL 数据类型 | 含义                                                        |
+| -------------- | ----------------------------------------------------------- |
+| float(m, d)    | 4 字节，单精度浮点型，m 总长度，d 小数位                    |
+| double(m, d)   | 8 字节，双精度浮点型，m 总长度，d 小数位                    |
+| decimal(m, d)  | decimal 是存储为字符串的浮点数，对应我们 java 的 Bigdecimal |
 
-我们使用一个例子来判断小括号内参数的含义，针对数据类型为float(5, 3)的列，做了以下试验：
+我们使用一个例子来判断小括号内参数的含义，针对数据类型为 float(5, 3)的列，做了以下试验：
 
-- 插入123.45678，最后查询得到的结果为99.999；
-- 插入12.34567，最后查询结果为12.346；
+- 插入 123.45678，最后查询得到的结果为 99.999；
+- 插入 12.34567，最后查询结果为 12.346；
 
 所以，在使用浮点型的时候，还是要注意陷阱的，要以插入数据库中的实际结果为准。
 
 > 字符串数据类型
 
-| MySQL数据类型 | 含义                                     |
-| ------------- | ---------------------------------------- |
-| char(n)       | 固定长度，最多255个字符                  |
-| varchar(n)    | 可变长度，最大容量65535个字节            |
-| tinytext      | 可变长度，最大容量255个字节              |
-| text          | 可变长度，最大容量65535个字节            |
-| mediumtext    | 可变长度，最大容量2的24次方-1个字节 16MB |
-| longtext      | 可变长度，最大容量2的32次方-1个字节 4GB  |
+| MySQL 数据类型 | 含义                                          |
+| -------------- | --------------------------------------------- |
+| char(n)        | 固定长度，最多 255 个字符                     |
+| varchar(n)     | 可变长度，最大容量 65535 个字节               |
+| tinytext       | 可变长度，最大容量 255 个字节                 |
+| text           | 可变长度，最大容量 65535 个字节               |
+| mediumtext     | 可变长度，最大容量 2 的 24 次方-1 个字节 16MB |
+| longtext       | 可变长度，最大容量 2 的 32 次方-1 个字节 4GB  |
 
-**（1）char和varchar的区别：**
+**（1）char 和 varchar 的区别：**
 
-- char类型是【定长】的类型，即当定义的是char(10)，输入的是"abc"这三个字符时，它们占的空间一样是10个字符，包括7个空字节。当输入的字符长度超过指定的数时，char会截取超出的字符。而且，当存储char值时，MySQL是自动删除输入字符串末尾的空格。
-- char是适合存储很短的、一般固定长度的字符串。例如，char非常适合存储密码的MD5值，因为这是一个定长的值。对于非常短的列，char比varchar在存储空间上也更有效率。
-- varchar(n)类型用于存储【可变长】的，长度最大为n个字符的可变长度字符数据。比如varchar(10), 然后输入abc三个字符，那么实际存储大小为3个字节。除此之外，varchar还需要使用1或2个额外字节记录字符串的长度，如果列的最大长度小于等于255字节（是定义的最长长度，不是实际长度），则使用1个字节表示长度，否则使用2个字节来表示。n表示的是最大的
-- char类型每次修改的数据长度相同，效率更高，varchar类型每次修改的数据长度不同，效率更低。
+- char 类型是【定长】的类型，即当定义的是 char(10)，输入的是"abc"这三个字符时，它们占的空间一样是 10 个字符，包括 7 个空字节。当输入的字符长度超过指定的数时，char 会截取超出的字符。而且，当存储 char 值时，MySQL 是自动删除输入字符串末尾的空格。
+- char 是适合存储很短的、一般固定长度的字符串。例如，char 非常适合存储密码的 MD5 值，因为这是一个定长的值。对于非常短的列，char 比 varchar 在存储空间上也更有效率。
+- varchar(n)类型用于存储【可变长】的，长度最大为 n 个字符的可变长度字符数据。比如 varchar(10), 然后输入 abc 三个字符，那么实际存储大小为 3 个字节。除此之外，varchar 还需要使用 1 或 2 个额外字节记录字符串的长度，如果列的最大长度小于等于 255 字节（是定义的最长长度，不是实际长度），则使用 1 个字节表示长度，否则使用 2 个字节来表示。n 表示的是最大的
+- char 类型每次修改的数据长度相同，效率更高，varchar 类型每次修改的数据长度不同，效率更低。
 
-**（2）varchar和text**
+**（2）varchar 和 text**
 
-- text不能设置默认值，varchar可以，这个我们在后边再看。
-- text类型，包括（MEDIUMTEXT，LONGTEXT）也受单表 65535 最大行宽度限制，所以他支持溢出存储，只会存放前 768 字节在数据页中，而剩余的数据则会存储在溢出段中。虽然 text 字段会把超过 768 字节的大部分数据溢出存放到硬盘其他空间，看上去是会更加增加磁盘压力。但从处理形态上来讲 varchar 大于 768 字节后，实质上存储和 text 差别不是太大了。因为超长的 varchar 也是会用到溢出存储，读取该行也是要去读硬盘然后加载到内存，基本认为是一样的。
+- text 不能设置默认值，varchar 可以，这个我们在后边再看。
+- text 类型，包括（MEDIUMTEXT，LONGTEXT）也受单表 65535 最大行宽度限制，所以他支持溢出存储，只会存放前 768 字节在数据页中，而剩余的数据则会存储在溢出段中。虽然 text 字段会把超过 768 字节的大部分数据溢出存放到硬盘其他空间，看上去是会更加增加磁盘压力。但从处理形态上来讲 varchar 大于 768 字节后，实质上存储和 text 差别不是太大了。因为超长的 varchar 也是会用到溢出存储，读取该行也是要去读硬盘然后加载到内存，基本认为是一样的。
 - 根据存储的实现：可以考虑用 varchar 替代 text，因为 varchar 存储更弹性，存储数据少的话性能更高。
-- 如果存储的数据大于64K，就必须使用到 mediumtext，longtext，因为 varchar 已经存不下了。
+- 如果存储的数据大于 64K，就必须使用到 mediumtext，longtext，因为 varchar 已经存不下了。
 - 如果 varchar(255+) 之后，和 text 在存储机制是一样的，性能也相差无几。
 
 > 日期和时间数据类型
 
-| MySQL数据类型 | 含义                                       |
-| ------------- | ------------------------------------------ |
-| date          | 3字节，日期，格式：2014-09-18              |
-| time          | 3字节，时间，格式：08:42:30                |
-| datetime      | 8字节，日期时间，格式：2014-09-18 08:42:30 |
-| timestamp     | 4字节，自动存储记录修改的时间              |
-| year          | 1字节，年份                                |
+| MySQL 数据类型 | 含义                                        |
+| -------------- | ------------------------------------------- |
+| date           | 3 字节，日期，格式：2014-09-18              |
+| time           | 3 字节，时间，格式：08:42:30                |
+| datetime       | 8 字节，日期时间，格式：2014-09-18 08:42:30 |
+| timestamp      | 4 字节，自动存储记录修改的时间              |
+| year           | 1 字节，年份                                |
 
 #### 3、建表约束
 
@@ -357,7 +346,7 @@ create table 表名 (
 
 目前我们已经学会了如何创建表，但是，一张表不止有一列，数据库中的表不止有一个，建表约束说的就是，我们应该如何规范表中的数据以及表和表的关系。
 
-#### （1）MySQL约束类型
+#### （1）MySQL 约束类型
 
 | 约束名称    | 描述                                       |
 | ----------- | ------------------------------------------ |
@@ -367,69 +356,69 @@ create table 表名 (
 | DEFAULT     | 默认值（缺省值）                           |
 | FOREIGN KEY | 外键约束（外关键字）                       |
 
-#### （2）[NOT] NULL约束
+#### （2）[NOT] NULL 约束
 
 非空约束指的是，如果我们要在这张表中添加数据，设定了非空约束的列必须赋值，不能为空：
 
 ```mysql
 create table `ydlclass`.`author`(
-	`aut_id` int ,
-	`aut_name` varchar(50) not null,     # 这就是非空约束
-	`gander` char(1) default '男',
-	`country` varchar(50),
-	`brithday` datetime
-	primary key(aut_id,aut_name)
+ `aut_id` int ,
+ `aut_name` varchar(50) not null,     # 这就是非空约束
+ `gander` char(1) default '男',
+ `country` varchar(50),
+ `brithday` datetime
+ primary key(aut_id,aut_name)
 );
 ```
 
-#### （3）UNIQUE约束
+#### （3）UNIQUE 约束
 
 唯一约束指的是，如果我们要在这张表中添加数据，设定了唯一约束的列中的值不能重复，不能为空：
 
-实现方法1（表的定义最后施加）
+实现方法 1（表的定义最后施加）
 
 ```sql
 -- 创建图书表
 create table `ydlclass`.`book`(
-	`id` int primary key auto_increment,
-	`name` varchar(50) not null,
-	`bar_code` varchar(30) not null, 
-	`aut_id` int not null,
-	unique(bar_code)   -- 这就是唯一约束的定义
+ `id` int primary key auto_increment,
+ `name` varchar(50) not null,
+ `bar_code` varchar(30) not null,
+ `aut_id` int not null,
+ unique(bar_code)   -- 这就是唯一约束的定义
 )
 ```
 
-实现方法2（字段定义的最后施加）
+实现方法 2（字段定义的最后施加）
 
 ```cpp
 -- 创建图书表
 create table `ydlclass`.`book`(
-	`id` int primary key auto_increment,
-	`name` varchar(50) not null,
-	`bar_code` varchar(30) not null unique,  -- 这就是唯一约束的定义
-	`aut_id` int not null,
+ `id` int primary key auto_increment,
+ `name` varchar(50) not null,
+ `bar_code` varchar(30) not null unique,  -- 这就是唯一约束的定义
+ `aut_id` int not null,
 )
 ```
 
-#### （4）DEFAULT约束
+#### （4）DEFAULT 约束
 
 默认约束指的是，如果我们要在这张表中添加数据，如果为给设定了默认约束的列赋值，该列会自动填充默认值：
 
 ```sql
 -- 创建作者表
 create table `ydlclass`.`author`(
-	`aut_id` int ,
-	`aut_name` varchar(50) not null,
-	`gander` char(1) default '男',     -- 这就是默认约束
-	`country` varchar(50),
-	`brithday` datetime
-	primary key(aut_id,aut_name)
+ `aut_id` int ,
+ `aut_name` varchar(50) not null,
+ `gander` char(1) default '男',     -- 这就是默认约束
+ `country` varchar(50),
+ `brithday` datetime
+ primary key(aut_id,aut_name)
 );
 ```
 
-#### （5）PRIMARY KEY约束
+#### （5）PRIMARY KEY 约束
 
-主键（PRIMARY KEY）的完整称呼是“主键约束”，是 MySQL中使用最为频繁的约束。一般情况下，为了便于 DBMS 更快的查找到表中的记录，都会在表中设置一个主键。
+主键（PRIMARY KEY）的完整称呼是“主键约束”，是 MySQL 中使用最为频繁的约束。一般情况下，为了便于 DBMS 更快的查找到表中的记录，都会在表中设置一个主键。
 
 主键分为单字段主键和多字段联合主键，本节将分别讲解这两种主键约束的创建、修改和删除。
 
@@ -440,31 +429,31 @@ create table `ydlclass`.`author`(
 - 一个字段名只能在联合主键字段表中出现一次。
 - 【联合主键】不能包含不必要的多余字段。当把联合主键的某一字段删除后，如果剩下的字段构成的主键仍然满足唯一性原则，那么这个联合主键是不正确的。这是最小化原则。
 
-> 单个字段作为主键（方法1）
+> 单个字段作为主键（方法 1）
 
 ```sql
 -- 创建作者表
 create table `ydlclass`.`author`(
-	`aut_id` int primary key,      -- 这就是主键约束
-	`aut_name` varchar(50) not null,
-	`gander` char(1) default '男',
-	`country` varchar(50),
-	`brithday` datetime
+ `aut_id` int primary key,      -- 这就是主键约束
+ `aut_name` varchar(50) not null,
+ `gander` char(1) default '男',
+ `country` varchar(50),
+ `brithday` datetime
 );
 ```
 
-> 单个字段作为主键（方法2）
+> 单个字段作为主键（方法 2）
 
 ```sql
 -- 创建作者表
 create table `ydlclass`.`author`(
-	`aut_id` int ,
-	`aut_name` varchar(50) not null,
-	`gander` char(1) default '男',
-	`country` varchar(50),
-	`brithday` datetime,
-	primary key(aut_id)     -- 这就是主键约束
-);     
+ `aut_id` int ,
+ `aut_name` varchar(50) not null,
+ `gander` char(1) default '男',
+ `country` varchar(50),
+ `brithday` datetime,
+ primary key(aut_id)     -- 这就是主键约束
+);
 ```
 
 > 联合主键：多个字段同时作为主键
@@ -472,31 +461,31 @@ create table `ydlclass`.`author`(
 ```sql
 -- 创建作者表
 create table `ydlclass`.`author`(
-	`aut_id` int ,
-	`aut_name` varchar(50) not null,
-	`gander` char(1) default '男',
-	`country` varchar(50),
-	`brithday` datetime,
-	primary key(aut_id,aut_name)   -- 这就是联合主键
-);  
+ `aut_id` int ,
+ `aut_name` varchar(50) not null,
+ `gander` char(1) default '男',
+ `country` varchar(50),
+ `brithday` datetime,
+ primary key(aut_id,aut_name)   -- 这就是联合主键
+);
 ```
 
-#### （6）AUTO_INCREMENT约束
+#### （6）AUTO_INCREMENT 约束
 
 需要配合主键使用，有个这个约束，我们在向表中插入数据时，不需要额外关心主键的数据，他会自动帮我们维护一个递增的主键：
 
 ```sql
 -- 创建图书表
 create table `ydlclass`.`book`(
-	`id` int primary key auto_increment,   -- 这就是自动递增
-	`name` varchar(50) not null,
-	`bar_code` varchar(30) not null unique,
-	`aut_id` int not null,
-	foreign key (aut_id) references author(aut_id)
-)  
+ `id` int primary key auto_increment,   -- 这就是自动递增
+ `name` varchar(50) not null,
+ `bar_code` varchar(30) not null unique,
+ `aut_id` int not null,
+ foreign key (aut_id) references author(aut_id)
+)
 ```
 
-#### （7）FOREIGN KEY约束
+#### （7）FOREIGN KEY 约束
 
 外键维护的表与表之间的关系，他规定了当前列的数据必须来源于一张其他表的某一列中的主键：
 
@@ -506,28 +495,28 @@ create table `ydlclass`.`book`(
 
 2、外键的值必须来源于引用的表的主键字段
 
-#### 语法：
+#### 语法
 
 > FOREIGN KEY [column list] REFERENCES [primary key table] ([column list]);
 
 ```sql
 -- 创建作者表
 create table `ydlclass`.`author`(
-	`aut_id` int ,
-	`aut_name` varchar(50) not null,
-	`gander` char(1) default '男',
-	`country` varchar(50),
-	`brithday` datetime
-	primary key(aut_id,aut_name)
+ `aut_id` int ,
+ `aut_name` varchar(50) not null,
+ `gander` char(1) default '男',
+ `country` varchar(50),
+ `brithday` datetime
+ primary key(aut_id,aut_name)
 );
 
 -- 创建图书表
 create table `ydlclass`.`book`(
-	`id` int primary key auto_increment,
-	`name` varchar(50) not null,
-	`bar_code` varchar(30) not null unique,
-	`aut_id` int not null,
-	foreign key (aut_id) references author(aut_id)  -- 这就是外键约束
+ `id` int primary key auto_increment,
+ `name` varchar(50) not null,
+ `bar_code` varchar(30) not null unique,
+ `aut_id` int not null,
+ foreign key (aut_id) references author(aut_id)  -- 这就是外键约束
 )
 ```
 
@@ -537,45 +526,45 @@ create table `ydlclass`.`book`(
 
 查看表结构:`DESC 表名;`
 
-```sql
+```text
 desc authors;
 ```
 
-修改表有5个操作，但前缀都是一样的:`ALTER TABLE 表名...`（不重要）
+修改表有 5 个操作，但前缀都是一样的:`ALTER TABLE 表名...`（不重要）
 
 - 修改表之添加列:`ALTER TABLE 表名 add (列名 列类型，...，列名 列类型);`
 
-  ```sql
-  alter table author add (hobby varchar(20),address varchar(50));
-  ```
+    ```sql
+    alter table author add (hobby varchar(20),address varchar(50));
+    ```
 
 - 修改表之修改列类型:`ALTER TABLE 表名 MODIFY 列名 列的新类型;`
 
-  ```sql
-  alter table author modify address varchar(100);
-  ```
+    ```sql
+    alter table author modify address varchar(100);
+    ```
 
 - 修改表之列名称列类型一起修改:`ALTER TABLE 表名 CHANGE 原列名 新列名 列名类型;`
 
-  ```sql
-  alter table author change address addr varchar(60);
-  ```
+    ```sql
+    alter table author change address addr varchar(60);
+    ```
 
 - 修改表之删除列:`ALTER TABLE 表名 DROP 列名;`
 
-  ```sql
-  alter table author drop addr;
-  ```
+    ```sql
+    alter table author drop addr;
+    ```
 
 - 修改表之修改表名:`ALTER TABLE 表名 RENAME TO 新表名`
 
-  ```sql
-  alter table author rename authors;
-  ```
+    ```sql
+    alter table author rename authors;
+    ```
 
 - 删除表：
 
-```sql
+```text
 drop table if exists 表名;
 ```
 
@@ -594,7 +583,7 @@ insert into `authors` values (2,'罗曼罗兰2','女','漂亮国','1969-1-14','�
 **说明:**
 
 1. 在数据库中所有的**字符串类型，必须使用单引号**。
-2. (列名1，列名2，列名3)可省略，表示按照表中的顺序插入。但不建议采取这种写法，因为降低了程序的可读性。
+2. (列名 1，列名 2，列名 3)可省略，表示按照表中的顺序插入。但不建议采取这种写法，因为降低了程序的可读性。
 
 当然我们还可以批量插入：
 
@@ -611,15 +600,15 @@ UPDATupdate `authors` set aut_name = '吴军';
 update `authors` set aut_name = '吴军',country='中国';
 ```
 
-上边的语句会讲改表中所有的数据全修改，因此我们可以使用where语句进行限制，如下：
+上边的语句会讲改表中所有的数据全修改，因此我们可以使用 where 语句进行限制，如下：
 
 ```sql
 UPDATE author set aut_name='lucy' where aut_id = 1;
 ```
 
-where是一个很关键的关键字，我们可以使用where关键字实现丰富的筛选，他很像我们的if语句，可以使用各种条件运算：
+where 是一个很关键的关键字，我们可以使用 where 关键字实现丰富的筛选，他很像我们的 if 语句，可以使用各种条件运算：
 
-可使用的逻辑运算符如下：`=、!=、<>、<、>、>=、<=、between...and、in(…)、is null、not、or、and`，其中in(...)的用法表示集合。
+可使用的逻辑运算符如下：`=、!=、<>、<、>、>=、<=、between...and、in(…)、is null、not、or、and`，其中 in(...)的用法表示集合。
 
 - where aut_id >1
 - where aut_id in (1,3,5)
@@ -647,22 +636,22 @@ update `authors` set aut_name = '王五',country='中国' where birthday is not 
 delete from 表名 (where 条件);
 ```
 
-不加where条件时会删除表中所有的记录，所以为了防止这种失误操作，很多数据库往往都会有备份。
+不加 where 条件时会删除表中所有的记录，所以为了防止这种失误操作，很多数据库往往都会有备份。
 
-```sql
+```mssql
 delete from author where auth_id = 1;
 ```
 
-还有一个关键字：truncate，truncate是DDL语言，操作立即生效，原数据不会放到rollback segment中，不能回滚。
+还有一个关键字：truncate，truncate 是 DDL 语言，操作立即生效，原数据不会放到 rollback segment 中，不能回滚。
 
-- 当表被truncate后，表和索引的所占空间会恢复到初始大小，delete操作不会减少表和索引的所占空间。
-- truncate和delete只删除数据，drop则删除整个表（结构和数据）。
-- truncate速度快，效率高，可以理解为先把表删除了，再重新建立。
-- truncate和delete均不会使表结构及其列、约束、索引等发生改变。
+- 当表被 truncate 后，表和索引的所占空间会恢复到初始大小，delete 操作不会减少表和索引的所占空间。
+- truncate 和 delete 只删除数据，drop 则删除整个表（结构和数据）。
+- truncate 速度快，效率高，可以理解为先把表删除了，再重新建立。
+- truncate 和 delete 均不会使表结构及其列、约束、索引等发生改变。
 
-## 第三章 DQL数据查询语言
+## 第三章 DQL 数据查询语言
 
-重点，DQL是我们每天接触编写最多也是最难的sql，该语言用来查询记录，不会修改数据库和表结构：
+重点，DQL 是我们每天接触编写最多也是最难的 sql，该语言用来查询记录，不会修改数据库和表结构：
 
 ### 一、构建数据库
 
@@ -681,13 +670,13 @@ drop TABLE if EXISTS course;
 CREATE TABLE course (
   id INT (10)  PRIMARY key,
   name VARCHAR (10) ,
-  t_id INT (10) 
+  t_id INT (10)
 ) ;
 
 drop TABLE if EXISTS teacher;
 CREATE TABLE teacher(
   id INT (10)  PRIMARY key,
-  name VARCHAR (10) 
+  name VARCHAR (10)
 );
 
 drop TABLE if EXISTS scores;
@@ -695,7 +684,7 @@ CREATE TABLE scores(
   s_id INT ,
   score INT (10),
   c_id INT (10) ,
-	PRIMARY key(s_id,c_id)
+ PRIMARY key(s_id,c_id)
 ) ;
 ```
 
@@ -784,7 +773,7 @@ select `id`,`name`,`age`,`gander` from `student`;
 select `id`,`name`,`age` from `student`;
 ```
 
-完全重复的记录只显示一次，在查询的列之前添加distinct
+完全重复的记录只显示一次，在查询的列之前添加 distinct
 
 **（2）列运算**
 
@@ -798,9 +787,9 @@ select `id`,`name`,`age`*10 from student;
 
 说明:
 
-1、null加任何值都等于null，，需要用到ifnull()函数。`SELECT IFNULL(sal,0) from 表名;` 如果薪资列为空，则输出0；
+1、null 加任何值都等于 null，，需要用到 ifnull()函数。`SELECT IFNULL(sal,0) from 表名;` 如果薪资列为空，则输出 0；
 
-2、将字符串做加减乘除运算，会把字符串当作0。
+2、将字符串做加减乘除运算，会把字符串当作 0。
 
 **（3）别名**
 
@@ -815,7 +804,7 @@ select `id` `编号`,`name` `名字`,ifnull(`age`,0) as `age` from `student` as 
 
 **（4）条件控制**
 
-条件查询：在后面添加where指定条件，我们在学习update语句时，接触过这里大致是一样的:
+条件查询：在后面添加 where 指定条件，我们在学习 update 语句时，接触过这里大致是一样的:
 
 ```sql
 -- 条件控制  select * from 表名 where 列名＝指定值;
@@ -826,76 +815,76 @@ select * from student where id between 3 and 7 ;
 select * from student where id between 6 and 7 or age > 20;
 ```
 
-模糊查询：当你想查询所有姓张的记录。用到关键字like。
+模糊查询：当你想查询所有姓张的记录。用到关键字 like。
 
 ```sql
-select * from student where name like '张_'; 
+select * from student where name like '张_';
 select * from student where name like '张%';
 ```
 
-（_代表匹配任意一个字符，％代表匹配0～n个任意字符）
+（\_代表匹配任意一个字符，％代表匹配 0 ～ n 个任意字符）
 
-####  2、排序(所谓升序和降序都是从上往下排列)
+#### 2、排序(所谓升序和降序都是从上往下排列)
 
 - 升序: ascend
 
-  ```sql
-  select * form 表名 order by 列名 asc;     asc为默认值可以不写
-  ```
+    ```sql
+    select * form 表名 order by 列名 asc;     asc为默认值可以不写
+    ```
 
 - 降序:descend
 
-  ```sql
-  select * from 表名 order by 列名 desc;
-  ```
+    ```sql
+    select * from 表名 order by 列名 desc;
+    ```
 
 - 使用多列作为排序条件： 当第一列排序条件相同时，根据第二列排序条件排序(当第二列依旧相同时可视情况根据第三例条件排序)：
 
-  ```sql
-  select * from 表名 order by 列名1 asc, 列名2 desc;
-  ```
+    ```sql
+    select * from 表名 order by 列名1 asc, 列名2 desc;
+    ```
 
-  意思是当列名1的值相同时按照列名2的值降序排。
+    意思是当列名 1 的值相同时按照列名 2 的值降序排。
 
 #### 3、聚合函数
 
-- 1.count：查询满足条件的记录行数，后边可以跟where条件：
+- 1.count：查询满足条件的记录行数，后边可以跟 where 条件：
 
-  如果使用的列值为空，不会进行统计，
+    如果使用的列值为空，不会进行统计，
 
-  我们如果统计真实的表记录条数，最好不要用可以为空的列：
+    我们如果统计真实的表记录条数，最好不要用可以为空的列：
 
-  count(*) count(id) count(1)
+    count(\*) count(id) count(1)
 
-  ```sql
-  select count(列名) from 表名;
-  
-  select max(age) from student where id > 5;
-  ```
+    ```sql
+    select count(列名) from 表名;
 
-- 2.max：查询满足条件的记录中的最大值，后边可以跟where条件：
+    select max(age) from student where id > 5;
+    ```
 
-  ```sql
-  select max(列名) from 表名;
-  ```
+- 2.max：查询满足条件的记录中的最大值，后边可以跟 where 条件：
 
-- 3.min：查询满足条件的记录中的最大值，后边可以跟where条件：
+    ```sql
+    select max(列名) from 表名;
+    ```
 
-  ```sql
-  select min(列名) from 表名;
-  ```
+- 3.min：查询满足条件的记录中的最大值，后边可以跟 where 条件：
 
-- 4.sum：查询满足条件的记录中的值的和，后边可以跟where条件：
+    ```sql
+    select min(列名) from 表名;
+    ```
 
-  ```sql
-  select sum(列名) from 表名;
-  ```
+- 4.sum：查询满足条件的记录中的值的和，后边可以跟 where 条件：
 
-- 5.avg：查询满足条件的记录中的值的平均数，后边可以跟where条件：
+    ```sql
+    select sum(列名) from 表名;
+    ```
 
-  ```sql
-  select avg(列名) from 表名;
-  ```
+- 5.avg：查询满足条件的记录中的值的平均数，后边可以跟 where 条件：
+
+    ```sql
+    select avg(列名) from 表名;
+    ```
 
 #### 4、分组查询
 
@@ -909,7 +898,7 @@ select * from student where name like '张%';
 select 分组列名，聚合函数1,聚合函数2 from 表名 group by 该分组列名;
 ```
 
-分组要使用关键词group by，后边可以是一列，也可以是多个列，分组后查询的列只能是分组的列，或是使用了聚合函数的其他列，其他列不能单独使用。
+分组要使用关键词 group by，后边可以是一列，也可以是多个列，分组后查询的列只能是分组的列，或是使用了聚合函数的其他列，其他列不能单独使用。
 
 我们可以这样理解：一旦发生了分组，我们查询的结果只能是所有男生的成绩总和、平均值，而不能查询某一个男生的成绩。
 
@@ -933,9 +922,9 @@ select 分组列，聚合函数 from 表名 where 条件 group by 分组列 havi
 select gander,avg(age) avg_age,sum(age) sum_age from student GROUP BY gander HAVING  gander = '男'
 ```
 
-#### 5、LIMIT子句
+#### 5、LIMIT 子句
 
-LIMIT用来限定查询结果的起始行，以及总行数，通常用来做分页查询，他是mysql中独有的语法。
+LIMIT 用来限定查询结果的起始行，以及总行数，通常用来做分页查询，他是 mysql 中独有的语法。
 
 例如：
 
@@ -961,7 +950,7 @@ SELECT id,name,age,gander FROM student limit 3,3;
 
 如果我们的查询条件相对比较复杂，需要涉及多张表进行查询，如果是两张无关的表联合查询，列出所有的可能的结果，如下图：
 
-![image-20220420161548572](.\img\image-20220420161548572-f1bcf783.png)
+![image-20220420161548572](./img/image-20220420161548572-f1bcf783.png)
 
 查询的过程大致如下：
 
@@ -973,19 +962,19 @@ SELECT id,name,age,gander FROM student limit 3,3;
 
 4、整个过程，会查询【驱动表】一次，查询【被驱动表】多次。
 
-![image-20220420181307754](.\img\image-20220420181307754-1be234a8.png)
+![image-20220420181307754](./img/image-20220420181307754-1be234a8.png)
 
-对于没有【条件约束】的两张表进行关联查询，如`select * from t1,t2`，就是从t1中一条条的选取数据，然后全量匹配t2的所有数据，形成一个大的集合，集合的数据量是两表数据量的乘积，我们称之为【笛卡尔积】，如下：
+对于没有【条件约束】的两张表进行关联查询，如`select * from t1,t2`，就是从 t1 中一条条的选取数据，然后全量匹配 t2 的所有数据，形成一个大的集合，集合的数据量是两表数据量的乘积，我们称之为【笛卡尔积】，如下：
 
-![image-20220420172239900](.\img\image-20220420172239900-21b51f63.png)
+![image-20220420172239900](./img/image-20220420172239900-21b51f63.png)
 
-没有连接条件时，我们必须列举所有的可能性，就会产生上边的一张大表，如果两个表的数据量变大，比如每张表1000条数据，那笛卡尔积，就会扩张到1百万，如果是三张表关联，就必须再乘以1000。
+没有连接条件时，我们必须列举所有的可能性，就会产生上边的一张大表，如果两个表的数据量变大，比如每张表 1000 条数据，那笛卡尔积，就会扩张到 1 百万，如果是三张表关联，就必须再乘以 1000。
 
-但是很明显，如果两个表没有任何的关系，我们也不会连接两张表进行查询的，在上边的案例中，很明显有一个关联条件就是部门id，两张表的部门id一致，才是我们想要的结果，如下：
+但是很明显，如果两个表没有任何的关系，我们也不会连接两张表进行查询的，在上边的案例中，很明显有一个关联条件就是部门 id，两张表的部门 id 一致，才是我们想要的结果，如下：
 
-![image-20220420172407275](.\img\image-20220420172407275-0f57b13f.png)
+![image-20220420172407275](./img/image-20220420172407275-0f57b13f.png)
 
-于是，我们的sql就可以写成这个样子：
+于是，我们的 sql 就可以写成这个样子：
 
 ```sql
 select e.id,e.name,e.dept_id,d.dept_name from employee e,dept e where e.dept_id = d,id
@@ -995,11 +984,11 @@ select e.id,e.name,e.dept_id,d.dept_name from employee e,dept e where e.dept_id 
 
 ### 二、内连接
 
-在我们刚才的sql当中，使用逗号分割两张表进行查询（employee e,dept e），mysql经过优化默认就等效与内链接，内连接使用关键字 【inner join】 或 【join】 来连接两张表。内连接中，【驱动表】是系统优化后自动选取的，会将执行计划中【扫描次数少】的表选做【驱动表】。
+在我们刚才的 sql 当中，使用逗号分割两张表进行查询（employee e,dept e），mysql 经过优化默认就等效与内链接，内连接使用关键字 【inner join】 或 【join】 来连接两张表。内连接中，【驱动表】是系统优化后自动选取的，会将执行计划中【扫描次数少】的表选做【驱动表】。
 
-**注意：**使用【join】关键字后要使用【on】来确定连接条件，而不是【where】。但是，在内连接中的where和on效果是等价的，但是一定要明确【on】用来声明连接条件，【where】是整理的帅选条件。
+**注意：**使用【join】关键字后要使用【on】来确定连接条件，而不是【where】。但是，在内连接中的 where 和 on 效果是等价的，但是一定要明确【on】用来声明连接条件，【where】是整理的帅选条件。
 
-以下三条sql等效：
+以下三条 sql 等效：
 
 ```sql
 SELECT * from teacher t ,course c where c.t_id = t.id
@@ -1009,11 +998,11 @@ SELECT * from teacher t inner join course c on c.t_id = t.id
 
 原始数据：
 
-![image-20220420191111613](.\img\image-20220420191111613-21d2f110.png)
+![image-20220420191111613](./img/image-20220420191111613-21d2f110.png)
 
 通俗讲就是根据条件，找到表 A 和 表 B 的数据的交集。
 
-![image-20220420155202821](.\img\image-20220420155202821-552050af.png)
+![image-20220420155202821](./img/image-20220420155202821-552050af.png)
 
 ### 三、外连接（常用）
 
@@ -1027,45 +1016,45 @@ SELECT * from teacher t inner join course c on c.t_id = t.id
 - 对于左外连接查询的结果会包含左表的所有数据
 - 对于右外连接查询的结果会包含右表的所有数据
 
-外连接的关键字是【outter join】 也可以省略outter，连接条件一样需要使用【on】关键字：
+外连接的关键字是【outter join】 也可以省略 outter，连接条件一样需要使用【on】关键字：
 
 #### （1）左连接（左外连接）
 
-以下是左外连接的一条sql（等效）：
+以下是左外连接的一条 sql（等效）：
 
 ```sql
 SELECT * from course c left outer join  teacher on t c.t_id = t.id
 SELECT * from course c left join on teacher t c.t_id = t.id
 ```
 
-我们可以看到，在左表course中第五条数据中的php课程并没有与之匹配的老师，但是结果php课程也显示出来了，同时将不能匹配其他表的字段都置空 【Null】：
+我们可以看到，在左表 course 中第五条数据中的 php 课程并没有与之匹配的老师，但是结果 php 课程也显示出来了，同时将不能匹配其他表的字段都置空 【Null】：
 
-![image-20220420183450626](.\img\image-20220420183450626-9f2988c7.png)
+![image-20220420183450626](./img/image-20220420183450626-9f2988c7.png)
 
 我们可以使用一个图形来形容左外连接的效果：
 
-![image-20220420155144268](.\img\image-20220420155144268-fc560bc3.png)
+![image-20220420155144268](./img/image-20220420155144268-fc560bc3.png)
 
 #### **（2）右连接（右外连接）**
 
-以下是左外连接的一条sql（等效）：
+以下是左外连接的一条 sql（等效）：
 
 ```sql
 SELECT * from course c left outer join teacher t on c.t_id = t.id
 SELECT * from course c left join teacher t on c.t_id = t.id
 ```
 
-我们可以看到，在右表teacher中第五条数据并没有与之匹配的左表数据，但是结果也显示出来了，同时将不能匹配其他表的字段都置空 【Null】：
+我们可以看到，在右表 teacher 中第五条数据并没有与之匹配的左表数据，但是结果也显示出来了，同时将不能匹配其他表的字段都置空 【Null】：
 
-![image-20220420192119873](.\img\image-20220420192119873-6bdfbca8.png)
+![image-20220420192119873](./img/image-20220420192119873-6bdfbca8.png)
 
 我们可以使用一个图形来形容左外连接的效果：
 
-![image-20220423093932211](.\img\image-20220423093932211-c9ef8656.png)
+![image-20220423093932211](./img/image-20220423093932211-c9ef8656.png)
 
 ### 四、全连接
 
-mysql中并不支持全连接，但是有些数据库是支持的，比如oracle，使用【full outer join】关键字，sql如下：
+mysql 中并不支持全连接，但是有些数据库是支持的，比如 oracle，使用【full outer join】关键字，sql 如下：
 
 ```sql
 SELECT * from teacher t full outer join course c on c.t_id = t.id
@@ -1082,13 +1071,13 @@ SELECT * from teacher t left outer join course c on c.t_id = t.id
 
 在这个结果中，不管是左表还是右表，所有的数据都被包含在了结果集当中：
 
-![image-20220420192457301](.\img\image-20220420192457301-b780315f.png)
+![image-20220420192457301](./img/image-20220420192457301-b780315f.png)
 
 我们可以使用一个图形来形容左外连接的效果：
 
-![image-20220420155126504](.\img\image-20220420155126504-237eaa4f.png)
+![image-20220420155126504](./img/image-20220420155126504-237eaa4f.png)
 
-小知识：阿里规约有这么一条【强制】超过三个表禁止join。需要join的字段，数据类型必须绝对一致； 多表关联查询时，保证被关联的字段需要有索引。说明：即使双表join也要注意表索引、SQL性能。
+小知识：阿里规约有这么一条【强制】超过三个表禁止 join。需要 join 的字段，数据类型必须绝对一致； 多表关联查询时，保证被关联的字段需要有索引。说明：即使双表 join 也要注意表索引、SQL 性能。
 
 ### 五、子查询
 
@@ -1101,13 +1090,13 @@ SELECT * from teacher t left outer join course c on c.t_id = t.id
 
 #### 1、where/having 型子查询
 
-在where性的子查询中，我们可以使用（标量子查询，列子查询，行子查询）
+在 where 性的子查询中，我们可以使用（标量子查询，列子查询，行子查询）
 
 （1）查询比连宇栋年龄大的所有的学生 (标量子查询)
 
 ```sql
 select * from student where age > (
-	select age from student where name = '连宇栋'
+ select age from student where name = '连宇栋'
 );
 ```
 
@@ -1115,7 +1104,7 @@ select * from student where age > (
 
 ```mysql
 select * from student where id in(
-	select distinct s_id from scores where score > 90
+ select distinct s_id from scores where score > 90
 )
 ```
 
@@ -1126,13 +1115,13 @@ select * from student where id in(
 ```sql
 -- 查询男生且是年龄大学的学生信息
 select * from student where gander = '男' and age = (
-	select max(age) from student  
-	GROUP BY gander having gander = '男'
+ select max(age) from student
+ GROUP BY gander having gander = '男'
 )
 
 select * from student where (gander,age) = (
-	select gander,max(age) from student  
-	GROUP BY gander having gander = '男'
+ select gander,max(age) from student
+ GROUP BY gander having gander = '男'
 )
 ```
 
@@ -1149,43 +1138,43 @@ select * from student where (gander,age) = (
 
 ```sql
 select * from (
-	select s.id,s.name sname,r.score,c.name cname from student s
-	left join scores r on s.id = r.s_id
-	left join course c on r.c_id = c.id
-	where c.name = '数学' order by r.score desc limit 5
+ select s.id,s.name sname,r.score,c.name cname from student s
+ left join scores r on s.id = r.s_id
+ left join course c on r.c_id = c.id
+ where c.name = '数学' order by r.score desc limit 5
 ) t order by t.score;
 ```
 
-#### 3、SELECT型子查询
+#### 3、SELECT 型子查询
 
-在select关键字后的子查询仅仅支持标量子查询。
+在 select 关键字后的子查询仅仅支持标量子查询。
 
-select *,1 as a,2,3,4,5,6 from student;
+select \*,1 as a,2,3,4,5,6 from student;
 
 例子：查询每个老师的代课的数目
 
 ```sql
-select t.id,t.name,COUNT(*) `代课的数量` from teacher t left join course c 
+select t.id,t.name,COUNT(*) `代课的数量` from teacher t left join course c
 on t.id = c.t_id GROUP BY t.id,t.name;
 
 select t.id,t.name,(
-	select count(*) from course c where c.t_id = t.id
+ select count(*) from course c where c.t_id = t.id
 ) as `代课的数量` from teacher t;
 ```
 
-#### 4、exists型子查询：
+#### 4、exists 型子查询
 
-表示判断子查询是否有返回值（true/false），有则返回true，没有返回false，这类子查询使用的不是很多。
+表示判断子查询是否有返回值（true/false），有则返回 true，没有返回 false，这类子查询使用的不是很多。
 
 例子：有课程的老师
 
 ```sql
 select * from teacher t where exists (
-	select * from course c where c.t_id = t.id
+ select * from course c where c.t_id = t.id
 );
 ```
 
-### 六、sql大练兵
+### 六、sql 大练兵
 
 **注：答案在文档下方的：附录一，一定要先自己做。**
 
@@ -1203,26 +1192,26 @@ select * from teacher t where exists (
 12. 查询被“张楠”和‘‘李子豪’教的课程的最高分和平均分。 难度：三颗星
 13. 查询每个同学的最好成绩的科目名称。 难度：五颗星
 14. 查询所有学生的课程及分数。 难度：一颗星
-15. 查询课程编号为1且课程成绩在60分以上的学生的学号和姓名。 难度：两颗星
-16. 查询平均成绩大于等于85的所有学生的学号、姓名和平均成绩。 难度：三颗星
+15. 查询课程编号为 1 且课程成绩在 60 分以上的学生的学号和姓名。 难度：两颗星
+16. 查询平均成绩大于等于 85 的所有学生的学号、姓名和平均成绩。 难度：三颗星
 17. 查询有不及格课程的同学信息。 难度：四颗星
 18. 求每门课程的学生人数。 难度：两颗星
 19. 查询每门课程的平均成绩，结果按平均成绩降序排列，平均成绩相同时，按课程编号升序排列。 难度：两颗星
-20. 查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩。 难度：三颗星
-21. 查询有且仅有一门课程成绩在90分以上的学生信息； 难度：三颗星
+20. 查询平均成绩大于等于 60 分的同学的学生编号和学生姓名和平均成绩。 难度：三颗星
+21. 查询有且仅有一门课程成绩在 90 分以上的学生信息； 难度：三颗星
 22. 查询出只有三门课程的全部学生的学号和姓名。难度：三颗星
 23. 查询有不及格课程的课程信息 。 难度：三颗星
-24. 检索至少选修5门课程的学生学号。难度：三颗星
+24. 检索至少选修 5 门课程的学生学号。难度：三颗星
 25. 查询没有学全所有课程的同学的信息 。难度：四颗星
 26. 查询学全所有课程的同学的信息。难度：四颗星
 27. 查询各学生都选了多少门课。难度：两颗星
-28. 查询课程名称为”java”，且分数低于60的学生姓名和分数。 难度：三颗星
+28. 查询课程名称为”java”，且分数低于 60 的学生姓名和分数。 难度：三颗星
 29. 查询学过”张楠”老师授课的同学的信息 。 难度：四颗星
 30. 查询没学过“张楠”老师授课的同学的信息 。 难度：五颗星
 
-## 第五章 MySQL常用函数介绍
+## 第五章 MySQL 常用函数介绍
 
-MySQL数据库中提供了很丰富的函数，比如我们常用的聚合函数，日期及字符串处理函数等。SELECT语句及其条件表达式都可以使用这些函数，函数可以帮助用户更加方便的处理表中的数据，使MySQL数据库的功能更加强大。本篇文章主要为大家介绍几类常用函数的用法：
+MySQL 数据库中提供了很丰富的函数，比如我们常用的聚合函数，日期及字符串处理函数等。SELECT 语句及其条件表达式都可以使用这些函数，函数可以帮助用户更加方便的处理表中的数据，使 MySQL 数据库的功能更加强大。本篇文章主要为大家介绍几类常用函数的用法：
 
 ### 一、聚合函数
 
@@ -1240,12 +1229,12 @@ MySQL数据库中提供了很丰富的函数，比如我们常用的聚合函数
 
 数值型函数主要是对数值型数据进行处理，得到我们想要的结果，常用的几个列举如下：
 
-- CEILING(x)： 返回大于x的最小整数值，向上取整
-- FLOOR(x)： 返回小于x的最大整数值，向下取整
-- ROUND(x,y)： 返回参数x的四舍五入的有y位小数的值 四舍五入
-- TRUNCATE(x,y)： 返回数字x截短为y位小数的结果
-- PI()： 返回pi的值（圆周率）
-- RAND()： 返回０到１内的随机值,可以通过提供一个参数(种子)使RAND()随机数生成器生成一个指定的值
+- CEILING(x)： 返回大于 x 的最小整数值，向上取整
+- FLOOR(x)： 返回小于 x 的最大整数值，向下取整
+- ROUND(x,y)： 返回参数 x 的四舍五入的有 y 位小数的值 四舍五入
+- TRUNCATE(x,y)： 返回数字 x 截短为 y 位小数的结果
+- PI()： 返回 pi 的值（圆周率）
+- RAND()： 返回０到１内的随机值,可以通过提供一个参数(种子)使 RAND()随机数生成器生成一个指定的值
 
 一些示例：
 
@@ -1271,12 +1260,12 @@ SELECT RAND(), RAND(), RAND();
 - CONCAT(s1,s2...,sn)： 合并字符串函数，返回结果为连接参数产生的字符串，参数可以是一个或多个
 - LOWER(str)： 将字符串中的字母转换为小写
 - UPPER(str)： 将字符串中的字母转换为大写
-- LEFT(str,x)： 返回字符串str中最左边的x个字符
-- RIGHT(str,x)： 返回字符串str中最右边的x个字符
+- LEFT(str,x)： 返回字符串 str 中最左边的 x 个字符
+- RIGHT(str,x)： 返回字符串 str 中最右边的 x 个字符
 - TRIM(str)： 删除字符串左右两侧的空格
 - REPLACE： 字符串替换函数，返回替换后的新字符串 REPLACE(name,'白','黑')
 - SUBSTRING： 截取字符串，返回从指定位置开始的指定长度的字符换
-- REVERSE(str)： 返回颠倒字符串str的结果
+- REVERSE(str)： 返回颠倒字符串 str 的结果
 
 一些示例：
 
@@ -1324,8 +1313,8 @@ SUBSTRING('computer',-3) AS col3,SUBSTRING('computer',-5,3) AS col4;
 
 > 时间戳或日期转换函数：
 
-- 【UNIX_TIMESTAMP】 获取UNIX时间戳函数，返回一个以 UNIX 时间戳为基础的无符号整数
-- 【FROM_UNIXTIME】 将 UNIX 时间戳转换为时间格式，与UNIX_TIMESTAMP互为反函数
+- 【UNIX_TIMESTAMP】 获取 UNIX 时间戳函数，返回一个以 UNIX 时间戳为基础的无符号整数
+- 【FROM_UNIXTIME】 将 UNIX 时间戳转换为时间格式，与 UNIX_TIMESTAMP 互为反函数
 
 > 根据日期获取年月日的数值
 
@@ -1334,8 +1323,8 @@ SUBSTRING('computer',-3) AS col3,SUBSTRING('computer',-5,3) AS col4;
 - 【DAYNAME】 获取指定曰期对应的星期几的英文名称
 - 【DAYOFWEEK】 获取指定日期对应的一周的索引位置值
 - 【WEEK】 获取指定日期是一年中的第几周，返回值的范围是否为 0〜52 或 1〜53
-- 【DAYOFYEAR】 获取指定曰期是一年中的第几天，返回值范围是1~366
-- 【DAYOFMONTH】 获取指定日期是一个月中是第几天，返回值范围是1~31
+- 【DAYOFYEAR】 获取指定曰期是一年中的第几天，返回值范围是 1~366
+- 【DAYOFMONTH】 获取指定日期是一个月中是第几天，返回值范围是 1~31
 - 【YEAR】 获取年份，返回值范围是 1970〜2069
 
 > 时间日期的计算
@@ -1374,7 +1363,7 @@ SELECT DATE_FORMAT('2017-11-15 21:45:00','%W %M %D %Y') AS col1,DATE_FORMAT('201
 
 ### 五、加密函数
 
-- **MD5()** 计算字符串str的MD5校验和
+- **MD5()** 计算字符串 str 的 MD5 校验和
 
 ```sql
 SELECT MD5('abc');
@@ -1383,11 +1372,11 @@ SELECT MD5('abc');
 
 ### 六、流程控制函数
 
-流程控制类函数可以进行条件操作，用来实现SQL的条件逻辑，允许开发者将一些应用程序业务逻辑转换到数据库后台，列举如下：
+流程控制类函数可以进行条件操作，用来实现 SQL 的条件逻辑，允许开发者将一些应用程序业务逻辑转换到数据库后台，列举如下：
 
-- `IF(test,t,f)`： 如果test是真，返回t；否则返回f
-- `IFNULL(arg1,arg2)`： 如果arg1不是空，返回arg1，否则返回arg2
-- `NULLIF(arg1,arg2)`： 如果【arg1=arg2】返回NULL，否则返回arg1
+- `IF(test,t,f)`： 如果 test 是真，返回 t；否则返回 f
+- `IFNULL(arg1,arg2)`： 如果 arg1 不是空，返回 arg1，否则返回 arg2
+- `NULLIF(arg1,arg2)`： 如果【arg1=arg2】返回 NULL，否则返回 arg1
 
 ```sql
 SELECT NULLIF('abc','abc');     #返回null
@@ -1398,7 +1387,7 @@ SELECT NULLIF('abc','abcd');    #返回abc
 
 - `CASE [test] WHEN[val1] THEN [result]...ELSE [default] END`：
 
-  如果test和valN相等，则返回resultN，否则返回default
+    如果 test 和 valN 相等，则返回 resultN，否则返回 default
 
 创建表和数据如下：
 
@@ -1423,36 +1412,36 @@ insert into mystudent(USER_NAME, COURSE, SCORE) values
 ("王五", "英语", 89);
 ```
 
-例子一：输出学生各科的成绩，以及评级，60以下是D,60-70是C，71-80：是B ，80以上是A
+例子一：输出学生各科的成绩，以及评级，60 以下是 D,60-70 是 C，71-80：是 B ，80 以上是 A
 
 ```sql
 SELECT
-	*,
+ *,
 CASE
-		WHEN score < 60 THEN 'D' 
-		WHEN score >= 60 and score < 70 THEN 'C' 
-		WHEN score >= 70 and score < 80 THEN 'B' 
-		WHEN score >= 80 and score <= 100 THEN 'A' 
-	END AS "评级"
+  WHEN score < 60 THEN 'D'
+  WHEN score >= 60 and score < 70 THEN 'C'
+  WHEN score >= 70 and score < 80 THEN 'B'
+  WHEN score >= 80 and score <= 100 THEN 'A'
+ END AS "评级"
 FROM
-	mystudent
+ mystudent
 ```
 
 例子二：行转列案例，要求根据上边的表结构，查询出如下结果：
 
-sql语句如下：
+sql 语句如下：
 
 | user_name | 数学 | 语文 | 英语 |
-| :-------- | :--: | :--: | :----: |
-| 张三      | 34  | 58  | 58  |
-| 李四      | 45  | 87  | 45  |
-| 王五      | 76  | 34  | 89  |
+| :-------- | :--: | :--: | :--: |
+| 张三      |  34  |  58  |  58  |
+| 李四      |  45  |  87  |  45  |
+| 王五      |  76  |  34  |  89  |
 
 ```sql
 select user_name,
    max(case course when '数学' then score else 0 end) as '数学',
-   max(case course when '语文' then score else 0 end)	as '语文',
-   max(case course when '英语' then score else 0 end)	as '英语'
+   max(case course when '语文' then score else 0 end) as '语文',
+   max(case course when '英语' then score else 0 end) as '英语'
 from mystudent group by user_name
 ```
 
@@ -1460,7 +1449,7 @@ from mystudent group by user_name
 
 ### 一、三范式
 
-注：设计只是一种思想一种理念，我们按照规范的设计方式设计数据库对我们来说有好处，但绝对不是说一定要严格遵守，三范式能极大的减少数据冗余，但是相对编写sql而言是增加了难度的，所以所有好的设计都是要权衡利弊的，要对编码难度，存储大小，执行效率等多方面进行综合考量，但是在学习初期最好紧紧的遵循三范式，在后续的编码中体会和总结自己的经验。
+注：设计只是一种思想一种理念，我们按照规范的设计方式设计数据库对我们来说有好处，但绝对不是说一定要严格遵守，三范式能极大的减少数据冗余，但是相对编写 sql 而言是增加了难度的，所以所有好的设计都是要权衡利弊的，要对编码难度，存储大小，执行效率等多方面进行综合考量，但是在学习初期最好紧紧的遵循三范式，在后续的编码中体会和总结自己的经验。
 
 设计数据库表的时候所依据的规范，共三个规范：
 
@@ -1490,19 +1479,19 @@ from mystudent group by user_name
 
 不符合第一范式的实例，不是说他错哈：
 
-| 学生编号 | 学生姓名 | 联系地址                  |
-| -------- | -------- | ------------------------- |
-| 1001     | 白杰     | 太原市尖草坪区恒山路108号 |
-| 1002     | 杨春旺   | 太原市迎泽区迎泽大家100号 |
-| 1003     | 张志伟   | 太原市杏花岭区北大街152号 |
+| 学生编号 | 学生姓名 | 联系地址                    |
+| -------- | -------- | --------------------------- |
+| 1001     | 白杰     | 太原市尖草坪区恒山路 108 号 |
+| 1002     | 杨春旺   | 太原市迎泽区迎泽大家 100 号 |
+| 1003     | 张志伟   | 太原市杏花岭区北大街 152 号 |
 
 解决方案：
 
-| 学生编号 | 学生姓名 | 市     | 区       | 详细地址      |
-| -------- | -------- | ------ | -------- | ------------- |
-| 1001     | 白杰     | 太原市 | 尖草坪区 | 恒山路108号   |
-| 1002     | 杨春旺   | 太原市 | 迎泽区   | 迎泽大街100号 |
-| 1003     | 张志伟   | 太原市 | 杏花岭区 | 北大街152号   |
+| 学生编号 | 学生姓名 | 市     | 区       | 详细地址        |
+| -------- | -------- | ------ | -------- | --------------- |
+| 1001     | 白杰     | 太原市 | 尖草坪区 | 恒山路 108 号   |
+| 1002     | 杨春旺   | 太原市 | 迎泽区   | 迎泽大街 100 号 |
+| 1003     | 张志伟   | 太原市 | 杏花岭区 | 北大街 152 号   |
 
 必须有主键，这是数据库设计的最基本要求，主要采用数值型或定长字符串表示，**关于列不可再分，应该根据具体的情况来决定**。如联系方式，为了开发上的便利可能就采用一个字段。
 
@@ -1525,7 +1514,7 @@ from mystudent group by user_name
 | 1001     | 男   | 白杰     | 2003     | html     | 3005 | 89   |
 | 1003     | 女   | 刘慧慧   | 2001     | java     | 3004 | 90   |
 
-以上虽然确定了主键，但此表会出现大量的数据冗余，出现冗余的原因在于，学生信息部分依赖了主键的一个字段学生编号，和课程id没有毛线关系。同时课程的信息只是依赖课程id，和学生id没有毛线关系。只有成绩一个字段完全依赖主键的两个部分，这就是第二范式**部分依赖**。
+以上虽然确定了主键，但此表会出现大量的数据冗余，出现冗余的原因在于，学生信息部分依赖了主键的一个字段学生编号，和课程 id 没有毛线关系。同时课程的信息只是依赖课程 id，和学生 id 没有毛线关系。只有成绩一个字段完全依赖主键的两个部分，这就是第二范式**部分依赖**。
 
 **解决方案：**
 
@@ -1651,7 +1640,7 @@ where s.id = 1;
 
 ```sql
 select c.id,c.name,avg(r.score),max(r.score) from course c
-left join scores r on c.id = r.c_id 
+left join scores r on c.id = r.c_id
 group by c.id,c.name;
 ```
 
@@ -1660,8 +1649,8 @@ group by c.id,c.name;
 ```sql
 select t.id,t.name,c.id,c.name,r.score from
 (select s.id,s.name,(
-	select max(score) from scores r where r.s_id = s.id
-) score from student s)  t 
+ select max(score) from scores r where r.s_id = s.id
+) score from student s)  t
 left join scores r on r.s_id = t.id and r.score = t.score
 left join course c on r.c_id = c.id;
 ```
@@ -1678,15 +1667,15 @@ where s.name like '张%';
 5、查询每个课程最高分的同学信息。 难度：五颗星
 
 ```sql
-SELECT * FROM student s WHERE s.id IN 
+SELECT * FROM student s WHERE s.id IN
 (
-	SELECT distinct s_id FROM 
-	(
-		SELECT c.id,MAX(score) as score FROM scores r 
-		LEFT JOIN course c ON r.c_id = c.id
-		GROUP BY c.id
-	) t
-	LEFT JOIN scores r ON r.c_id = t.id and t.score = r.score
+ SELECT distinct s_id FROM
+ (
+  SELECT c.id,MAX(score) as score FROM scores r
+  LEFT JOIN course c ON r.c_id = c.id
+  GROUP BY c.id
+ ) t
+ LEFT JOIN scores r ON r.c_id = t.id and t.score = r.score
 );
 ```
 
@@ -1703,9 +1692,9 @@ WHERE s.`name` LIKE '%张%' OR '%李%'
 
 ```sql
 select * from student s where id in (
-  select r.s_id from scores r 
-	group by r.s_id 
-	having avg(r.score)>60
+  select r.s_id from scores r
+ group by r.s_id
+ having avg(r.score)>60
 );
 ```
 
@@ -1736,9 +1725,9 @@ group by c.id,c.name order by score desc;
 11、查询老师的信息和他所带科目的平均分。 难度：三颗星
 
 ```sql
-select t.id,t.name,c.id,c.name,avg(r.score) 
+select t.id,t.name,c.id,c.name,avg(r.score)
 from teacher t
-left join course c on t.id = c.t_id 
+left join course c on t.id = c.t_id
 left join scores r on r.c_id = c.id
 group by t.id,t.name,c.id,c.name;
 ```
@@ -1746,18 +1735,18 @@ group by t.id,t.name,c.id,c.name;
 ```sql
 SELECT e.id,e.`name`,t.c_id,t.`name`,t.score FROM teacher e
 LEFT JOIN (
-	SELECT r.c_id,c.`name`,AVG(score) AS score,c.t_id FROM scores r 
-	LEFT JOIN course c ON r.c_id = c.id
-	GROUP BY r.c_id
+ SELECT r.c_id,c.`name`,AVG(score) AS score,c.t_id FROM scores r
+ LEFT JOIN course c ON r.c_id = c.id
+ GROUP BY r.c_id
 ) t ON t.t_id = e.id;
 ```
 
 12、查询被“张楠”和‘‘李子豪’教的课程的最高分和平均分。 难度：三颗星
 
 ```sql
-select t.id,t.name,c.id,c.name,avg(r.score) 
+select t.id,t.name,c.id,c.name,avg(r.score)
 from teacher t
-left join course c on t.id = c.t_id 
+left join course c on t.id = c.t_id
 left join scores r on r.c_id = c.id
 group by t.id,t.name,c.id,c.name
 having t.name in ('张楠','李子豪');
@@ -1767,7 +1756,7 @@ having t.name in ('张楠','李子豪');
 
 ```sql
 select t.id,t.sname,r.c_id,c.id,c.name,t.score  from
-(select s.id,s.name sname,max(r.score) score 
+(select s.id,s.name sname,max(r.score) score
 from student s
 left join scores r on r.s_id = s.id
 group by s.id,s.name) t
@@ -1783,21 +1772,21 @@ left join scores r on r.s_id = s.id
 left join course c on c.id = r.c_id;
 ```
 
-15、查询课程编号为1且课程成绩在60分以上的学生的学号和姓名。 难度：两颗星
+15、查询课程编号为 1 且课程成绩在 60 分以上的学生的学号和姓名。 难度：两颗星
 
 ```sql
 select * from student s where id in
 (
-	select r.s_id from scores r where r.c_id = 1 and r.score > 60
+ select r.s_id from scores r where r.c_id = 1 and r.score > 60
 );
 ```
 
-16、查询平均成绩大于等于85的所有学生的学号、姓名和平均成绩。 难度：三颗星
+16、查询平均成绩大于等于 85 的所有学生的学号、姓名和平均成绩。 难度：三颗星
 
 ```sql
-select s.id,s.name,t.score from student s 
+select s.id,s.name,t.score from student s
 left join (
-	select r.s_id ,avg(r.score) score from scores r group by r.s_id 
+ select r.s_id ,avg(r.score) score from scores r group by r.s_id
 ) t on s.id = t.s_id;
 ```
 
@@ -1806,8 +1795,8 @@ left join (
 ```sql
 -- 什么叫有不及格 ---》最低分数的科目如果不及格
 select * from student s where id in (
-	select r.s_id from scores r group by r.s_id 
-	HAVING min(r.score) < 60
+ select r.s_id from scores r group by r.s_id
+ HAVING min(r.score) < 60
 );
 ```
 
@@ -1815,11 +1804,11 @@ select * from student s where id in (
 
 ```sql
 select c.id,c.name, t.number from course c
-left join 
+left join
 (select r.c_id,count(*) number from scores r group by r.c_id) t
 on c.id = t.c_id;
 
-select c.id,c.name,count(*) from course c 
+select c.id,c.name,count(*) from course c
 left join scores r on c.id = r.c_id
 group by c.id,c.name;
 ```
@@ -1827,19 +1816,19 @@ group by c.id,c.name;
 19、查询每门课程的平均成绩，结果按平均成绩降序排列，平均成绩相同时，按课程编号升序排列。 难度：两颗星
 
 ```sql
-select c.id,c.name,avg(score) score from course c 
-left join scores r on c.id = r.c_id 
-group by c.id,c.name 
+select c.id,c.name,avg(score) score from course c
+left join scores r on c.id = r.c_id
+group by c.id,c.name
 order by score desc,c.id asc;
 ```
 
-20、查询平均成绩大于等于60分的同学的学生编号和学生姓名和平均成绩。 难度：三颗星
+20、查询平均成绩大于等于 60 分的同学的学生编号和学生姓名和平均成绩。 难度：三颗星
 
 ```sql
-select s.id,s.name,t.score from student s 
+select s.id,s.name,t.score from student s
 right join (
-	select r.s_id,avg(score) score from scores r 
-	group by r.s_id having score >= 70
+ select r.s_id,avg(score) score from scores r
+ group by r.s_id having score >= 70
 ) t on s.id = t.s_id;
 
 select s.id,s.name sname, avg(r.score) score from student s
@@ -1848,16 +1837,16 @@ left join course c on c.id = r.c_id
 group by s.id,s.name having avg(r.score) > 70;
 ```
 
-21、查询有且仅有一门课程成绩在90分以上的学生信息； 难度：三颗星
+21、查询有且仅有一门课程成绩在 90 分以上的学生信息； 难度：三颗星
 
 ```sql
 select * from student s where id in (
-	select r.s_id from scores r where r.score > 90
-	group by r.s_id having count(*) = 1
+ select r.s_id from scores r where r.score > 90
+ group by r.s_id having count(*) = 1
 );
 
-select s.id,s.name,s.gander from student s 
-left join scores r on s.id = r.s_id 
+select s.id,s.name,s.gander from student s
+left join scores r on s.id = r.s_id
 where r.score > 90
 group by s.id,s.name,s.gander having count(*) = 1;
 ```
@@ -1866,11 +1855,11 @@ group by s.id,s.name,s.gander having count(*) = 1;
 
 ```sql
 select * from student s where id in (
-	select r.s_id from scores r group by r.s_id having count(*) = 3
+ select r.s_id from scores r group by r.s_id having count(*) = 3
 );
 
-select s.id,s.name,s.gander from student s 
-left join scores r on s.id = r.s_id 
+select s.id,s.name,s.gander from student s
+left join scores r on s.id = r.s_id
 group by s.id,s.name,s.gander having count(*) = 3;
 ```
 
@@ -1878,8 +1867,8 @@ group by s.id,s.name,s.gander having count(*) = 3;
 
 ```sql
 select * from course c where id in (
-	select r.c_id from scores r group by r.c_id
-	HAVING min(r.score) < 60
+ select r.c_id from scores r group by r.c_id
+ HAVING min(r.score) < 60
 );
 
 select r.c_id,c.name from course c
@@ -1887,14 +1876,14 @@ left join scores r on c.id = r.c_id
 group by r.c_id,c.name HAVING min(r.score) < 60;
 ```
 
-24、检索至少选修5门课程的学生学号。难度：三颗星
+24、检索至少选修 5 门课程的学生学号。难度：三颗星
 
 ```sql
 select * from student s where s.id in (
-	select r.s_id from scores r group by r.s_id having count(*) >= 5
+ select r.s_id from scores r group by r.s_id having count(*) >= 5
 );
 
-select s.id,s.name from student s 
+select s.id,s.name from student s
 left join scores r on s.id = r.s_id
 group by s.id,s.name having count(*) >= 5;
 ```
@@ -1902,35 +1891,35 @@ group by s.id,s.name having count(*) >= 5;
 25、查询没有学全所有课程的同学的信息 。难度：四颗星
 
 ```sql
-select s.id,s.name,count(*) number from student s 
+select s.id,s.name,count(*) number from student s
 left join scores r on s.id = r.s_id
 group by s.id,s.name having number < (
-	select count(*) from course
+ select count(*) from course
 );
 ```
 
 26、查询学全所有课程的同学的信息。难度：四颗星
 
 ```sql
-select s.id,s.name,count(*) number from student s 
+select s.id,s.name,count(*) number from student s
 left join scores r on s.id = r.s_id
 group by s.id,s.name having number = (
-	select count(*) from course
+ select count(*) from course
 );
 ```
 
 27、 查询各学生都选了多少门课。难度：两颗星
 
 ```sql
-select s.id,s.name,count(*) number from student s 
+select s.id,s.name,count(*) number from student s
 left join scores r on s.id = r.s_id
 group by s.id,s.name;
 ```
 
-28、查询课程名称为”java”，且分数低于60的学生姓名和分数。 难度：三颗星
+28、查询课程名称为”java”，且分数低于 60 的学生姓名和分数。 难度：三颗星
 
 ```sql
-select s.id,s.name,r.score from student s 
+select s.id,s.name,r.score from student s
 left join scores r on s.id = r.s_id
 left join course c on r.c_id = c.id
 where c.name = 'java' and r.score < 60;
@@ -1939,10 +1928,10 @@ where c.name = 'java' and r.score < 60;
 29、查询学过”张楠”老师授课的同学的信息。 难度：四颗星
 
 ```sql
-select s.id,s.name from student s 
+select s.id,s.name from student s
 left join scores r on r.s_id = s.id
 left join course c on c.id = r.c_id
-left join teacher t on c.t_id = t.id 
+left join teacher t on c.t_id = t.id
 where t.name = '张楠';
 ```
 
@@ -1950,9 +1939,9 @@ where t.name = '张楠';
 
 ```sql
 select * from student where id not in
-(select distinct r.s_id from scores r 
+(select distinct r.s_id from scores r
 left join course c on c.id = r.c_id
-left join teacher t on c.t_id = t.id 
+left join teacher t on c.t_id = t.id
 where t.name = '张楠');
 ```
 
