@@ -243,15 +243,32 @@ export const zhSidebar = sidebar({
       ],
     },
     {
-      text: "MySQL",
+      text: "数据库",
       icon: "database",
       collapsible: true,
-      prefix: "/codenotes/database/mysql/",
       children: [
         {
-          text: "1、MySQL入门",
+          text: "MySQL",
           icon: "MySQL",
-          link: "mysql入门.md",
+          collapsible: true,
+          prefix: "/codenotes/database/mysql/",
+          children: [
+            {
+              text: "1、MySQL入门",
+              icon: "MySQL",
+              link: "mysql入门.md",
+            },
+            {
+              text: "2、MySQL进阶",
+              icon: "MySQL",
+              link: "mysql进阶.md",
+            },
+          ],
+        },
+        {
+          text: "JDBC",
+          icon: "database",
+          link: "/codenotes/database/mysql/jdbc.md",
         },
       ],
     },

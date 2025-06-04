@@ -2,7 +2,7 @@
 # 当前页面内容标题
 title: 数据库
 # 当前页面图标
-icon: mysql
+icon: MySQL
 # 分类
 category:
   - 目录
@@ -20,4 +20,6 @@ article: false
 timeline: false
 ---
 
-## [MySQL](./mysql/mysql入门.md)
+## [MySQL](./mysql/)
+
+## [JDBC](./mysql/jdbc.md)

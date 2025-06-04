@@ -2,7 +2,7 @@
 # 当前页面内容标题
 title: MySQL入门
 # 当前页面图标
-icon: mysql
+icon: MySQL
 # 分类
 category:
   - SQL
@@ -17,6 +17,8 @@ sticky: false
 star: false
 # 是否将该文章添加至文章列表中
 article: false
+# 目录顺序
+order: 1
 # 是否将该文章添加至时间线中
 timeline: false
 ---
@@ -82,13 +84,13 @@ mysql -uroot -p root
 >
 >     首先，确保 MySQL 服务器在 WSL 中已经正确启动。你可以使用以下命令来启动 MySQL 服务：
 >
->     ```
+>     ```bash
 >     sudo service mysql start
 >     ```
 >
 >     或者使用以下命令：
 >
->     ```
+>     ```bash
 >     sudo systemctl start mysql
 >     ```
 >
