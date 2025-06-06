@@ -228,6 +228,29 @@ export const zhSidebar = sidebar({
           ],
         },
         {
+          text: "Java JVM",
+          icon: "JVM",
+          collapsible: true,
+          prefix: "/codenotes/java/jvm/",
+          children: [
+            {
+              text: "1、走进JVM",
+              icon: "JVM",
+              link: "走进jvm.md",
+            },
+            {
+              text: "2、JVM内存管理",
+              icon: "JVM",
+              link: "内存管理.md",
+            },
+            {
+              text: "2、类与类加载",
+              icon: "JVM",
+              link: "类与类加载.md",
+            },
+          ],
+        },
+        {
           text: "JavaEE",
           icon: "java",
           collapsible: true,

@@ -692,6 +692,39 @@ System.out.println(Math.abs(-10)); // 输出10
 
 这个类其实超级简单但是不用背诵啊，只要我们能想到的和数学有关系的代码，我们都可以在 Math 中找一找，说不定就会有收获啊。
 
+> [!TIP]
+>
+> #### 小知识--静态导入
+>
+> 在 Java 中，我们可以使用静态导入（static import）来导入类中的静态成员（方法和变量），这样就可以直接使用这些静态成员而不需要类名作为前缀。
+>
+> 例如，我们可以使用以下语句导入 Math 类中的所有静态成员：
+>
+> ```java
+> import static java.lang.Math.*;
+> 
+> public class MathExample {
+>     public static void main(String[] args) {
+>         System.out.println("最大值: " + max(5, 10)); // 使用静态导入的 max 方法
+>         System.out.println("最小值: " + min(5, 10)); // 使用静态导入的 min 方法
+>         System.out.println("平方根: " + sqrt(25)); // 使用静态导入的 sqrt 方法
+>         System.out.println("圆周率: " + PI); // 使用静态导入的 PI 常量
+>     }
+> }
+> ```
+>
+> 可以单独导入某个具体的静态成员：
+>
+> ```java
+> import static java.lang.Math.PI;
+> import static System.out; // 导入 System.out
+> 
+> public class MathExample {
+>     public static void main(String[] args) {
+>         out.println("圆周率: " + PI); // 使用静态导入的 PI 常量
+>     }
+> }
+
 ### 2、BigDecimal
 
 #### （1）为什么不能用 double 表示钱
