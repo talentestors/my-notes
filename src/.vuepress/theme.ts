@@ -117,11 +117,11 @@ export default hopeTheme({
   // },
   plugins: {
     // 搜索插件
-    docsearch: {
-      appId: "KEMHKPMWI8",
-      apiKey: "5e88447571a790ab8b0d60eff19a1f85",
-      indexName: "lib_stazxr_cn_kemhkpmwi8_pages",
-    },
+    // docsearch: {
+    //   appId: "KEMHKPMWI8",
+    //   apiKey: "5e88447571a790ab8b0d60eff19a1f85",
+    //   indexName: "lib_stazxr_cn_kemhkpmwi8_pages",
+    // },
     search: {
       //多语言支持
       locales: {
