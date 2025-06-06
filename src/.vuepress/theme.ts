@@ -3,9 +3,6 @@ import { hopeTheme } from "vuepress-theme-hope";
 import { zhNavbar } from "./navbar/index.js";
 //中文侧边栏
 import { zhSidebar } from "./sidebar/index.js";
-import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
-import { searchPlugin } from "@vuepress/plugin-search";
-import { catalogPlugin } from "@vuepress/plugin-catalog";
 
 // 主题设置
 export default hopeTheme({
@@ -98,14 +95,6 @@ export default hopeTheme({
       },
     },
   },
-  extendsPage: (page) => {
-    // 在 routeMeta 中设置目录信息
-    page.routeMeta = {
-      // 目录标题
-      title: page.title,
-      // ... 其他信息
-    };
-  },
   // // 博客配置
   // blog: {
   //   // 头像
@@ -128,6 +117,11 @@ export default hopeTheme({
   // },
   plugins: {
     // 搜索插件
+    docsearch: {
+      appId: "KEMHKPMWI8",
+      apiKey: "5e88447571a790ab8b0d60eff19a1f85",
+      indexName: "lib_stazxr_cn_kemhkpmwi8_pages",
+    },
     search: {
       //多语言支持
       locales: {
@@ -167,6 +161,18 @@ export default hopeTheme({
       // 代码复制成功提示消息的时间-ms
       duration: 3000,
     },
+    // 代码高亮插件
+    prismjs: {
+      // 代码高亮主题
+      themes: {
+        light: "one-light",
+        dark: "one-dark",
+      },
+      // 是否启用行号
+      lineNumbers: 2,
+      // 是否启用代码差异高亮
+      notationDiff: true,
+    },
     // MarkDown文件增强
     mdEnhance: {
       align: true,
@@ -194,6 +200,8 @@ export default hopeTheme({
       imgMark: true,
       // 启用图片大小
       imgSize: true,
+      // 添加代码高亮配置
+      codetabs: true,
       playground: {
         presets: ["ts", "vue"],
       },
@@ -212,7 +220,6 @@ export default hopeTheme({
       ],
       sub: true,
       sup: true,
-      // vpre: true,
       vuePlayground: true,
     },
     // // 打开博客功能

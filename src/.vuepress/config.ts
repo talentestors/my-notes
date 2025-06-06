@@ -1,9 +1,10 @@
 import { defineUserConfig } from "vuepress";
 import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
-import { getDirname, path } from 'vuepress/utils'
-import { viteBundler } from '@vuepress/bundler-vite'
+import { getDirname, path } from "vuepress/utils";
+import { viteBundler } from "@vuepress/bundler-vite";
+
 import theme from "./theme.js";
-const __dirname = getDirname(import.meta.url)
+const __dirname = getDirname(import.meta.url);
 
 //自定义用户配置
 export default defineUserConfig({
@@ -16,7 +17,7 @@ export default defineUserConfig({
       title: "終わり群星の知识宝库",
       description: "終わり群星の知识宝库",
       // 设置favicon
-      head: [['link', { rel: 'icon', href: '/favicon.svg' }]],
+      head: [["link", { rel: "icon", href: "/favicon.svg" }]],
     },
   },
   markdown: {
@@ -25,13 +26,20 @@ export default defineUserConfig({
       level: [2, 3, 4],
     },
   },
+  extendsPage: (page) => {
+    // 在 routeMeta 中设置目录信息
+    page.routeMeta = {
+      // 目录标题
+      title: page.title,
+    }
+  },
   // 主题设置
   theme,
   // 插件设置
   plugins: [
     // 注册全局组件的插件
     registerComponentsPlugin({
-      componentsDir: path.resolve(__dirname, './components'),
+      componentsDir: path.resolve(__dirname, "./components"),
     }),
   ],
   shouldPrefetch: false,

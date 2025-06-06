@@ -228,7 +228,7 @@ export const zhSidebar = sidebar({
           ],
         },
         {
-          text: "Java JVM",
+          text: "JVM虚拟机",
           icon: "JVM",
           collapsible: true,
           prefix: "/codenotes/java/jvm/",
