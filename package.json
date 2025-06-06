@@ -1,6 +1,6 @@
 {
   "name": "my-lib",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "My storehouse of knowledge",
   "license": "MIT",
   "type": "module",
@@ -12,11 +12,20 @@
   },
   "devDependencies": {
     "@vue/repl": "^4.4.2",
-    "@vuepress/bundler-vite": "2.0.0-rc.14",
-    "@vuepress/plugin-catalog": "2.0.0-rc.60",
-    "@vuepress/plugin-register-components": "2.0.0-rc.37",
-    "@vuepress/plugin-search": "2.0.0-rc.37",
-    "@vuepress/plugin-shiki": "2.0.0-rc.37",
+    "@vuepress/bundler-vite": ">=2.0.0-rc.14 <=2.0.0-rc.14",
+    "@vuepress/plugin-catalog": "2.0.0-rc.39",
+    "@vuepress/plugin-prismjs": "^2.0.0-rc.39",
+    "@vuepress/plugin-register-components": ">=2.0.0-rc.14 <=2.0.0-rc.37",
+    "@vuepress/plugin-search": ">=2.0.0-rc.14 <=2.0.0-rc.39",
+    "@vuepress/plugin-docsearch": ">=2.0.0-rc.39 <=2.0.0-rc.39",
+    "sass": "^1.81.0",
+    "vue": "^3.5.13",
+    "vuepress": ">=2.0.0-rc.14 <=2.0.0-rc.14",
+    "vuepress-plugin-md-enhance": "2.0.0-rc.52",
+    "vuepress-theme-hope": "2.0.0-rc.52"
+  },
+  "dependencies": {
+    "aplayer": "^1.10.1",
     "chart.js": "^4.4.6",
     "dashjs": "^4.7.4",
     "echarts": "^5.5.1",
@@ -29,16 +38,8 @@
     "markmap-view": "^0.17.2",
     "mathjax-full": "^3.2.2",
     "mermaid": "^10.9.3",
-    "reveal.js": "^5.1.0",
-    "sass": "^1.81.0",
-    "vue": "^3.5.13",
-    "vuepress": "2.0.0-rc.14",
-    "vuepress-plugin-md-enhance": "2.0.0-rc.52",
-    "vuepress-theme-hope": "2.0.0-rc.52"
-  },
-  "dependencies": {
-    "aplayer": "^1.10.1",
     "meting": "^2.0.1",
+    "reveal.js": "^5.1.0",
     "vidstack": "^1.12.10",
     "vue-lazyload": "^3.0.0"
   }
