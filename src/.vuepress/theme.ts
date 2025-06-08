@@ -16,7 +16,6 @@ export default hopeTheme({
   },
 
   // 使用官方提供的图标库-也可以构建自己的图标库
-  iconAssets: "//at.alicdn.com/t/c/font_4545815_3lwdq571u9p.css",
   // iconAssets: "//at.alicdn.com/t/c/font_2410206_5vb9zlyghj.css",
 
   // 网站图标
@@ -80,9 +79,9 @@ export default hopeTheme({
       // 侧边栏
       sidebar: zhSidebar,
 
-      // 侧边栏嵌套的标题深度
-      headerDepth: 3,
-
+      toc: {
+        levels: 3,
+      },
       // 全局设置页脚信息
       footer: "終わり群星の知识宝库",
 
@@ -93,6 +92,63 @@ export default hopeTheme({
       metaLocales: {
         editLink: "在【Github】上编辑此页",
       },
+    },
+  },
+  markdown: {
+    align: true,
+    attrs: true,
+    chartjs: true,
+    demo: true,
+    echarts: true,
+    flowchart: true,
+    gfm: true,
+    component: true,
+    include: true,
+    mark: true,
+    // 剧透文字
+    spoiler: true,
+    mermaid: true,
+    // 启用任务列表
+    tasklist: true,
+    // 启用脚注
+    footnote: true,
+    // 启用 figure
+    figure: true,
+    // 启用图片懒加载
+    imgLazyload: true,
+    // 启用图片标记
+    imgMark: true,
+    // 启用图片大小
+    imgSize: true,
+    playground: {
+      presets: ["ts", "vue"],
+    },
+    stylize: [
+      {
+        matcher: "Recommanded",
+        replacer: ({ tag }) => {
+          if (tag === "em")
+            return {
+              tag: "Badge",
+              attrs: { type: "tip" },
+              content: "Recommanded",
+            };
+        },
+      },
+    ],
+    sub: true,
+    sup: true,
+    vuePlayground: true,
+    highlighter: {
+      type: "prismjs",
+      themes: {
+        light: "one-light",
+        dark: "one-dark",
+      },
+      // 是否启用行号
+      lineNumbers: 2,
+      // 是否启用代码差异高亮
+      notationDiff: true,
     },
   },
   // // 博客配置
@@ -121,6 +177,9 @@ export default hopeTheme({
       appId: "WSHUGN4U1C",
       apiKey: "240932598bf8ce249c97f2df09413833",
       indexName: "lib-stazxr",
+    },
+    icon: {
+      assets: "//at.alicdn.com/t/c/font_4545815_3lwdq571u9p.css",
     },
     // search: {
     //   //多语言支持
@@ -160,67 +219,6 @@ export default hopeTheme({
       showInMobile: true,
       // 代码复制成功提示消息的时间-ms
       duration: 3000,
-    },
-    // 代码高亮插件
-    prismjs: {
-      // 代码高亮主题
-      themes: {
-        light: "one-light",
-        dark: "one-dark",
-      },
-      // 是否启用行号
-      lineNumbers: 2,
-      // 是否启用代码差异高亮
-      notationDiff: true,
-    },
-    // MarkDown文件增强
-    mdEnhance: {
-      align: true,
-      attrs: true,
-      chart: true,
-      demo: true,
-      echarts: true,
-      flowchart: true,
-      gfm: true,
-      component: true,
-      include: true,
-      mark: true,
-      // 剧透文字
-      spoiler: true,
-      mermaid: true,
-      // 启用任务列表
-      tasklist: true,
-      // 启用脚注
-      footnote: true,
-      // 启用 figure
-      figure: true,
-      // 启用图片懒加载
-      imgLazyload: true,
-      // 启用图片标记
-      imgMark: true,
-      // 启用图片大小
-      imgSize: true,
-      // 添加代码高亮配置
-      codetabs: true,
-      playground: {
-        presets: ["ts", "vue"],
-      },
-      stylize: [
-        {
-          matcher: "Recommanded",
-          replacer: ({ tag }) => {
-            if (tag === "em")
-              return {
-                tag: "Badge",
-                attrs: { type: "tip" },
-                content: "Recommanded",
-              };
-          },
-        },
-      ],
-      sub: true,
-      sup: true,
-      vuePlayground: true,
     },
     // // 打开博客功能
     // blog: {

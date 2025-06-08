@@ -1,2 +1,15 @@
 // you can change colors here
-$theme-color: #EF699F;
+$vp-font-heading: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", STHeiti, "Microsoft YaHei", SimSun, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"';
+$vp-c-accent: #EF699F;
+$vp-font-mono: '"Fira Code", "Microsoft Yahei", Georgia, -apple-system';
+$vp-c-accent-bg: #EF699F;
+$vp-c-accent-hover: #F178A9;
+$vp-c-control: (
+  light: #f8f8f8,
+  dark: #21262c,
+);
+$vp-c-text-mute: (
+  light: #3a5169,
+  dark: #a8a8a8,
+);
+

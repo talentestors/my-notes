@@ -1,9 +1,24 @@
 // place your custom styles here
-a.header-anchor:hover:before{
-    top: 0;
-    font-size: 1.1em;
-    color: var(--theme-color);
+.vp-hero-actions .vp-external-link-icon::after {
+  display: none;
 }
-.vp-hero-actions .vp-external-link-icon::after{
-    display: none;
+.vp-features:first-child,
+.vp-footer-wrapper {
+  border-color: #eaecef;
+}
+.vp-feature-item.link:hover::before {
+  content: "";
+}
+.vp-navbar .auto-link,
+.vp-dropdown-title {
+  color: #666666;
+}
+a.header-anchor::before {
+  content: "¶" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -0.75em !important;
+  display: none;
+  color: var(--vp-c-accent, #ef699f) !important;
+  font-size: 1.1em !important;
 }
