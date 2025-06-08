@@ -122,20 +122,20 @@ export default hopeTheme({
       apiKey: "240932598bf8ce249c97f2df09413833",
       indexName: "lib-stazxr",
     },
-    search: {
-      //多语言支持
-      locales: {
-        "/": {
-          placeholder: "搜索本站",
-        },
-      },
-      // 热键支持
-      hotKeys: ["ctrl?", "k"],
-      // 最大推荐个数
-      maxSuggestions: 7,
-      // 排除首页
-      isSearchable: (page) => page.path !== "/",
-    },
+    // search: {
+    //   //多语言支持
+    //   locales: {
+    //     "/": {
+    //       placeholder: "搜索本站",
+    //     },
+    //   },
+    //   // 热键支持
+    //   hotKeys: ["ctrl?", "K"],
+    //   // 最大推荐个数
+    //   maxSuggestions: 7,
+    //   // 排除首页
+    //   isSearchable: (page) => page.path !== "/",
+    // },
     components: {
       // 你想使用的组件
       components: [
