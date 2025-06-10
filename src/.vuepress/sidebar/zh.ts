@@ -193,7 +193,7 @@ export const zhSidebar = sidebar({
               link: "io流.md",
             },
             {
-              text: "12、反射",
+              text: "12、注解和反射",
               icon: "reflect-vertical",
               link: "注解和反射.md",
             },

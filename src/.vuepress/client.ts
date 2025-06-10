@@ -2,9 +2,6 @@
 import { defineClientConfig } from "vuepress/client";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
-import { defineCatalogInfoGetter } from '@vuepress/plugin-catalog/client'
-
-defineCatalogInfoGetter((meta) => (meta.title ? { title: meta.title as string } : null))
 
 export default defineClientConfig({
   enhance: ({ app, router, siteData }) => {

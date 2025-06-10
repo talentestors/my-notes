@@ -1,6 +1,6 @@
 ---
 # 当前页面内容标题
-title: Java
+title: JavaSE
 # 当前页面图标
 icon: java
 # 分类

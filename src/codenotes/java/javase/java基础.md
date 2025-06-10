@@ -1,7 +1,7 @@
 ---
 title: 计算机基础
 # 当前页面图标
-icon: computer
+icon: computer-fill
 # 分类
 category:
   - javase

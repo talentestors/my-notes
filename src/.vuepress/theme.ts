@@ -173,6 +173,7 @@ export default hopeTheme({
   //   timeline: "終わり群星の时光轴🍃",
   // },
   plugins: {
+    catalog: true,
     // 搜索插件
     docsearch: {
       appId: "WSHUGN4U1C",
