@@ -23,13 +23,9 @@ article: false
 timeline: false
 ---
 
-::: tip
-
-课程视频教程链接：<https://www.bilibili.com/video/BV1G84y1v7Vj>
-
-:::
-
-# GUI 程序开发
+> [!TIP]
+>
+> 课程视频教程链接：<https://www.bilibili.com/video/BV1G84y1v7Vj>
 
 注意：开始学习之前请确保你完成了《Java SE》篇视频教程。
 

@@ -101,7 +101,7 @@ export default hopeTheme({
     demo: true,
     echarts: true,
     flowchart: true,
-    gfm: true,
+    alert: true,
     component: true,
     include: true,
     mark: true,
@@ -120,6 +120,7 @@ export default hopeTheme({
     imgMark: true,
     // 启用图片大小
     imgSize: true,
+    hint: true,
     playground: {
       presets: ["ts", "vue"],
     },

@@ -19,11 +19,9 @@ order: 1
 timeline: false
 ---
 
-::: tip
-
-课程视频教程链接：<https://www.bilibili.com/video/BV1h64y1i78N>
-
-:::
+> [!TIP]
+>
+>课程视频教程链接：<https://www.bilibili.com/video/BV1h64y1i78N>
 
 ## 1.命令提示符
 
