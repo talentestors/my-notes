@@ -105,13 +105,10 @@ public static void main(String[] args) {
 
 这样我们的窗口打开之后默认就是居中放置的了，是不是感觉用 Java 开发图形界面好像也不是那么难？
 
-::: tip
-
-让窗口居中的方法：
-
-`frame.setLocationRelativeTo(null); //设置窗口居中`
-
-:::
+> [!TIP]
+> 让窗口居中的方法：
+>
+> `frame.setLocationRelativeTo(null); //设置窗口居中`
 
 得益于 Java 已经为我们封装好了各种方法，所以说要实现什么功能直接调用对应的方法即可，比如我们想要个性化光标，我们可以使用`setCursor`方法来实现，JDK 已经为我们提供了一些预设的光标样式：
 
