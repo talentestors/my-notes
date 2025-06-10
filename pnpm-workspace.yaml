@@ -1,5 +1,4 @@
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - esbuild
-  - highlight.js
   - vue-demi

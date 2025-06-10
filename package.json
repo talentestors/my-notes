@@ -17,7 +17,7 @@
     "@vuepress/plugin-docsearch": "2.0.0-rc.108",
     "@vuepress/plugin-prismjs": "2.0.0-rc.108",
     "@vuepress/plugin-register-components": "2.0.0-rc.103",
-    "sass": "^1.89.1",
+    "sass": "^1.89.2",
     "vue": "^3.5.16",
     "vuepress": "2.0.0-rc.23",
     "vuepress-plugin-md-enhance": "2.0.0-rc.90",

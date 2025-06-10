@@ -26,13 +26,6 @@ export default defineUserConfig({
       level: [2, 3, 4],
     },
   },
-  extendsPage: (page) => {
-    // 在 routeMeta 中设置目录信息
-    page.routeMeta = {
-      // 目录标题
-      title: page.title,
-    }
-  },
   // 主题设置
   theme,
   // 插件设置

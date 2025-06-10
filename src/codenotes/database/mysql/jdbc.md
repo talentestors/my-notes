@@ -17,7 +17,7 @@ star: false
 # 是否将该文章添加至文章列表中
 article: false
 # 目录顺序
-order: 10
+order: 3
 # 是否将该文章添加至时间线中
 timeline: false
 ---
