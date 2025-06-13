@@ -80,7 +80,7 @@ export default hopeTheme({
       sidebar: zhSidebar,
 
       toc: {
-        levels: 3,
+        levels: "deep",
       },
       // 全局设置页脚信息
       footer: "終わり群星の知识宝库",
@@ -181,7 +181,7 @@ export default hopeTheme({
       indexName: "lib-stazxr",
     },
     icon: {
-      assets: "//at.alicdn.com/t/c/font_4545815_3lwdq571u9p.css",
+      assets: "//at.alicdn.com/t/c/font_4545815_tf35we4t28.css",
     },
     // search: {
     //   //多语言支持
