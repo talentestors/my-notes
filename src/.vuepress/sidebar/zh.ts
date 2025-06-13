@@ -132,7 +132,7 @@ export const zhSidebar = sidebar({
       collapsible: true,
       children: [
         {
-          text: "Javase",
+          text: "JavaSE",
           icon: "java",
           collapsible: true,
           prefix: "/codenotes/java/javase/",
@@ -215,7 +215,7 @@ export const zhSidebar = sidebar({
           ],
         },
         {
-          text: "JavaGUI",
+          text: "Java GUI",
           icon: "computer-fill",
           collapsible: true,
           prefix: "/codenotes/java/javagui/",
@@ -228,7 +228,7 @@ export const zhSidebar = sidebar({
           ],
         },
         {
-          text: "JVM虚拟机",
+          text: "JVM 虚拟机",
           icon: "JVM",
           collapsible: true,
           prefix: "/codenotes/java/jvm/",
@@ -252,14 +252,19 @@ export const zhSidebar = sidebar({
         },
         {
           text: "JavaEE",
-          icon: "java",
+          icon: "jakarta_ee_logo_stacked",
           collapsible: true,
           prefix: "/codenotes/java/javaee/",
           children: [
             {
-              text: "JavaWeb",
+              text: "Java Web",
               icon: "javaweb",
-              link: "/codenotes/java/javaee/javaweb/javaweb.md",
+              link: "javaweb/javaweb.md",
+            },
+            {
+              text: "Java 日志框架",
+              icon: "log",
+              link: "java-log/java日志框架.md",
             },
           ],
         },

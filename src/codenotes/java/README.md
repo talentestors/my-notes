@@ -22,10 +22,10 @@ timeline: false
 
 #
 
-## [1. Javase](./javase/)
+## [1. JavaSE](./javase/)
 
-## [2. JavaGUI](./javagui/)
+## [2. Java GUI](./javagui/)
 
-## [3. Javaee](./javaee/)
+## [3. JavaEE](./javaee/)
 
 ## [4. Java JVM 虚拟机](./jvm/)

@@ -2,7 +2,7 @@
 # 当前页面内容标题
 title: Java EE
 # 当前页面图标
-icon: java
+icon: jakarta_ee_logo_stacked
 # 分类
 category:
   - 目录
@@ -22,4 +22,6 @@ order: 1
 timeline: false
 ---
 
-<catalog/>
+## [Java Web](./javaweb/javaweb.md)
+
+## [Java 日志框架](./java-log/java日志框架.md)
