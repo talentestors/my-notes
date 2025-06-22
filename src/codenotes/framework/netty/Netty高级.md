@@ -350,7 +350,7 @@ public class TestParam {
   - 通过 `option` 来配置 `ServerSocketChannel` 上的参数
   - 通过 `childOption` 来配置 `SocketChannel` 上的参数
 
-* **源码分析**
+- **源码分析**
 
 客户端中连接服务器的线程是 `NIO` 线程，抛出异常的是主线程。这是如何做到超时判断以及线程通信的呢？
 
@@ -384,7 +384,7 @@ public final void connect(
         }, connectTimeoutMillis, TimeUnit.MILLISECONDS);
     }
     
-   	...
+    ...
         
 }
 ```
@@ -397,13 +397,11 @@ public final void connect(
 
 **`SO_BACKLOG`**
 
-* 该参数是 `ServerSocketChannel` 的参数
+- 该参数是 `ServerSocketChannel` 的参数
 
-* **三次握手与连接队列**
+- **三次握手与连接队列**
 
 第一次握手时，因为客户端与服务器之间的连接还未完全建立，连接会被放入半连接队列中
-
-
 
 当完成三次握手以后，连接会被放入全连接队列中
 
@@ -419,8 +417,8 @@ public final void connect(
   - 其大小通过 `/proc/sys/net/core/somaxconn` 指定，在使用 `listen` 函数时，内核会根据传入的 `backlog` 参数与系统参数，取二者的较小值
   - 如果 `accpet queue` 队列满了，`server` 将发送一个拒绝连接的错误信息到 `client`
 - 参考
-  - https://juejin.cn/post/7157182123441389604
-  - https://cloud.tencent.com/developer/article/1699886
+  - <https://juejin.cn/post/7157182123441389604>
+  - <https://cloud.tencent.com/developer/article/1699886>
 
 在`Netty`中，`SO_BACKLOG`主要用于设置全连接队列的大小。当处理`Accept`的速率小于连接建立的速率时，全连接队列中堆积的连接数大于`SO_BACKLOG`设置的值时，便会抛出异常，设置方式如下：
 
@@ -554,30 +552,30 @@ SOMAXCONN = AccessController.doPrivileged(new PrivilegedAction<Integer>() {
 new ServerBootstrap().childOption(ChannelOption.ALLOCATOR, new PooledByteBufAllocator());
 ```
 
-* `ByteBufAllocator`类型
+- `ByteBufAllocator`类型
 
-  * 池化并使用直接内存
+  - 池化并使用直接内存
 
   ```java
   // true表示使用直接内存
   new PooledByteBufAllocator(true);
   ```
 
-  * 池化并使用堆内存
+  - 池化并使用堆内存
 
   ```java
   // false表示使用堆内存
   new PooledByteBufAllocator(false);
   ```
 
-  * 非池化并使用直接内存
+  - 非池化并使用直接内存
 
   ```java
   // ture表示使用直接内存
   new UnpooledByteBufAllocator(true);
   ```
 
-  * 非池化并使用堆内存
+  - 非池化并使用堆内存
 
   ```java
   // false表示使用堆内存
@@ -590,49 +588,15 @@ new ServerBootstrap().childOption(ChannelOption.ALLOCATOR, new PooledByteBufAllo
 - 控制 `Netty` 接收缓冲区大小
 - 负责入站数据的分配，决定入站缓冲区的大小（并可动态调整），统一采用 `direct` 直接内存，具体池化还是非池化由 `allocator` 决定
 
-
-
-
-
-
-
-
-
-
-
 ### 3、RPC框架
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ### 4、项目代码
 
-> https://gitee.com/oucystong/netty-chat.git
+> <https://gitee.com/oucystong/netty-chat.git>
 
 ## 二、源码
 
-
-
-
-
-
-
-
-
 ## 三、参考
 
-* https://nyimac.gitee.io/2021/04/25/Netty%E5%9F%BA%E7%A1%80/
-* https://www.bilibili.com/video/BV1py4y1E7oA/
+- <https://nyimac.gitee.io/2021/04/25/Netty%E5%9F%BA%E7%A1%80/>
+- <https://www.bilibili.com/video/BV1py4y1E7oA/>

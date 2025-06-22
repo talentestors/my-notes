@@ -268,6 +268,11 @@ export const zhSidebar = sidebar({
             },
           ],
         },
+        {
+          text: "Maven 构建工具",
+          icon: "maven",
+          link: "/codenotes/java/maven/maven.md",
+        },
       ],
     },
     {
