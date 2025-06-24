@@ -48,7 +48,7 @@ idea 帮我们编译
 
 2、哪些文件夹是干啥的！！ 源文件？配置文件？测试文件？在哪里？
 
-3、如果是 web 工程，``web.xml` 放哪里？
+3、如果是 web 工程，`web.xml` 放哪里？
 
 4、编译文件，编译后的文件放在哪里。
 
@@ -58,7 +58,7 @@ idea 帮我们编译
 
 > 好好说说 Project Structure
 
-- 英 /ˈstrʌktʃə(r)/
+- 英 `/ˈstrʌktʃə(r)/`
 
 “项目结构” 对话框允许您管理项目和 IDE 级别的元素，例如 Modules，Facets，Libraries， Artifacts 和 SDK。
 
@@ -179,7 +179,7 @@ Exclude output paths： 排除输出路径，选中此复选框可以排除输�
 - 在给项目配置 Artifacts 的时候有好多个 type 的选项，exploed 是什么意思？explode 在这里你可以理解为展开，不压缩的意思。也就是 war、jar 等产出物没压缩前的目录结构。
 - 建议在开发的时候使用这种模式，便于修改了文件的效果立刻显现出来。
 - 默认情况下，IDEA 的 Modules 和 Artifacts 的 output 目录 已经设置好了，不需要更改.
-- 打成 war 包 的时候会自动在 WEB-INF 目录 下生产 classes 目录 ，然后把编译后的文件放进去。
+- 打成 war 包的时候会自动在 WEB-INF 目录 下生产 classes 目录 ，然后把编译后的文件放进去。
 
 #### （9）SDKS
 
@@ -229,7 +229,7 @@ Exclude output paths： 排除输出路径，选中此复选框可以排除输�
 ![image-20210119112911467](./img/image-20210119112911467-3AxzJV-O.png)
 
 > 这样别的 idea 打开项目时就能读取出来，并能明确项目的构建信息
-
+>
 > 问，eclipse 直接打开能用吗？
 
 提问现在给你一个 java 工程的代码你们构建出来了吗？
@@ -541,7 +541,7 @@ src 目录下的配置文件会和 class 文件一样，自动 copy 到应用的
 
 > maven 项目
 
-maven 工程会将 `src/main/java`  和  `src/main/resources`  文件夹下的文件全部打包在 classpath 中。运行时他们两个的文件夹下的文件会被放在一个文件夹下。
+maven 工程会将 `src/main/java` 和 `src/main/resources` 文件夹下的文件全部打包在 classpath 中。运行时他们两个的文件夹下的文件会被放在一个文件夹下。
 
 maven 项目不同的阶段引入到 classpath 中的依赖是不同的，例如，
 
@@ -558,9 +558,9 @@ maven 项目不同的阶段引入到 classpath 中的依赖是不同的，例如
 其中 compile、test 和 provided 使用较多，下面依次介绍。
 
 > 有些 jar 包（如 selvlet-api）运行时其实是不需要的，因为 tomcat 里有，但编译时是需要的，因为编译的时候没有 tomcat 环境
-
+>
 > 有些 jar 只在测试的时候才能用到。比如 junit，真是运行不需要的
-
+>
 > 有些 jar 运行，测试时必须要有，编译时不需要，如 jdbc 驱动，编译时用的都是 jdk 中的接口，运行时我们才使用反射注册了驱动。
 
 向以上的这些 jar 包不是说使用默认的 compile 一定不行，但是设置成合适的范围更好，当然有事会有问题，比如你引入的 servlet-api 和 tomcat 自带的不一样，就会出问题。
@@ -579,7 +579,7 @@ maven 项目不同的阶段引入到 classpath 中的依赖是不同的，例如
 
 #### 1.2 测试依赖范围(test)
 
-使用此依赖范围的依赖，只对测试 classpath 有效，在编译主代码和项目运行时，都将无法使用该依赖，最典型的例子就是 Junit, 构件在测试时才需要，所以它的依赖范围是测试，因此它的依赖范围需要显示指定为、、<scope>test</scope>,当然不显示指定依赖范围也不会报错，但是该依赖会被加入到编译和运行的 classpath 中,造成不必要的浪费 。
+使用此依赖范围的依赖，只对测试 classpath 有效，在编译主代码和项目运行时，都将无法使用该依赖，最典型的例子就是 Junit, 构件在测试时才需要，所以它的依赖范围是测试，因此它的依赖范围需要显示指定为、`<scope>test</scope>`,当然不显示指定依赖范围也不会报错，但是该依赖会被加入到编译和运行的 classpath 中,造成不必要的浪费 。
 
 ```xml
 <dependency>
@@ -683,10 +683,10 @@ jar 其实也是别人写的工程，他也会依赖其他的 jar 包，传递�
 ### 4、聚合和继承
 
 > 分布式开发必须要用
-
+>
 > **聚合模块（父模块）的打包方式必须为 pom，否则无法完成构建**。
 
-在聚合多个项目时，如果这些被聚合的项目中需要引入相同的 Jar，那么可以将这些 Jar 写入父 pom 中，各个子项目继承该 pom 即可。，父模块的打包方式必须为 pom，否则无法构建项目。
+在聚合多个项目时，如果这些被聚合的项目中需要引入相同的 Jar，那么可以将这些 Jar 写入父 pom 中，各个子项目继承该 pom 即可。父模块的打包方式必须为 pom，否则无法构建项目。
 
 > 通过在各个子模块中配置来表明其继承与哪一个父模块：
 
@@ -871,7 +871,7 @@ dependencies
 我们常用的几个配置
 
 > 关于资源处理的配置
-
+>
 > 有些小伙伴就喜欢在 src 中填写配置文件
 
 ```xml
@@ -1118,7 +1118,7 @@ local_repo > settings_profile_repo > pom_profile_repo > pom_repositories > setti
 
 本地仓库是 Maven 在本地存储构建的地方。Maven 的本地仓库，在安装 maven 后并不会创建，它是在第一次执行 Maven 命令的时候才被创建。
 
-Maven 本地仓库的默认位置：无论是 Windows 还是 Linux，在用户的目录下都有一个.m2/repository/的仓库目录，这就是 Maven 仓库的默认位置。
+Maven 本地仓库的默认位置：无论是 Windows 还是 Linux，在用户的目录下都有一个 `.m2/repository/` 的仓库目录，这就是 Maven 仓库的默认位置。
 
 在 Maven 的目录下的 conf 目录下，有一个 `settings.xml` 文件，是 Maven 的配置文件，在里面可以修改本地仓库的位置。
 
@@ -1389,7 +1389,7 @@ web 目录结构
 
 通过插件和命令我们都可以启动项目了，都不用部署到 tomcat 里了。
 
-### 4、war 包打插件
+### 4、war 包插件
 
 ```xml
 <plugin>
@@ -1496,8 +1496,320 @@ mvn archetype:generate -DgroupId=com.xinzhi -DartifactId=test -DarchetypeArtifac
 
 ![image-20210119143443582](./img/image-20210119143443582-DzSl_-GE.png)
 
-八、聚合工程
+## 八、聚合工程
 
-\<dependencyManagement>
+### 1、聚合与继承概述
 
-TODO
+在大型项目开发中，通常会将一个大项目拆分成多个子模块，每个子模块负责特定的功能。Maven的聚合与继承机制可以帮助我们更好地管理这些多模块项目。
+
+##### 聚合（Aggregation）
+
+聚合是为了快速构建多个模块，通过在一个父模块中配置多个子模块，执行父模块的构建命令时，所有子模块都会被构建。
+
+##### 继承（Inheritance）
+
+继承是为了消除重复配置，子模块可以继承父模块的配置信息，如依赖、插件配置等。
+
+### 2、聚合工程的创建
+
+#### （1）父模块（聚合模块）配置
+
+**重要：聚合模块的打包方式必须为pom，否则无法完成构建。**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.xinzhi</groupId>
+    <artifactId>parent-project</artifactId>
+    <version>1.0.0</version>
+    
+    <!-- 父模块的打包方式必须为pom -->
+    <packaging>pom</packaging>
+    
+    <!-- 聚合配置 -->
+    <modules>
+        <module>module-common</module>
+        <module>module-dao</module>
+        <module>module-service</module>
+        <module>module-web</module>
+    </modules>
+    
+    <!-- 项目属性配置 -->
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        
+        <!-- 统一管理依赖版本 -->
+        <spring.version>5.2.8.RELEASE</spring.version>
+        <mysql.version>8.0.21</mysql.version>
+        <junit.version>4.13.2</junit.version>
+        <mybatis.version>3.5.5</mybatis.version>
+    </properties>
+    
+    <!-- 依赖管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring Framework -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            
+            <!-- 数据库相关 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            
+            <!-- 测试相关 -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+    <!-- 插件管理 -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+    
+</project>
+```
+
+#### （2）子模块配置
+
+子模块通过`<parent>`标签继承父模块：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    
+    <!-- 继承父模块 -->
+    <parent>
+        <groupId>com.xinzhi</groupId>
+        <artifactId>parent-project</artifactId>
+        <version>1.0.0</version>
+        <!-- 相对路径，指向父模块的pom.xml -->
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    
+    <!-- 子模块的坐标 -->
+    <artifactId>module-dao</artifactId>
+    <packaging>jar</packaging>
+    
+    <!-- 子模块的依赖 -->
+    <dependencies>
+        <!-- 引用父模块中管理的依赖，无需指定版本 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    
+</project>
+```
+
+### 3、`<dependencyManagement>`详解
+
+#### （1）作用与特点
+
+`<dependencyManagement>`是Maven提供的依赖管理机制，它具有以下特点：
+
+- **只声明不引入**：在`<dependencyManagement>`中声明的依赖不会被实际引入到项目中
+- **统一版本管理**：可以在父模块中统一管理所有依赖的版本号
+- **按需引入**：子模块需要显式声明需要的依赖，但无需指定版本号
+- **版本冲突解决**：帮助解决多模块项目中的依赖版本冲突问题
+
+#### （2）与`<dependencies>`的区别
+
+| 特性 | `<dependencies>` | `<dependencyManagement>` |
+|------|------------------|--------------------------|
+| 是否引入依赖 | 直接引入到项目中 | 只声明，不引入 |
+| 继承性 | 子模块自动继承所有依赖 | 子模块需显式声明才继承 |
+| 版本管理 | 每个依赖都需指定版本 | 统一管理版本，子模块无需指定 |
+| 使用场景 | 项目确实需要的依赖 | 多模块项目的版本统一管理 |
+
+#### （3）实际应用示例
+
+**父模块中的dependencyManagement：**
+
+```xml
+<dependencyManagement>
+    <dependencies>
+        <!-- Spring Boot BOM -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>2.3.4.RELEASE</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        
+        <!-- 项目内部模块依赖 -->
+        <dependency>
+            <groupId>com.xinzhi</groupId>
+            <artifactId>module-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xinzhi</groupId>
+            <artifactId>module-dao</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
+
+**子模块中的依赖引用：**
+
+```xml
+<dependencies>
+    <!-- 引用父模块管理的依赖，无需指定版本 -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    
+    <!-- 引用项目内其他模块 -->
+    <dependency>
+        <groupId>com.xinzhi</groupId>
+        <artifactId>module-common</artifactId>
+    </dependency>
+</dependencies>
+```
+
+### 4、聚合工程的目录结构
+
+典型的聚合工程目录结构如下：
+
+```text
+parent-project/
+├── pom.xml                 # 父模块pom文件
+├── module-common/          # 公共模块
+│   ├── src/
+│   └── pom.xml
+├── module-dao/             # 数据访问层模块
+│   ├── src/
+│   └── pom.xml
+├── module-service/         # 业务逻辑层模块
+│   ├── src/
+│   └── pom.xml
+└── module-web/             # 表现层模块
+    ├── src/
+    └── pom.xml
+```
+
+### 5、聚合工程的构建
+
+#### （1）构建命令
+
+在父模块目录下执行Maven命令，会按照模块间的依赖关系自动确定构建顺序：
+
+```bash
+# 编译所有模块
+mvn compile
+
+# 打包所有模块
+mvn package
+
+# 安装所有模块到本地仓库
+mvn install
+
+# 清理所有模块
+mvn clean
+```
+
+#### （2）模块间依赖
+
+子模块之间可以相互依赖，Maven会自动处理构建顺序：
+
+```xml
+<!-- module-service依赖module-dao -->
+<dependency>
+    <groupId>com.xinzhi</groupId>
+    <artifactId>module-dao</artifactId>
+</dependency>
+
+<!-- module-web依赖module-service -->
+<dependency>
+    <groupId>com.xinzhi</groupId>
+    <artifactId>module-service</artifactId>
+</dependency>
+```
+
+### 6、最佳实践
+
+#### （1）版本管理策略
+
+- 使用`<properties>`统一管理第三方依赖版本
+- 使用`${project.version}`管理项目内部模块版本
+- 定期升级依赖版本，保持技术栈的先进性
+
+#### （2）模块划分原则
+
+- **功能职责单一**：每个模块负责特定的功能
+- **层次分明**：按照分层架构划分模块（如dao、service、web）
+- **解耦合**：模块间通过接口交互，减少耦合度
+- **可复用**：公共功能提取到common模块
+
+#### （3）依赖管理建议
+
+- 在父模块中使用`<dependencyManagement>`管理所有可能用到的依赖
+- 子模块只引入实际需要的依赖
+- 避免传递依赖冲突，必要时使用`<exclusions>`排除
+- 定期检查依赖树，清理无用依赖
+
+通过合理使用聚合工程和`<dependencyManagement>`，可以大大提高多模块项目的管理效率，确保项目的可维护性和一致性。
