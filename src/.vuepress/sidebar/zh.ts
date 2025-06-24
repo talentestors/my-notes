@@ -329,6 +329,22 @@ export const zhSidebar = sidebar({
       link: "/codenotes/os/linux/linux.md",
     },
   ],
+  // 设计模式的侧边栏
+  "/design-patterns/": [
+    {
+      text: "JAVA 设计模式",
+      icon: "java",
+      collapsible: true,
+      prefix: "/design-patterns/",
+      children: [
+        {
+          text: "JAVA 设计模式入门",
+          icon: "design",
+          link: "设计模式.md",
+        },
+      ],
+    },
+  ],
   // 开源项目的侧边栏
   // "/projects/": [
   //   {

@@ -15,9 +15,6 @@ export default hopeTheme({
     url: "https://github.com/talentestors",
   },
 
-  // 使用官方提供的图标库-也可以构建自己的图标库
-  // iconAssets: "//at.alicdn.com/t/c/font_2410206_5vb9zlyghj.css",
-
   // 网站图标
   logo: "/site_logo.png",
 
@@ -181,7 +178,7 @@ export default hopeTheme({
       indexName: "lib-stazxr",
     },
     icon: {
-      assets: "//at.alicdn.com/t/c/font_4545815_46ia20e6v3b.css",
+      assets: "//at.alicdn.com/t/c/font_4545815_ud0mffbukt.css",
     },
     // search: {
     //   //多语言支持
