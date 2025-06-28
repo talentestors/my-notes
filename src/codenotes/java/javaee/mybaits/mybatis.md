@@ -288,7 +288,7 @@ public void testConnection1() throws Exception{
 
 小知识：
 
-##### （1）DTD
+#### （1）DTD
 
 DTD(Document Type Definition) 即文档类型定义，是一种 XML 约束模式语言，是 XML 文件的验证机制
 
@@ -312,7 +312,7 @@ DTD(Document Type Definition) 即文档类型定义，是一种 XML 约束模式
 
 疑问：是不是 xml 分析器都会到 java.sun.com 上去找这个 dtd 呢？答案是否定的，xml 分析器首先会以某种机制查找公共 DTD 的名称，查到了，则以此为标准，如果查不到，再到 DTD 位置上去找。
 
-##### （2）XSD
+#### （2）XSD
 
  文档结构描述 XML Schema Definition 缩写，这种文件同样可以用来定义我们 xml 文件的结构！
 
@@ -585,6 +585,7 @@ STDOUT_LOGGING：标准输出日志
         <appender-ref ref="console"/>
     </root>
 
+    <!-- 日志前缀 logger -->
     <logger name="mybatis.sql" level="debug" additivity="false">
         <appender-ref ref="console"/>
         <appender-ref ref="file"/>
@@ -597,7 +598,9 @@ STDOUT_LOGGING：标准输出日志
 
 ```xml
 <settings>
-   <setting name="logImpl" value="SLF4J"/>
+	<setting name="logImpl" value="SLF4J"/>
+	<!-- 日志前缀 -->
+	<setting name="logPrefix" value="mybatis.sql."/>
 </settings>
 ```
 
@@ -1319,7 +1322,7 @@ Mybatis 的功能架构分为三层：
 5. **ParameterHandler：**负责对用户传递的参数转换成 JDBC Statement 所对应的数据类型
 6. **ResultSetHandler：**负责将 JDBC 返回的 ResultSet 结果集对象转换成 List 类型的集合
 7. **TypeHandler：**负责 java 数据类型和 jdbc 数据类型(也可以说是数据表列类型)之间的映射和转换
-8. **MappedStatement：**MappedStatement 维护一条<select|update|delete|insert>节点的封装
+8. **MappedStatement：**MappedStatement 维护一条`<select|update|delete|insert>`节点的封装
 9. **SqlSource：**负责根据用户传递的 parameterObject，动态地生成 SQL 语句，将信息封装到 BoundSql 对象中，并返回
 10. **BoundSql：**表示动态生成的 SQL 语句以及相应的参数信息
 
@@ -1407,7 +1410,7 @@ configuration.setEnvironment(environment);
 
 #### （2）配置文件的解析
 
-parser.parse()这个方法了，这就是在解析 xml 配置文件。
+`parser.parse()` 这个方法了，这就是在解析 xml 配置文件。
 
 在 build 方法中我们看到了如下代码：
 
@@ -1417,7 +1420,7 @@ XMLConfigBuilder parser = new XMLConfigBuilder(inputStream, environment, propert
 
 这一步就是构造一个解析器，根据我们的入参构建一个文档解析器。使用了 sax 进行 xml 的解析，我们在讲 JavaEE 的时候讲过。
 
-当然，我们要把重点放在 parse()方法上：
+当然，我们要把重点放在 `parse()` 方法上：
 
 ```java
 public Configuration parse() {
@@ -1625,7 +1628,7 @@ resource 属性以及 url 属性的处理
 
  在 resource 属性以及 url 属性中没有看到 configuration.addMapper()这个方法的影子，这两个属性都是以配置文件的方式加载，自然要解析 mapper 配置文件了。
 
-我们看到了 XMLMapperBuilder 这个类的 parse()方法。很明显这个方法 configurationElement 是用来解析配置文件的。
+我们看到了 XMLMapperBuilder 这个类的 `parse()` 方法。很明显这个方法 configurationElement 是用来解析配置文件的。
 
 ```java
 public void parse() {
@@ -1657,7 +1660,7 @@ mapper 的具体解析
 
 创建一个解析器：
 
-```plain
+```java
 XMLMapperBuilder mapperParser = new XMLMapperBuilder(inputStream, configuration, resource, configuration.getSqlFragments());
 ```
 
@@ -1685,8 +1688,8 @@ private void configurationElement(XNode context) {
 
 #### （4）通过 sqlSession 获取一个代理对象
 
-```plain
-通过sqlSessionFactory获取另一个session，此处使用【工厂设计模式】
+```java
+// 通过sqlSessionFactory获取另一个session，此处使用【工厂设计模式】
 SqlSession sqlSession = sqlSessionFactory.openSession();
 ```
 
@@ -1792,13 +1795,13 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
 
 当我们执行代理的对象的方法时：
 
-```plain
+```java
 List<User> allUser = mapper.findAllUser(12);
 ```
 
 invoke 方法会被调用，这里会判断它调用的是继承自 Object 的方法还是实现的接口的方法，我们的重点放在：
 
-```plain
+```java
 cachedInvoker(method).invoke(proxy, method, args, sqlSession);
 private MapperMethodInvoker cachedInvoker(Method method) throws Throwable {
     try {
@@ -1836,7 +1839,7 @@ private MapperMethodInvoker cachedInvoker(Method method) throws Throwable {
 
 核心是（普通的方法调用者）：
 
-```plain
+```java
 new PlainMethodInvoker(new MapperMethod(mapperInterface, method, sqlSession.getConfiguration()));
 ```
 
@@ -1893,7 +1896,7 @@ public Object execute(SqlSession sqlSession, Object[] args) {
 cachedInvoker(method).invoke(proxy, method, args, sqlSession);
 ```
 
-本质调用的就是 PlainMethodInvoker 这个子类的 invoke 方法，而它确实调用 mapperMethod.execute 方法。到此就明白了整个流程
+本质调用的就是 PlainMethodInvoker 这个子类的 invoke 方法，而它确实调用 `mapperMethod.execute()` 方法。到此就明白了整个流程
 
 ```java
 private static class PlainMethodInvoker implements MapperMethodInvoker {
@@ -1917,7 +1920,7 @@ private static class PlainMethodInvoker implements MapperMethodInvoker {
 
 我们不妨在 excute 方法中随机找一个 select 语句深入挖掘：
 
-```plain
+```java
 result = executeForMany(sqlSession, args);executeForMany(sqlSession, args);
 ```
 
@@ -1933,7 +1936,7 @@ private <E> Object executeForMany(SqlSession sqlSession, Object[] args) {
 }
 ```
 
-这里就能看到本质上使用的是 sqlSession.selectList(command.getName(), param);这距离我们熟悉的越来越近了：
+这里就能看到本质上使用的是 `sqlSession.selectList(command.getName(), param);` 这距离我们熟悉的越来越近了：
 
 ```java
 @Override
@@ -1950,7 +1953,7 @@ public <E> List<E> selectList(String statement, Object parameter, RowBounds rowB
 }
 ```
 
-MappedStatement 其实就是我们 mapper.xml 的解析结果，放了很多的信息：
+MappedStatement 其实就是我们 `mapper.xml` 的解析结果，放了很多的信息：
 
 ```java
 public final class MappedStatement {
@@ -1998,7 +2001,7 @@ public interface Executor {
 }
 ```
 
-我们继续看 executor.query，在抽象类 BaseExecutor 它是这么实现的：
+我们继续看 `executor.query`，在抽象类 BaseExecutor 它是这么实现的：
 
 ```java
 public abstract class BaseExecutor implements Executor
@@ -2115,7 +2118,7 @@ private Statement prepareStatement(StatementHandler handler, Log statementLog) t
 
 继续深入：
 
-```plain
+```java
 public abstract class BaseStatementHandler implements StatementHandler
 @Override
 public Statement prepare(Connection connection, Integer transactionTimeout) throws SQLException {
@@ -2137,19 +2140,21 @@ public Statement prepare(Connection connection, Integer transactionTimeout) thro
 }
 ```
 
-继续深入，我们看到了熟悉的 connection.prepareStatement(sql)：
+继续深入，我们看到了熟悉的 `connection.prepareStatement(sql);`
 
-```plain
+```java
 public class PreparedStatementHandler extends BaseStatementHandler
 @Override
 protected Statement instantiateStatement(Connection connection) throws SQLException {
     String sql = boundSql.getSql();
-    ... 省略
-} else if (mappedStatement.getResultSetType() == ResultSetType.DEFAULT) {
-    return connection.prepareStatement(sql);
-} else {
-    return connection.prepareStatement(sql, mappedStatement.getResultSetType().getValue(), ResultSet.CONCUR_READ_ONLY);
-}
+    //... 省略
+    ...
+    if(...){...}
+    else if (mappedStatement.getResultSetType() == ResultSetType.DEFAULT) {
+    	return connection.prepareStatement(sql);
+	} else {
+    	return connection.prepareStatement(sql, mappedStatement.getResultSetType().getValue(), ResultSet.CONCUR_READ_ONLY);
+	}
 }
 ```
 
@@ -2208,7 +2213,7 @@ public void parameterize(Statement statement) throws SQLException {
 </select>
 ```
 
-resultType 写成 java.util.HashMap 也行，写成 map 也行，说明 MyBatis 内置很多别名，包括我们的配置中：
+resultType 写成 `java.util.HashMap` 也行，写成 map 也行，说明 MyBatis 内置很多别名，包括我们的配置中：
 
 ```xml
 <environment id="development">
@@ -2357,9 +2362,95 @@ alias 填了的话就以 alias 里的值为准。
 
 `<package>` 标签 为某个包下的所有类起别名； name 属性填写包名。 别名默认是类名，不区分大小写。
 
-```plain
+```tex
 @Alias` 注解   加在实体类上，为某个类起别名；例：`@Alias("User")
 ```
+
+> [!NOTE]
+>
+> ### 1、配置其他的数据源
+>
+> （1）配置 `pom.xml`
+>
+> ```xml
+> <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
+> <dependency>
+>     <groupId>com.alibaba</groupId>
+>     <artifactId>druid</artifactId>
+>     <version>1.2.25</version>
+> </dependency>
+> ```
+>
+> （2）创建 DataSourceFactory
+>
+> ```java
+> public class DruidDataSourceFactory implements DataSourceFactory {
+> 
+> 	private volatile DataSource dataSource;
+> 	private Properties properties;
+> 
+> 	static {
+> 		try {
+> 			Class.forName("com.alibaba.druid.pool.DruidDataSource");
+> 		} catch (ClassNotFoundException e) {
+> 			throw new RuntimeException("Druid DataSource not found", e);
+> 		}
+> 	}
+> 
+> 	private void initialize() {
+> 		try {
+> 			dataSource = com.alibaba.druid.pool.DruidDataSourceFactory.createDataSource(properties);
+> 		} catch (RuntimeException e) {
+> 			throw e;
+> 		} catch (Exception e) {
+> 			throw new RuntimeException("init data source error", e);
+> 		}
+> 	}
+> 
+> 	@Override
+> 	public void setProperties(Properties props) {
+> 		this.properties = props;
+> 		this.dataSource = null;
+> 	}
+> 
+> 	@Override
+> 	public DataSource getDataSource() {
+> 		if (dataSource == null) {
+> 			synchronized (this) {
+> 				if (dataSource == null) {
+> 					initialize();
+> 				} else {
+> 					return dataSource;
+> 				}
+> 			}
+> 		}
+> 		return dataSource;
+> 	}
+> }
+> ```
+>
+> 或者继承已有的 PooledDataSourceFactory
+>
+> ```java
+> public class DruidDataSourceFactory extends PooledDataSourceFactory {
+> 	public DruidDataSourceFactory() {
+> 		this.dataSource = new DruidDataSource();
+> 	}
+> }
+> ```
+>
+> （3）改变 `mybaits-config.xml`
+>
+> ```xml
+> <typeAlias type="cn.stazxr.dataSource.DruidDataSourceFactory" alias="DRUID"/>
+> ...
+> <dataSource type="DRUID">
+> 	<property name="driverClassName" value="${driver}"/>
+> 	<property name="url" value="${url}"/>
+> 	<property name="username" value="${username}"/>
+> 	<property name="password" value="${password}"/>
+> </dataSource>
+> ```
 
 ## 七、resultMap 详解
 
@@ -2411,7 +2502,7 @@ public void testSelectUserById() {
 
 **结果:**
 
-- User{id=1, name='null', password='123'}
+- `User{id=1, name='null', password='123'}`
 - 查询出来发现 name 为空 . 说明出现了问题！
 
 **分析：**
