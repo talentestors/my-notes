@@ -178,7 +178,7 @@ export default hopeTheme({
       indexName: "lib-stazxr",
     },
     icon: {
-      assets: "//at.alicdn.com/t/c/font_4545815_ud0mffbukt.css",
+      assets: "//at.alicdn.com/t/c/font_4545815_4tp4gjuvoul.css",
     },
     // search: {
     //   //多语言支持

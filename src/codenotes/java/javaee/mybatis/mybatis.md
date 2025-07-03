@@ -1,3 +1,28 @@
+---
+# 当前页面内容标题
+title: MyBatis
+# 当前页面图标
+icon: mybaits
+# 分类
+category:
+  - javaee
+  - mybatis
+# 标签
+tag:
+  - mybatis
+  - JDBC
+  - SQL
+sticky: false
+# 是否收藏在博客主题的文章列表中，当填入数字时，数字越大，排名越靠前。
+star: false
+# 是否将该文章添加至文章列表中
+article: false
+# 目录顺序
+order: 1
+# 是否将该文章添加至时间线中
+timeline: false
+---
+
 > [!TIP]
 >
 > 课程视频教程链接：<https://www.bilibili.com/video/BV11h411t7r2>
@@ -36,7 +61,7 @@
 
 - **jpa**（Java Persistence API）是 java 持久化规范，是 orm 框架的标准，主流 orm 框架都实现了这个标准。
 - **hibernate**：全自动的框架，强大、复杂、笨重、学习成本较高，不够灵活，实现了 jpa 规范。Java Persistence API（Java 持久层 API）
-- **MyBatis：**半自动的框架(懂数据库的人 才能操作) 必须要自己写 sql，不是依照的 jpa 规范实现的。
+- **MyBatis**：半自动的框架(懂数据库的人 才能操作) 必须要自己写 sql，不是依照的 jpa 规范实现的。
 
 很多人青睐 MyBatis ，原因是其提供了便利的 SQL 操作，自由度高，封装性好…… JPA 对复杂 SQL 的支持不好，没有实体关联的两个表要做 join ，的确要花不少功夫。
 
@@ -259,7 +284,7 @@ public void testConnection1() throws Exception{
 
 配置文件我们从官网复制：<https://mybatis.org/mybatis-3/zh/getting-started.html>
 
-```xml-dtd
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -294,7 +319,7 @@ DTD(Document Type Definition) 即文档类型定义，是一种 XML 约束模式
 
 **如下所示是公共 DTD 示例。**
 
-```xml-dtd
+```xml
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
@@ -328,7 +353,7 @@ DTD(Document Type Definition) 即文档类型定义，是一种 XML 约束模式
 
 它的语法如下：
 
-```xml-dtd
+```xml
 xmlns:namespace-prefix="namespaceURI"
 ```
 
@@ -336,7 +361,7 @@ xmlns:namespace-prefix="namespaceURI"
 
 如果我将其改为：
 
-```xml-dtd
+```xml
 xmlns:c="http://maven.apache.org/POM/4.0.0"
 ```
 
@@ -598,9 +623,9 @@ STDOUT_LOGGING：标准输出日志
 
 ```xml
 <settings>
-	<setting name="logImpl" value="SLF4J"/>
-	<!-- 日志前缀 -->
-	<setting name="logPrefix" value="mybatis.sql."/>
+ <setting name="logImpl" value="SLF4J"/>
+ <!-- 日志前缀 -->
+ <setting name="logPrefix" value="mybatis.sql."/>
 </settings>
 ```
 
@@ -699,7 +724,7 @@ org.apache.ibatis.exceptions.PersistenceException:
 <E> List<E> selectList(String statement);
 ```
 
-说明这个还需要通过使用 sql 的一个标识符。在 MyBatis 中我们还需要一个 sql 的映射文件来给每一个 sql 语句定义一个唯一标识符，我们起名 UserMapper.xml，将这个文件放在 resources 文件夹下的 mapper 文件夹下：
+说明这个还需要通过使用 sql 的一个标识符。在 MyBatis 中我们还需要一个 sql 的映射文件来给每一个 sql 语句定义一个唯一标识符，我们起名 `UserMapper.xml`，将这个文件放在 resources 文件夹下的 mapper 文件夹下：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -799,7 +824,7 @@ select 标签是 mybatis 中最常用的标签
 User selectUserById(int id);
 ```
 
-2、在 UserMapper.xml 中添加 Select 语句
+2、在 `UserMapper.xml` 中添加 Select 语句
 
 ```xml
 <select id="selectUserById" resultType="com.ydlclass.entity.User"  parameterType="int">
@@ -938,7 +963,7 @@ public void testAdd(){
 int insertUser(int id,String name,String pws);
 ```
 
-2、在 UserMapper.xml 中添加 Select 语句
+2、在 `UserMapper.xml` 中添加 Select 语句
 
 ```xml
 <insert id="insertUser" parameterType="com.ydlclass.entity.User">
@@ -1315,16 +1340,16 @@ Mybatis 的功能架构分为三层：
 
 ### 2、核心成员
 
-1. **Configuration：**MyBatis 所有的配置信息都保存在 Configuration 对象之中，配置文件中的大部分配置都会存储到该类中
-2. **SqlSession：**作为 MyBatis 工作的主要顶层 API，表示和数据库交互时的会话，完成必要数据库增删改查功能
-3. **Executor：**MyBatis 执行器，是 MyBatis 调度的核心，负责 SQL 语句的生成和查询缓存的维护
-4. **StatementHandler：**封装了 JDBC Statement 操作，负责对 JDBC statement 的操作，如设置参数等
-5. **ParameterHandler：**负责对用户传递的参数转换成 JDBC Statement 所对应的数据类型
-6. **ResultSetHandler：**负责将 JDBC 返回的 ResultSet 结果集对象转换成 List 类型的集合
-7. **TypeHandler：**负责 java 数据类型和 jdbc 数据类型(也可以说是数据表列类型)之间的映射和转换
-8. **MappedStatement：**MappedStatement 维护一条`<select|update|delete|insert>`节点的封装
-9. **SqlSource：**负责根据用户传递的 parameterObject，动态地生成 SQL 语句，将信息封装到 BoundSql 对象中，并返回
-10. **BoundSql：**表示动态生成的 SQL 语句以及相应的参数信息
+1. **Configuration**：MyBatis 所有的配置信息都保存在 Configuration 对象之中，配置文件中的大部分配置都会存储到该类中
+2. **SqlSession**：作为 MyBatis 工作的主要顶层 API，表示和数据库交互时的会话，完成必要数据库增删改查功能
+3. **Executor**：MyBatis 执行器，是 MyBatis 调度的核心，负责 SQL 语句的生成和查询缓存的维护
+4. **StatementHandler**：封装了 JDBC Statement 操作，负责对 JDBC statement 的操作，如设置参数等
+5. **ParameterHandler**：负责对用户传递的参数转换成 JDBC Statement 所对应的数据类型
+6. **ResultSetHandler**：负责将 JDBC 返回的 ResultSet 结果集对象转换成 List 类型的集合
+7. **TypeHandler**：负责 java 数据类型和 jdbc 数据类型(也可以说是数据表列类型)之间的映射和转换
+8. **MappedStatement**：MappedStatement 维护一条 `<select|update|delete|insert>` 节点的封装
+9. **SqlSource**：负责根据用户传递的 parameterObject，动态地生成 SQL 语句，将信息封装到 BoundSql 对象中，并返回
+10. **BoundSql**：表示动态生成的 SQL 语句以及相应的参数信息
 
 ![img](./img/1713933016437-35561cf3-6bf1-498a-b04d-5e9d42c2ecf0.jpg)
 
@@ -1628,7 +1653,7 @@ resource 属性以及 url 属性的处理
 
  在 resource 属性以及 url 属性中没有看到 configuration.addMapper()这个方法的影子，这两个属性都是以配置文件的方式加载，自然要解析 mapper 配置文件了。
 
-我们看到了 XMLMapperBuilder 这个类的 `parse()` 方法。很明显这个方法 configurationElement 是用来解析配置文件的。
+我们看到了 XMLMapperBuilder 这个类的 `parse()` 方法。很明显这个方法 configurationElement 是用来解析配置文件的。
 
 ```java
 public void parse() {
@@ -1936,7 +1961,7 @@ private <E> Object executeForMany(SqlSession sqlSession, Object[] args) {
 }
 ```
 
-这里就能看到本质上使用的是 `sqlSession.selectList(command.getName(), param);` 这距离我们熟悉的越来越近了：
+这里就能看到本质上使用的是 `sqlSession.selectList(command.getName(), param);` 这距离我们熟悉的越来越近了：
 
 ```java
 @Override
@@ -2151,10 +2176,10 @@ protected Statement instantiateStatement(Connection connection) throws SQLExcept
     ...
     if(...){...}
     else if (mappedStatement.getResultSetType() == ResultSetType.DEFAULT) {
-    	return connection.prepareStatement(sql);
-	} else {
-    	return connection.prepareStatement(sql, mappedStatement.getResultSetType().getValue(), ResultSet.CONCUR_READ_ONLY);
-	}
+     return connection.prepareStatement(sql);
+ } else {
+     return connection.prepareStatement(sql, mappedStatement.getResultSetType().getValue(), ResultSet.CONCUR_READ_ONLY);
+ }
 }
 ```
 
@@ -2386,46 +2411,46 @@ alias 填了的话就以 alias 里的值为准。
 > ```java
 > public class DruidDataSourceFactory implements DataSourceFactory {
 > 
-> 	private volatile DataSource dataSource;
-> 	private Properties properties;
+>  private volatile DataSource dataSource;
+>  private Properties properties;
 > 
-> 	static {
-> 		try {
-> 			Class.forName("com.alibaba.druid.pool.DruidDataSource");
-> 		} catch (ClassNotFoundException e) {
-> 			throw new RuntimeException("Druid DataSource not found", e);
-> 		}
-> 	}
+>  static {
+>   try {
+>    Class.forName("com.alibaba.druid.pool.DruidDataSource");
+>   } catch (ClassNotFoundException e) {
+>    throw new RuntimeException("Druid DataSource not found", e);
+>   }
+>  }
 > 
-> 	private void initialize() {
-> 		try {
-> 			dataSource = com.alibaba.druid.pool.DruidDataSourceFactory.createDataSource(properties);
-> 		} catch (RuntimeException e) {
-> 			throw e;
-> 		} catch (Exception e) {
-> 			throw new RuntimeException("init data source error", e);
-> 		}
-> 	}
+>  private void initialize() {
+>   try {
+>    dataSource = com.alibaba.druid.pool.DruidDataSourceFactory.createDataSource(properties);
+>   } catch (RuntimeException e) {
+>    throw e;
+>   } catch (Exception e) {
+>    throw new RuntimeException("init data source error", e);
+>   }
+>  }
 > 
-> 	@Override
-> 	public void setProperties(Properties props) {
-> 		this.properties = props;
-> 		this.dataSource = null;
-> 	}
+>  @Override
+>  public void setProperties(Properties props) {
+>   this.properties = props;
+>   this.dataSource = null;
+>  }
 > 
-> 	@Override
-> 	public DataSource getDataSource() {
-> 		if (dataSource == null) {
-> 			synchronized (this) {
-> 				if (dataSource == null) {
-> 					initialize();
-> 				} else {
-> 					return dataSource;
-> 				}
-> 			}
-> 		}
-> 		return dataSource;
-> 	}
+>  @Override
+>  public DataSource getDataSource() {
+>   if (dataSource == null) {
+>    synchronized (this) {
+>     if (dataSource == null) {
+>      initialize();
+>     } else {
+>      return dataSource;
+>     }
+>    }
+>   }
+>   return dataSource;
+>  }
 > }
 > ```
 >
@@ -2433,9 +2458,9 @@ alias 填了的话就以 alias 里的值为准。
 >
 > ```java
 > public class DruidDataSourceFactory extends PooledDataSourceFactory {
-> 	public DruidDataSourceFactory() {
-> 		this.dataSource = new DruidDataSource();
-> 	}
+>  public DruidDataSourceFactory() {
+>   this.dataSource = new DruidDataSource();
+>  }
 > }
 > ```
 >
@@ -2445,10 +2470,10 @@ alias 填了的话就以 alias 里的值为准。
 > <typeAlias type="cn.stazxr.dataSource.DruidDataSourceFactory" alias="DRUID"/>
 > ...
 > <dataSource type="DRUID">
-> 	<property name="driverClassName" value="${driver}"/>
-> 	<property name="url" value="${url}"/>
-> 	<property name="username" value="${username}"/>
-> 	<property name="password" value="${password}"/>
+>  <property name="driverClassName" value="${driver}"/>
+>  <property name="url" value="${url}"/>
+>  <property name="username" value="${username}"/>
+>  <property name="password" value="${password}"/>
 > </dataSource>
 > ```
 
@@ -2507,7 +2532,7 @@ public void testSelectUserById() {
 
 **分析：**
 
-- select \* from user where id = #{id} 可以看做 select id,username,password from user where id = #{id}
+- `select \* from user where id = #{id}` 可以看做 `select id,username,password from user where id = #{id}`
 - mybatis 会根据这些查询的列名(会将列名转化为小写,数据库不区分大小写) , 利用反射去对应的实体类中查找相应列名的 set 方法设值 ，当然找不到 username
 
 解决方案
@@ -2516,7 +2541,7 @@ public void testSelectUserById() {
 
 ```xml
 <select id="selectUserById" resultType="User">
-  select id , username as name ,password from user where id = #{id}
+  select id, username as name, password from user where id = #{id}
 </select>
 ```
 
@@ -2560,30 +2585,6 @@ prepareStatement.setString(2,"IT楠老师");
     <!--开启驼峰命名规则-->
     <setting name="mapUnderscoreToCamelCase" value="true"/>
 </settings>
-```
-
-自定义数据源
-
-```java
-public class MyDataSource implements DataSourceFactory {
-    private Properties properties;
-
-    @Override
-    public void setProperties(Properties properties) {
-        this.properties = properties;
-    }
-
-    @Override
-    public DataSource getDataSource() {
-
-        HikariConfig hikariConfig = new HikariConfig(properties);
-        return new HikariDataSource(hikariConfig);
-    }
-}
-username=root
-password=root
-jdbcUrl=jdbc:mysql://127.0.0.1:3306/ssm?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
-driverClassName=com.mysql.cj.jdbc.Driver
 ```
 
 ## 八、动态 sql-很重要
@@ -2730,7 +2731,6 @@ foreach 元素是一个循环语句，它的作用是遍历集合，可以支持
     <foreach collection="users" item="user" separator=",">
         (#{user.username}, #{user.password})
     </foreach>
-
 </insert>
 ```
 
@@ -2800,11 +2800,11 @@ INSERT INTO employee VALUES (1, '邸智伟', 1),(2, '成虹', 2),(3, '康永亮'
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Dept  implements Serializable{
+public class Dept implements Serializable{
 
-    private static final Long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-    private int id;
+    private Integer id;
     private String name;
 
 }
@@ -2812,11 +2812,11 @@ public class Dept  implements Serializable{
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employee  implements Serializable {
+public class Employee implements Serializable {
 
-    private static final Long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-    private int id;
+    private Integer id;
     private String name;
     //维护关系
     private Dept dept;
@@ -3304,9 +3304,9 @@ User{id=1, username='楠哥', password='123456'}         ---->ID为1，第二次
 一级缓存生命周期
 
 1. MyBatis 在开启一个数据库会话时，会创建一个新的 SqlSession 对象，SqlSession 对象中会有一个新的 Executor 对象，Executor 对象中持有一个新的 PerpetualCache 对象；当会话结束时，SqlSession 对象及其内部的 Executor 对象还有 PerpetualCache 对象也一并释放掉。
-2. 如果 SqlSession 调用了 close()方法，会释放掉一级缓存 PerpetualCache 对象，一级缓存将不可用。
-3. 如果 SqlSession 调用了 clearCache()，会清空 PerpetualCache 对象中的数据，但是该对象仍可使用。
-4. SqlSession 中执行了任何一个 update 操作(update()、delete()、insert()) ，都会清空 PerpetualCache 对象的数据，但是该对象可以继续使用。
+2. 如果 SqlSession 调用了 `close()` 方法，会释放掉一级缓存 PerpetualCache 对象，一级缓存将不可用。
+3. 如果 SqlSession 调用了 `clearCache()`，会清空 PerpetualCache 对象中的数据，但是该对象仍可使用。
+4. SqlSession 中执行了任何一个 update 操作(`update()`、`delete()`、`insert()`) ，都会清空 PerpetualCache 对象的数据，但是该对象可以继续使用。
 
 ### 3、二级缓存
 
@@ -3324,7 +3324,7 @@ User{id=1, username='楠哥', password='123456'}         ---->ID为1，第二次
 
 首先要手动开启 MyBatis 二级缓存。
 
-在 config.xml 设置二级缓存开关 ， 还要在具体的 mapper.xml 开启二级缓存
+在 `config.xml` 设置二级缓存开关 ， 还要在具体的 `mapper.xml` 开启二级缓存
 
 ```xml
 <settings>
@@ -3334,7 +3334,7 @@ User{id=1, username='楠哥', password='123456'}         ---->ID为1，第二次
 <!-- 需要将映射的javabean类实现序列化 -->
 ```
 
-class Student implements Serializable{}
+`class Student implements Serializable{}`
 
 ```xml
 <!--开启本Mapper的namespace下的二级缓存-->
@@ -3343,22 +3343,22 @@ class Student implements Serializable{}
 
 #### （1）cache 属性的简介
 
-**eviction**回收策略（缓存满了的淘汰机制），目前 MyBatis 提供以下策略。
+**eviction** 回收策略（缓存满了的淘汰机制），目前 MyBatis 提供以下策略。
 
-1. LRU（Least Recently Used），最近最少使用的，最长时间不用的对象
-2. FIFO（First In First Out），先进先出，按对象进入缓存的顺序来移除他们
-3. SOFT，软引用，移除基于垃圾回收器状态和软引用规则的对象，当内存不足，会触发 JVM 的 GC，如果 GC 后，内存还是不足，就会把软引用的包裹的对象给干掉，也就是只有内存不足，JVM 才会回收该对象。
-4. WEAK，弱引用，更积极的移除基于垃圾收集器状态和弱引用规则的对象。弱引用的特点是不管内存是否足够，只要发生 GC，都会被回收。
+1. **LRU（Least Recently Used）**，最近最少使用的，最长时间不用的对象
+2. **FIFO（First In First Out）**，先进先出，按对象进入缓存的顺序来移除他们
+3. **SOFT**，软引用，移除基于垃圾回收器状态和软引用规则的对象，当内存不足，会触发 JVM 的 GC，如果 GC 后，内存还是不足，就会把软引用的包裹的对象给干掉，也就是只有内存不足，JVM 才会回收该对象。
+4. **WEAK**，弱引用，更积极的移除基于垃圾收集器状态和弱引用规则的对象。弱引用的特点是不管内存是否足够，只要发生 GC，都会被回收。
 
-**flushInterval**:刷新间隔时间，单位为毫秒，
+**flushInterval**: 刷新间隔时间，单位为毫秒，
 
 1. 这里配置的是 100 秒刷新，如果你不配置它，那么当 SQL 被执行的时候才会去刷新缓存。
 
-**size**:引用数目，
+**size**: 引用数目，
 
 1. 一个正整数，代表缓存最多可以存储多少个对象，不宜设置过大。设置过大会导致内存溢出。这里配置的是 1024 个对象
 
-**readOnly:**只读，
+**readOnly**: 只读，
 
 1. 意味着缓存数据只能读取而不能修改，这样设置的好处是我们可以快速读取缓存，缺点是我们没有办法修改缓存，它的默认值是 false，不允许我们修改
 
@@ -3372,13 +3372,13 @@ sqlsession2 查询用户 id 为 1 的信息， 去缓存找是否存在缓存，
 
 禁用二级缓存：
 
-在 statement 中可以设置 useCache=false，禁用当前 select 语句的二级缓存，默认情况为 true
+在 statement 中可以设置 `useCache=false`，禁用当前 select 语句的二级缓存，默认情况为 true
 
 ```xml
 <select id="getStudentById" parameterType="java.lang.Integer" resultType="Student" useCache="false">
 ```
 
-在实际开发中，针对每次查询都需要最新的数据 sql，要设置为 useCache="false" ，禁用二级缓存
+在实际开发中，针对每次查询都需要最新的数据 sql，要设置为 `useCache="false"` ，禁用二级缓存
 
 flushCache 标签：刷新缓存（清空缓存）
 
@@ -3386,13 +3386,13 @@ flushCache 标签：刷新缓存（清空缓存）
 <select id="getStudentById" parameterType="java.lang.Integer" resultType="Student" flushCache="true">
 ```
 
-一般下执行完 commit 操作都需要刷新缓存，flushCache="true 表示刷新缓存，可以避免脏读
+一般下执行完 commit 操作都需要刷新缓存，`flushCache=true` 表示刷新缓存，可以避免脏读
 
 二级缓存应用场景
 
 对于访问多的查询请求并且用户对查询结果实时性要求不高的情况下，可采用 MyBatis 二级缓存，降低数据库访问量，提高访问速度，如电话账单查询
 
-根据需求设置相应的**flushInterval**：刷新间隔时间，比如三十分钟，24 小时等。
+根据需求设置相应的 **flushInterval**：刷新间隔时间，比如三十分钟，24 小时等。
 
 二级缓存局限性：
 
@@ -3439,7 +3439,7 @@ false               ---->两个对象不是一个，发了两个sql，说明缓�
 
 1、开启全局缓存
 
-```plain
+```xml
 <setting name="cacheEnabled" value="true"/>
 ```
 
@@ -3465,6 +3465,16 @@ User{id=1, username='楠哥', password='123456'}
 true                  ---->两个对象一样了，就发了一个sql，说明缓存起了作用
 ```
 
+> [!NOTE]
+>
+> #### cache-ref
+>
+> 回想一下上一节的内容，对某一命名空间的语句，只会使用该命名空间的缓存进行缓存或刷新。 但你可能会想要在多个命名空间中共享相同的缓存配置和实例。要实现这种需求，你可以使用 cache-ref 元素来引用另一个缓存。
+>
+> ```xml
+> <cache-ref namespace="com.someone.application.data.SomeMapper"/>
+> ```
+
 ### 4、第三方缓存--EhCache 充当二级缓存
 
 此外还有很多第三方缓存组件，最常用的比如 ehcache，Memcached、redis 等，我们以比较简单的 ehcache 为例。
@@ -3488,7 +3498,7 @@ true                  ---->两个对象一样了，就发了一个sql，说明�
 </mapper>
 ```
 
-3、添加 ehcache.xml 文件，ehcache 配置文件，具体配置自行百度
+3、添加 `ehcache.xml` 文件，ehcache 配置文件，具体配置自行百度
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3528,8 +3538,6 @@ true                  ---->两个对象一样了，就发了一个sql，说明�
        clearOnFlush：内存数量最大时是否清除。
     -->
 ```
-
-3、测试
 
 ### 5、使用缓存独立控制
 
@@ -3622,11 +3630,111 @@ public void selectDeptsTest(){
 }
 ```
 
+### PageHelp 插件
+
+官网：<https://pagehelper.github.io/>
+
+源码：<https://github.com/pagehelper/Mybatis-PageHelper>
+
+#### 配置拦截器插件
+
+```java
+<!--
+    plugins在配置文件中的位置必须符合要求，否则会报错，顺序如下:
+    properties?, settings?,
+    typeAliases?, typeHandlers?,
+    objectFactory?,objectWrapperFactory?,
+    plugins?,
+    environments?, databaseIdProvider?, mappers?
+-->
+<plugins>
+    <!-- com.github.pagehelper为PageHelper类所在包名 -->
+    <plugin interceptor="com.github.pagehelper.PageInterceptor">
+        <!-- 使用下面的方式配置参数，后面会有所有的参数介绍 -->
+        <property name="param1" value="value1"/>
+    </plugin>
+</plugins>
+```
+
+#### 在代码中使用
+
+```java
+//第一种，RowBounds方式的调用
+List<User> list = sqlSession.selectList("x.y.selectIf", null, new RowBounds(0, 10));
+
+//第二种，Mapper接口方式的调用，推荐这种使用方式。
+PageHelper.startPage(1, 10);
+List<User> list = userMapper.selectIf(1);
+
+//第三种，Mapper接口方式的调用，推荐这种使用方式。
+PageHelper.offsetPage(0, 10);
+List<User> list = userMapper.selectIf(1);
+
+//第四种，参数方法调用
+//存在以下 Mapper 接口方法，你不需要在 xml 处理后两个参数
+public interface CountryMapper {
+    List<User> selectByPageNumSize(
+            @Param("user") User user,
+            @Param("pageNum") int pageNum,
+            @Param("pageSize") int pageSize);
+}
+//配置supportMethodsArguments=true
+//在代码中直接调用：
+List<User> list = userMapper.selectByPageNumSize(user, 1, 10);
+
+//第五种，参数对象
+//如果 pageNum 和 pageSize 存在于 User 对象中，只要参数有值，也会被分页
+//有如下 User 对象
+public class User {
+    //其他fields
+    //下面两个参数名和 params 配置的名字一致
+    private Integer pageNum;
+    private Integer pageSize;
+}
+//存在以下 Mapper 接口方法，你不需要在 xml 处理后两个参数
+public interface CountryMapper {
+    List<User> selectByPageNumSize(User user);
+}
+//当 user 中的 pageNum!= null && pageSize!= null 时，会自动分页
+List<User> list = userMapper.selectByPageNumSize(user);
+
+//第六种，ISelect 接口方式
+//jdk6,7用法，创建接口
+Page<User> page = PageHelper.startPage(1, 10).doSelectPage(new ISelect() {
+    @Override
+    public void doSelect() {
+        userMapper.selectGroupBy();
+    }
+});
+//jdk8 lambda用法
+Page<User> page = PageHelper.startPage(1, 10).doSelectPage(()-> userMapper.selectGroupBy());
+
+//也可以直接返回PageInfo，注意doSelectPageInfo方法和doSelectPage
+pageInfo = PageHelper.startPage(1, 10).doSelectPageInfo(new ISelect() {
+    @Override
+    public void doSelect() {
+        userMapper.selectGroupBy();
+    }
+});
+//对应的lambda用法
+pageInfo = PageHelper.startPage(1, 10).doSelectPageInfo(() -> userMapper.selectGroupBy());
+
+//count查询，返回一个查询语句的count数
+long total = PageHelper.count(new ISelect() {
+    @Override
+    public void doSelect() {
+        userMapper.selectLike(user);
+    }
+});
+//lambda
+        total=PageHelper.count(()->userMapper.selectLike(user));
+```
+
 ## 十一、配置文件
 
 MyBatis 的配置文件分为核心配置文件和 mapper 配置文件
 
-- mybatis-config.xml 系统核心配置文件
+- `mybatis-config.xml` 系统核心配置文件
 - 核心配置文件主要配置 Mybatis 一些**基础组件和加载资源**，核心配置文件中的元素常常能影响 Mybatis 的整个运行过程。
 - 能配置的内容如下，**顺序不能乱**：
 
@@ -3685,7 +3793,7 @@ environments 可以为 mybatis 配置多环境运行，将 SQL 映射到多个�
 - 数据源是必须配置的。
 - 有三种内建的数据源类型
 
-```plain
+```tex
 type="[UNPOOLED|POOLED|JNDI]"）
 - unpooled：这个数据源的实现只是每次被请求时打开和关闭连接。
 - pooled：这种数据源的实现利用“池”的概念将 JDBC 连接对象组织起来 , 这是一种使得并发 Web 应用快速响应请求的流行处理方式。
@@ -3697,12 +3805,12 @@ type="[UNPOOLED|POOLED|JNDI]"）
 - 具体的一套环境，通过设置 id 进行区别，id 保证唯一！
 - 子元素节点：transactionManager - [ 事务管理器 ]
 
-```plain
+```xml
 <!-- 语法 -->
 <transactionManager type="[ JDBC | MANAGED ]"/>
 ```
 
-- 子元素节点：**数据源（dataSource）**
+子元素节点：**数据源（dataSource）**
 
 ### 2、mappers 元素
 
@@ -3742,7 +3850,7 @@ mappers 的存在就是要对写好的 mapper 和 xml 进行统一管理
 
 数据库连接信息我们最好放在一个单独的文件中。
 
-1、 在资源目录下新建一个 db.properties
+1、 在资源目录下新建一个 `db.properties`
 
 ```properties
 driver=com.mysql.jdbc.Driver

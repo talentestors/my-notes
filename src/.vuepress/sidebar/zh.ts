@@ -266,6 +266,11 @@ export const zhSidebar = sidebar({
               icon: "log",
               link: "java-log/java日志框架.md",
             },
+            {
+              text: "MyBaits",
+              icon: "mybaits",
+              link: "mybatis/mybatis.md",
+            },
           ],
         },
         {
