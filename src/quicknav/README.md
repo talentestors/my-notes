@@ -37,7 +37,15 @@ timeline: true
 
 ## 在线教程
 
-<NavCard arr='[{"title":"Electron","url":"https://www.electronjs.org/","desc":"electron官方文档","icon":"/navicon/electron.svg"},{"title":"IDEA","url":"https://idea.javaguide.cn/","desc":"IDEA高效使用指南","icon":"/navicon/idea.svg"},{"title":"QuickRef","url":"https://quickref.me/","desc":"快速学习各种语言的语法","icon":"/navicon/quickref.png"},{"title":"中文网","url":"http://c.biancheng.net/","desc":"C语言中文网","icon":"/navicon/c.ico"},{"title":"菜鸟教程","url":"https://www.runoob.com/","desc":"菜鸟在线教程","icon":"/navicon/runoob.ico"},{"title":"W3C","url":"https://www.w3cschool.cn/tutorial","desc":"w3c在线基础教程","icon":"/navicon/w3c.ico"},{"title":"MDN","url":"https://developer.mozilla.org","desc":"Web开发者指南","icon":"https://developer.mozilla.org/favicon-48x48.cbbd161b.png"},{"title":".NET","url":"https://dotnet.microsoft.com/zh-cn/learn/dotnet/hello-world-tutorial/next/","desc":".Net教程","icon":"https://www.microsoft.com/favicon.ico"}]'></NavCard>
+<NavCard arr='[
+  {"title":"Electron","url":"https://www.electronjs.org/","desc":"electron官方文档","icon":"/navicon/electron.svg"},
+  {"title":"IDEA","url":"https://idea.javaguide.cn/","desc":"IDEA高效使用指南","icon":"/navicon/idea.svg"},{"title":"QuickRef","url":"https://quickref.me/","desc":"快速学习各种语言的语法","icon":"/navicon/quickref.png"},
+  {"title":"中文网","url":"http://c.biancheng.net/","desc":"C语言中文网","icon":"/navicon/c.ico"},
+  {"title":"菜鸟教程","url":"https://www.runoob.com/","desc":"菜鸟在线教程","icon":"/navicon/runoob.ico"},
+  {"title":"W3C","url":"https://www.w3cschool.cn/tutorial","desc":"w3c在线基础教程","icon":"/navicon/w3c.ico"},
+  {"title":"MDN","url":"https://developer.mozilla.org","desc":"Web开发者指南","icon":"/navicon/mdn.svg"},
+  {"title":".NET","url":"https://dotnet.microsoft.com/zh-cn/learn/dotnet/hello-world-tutorial/next/","desc":".Net教程","icon":"https://www.microsoft.com/favicon.ico"}
+]'></NavCard>
 
 ## 文档相关
 
@@ -53,7 +61,14 @@ timeline: true
 
 ## 其他导航
 
-<NavCard arr='[{"title":"LeetCode","url":"https://leetcode.cn/","desc":"leetcode刷题网站","icon":"/navicon/leetcode.ico"},{"title":"Luogu","url":"https://www.luogu.com.cn/","desc":"洛谷刷题网站","icon":"/navicon/luogu.ico"},{"title":"CodeForces","url":"https://codeforces.com/","desc":"全球在线竞赛编程平台","icon":"//codeforces.org/s/54101/apple-icon-60x60.png"},{"title":"Jar包下载","url":"https://search.maven.org/","desc":"Jar包个版本下载","icon":"/navicon/jar.ico"},{"title":"Maven仓库","url":"https://mvnrepository.com/","desc":"Maven官方仓库","icon":"/navicon/mvn.ico"},{"title":"sonolus","url":"https://wiki.sonolus.com/","desc":"新一代的移动端音乐游戏","icon":"//wiki.sonolus.com/apple-icon-60x60.png"}]'></NavCard>
+<NavCard arr='[
+  {"title":"LeetCode","url":"https://leetcode.cn/","desc":"leetcode刷题网站","icon":"/navicon/leetcode.ico"},
+  {"title":"vjudge","url":"https://vjudge.net/","desc":"Virtual Judge 虚拟竞赛","icon":"/navicon/vjudge.ico"},
+  {"title":"CodeForces","url":"https://codeforces.com/","desc":"全球在线竞赛编程平台","icon":"//codeforces.org/s/54101/apple-icon-60x60.png"},
+  {"title":"Jar包下载","url":"https://search.maven.org/","desc":"Jar包个版本下载","icon":"/navicon/jar.ico"},
+  {"title":"Maven仓库","url":"https://mvnrepository.com/","desc":"Maven官方仓库","icon":"/navicon/mvn.ico"},
+  {"title":"sonolus","url":"https://wiki.sonolus.com/","desc":"新一代的移动端音乐游戏","icon":"//wiki.sonolus.com/apple-icon-60x60.png"}
+]'></NavCard>
 
 ## 图标库
 
