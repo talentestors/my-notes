@@ -271,6 +271,11 @@ export const zhSidebar = sidebar({
               icon: "mybaits",
               link: "mybatis/mybatis.md",
             },
+            {
+              text: "Spring",
+              icon: "spring",
+              link: "spring/spring.md",
+            },
           ],
         },
         {
