@@ -276,6 +276,11 @@ export const zhSidebar = sidebar({
               icon: "spring",
               link: "spring/spring.md",
             },
+            {
+              text: "SpringMVC",
+              icon: "spring",
+              link: "springmvc/spring-mvc.md",
+            },
           ],
         },
         {
