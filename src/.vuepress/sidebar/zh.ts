@@ -318,6 +318,24 @@ export const zhSidebar = sidebar({
           icon: "database",
           link: "/codenotes/database/mysql/jdbc.md",
         },
+        {
+          text: "Redis",
+          icon: "redis",
+          collapsible: true,
+          prefix: "/codenotes/database/redis/",
+          children: [
+            {
+              text: "1、Redis基础",
+              icon: "redis",
+              link: "redis.md",
+            },
+            {
+              text: "2、Redis进阶",
+              icon: "redis",
+              link: "redis-plus.md",
+            },
+          ],
+        }
       ],
     },
     {

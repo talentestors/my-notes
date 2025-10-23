@@ -23,3 +23,5 @@ timeline: false
 ## [MySQL](./mysql/)
 
 ## [JDBC](./mysql/jdbc.md)
+
+## [Redis](./redis/)
