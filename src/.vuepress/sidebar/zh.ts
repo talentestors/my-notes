@@ -281,6 +281,11 @@ export const zhSidebar = sidebar({
               icon: "spring",
               link: "springmvc/spring-mvc.md",
             },
+            {
+              text: "Spring SSM",
+              icon: "spring",
+              link: "springssm/ssm.md",
+            },
           ],
         },
         {
@@ -335,7 +340,7 @@ export const zhSidebar = sidebar({
               link: "redis-plus.md",
             },
           ],
-        }
+        },
       ],
     },
     {

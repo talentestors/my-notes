@@ -31,3 +31,5 @@ timeline: false
 ## [Spring](./spring/spring.md)
 
 ## [SpringMVC](./springmvc/spring-mvc.md)
+
+## [Spring SSM](./springssm/ssm.md)
