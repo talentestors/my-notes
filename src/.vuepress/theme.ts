@@ -173,8 +173,8 @@ export default hopeTheme({
     catalog: true,
     // 搜索插件
     docsearch: {
-      appId: "WSHUGN4U1C",
-      apiKey: "240932598bf8ce249c97f2df09413833",
+      appId: "LA64SRO88Z",
+      apiKey: "00fca73f6ebd5b67545dc0ea3b9c2475",
       indexName: "lib-yuhiri",
     },
     icon: {
