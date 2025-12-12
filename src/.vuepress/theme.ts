@@ -175,7 +175,7 @@ export default hopeTheme({
     docsearch: {
       appId: "LA64SRO88Z",
       apiKey: "00fca73f6ebd5b67545dc0ea3b9c2475",
-      indexName: "lib-yuhiri",
+      indices: ["lib-yuhiri"],
     },
     icon: {
       assets: "//at.alicdn.com/t/c/font_4545815_4tp4gjuvoul.css",
