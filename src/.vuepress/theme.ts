@@ -7,7 +7,7 @@ import { zhSidebar } from "./sidebar/index.js";
 // 主题设置
 export default hopeTheme({
   // 当前网站部署到的域名
-  hostname: "https://lib.stazxr.cn/",
+  hostname: "https://lib.yuhiri.me/",
 
   // 文章显示的默认作者
   author: {
@@ -175,7 +175,7 @@ export default hopeTheme({
     docsearch: {
       appId: "WSHUGN4U1C",
       apiKey: "240932598bf8ce249c97f2df09413833",
-      indexName: "lib-stazxr",
+      indexName: "lib-yuhiri",
     },
     icon: {
       assets: "//at.alicdn.com/t/c/font_4545815_4tp4gjuvoul.css",
