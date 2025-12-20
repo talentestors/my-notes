@@ -12,7 +12,7 @@ actions:
   - text: 【代码笔记】
     link: /codenotes/
   - text: 【博客主页】
-    link: https://stazxr.cn/
+    link: https://yuhiri.me/
   - text: 【开源项目】
     link: /projects/
 features:
