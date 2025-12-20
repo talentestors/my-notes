@@ -1,0 +1,4 @@
+User-agent:*
+Disallow:
+
+Sitemap: https://lib.yuhiri.me/my-notes/sitemap.xml
