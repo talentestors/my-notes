@@ -359,6 +359,11 @@ export const zhSidebar = sidebar({
           icon: "git",
           link: "git/git-plus.md",
         },
+        {
+          text: "Git Commit Message 规范",
+          icon: "git",
+          link: "git/git-commit-message.md",
+        },
       ],
     },
     {
