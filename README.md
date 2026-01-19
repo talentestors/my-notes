@@ -5,6 +5,7 @@ Personal Knowledge Base
 Place for notes | ～(∠・ω< )⌒☆​
 
 [![license](https://img.shields.io/github/license/talentestors/my-notes.svg)](./LICENSE)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/60b211c4-095a-4d8e-b520-64801c7e5ca2/deploy-status)](https://app.netlify.com/projects/yuhiri-lib/deploys)
 
 Environment:
 
