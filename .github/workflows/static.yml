@@ -31,13 +31,43 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        fetch-depth: 0
+
+      - name: set pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
+      - name: set Node.js
+        uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+
+      - name: set root config
+        run: |
+          sed -i '5d' .gitignore
+          sed -i 's|base: "/"|base: "/my-notes/"|g' src/.vuepress/config.ts
+          sed -i 's|hostname: "https://lib.yuhiri.me/",|hostname: "https://lib.yuhiri.me/my-notes/",|g' src/.vuepress/theme.ts
+
+      - name: setup corepack
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: build docs
+        env:
+          NODE_OPTIONS: --max_old_space_size=8192
+        run: |-
+          pnpm run docs:build
+          > src/.vuepress/dist/.nojekyll
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: '.'
+          path: 'src/.vuepress/dist'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
