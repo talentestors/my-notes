@@ -106,23 +106,25 @@ timeline: false
 
 特殊类型：
 
-| Type | 说明 | Emoji 示例 |
-| **docs** | 文档更新（documentation） | 📝 docs: 更新 API 文档 |
-| **style** | 代码格式调整（不影响代码运行） | 💄 style: 代码格式化 |
-| **refactor** | 代码重构（非新功能非 bug 修复） | ♻️ refactor: 重构用户服务层 |
-| **test** | 添加测试用例 | ✅ test: 添加用户注册单元测试 |
-| **chore** | 构建过程或辅助工具变更 | 🔧 chore: 更新依赖版本 |
+| Type         | 说明                            | Emoji 示例                   |
+| ------------ | ------------------------------- | ---------------------------- |
+| **docs**     | 文档更新（documentation）       | 📝 docs: 更新 API 文档        |
+| **style**    | 代码格式调整（不影响代码运行）  | 💄 style: 代码格式化          |
+| **refactor** | 代码重构（非新功能非 bug 修复） | ♻️ refactor: 重构用户服务层   |
+| **test**     | 添加测试用例                    | ✅ test: 添加用户注册单元测试 |
+| **chore**    | 构建过程或辅助工具变更          | 🔧 chore: 更新依赖版本        |
 
 扩展类型：
 
-| Type | 说明 | Emoji 示例 |
-| **perf** | 性能优化（提升性能、体验） | ⚡ perf: 优化数据库查询性能 |
-| **revert** | 回滚到上一个版本 | ⏪ revert: 回滚错误的配置更改 |
-| **merge** | 代码合并操作 | 🔀 merge: 合并 develop 分支 |
-| **sync** | 同步主线或分支的 Bug | 🎯 sync: 同步主线 bug 修复 |
-| **ci** | CI/CD 配置变更 | 💚 ci: 更新 GitHub Actions 配置 |
-| **build** | 构建流程变更 | 🛠 build: 更新构建脚本 |
-| **conf** | 仅配置变化 | ⚙️ conf: 更新 Spring 配置文件 |
+| Type       | 说明                       | Emoji 示例                     |
+| ---------- | -------------------------- | ------------------------------ |
+| **perf**   | 性能优化（提升性能、体验） | ⚡ perf: 优化数据库查询性能     |
+| **revert** | 回滚到上一个版本           | ⏪ revert: 回滚错误的配置更改   |
+| **merge**  | 代码合并操作               | 🔀 merge: 合并 develop 分支     |
+| **sync**   | 同步主线或分支的 Bug       | 🎯 sync: 同步主线 bug 修复      |
+| **ci**     | CI/CD 配置变更             | 💚 ci: 更新 GitHub Actions 配置 |
+| **build**  | 构建流程变更               | 🛠 build: 更新构建脚本          |
+| **conf**   | 仅配置变化                 | ⚙️ conf: 更新 Spring 配置文件   |
 
 > 如果type为feat和fix，则该 commit 将肯定出现在 Change log 之中。其他情况（docs、chore、style、refactor、test）由你决定，要不要放入 Change log，建议是不要。
 
