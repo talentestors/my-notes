@@ -371,6 +371,11 @@ export const zhSidebar = sidebar({
       icon: "linux",
       link: "/codenotes/os/linux/linux.md",
     },
+    {
+      text: "Linux入门",
+      icon: "book",
+      link: "/codenotes/others/open-source-license.md",
+    },
   ],
   // 设计模式的侧边栏
   "/design-patterns/": [

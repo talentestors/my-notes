@@ -2,7 +2,7 @@
 # 当前页面内容标题
 title: 开源许可证（Open Source License）
 # 当前页面图标
-icon: icon-log
+icon: book
 # 分类
 category:
   - 杂项
