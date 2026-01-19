@@ -275,7 +275,7 @@ their avatar. Images are compressed to reduce storage usage
 and bandwidth consumption.
 
 Closes #234
-````
+```
 
 ```plain
 🐛 fix(payment): resolve transaction timeout issue
