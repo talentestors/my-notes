@@ -80,7 +80,7 @@ export default hopeTheme({
         levels: "deep",
       },
       // 全局设置页脚信息
-      footer: "終わり群星の知识宝库",
+      footer: "時の終わりでの知识宝库",
 
       // 显示页脚
       displayFooter: true,
@@ -167,7 +167,7 @@ export default hopeTheme({
   //   sidebarDisplay: "mobile",
   //   // 每页展示的文章数量
   //   articlePerPage: 7,
-  //   timeline: "終わり群星の时光轴🍃",
+  //   timeline: "時の終わりでの时光轴🍃",
   // },
   plugins: {
     catalog: true,

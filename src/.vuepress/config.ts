@@ -14,8 +14,8 @@ export default defineUserConfig({
   locales: {
     "/": {
       lang: "zh-CN",
-      title: "終わり群星の知识宝库",
-      description: "終わり群星の知识宝库",
+      title: "時の終わりでの知识宝库",
+      description: "時の終わりでの知识宝库",
       // 设置favicon
       head: [["link", { rel: "icon", href: "/favicon.svg" }]],
     },
