@@ -9,30 +9,33 @@
 
 环境：
 
-pnpm or npm
+nodejs >=22.x
 
-- `npm install`
+```bash
+corepack enable
+```
+
 - `pnpm install`
 
 运行：
 
-- `npm docs:dev`
-- `npm docs:clean-dev`
 - `pnpm run docs:dev`
 - `pnpm run docs:clean-dev`
 
 编译：
 
-- `npm docs:build`
 - `pnpm run docs:build`
 
 更新：
 
-- `npm docs:update-package`
 - `pnpm run docs:update-package`  
 
-> tips
+> [!TIP]
+>
 > 如果nodejs缓存不够，可以设置环境变量
+> 
 > `NODE_OPTIONS=--max_old_space_size=4096`
+>
 > 或者
+> 
 > `NODE_OPTIONS=--max_old_space_size=8192`

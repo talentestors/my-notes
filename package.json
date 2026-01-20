@@ -1,6 +1,6 @@
 {
   "name": "my-lib",
-  "version": "4.1.4",
+  "version": "4.2.0",
   "description": "My storehouse of knowledge",
   "license": "MIT",
   "type": "module",
@@ -18,7 +18,7 @@
     "@vuepress/plugin-prismjs": "2.0.0-rc.121",
     "@vuepress/plugin-register-components": "2.0.0-rc.118",
     "sass": "^1.97.2",
-    "vue": "^3.5.26",
+    "vue": "^3.5.27",
     "vuepress": "2.0.0-rc.26",
     "vuepress-plugin-md-enhance": "2.0.0-rc.102",
     "vuepress-theme-hope": "2.0.0-rc.102"
@@ -41,5 +41,6 @@
     "reveal.js": "^5.2.1",
     "vidstack": "^1.12.13",
     "vue-lazyload": "^3.0.0"
-  }
+  },
+  "packageManager": "pnpm@10.28.1+sha512.7d7dbbca9e99447b7c3bf7a73286afaaf6be99251eb9498baefa7d406892f67b879adb3a1d7e687fc4ccc1a388c7175fbaae567a26ab44d1067b54fcb0d6a316"
 }
