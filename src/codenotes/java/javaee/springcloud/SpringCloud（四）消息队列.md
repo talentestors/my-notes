@@ -44,7 +44,7 @@ timeline: false
 
 ## RabbitMQ 消息队列
 
-**官方网站：** https://www.rabbitmq.com
+**官方网站：** <https://www.rabbitmq.com>
 
 > RabbitMQ拥有数万计的用户，是最受欢迎的开源消息队列之一，从[T-Mobile](https://www.youtube.com/watch?v=1qcTu2QUtrU)到[Runtastic](https://medium.com/@runtastic/messagebus-handling-dead-letters-in-rabbitmq-using-a-dead-letter-exchange-f070699b952b)，RabbitMQ在全球范围内用于小型初创企业和大型企业。
 >
@@ -56,7 +56,7 @@ timeline: false
 
 ### 安装消息队列
 
-**下载地址：** https://www.rabbitmq.com/download.html
+**下载地址：** <https://www.rabbitmq.com/download.html>
 
 由于除了消息队列本身之外还需要Erlang环境（RabbitMQ就是这个语言开发的）所以我们就在我们的Ubuntu服务器上进行安装。
 
@@ -400,7 +400,7 @@ public static void main(String[] args) throws IOException, TimeoutException {
 
 现在我们把刚刚创建好的消息队列删除。
 
-官方文档：https://docs.spring.io/spring-amqp/docs/current/reference/html/
+官方文档：<https://docs.spring.io/spring-amqp/docs/current/reference/html/>
 
 前面我们已经完成了RabbitMQ的安装和简单使用，并且通过Java连接到服务器。现在我们来尝试在SpringBoot中整合消息队列客户端，首先是依赖：
 
@@ -1139,7 +1139,7 @@ sudo rabbitmqctl start_app
 
 ### SpringCloud Stream
 
-**官方文档：** https://docs.spring.io/spring-cloud-stream/docs/3.2.2/reference/html/
+**官方文档：** <https://docs.spring.io/spring-cloud-stream/docs/3.2.2/reference/html/>
 
 前面我们介绍了RabbitMQ，了解了消息队列相关的一些操作，但是可能我们会遇到不同的系统在用不同的消息队列，比如系统A用的Kafka、系统B用的RabbitMQ，但是我们现在又没有学习过Kafka，那么怎么办呢？有没有一种方式像JDBC一样，我们只需要关心SQL和业务本身，而不用关心数据库的具体实现呢？
 
@@ -1292,7 +1292,7 @@ spring:
 
 ### SpringCloud Bus
 
-**官方文档：** https://cloud.spring.io/spring-cloud-bus/reference/html/
+**官方文档：** <https://cloud.spring.io/spring-cloud-bus/reference/html/>
 
 实际上它就相当于是一个消息总线，可用于向各个服务广播某些状态的更改（比如云端配置更改，可以结合Config组件实现动态更新配置，当然我们前面学习的Nacos其实已经包含这个功能了）或其他管理指令。
 

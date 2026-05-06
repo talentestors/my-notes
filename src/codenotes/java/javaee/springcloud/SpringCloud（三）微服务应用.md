@@ -309,7 +309,7 @@ public class OAuth2Configuration extends AuthorizationServerConfigurerAdapter {
 
 ![image-20230306235226961](./img/2FhnOKe1BorP5NE.png)
 
-然后我们使用Postman进行接口测试，首先我们从最简单的客户端模式进行测试，客户端模式只需要提供id和secret即可直接拿到Token，注意需要再添加一个grant_type来表明我们的授权方式，默认请求路径为http://localhost:8500/sso/oauth/token：
+然后我们使用Postman进行接口测试，首先我们从最简单的客户端模式进行测试，客户端模式只需要提供id和secret即可直接拿到Token，注意需要再添加一个grant_type来表明我们的授权方式，默认请求路径为<http://localhost:8500/sso/oauth/token>：
 
 ![image-20230306235236376](./img/X81T7mz5gQK3iBk.png)
 
@@ -317,7 +317,7 @@ public class OAuth2Configuration extends AuthorizationServerConfigurerAdapter {
 
 ![image-20230306235248456](./img/84IKgq2xdvBeLTm.png)
 
-我们还可以访问 http://localhost:8500/sso/oauth/check_token 来验证我们的Token是否有效：
+我们还可以访问 <http://localhost:8500/sso/oauth/check_token> 来验证我们的Token是否有效：
 
 ![image-20230306235257995](./img/SXD8FjzZn7ev2B3.png)
 
@@ -345,7 +345,7 @@ public class OAuth2Configuration extends AuthorizationServerConfigurerAdapter {
 
 查询Token信息之后还可以看到登录的具体用户以及角色权限等。
 
-接着我们来看隐式授权模式，这种模式我们需要在验证服务器上进行登录操作，而不是直接请求Token，验证登录请求地址：http://localhost:8500/sso/oauth/authorize?client_id=web&response_type=token
+接着我们来看隐式授权模式，这种模式我们需要在验证服务器上进行登录操作，而不是直接请求Token，验证登录请求地址：<http://localhost:8500/sso/oauth/authorize?client_id=web&response_type=token>
 
 注意response_type一定要是token类型，这样才会直接返回Token，浏览器发起请求后，可以看到熟悉而又陌生的界面，没错，实际上这里就是使用我们之前讲解的SpringSecurity进行登陆，当然也可以配置一下记住我之类的功能，这里就不演示了：
 
@@ -385,7 +385,7 @@ public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
 可以看到，Token也是有效的。
 
-最后我们来看看第四种最安全的授权码模式，这种模式其实流程和上面是一样的，但是请求的是code类型：http://localhost:8500/sso/oauth/authorize?client_id=web&response_type=code
+最后我们来看看第四种最安全的授权码模式，这种模式其实流程和上面是一样的，但是请求的是code类型：<http://localhost:8500/sso/oauth/authorize?client_id=web&response_type=code>
 
 可以看到访问之后，依然会进入到回调地址，但是这时给的就是授权码了，而不是直接给Token，那么这个Token该怎么获取呢？
 
@@ -778,7 +778,7 @@ public interface BookClient {
 
 ![image-20230306235944272](./img/EzWuaAJgNLi3sdF.png)
 
-那么怎么配置Feign携带Token访问呢？遇到这种问题直接去官方查：https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/#oauth2-support，非常简单，两个配置就搞定：
+那么怎么配置Feign携带Token访问呢？遇到这种问题直接去官方查：<https://docs.spring.io/spring-cloud-openfeign/docs/current/reference/html/#oauth2-support>，非常简单，两个配置就搞定：
 
 ```yaml
 feign:
@@ -797,7 +797,7 @@ feign:
 
 ### 使用jwt存储Token
 
-官网：https://jwt.io
+官网：<https://jwt.io>
 
 JSON Web Token令牌（JWT）是一个开放标准（[RFC 7519](https://tools.ietf.org/html/rfc7519)），它定义了一种紧凑和自成一体的方式，用于在各方之间作为JSON对象安全地传输信息。这些信息可以被验证和信任，因为它是数字签名的。JWT可以使用密钥（使用**HMAC**算法）或使用**RSA**或**ECDSA**进行公钥/私钥对进行签名。
 
@@ -1485,7 +1485,7 @@ create table test  (
 
 ![image-20220414214856875](./img/HTlcExgCfZvG9MP.jpg)
 
-**官方文档（中文）：** https://shardingsphere.apache.org/document/5.1.0/cn/overview/#shardingsphere-jdbc
+**官方文档（中文）：** <https://shardingsphere.apache.org/document/5.1.0/cn/overview/#shardingsphere-jdbc>
 
 定位为轻量级 Java 框架，在 Java 的 JDBC 层提供的额外服务，它使用客户端直连数据库，以 jar 包形式提供服务，无需额外部署和依赖，可理解为增强版的 JDBC 驱动，完全兼容 JDBC 和各种 ORM 框架。
 
@@ -1632,7 +1632,7 @@ spring:
 			sql-show: true
 ```
 
-其中，分片算法有很多内置的，可以在这里查询：https://shardingsphere.apache.org/document/5.1.0/cn/user-manual/shardingsphere-jdbc/builtin-algorithm/sharding/，这里我们使用的是MOD，也就是取模分片算法，它会根据主键的值进行取模运算，比如我们这里填写的是2，那么就表示对主键进行模2运算，根据数据源的名称，比如db0就是取模后为0，db1就是取模后为1（官方文档描述的并不是很清楚），也就是说，最终实现的效果就是单数放在`db1`，双数放在`db0`，当然它还支持一些其他的算法，这里就不多介绍了。
+其中，分片算法有很多内置的，可以在这里查询：<https://shardingsphere.apache.org/document/5.1.0/cn/user-manual/shardingsphere-jdbc/builtin-algorithm/sharding/>，这里我们使用的是MOD，也就是取模分片算法，它会根据主键的值进行取模运算，比如我们这里填写的是2，那么就表示对主键进行模2运算，根据数据源的名称，比如db0就是取模后为0，db1就是取模后为1（官方文档描述的并不是很清楚），也就是说，最终实现的效果就是单数放在`db1`，双数放在`db0`，当然它还支持一些其他的算法，这里就不多介绍了。
 
 那么现在我们编写一个测试用例来看看，是否能够按照我们上面的规则进行路由：
 
@@ -1829,7 +1829,7 @@ allow-range-query-with-inline-sharding: true
 
    这样，它就兼具了上面所说的唯一性和有序性了，但是依然是有缺点的，第一个是时间问题，如果机器时间出现倒退，那么就会导致生成重复的ID，并且节点容量只有1024个，如果是超大规模集群，也是存在隐患的。
 
-ShardingJDBC支持以上两种算法为我们自动生成ID，文档：https://shardingsphere.apache.org/document/5.1.0/cn/user-manual/shardingsphere-jdbc/builtin-algorithm/keygen/
+ShardingJDBC支持以上两种算法为我们自动生成ID，文档：<https://shardingsphere.apache.org/document/5.1.0/cn/user-manual/shardingsphere-jdbc/builtin-algorithm/keygen/>
 
 这里，我们就是要ShardingJDBC来让我们的主键ID以雪花算法进行生成，首先是配置数据库，因为我们默认的id是int类型，装不下64位的，改一下：
 
@@ -1974,7 +1974,7 @@ spring:
             type: ROUND_ROBIN
 ```
 
-注意把之前改的用户实体类和Mapper改回去，这里我们就不用自动生成ID的了。所有的负载均衡算法地址：https://shardingsphere.apache.org/document/5.1.0/cn/user-manual/shardingsphere-jdbc/builtin-algorithm/load-balance/
+注意把之前改的用户实体类和Mapper改回去，这里我们就不用自动生成ID的了。所有的负载均衡算法地址：<https://shardingsphere.apache.org/document/5.1.0/cn/user-manual/shardingsphere-jdbc/builtin-algorithm/load-balance/>
 
 现在我们就来测试一下吧：
 
@@ -2004,4 +2004,4 @@ class ShardingJdbcTestApplicationTests {
 
 ————————————————
 版权声明：本文为柏码知识库版权所有，禁止一切未经授权的转载、发布、出售等行为，违者将被追究法律责任。
-原文链接：https://www.itbaima.cn/zh-CN/document/35v1hbsfcdgagdnw
+原文链接：<https://www.itbaima.cn/zh-CN/document/35v1hbsfcdgagdnw>
