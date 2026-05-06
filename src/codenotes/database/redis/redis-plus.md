@@ -1001,7 +1001,7 @@ repl-backlog-size 20mb
 
 2.获取 master 平均每秒产生写命令数据总量 write_size_per_second 10w
 
-3.最优复制缓冲区空间 = 2 *second* write_size_per_second 10w\*10b 20mb
+3.最优复制缓冲区空间 = 2 _second_ write_size_per_second 10w\*10b 20mb
 
 #### 4.2 频繁的网络中断
 
@@ -1414,7 +1414,7 @@ sentinel 在通知阶段要不断的去获取 master/slave 的信息，然后在
 - 分槽（Slot）
 - 搭建主从（master-slave）
 
-1.创建 6 个 redis 单体服务 7001-7006。修改 redis.conf
+  1.创建 6 个 redis 单体服务 7001-7006。修改 redis.conf
 
 ```bash
 port 7001

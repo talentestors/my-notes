@@ -1,3 +1,3 @@
-import FlipClock from './FlipClock.vue'
+import FlipClock from "./FlipClock.vue";
 
-export default FlipClock
+export default FlipClock;

@@ -3384,10 +3384,8 @@ Throwable FillInStackTrace();// 重写异常的执行栈轨迹
     <title>jsp</title>
   </head>
   <body>
-    <% application.setAttribute("name","application");
-    session.setAttribute("name","session");
-    request.setAttribute("name","request");
-    pageContext.setAttribute("name","pageContext"); %>
+    <% application.setAttribute("name","application"); session.setAttribute("name","session");
+    request.setAttribute("name","request"); pageContext.setAttribute("name","pageContext"); %>
     <br />--------------------使用java语言---------------------------<br />
     application中的值：<%= application.getAttribute("name") %> <br />
     session中的值：<%= session.getAttribute("name") %> <br />
@@ -3410,9 +3408,9 @@ Throwable FillInStackTrace();// 重写异常的执行栈轨迹
 
 （1）数学运算
 
-（2）比较运算 `>`  `gt`  `<`  `lt`  `>=`  `ge`  `<=`  `le`  `==`  `eq`  `!=` `ne` （尽量使用关键字代替 '\<', '\>'）
+（2）比较运算 `>` `gt` `<` `lt` `>=` `ge` `<=` `le` `==` `eq` `!=` `ne` （尽量使用关键字代替 '\<', '\>'）
 
-（3）逻辑运算 `&&`  `||`  `!`
+（3）逻辑运算 `&&` `||` `!`
 
 注：对应案例
 
@@ -3424,14 +3422,12 @@ Throwable FillInStackTrace();// 重写异常的执行栈轨迹
   </head>
   <body>
     <% request.setAttribute("num1","12"); request.setAttribute("num2","14");
-    application.setAttribute("flag1",true);
-    application.setAttribute("flag2",false); %>
+    application.setAttribute("flag1",true); application.setAttribute("flag2",false); %>
     <br />--------------------使用java语言---------------------------<br />
     <% String num1 = (String)request.getAttribute("num1"); String num2 =
     (String)request.getAttribute("num2"); int num3 = Integer.parseInt(num1) +
-    Integer.parseInt(num2); boolean flag1 = (Boolean)
-    application.getAttribute("flag1"); boolean flag2 = (Boolean)
-    application.getAttribute("flag2"); boolean flag3 = flag1 && flag2;
+    Integer.parseInt(num2); boolean flag1 = (Boolean) application.getAttribute("flag1"); boolean
+    flag2 = (Boolean) application.getAttribute("flag2"); boolean flag3 = flag1 && flag2;
     //输出方式一 out.write(Boolean.toString(flag3)); %>
     <!-- 输出方式二 -->
     <h1><%=num3%></h1>
@@ -3783,11 +3779,9 @@ response.sendRedirect(request.getContextPath() + "/login.jsp");
 3、在具体的地址处使用相对于 contextPath 的路径。
 
 ```html
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
- String path = request.getContextPath();
- String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%> <% String path =
+request.getContextPath(); String basePath = request.getScheme() + "://" + request.getServerName() +
+":" + request.getServerPort() + path + "/"; %>
 <html>
   <head>
     <title>image调用</title>
@@ -4157,22 +4151,22 @@ try {
 
 #### 4、@Resource
 
->[!TIP]
+> [!TIP]
 >
->使用 Tomcat 10 时，因为 JDK 11 没有 `javax.annotation.Resource`,
+> 使用 Tomcat 10 时，因为 JDK 11 没有 `javax.annotation.Resource`,
 >
->所以我们需要导入 Jakarta 的 annotation-api 的版本
+> 所以我们需要导入 Jakarta 的 annotation-api 的版本
 >
->```xml
-><!-- https://mvnrepository.com/artifact/jakarta.annotation/jakarta.annotation-api -->
-><dependency>
+> ```xml
+> <!-- https://mvnrepository.com/artifact/jakarta.annotation/jakarta.annotation-api -->
+> <dependency>
 >    <groupId>jakarta.annotation</groupId>
 >    <artifactId>jakarta.annotation-api</artifactId>
 >    <version>3.0.0</version>
-></dependency>
->```
+> </dependency>
+> ```
 >
->Resource 以及之后的注解就可以在项目中使用了
+> Resource 以及之后的注解就可以在项目中使用了
 
 使用 `@resource` 注解也可以类似将定义的 JNDI 资源，注入到变量当中，方法中就可以直接使用了，但是要注意，目前这能在 Servlet 中使用。
 
@@ -4522,10 +4516,7 @@ console.log("after ajax");
 function ajax(method, url, data, fun) {
   var xhr = new XMLHttpRequest();
   xhr.open(method, url);
-  xhr.setRequestHeader(
-    "Content-Type",
-    "application/x-www-form-urlencoded;charset=utf-8"
-  );
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
   xhr.send(data);
 
   xhr.addEventListener("readystatechange", function () {
@@ -4690,13 +4681,7 @@ public class IdentityServlet extends HttpServlet {
 ```html
 <div class="form-group">
   <label for="verify">验证码：</label>
-  <input
-    type="password"
-    class="form-control"
-    id="verify"
-    name="verify"
-    placeholder="验证码"
-  />
+  <input type="password" class="form-control" id="verify" name="verify" placeholder="验证码" />
   <img src="user/verification" id="verification" />
 </div>
 ```
@@ -4811,7 +4796,7 @@ public class DownLoadServlet extends HttpServlet {
 配置虚拟路径可以帮我们搭建一个简易的图片服务器，让我们上传的图片可以用 url 访问。
 
 ```html
-<Context path="/image" docBase="F://www//img//" debug="0" reloadbale="true"/>
+<Context path="/image" docBase="F://www//img//" debug="0" reloadbale="true" />
 ```
 
 - **path**: Host 的虚拟目录

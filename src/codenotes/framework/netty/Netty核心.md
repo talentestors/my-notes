@@ -30,7 +30,7 @@ timeline: true
 Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers & clients.
 ```
 
-* `Netty` 是一个**异步的、基于事件驱动**的网络应用框架，用于快速开发可维护、高性能的网络服务器和客户端。
+- `Netty` 是一个**异步的、基于事件驱动**的网络应用框架，用于快速开发可维护、高性能的网络服务器和客户端。
 
 > 注意：`Netty`的异步还是基于多路复用的，并没有实现真正意义上的异步`IO`
 
@@ -38,23 +38,23 @@ Netty is an asynchronous event-driven network application framework for rapid de
 
 **如果使用传统`NIO`，其工作量大，`Bug` 多**
 
-* 需要自己构建协议
-* 解决 `TCP` 传输问题，如粘包、半包
-* 因为`bug`的存在，`epoll` 空轮询导致 `CPU` 100%
+- 需要自己构建协议
+- 解决 `TCP` 传输问题，如粘包、半包
+- 因为`bug`的存在，`epoll` 空轮询导致 `CPU` 100%
 
 **`Netty` 对 `API` 进行增强，使之更易用，如**
 
-* `FastThreadLocal` => `ThreadLocal`
-* `ByteBuf` => `ByteBuffer`
+- `FastThreadLocal` => `ThreadLocal`
+- `ByteBuf` => `ByteBuffer`
 
 **相比于其他网络应用框架**
 
-* `Mina` 由 `Apache` 维护，将来 `3.x` 版本可能会有较大重构，破坏 `API` 向下兼容性，**`Netty` 的开发迭代更迅速，`API` 更简洁**
-* `Netty` 久经考验，经历多年，很多`Bug`问题已经被修复，`Netty` 版本的迭代过程如下：
-  * `2.x 2004`
-  * `3.x 2008`
-  * **`4.x 2013（常用）`**
-  * `5.x 已废弃（没有明显的性能提升，维护成本高）`
+- `Mina` 由 `Apache` 维护，将来 `3.x` 版本可能会有较大重构，破坏 `API` 向下兼容性，**`Netty` 的开发迭代更迅速，`API` 更简洁**
+- `Netty` 久经考验，经历多年，很多`Bug`问题已经被修复，`Netty` 版本的迭代过程如下：
+  - `2.x 2004`
+  - `3.x 2008`
+  - **`4.x 2013（常用）`**
+  - `5.x 已废弃（没有明显的性能提升，维护成本高）`
 
 ### 3、Netty的地位
 
@@ -72,8 +72,8 @@ Netty is an asynchronous event-driven network application framework for rapid de
 
 开发一个简单的服务器端和客户端：
 
-* 客户端向服务器端发送 `hello world`
-* 服务器仅接收输出到控制台，不返回
+- 客户端向服务器端发送 `hello world`
+- 服务器仅接收输出到控制台，不返回
 
 添加依赖：
 
@@ -119,7 +119,7 @@ public class HelloServer {
 
 ```
 
-* 第二步说明：
+- 第二步说明：
 
 事件循环组中有多个事件循环对象，专门用于处理`accept`、`read`等事件，一个事件循环对象可以认为就是一个线程配合一个`selector`工作，可以管理多个`channel`。
 
@@ -160,11 +160,11 @@ protected MultithreadEventLoopGroup(int nThreads, Executor executor, Object... a
 
 ```
 
-* 第三步说明：
+- 第三步说明：
 
 选择服务器的`ServerSocketChannel`实现，上述选中了基于`NIO`的服务器实现，还有其他的实现，如下图
 
-* 第四步说明：
+- 第四步说明：
 
 方法名叫做`chindHandler`是因为接下来添加的处理器都是给 `SocketChannel` 用的，而不是给 `ServerSocketChannel`。
 
@@ -201,39 +201,37 @@ public class HelloClient {
 }
 ```
 
-* 第二步：
+- 第二步：
 
 选择客户端的`SocketChannel`实现，上述选中了基于`NIO`的客户端实现，还有其他的实现，如下图：
 
 > **IDEA中多开客户端：**
->
->
 
 ### 4、运行流程
 
 **左：客户端 右：服务器端**
 
-* 服务器端启动之后，会绑定`8080`端口并进行监听，同时启动事件循环组监听`channel`上的事件。
-* 客户端启动之后，连接服务器端的`8080`端口，服务器端的事件循环组监听到`ServerSocketChannel`上的`accept`事件并进行处理。
-* 客户端会阻塞，直到连接建立之后，服务器端和客户端分别初始化`SocketChannel`。
-* 客户端获得`SocketChannel`并且写入数据，客户端的处理器会将字符串转为`ByteBuf`进行传输，在`SocketChannel`中传输的都是`ByteBuf`数据。
-* 服务器端的事件循环组监听到某个`SocketChannel`的`read`事件，由某个`EventLoop`处理`read`事件，接收到了`ByteBuf`数据。
-* 服务器端的处理器依次对接受到的数据进行处理。
+- 服务器端启动之后，会绑定`8080`端口并进行监听，同时启动事件循环组监听`channel`上的事件。
+- 客户端启动之后，连接服务器端的`8080`端口，服务器端的事件循环组监听到`ServerSocketChannel`上的`accept`事件并进行处理。
+- 客户端会阻塞，直到连接建立之后，服务器端和客户端分别初始化`SocketChannel`。
+- 客户端获得`SocketChannel`并且写入数据，客户端的处理器会将字符串转为`ByteBuf`进行传输，在`SocketChannel`中传输的都是`ByteBuf`数据。
+- 服务器端的事件循环组监听到某个`SocketChannel`的`read`事件，由某个`EventLoop`处理`read`事件，接收到了`ByteBuf`数据。
+- 服务器端的处理器依次对接受到的数据进行处理。
 
 ### 5、组件解释
 
-* `channel` 可以理解为**数据的通道**
-* `msg` 理解为流动的数据，最开始输入是 `ByteBuf`，但经过 `pipeline` 中的各个 `handler` 加工，会变成其它类型对象，最后输出又变成 `ByteBuf`
-* `handler` 可以理解为数据的处理工序
-  * **工序有多道，合在一起就是 `pipeline`（流水线），`pipeline` 负责发布事件（读、读取完成…）传播给每个 `handler`， `handler` 对自己感兴趣的事件进行处理（重写了相应事件处理方法）**
-    * `pipeline` 中有多个 `handler`，处理时会依次调用其中的 `handler`
-  * **`handler` 分 `Inbound` 和 `Outbound` 两类**
-    * `Inbound` 入站
-    * `Outbound` 出站
-* `eventLoop` 可以理解为**处理数据的工人**
-  * `eventLoop` 可以管理多个 `channel` 的 `io` 操作，并且一旦 `eventLoop` 负责了某个 `channel`，就**会将其与`channel`进行绑定**，以后该 `channel` 中的 `io` 操作都由该 `eventLoop` 负责
-  * `eventLoop` 既可以执行 `io` 操作，**也可以进行任务处理**，每个 `eventLoop` 有自己的任务队列，队列里可以堆放多个 `channel` 的待处理任务，任务分为普通任务、定时任务
-  * `eventLoop` 按照 `pipeline` 顺序，依次按照 `handler` 的规划（代码）处理数据，**可以为每个 `handler` 指定不同的 `eventLoop`**
+- `channel` 可以理解为**数据的通道**
+- `msg` 理解为流动的数据，最开始输入是 `ByteBuf`，但经过 `pipeline` 中的各个 `handler` 加工，会变成其它类型对象，最后输出又变成 `ByteBuf`
+- `handler` 可以理解为数据的处理工序
+  - **工序有多道，合在一起就是 `pipeline`（流水线），`pipeline` 负责发布事件（读、读取完成…）传播给每个 `handler`， `handler` 对自己感兴趣的事件进行处理（重写了相应事件处理方法）**
+    - `pipeline` 中有多个 `handler`，处理时会依次调用其中的 `handler`
+  - **`handler` 分 `Inbound` 和 `Outbound` 两类**
+    - `Inbound` 入站
+    - `Outbound` 出站
+- `eventLoop` 可以理解为**处理数据的工人**
+  - `eventLoop` 可以管理多个 `channel` 的 `io` 操作，并且一旦 `eventLoop` 负责了某个 `channel`，就**会将其与`channel`进行绑定**，以后该 `channel` 中的 `io` 操作都由该 `eventLoop` 负责
+  - `eventLoop` 既可以执行 `io` 操作，**也可以进行任务处理**，每个 `eventLoop` 有自己的任务队列，队列里可以堆放多个 `channel` 的待处理任务，任务分为普通任务、定时任务
+  - `eventLoop` 按照 `pipeline` 顺序，依次按照 `handler` 的规划（代码）处理数据，**可以为每个 `handler` 指定不同的 `eventLoop`**
 
 ## 三、组件
 
@@ -245,18 +243,18 @@ public class HelloClient {
 
 它的继承关系如下：
 
-* 继承自 `j.u.c.ScheduledExecutorService` 因此包含了线程池中所有的方法
-* 继承自 `Netty` 自己的 `OrderedEventExecutor`
-  * 提供了 `boolean inEventLoop(Thread thread)` 方法判断一个线程是否属于此 `EventLoop`
-  * 提供了 `EventLoopGroup parent()` 方法来看看自己属于哪个 `EventLoopGroup`
+- 继承自 `j.u.c.ScheduledExecutorService` 因此包含了线程池中所有的方法
+- 继承自 `Netty` 自己的 `OrderedEventExecutor`
+  - 提供了 `boolean inEventLoop(Thread thread)` 方法判断一个线程是否属于此 `EventLoop`
+  - 提供了 `EventLoopGroup parent()` 方法来看看自己属于哪个 `EventLoopGroup`
 
 > **事件循环组** `EventLoopGroup`
 
 `EventLoopGroup` 是一组 `EventLoop`，`Channel` 一般会调用 `EventLoopGroup` 的 `register` 方法来**绑定其中一个 `EventLoop`，后续这个 `Channel` 上的 `io` 事件都由此 `EventLoop` 来处理（保证了 `io` 事件处理时的线程安全）**
 
-* 继承自 `Netty` 自己的 `EventExecutorGroup`
-  * 实现了 `Iterable` 接口提供遍历 `EventLoop` 的能力
-  * 另有 `next` 方法获取集合中下一个 `EventLoop`
+- 继承自 `Netty` 自己的 `EventExecutorGroup`
+  - 实现了 `Iterable` 接口提供遍历 `EventLoop` 的能力
+  - 另有 `next` 方法获取集合中下一个 `EventLoop`
 
 > `EventLoopGroup`有多个类型，都继承自`MultithreadEventLoopGroup`（多线程事件循环组）抽象类。
 
@@ -417,7 +415,7 @@ public class MyServer {
         new ServerBootstrap()
              // 两个Group，分别为Boss 负责Accept事件，Worker 负责读写事件
                 .group(new NioEventLoopGroup(1), new NioEventLoopGroup(2))
-            
+
     ...
     }
 }
@@ -513,7 +511,7 @@ static void invokeChannelRead(final AbstractChannelHandlerContext next, Object m
     final Object m = next.pipeline.touch(ObjectUtil.checkNotNull(msg, "msg"), next);
     // 获得下一个EventLoop, excutor 即为 EventLoopGroup
     EventExecutor executor = next.executor();
-    
+
     // 如果下一个EventLoop 在当前的 EventLoopGroup中
     if (executor.inEventLoop()) {
         // 使用当前 EventLoopGroup 中的 EventLoop 来处理任务
@@ -529,22 +527,22 @@ static void invokeChannelRead(final AbstractChannelHandlerContext next, Object m
 }
 ```
 
-* 如果两个 handler 绑定的是**同一个EventLoopGroup**，那么就直接调用
-* 否则，把要调用的代码封装为一个任务对象，由下一个 handler 的 EventLoopGroup 来调用
+- 如果两个 handler 绑定的是**同一个EventLoopGroup**，那么就直接调用
+- 否则，把要调用的代码封装为一个任务对象，由下一个 handler 的 EventLoopGroup 来调用
 
 ### 2、Channel
 
 Channel 的常用方法：
 
-* close() 可以用来**关闭Channel**
-* closeFuture() 用来**处理 Channel 的关闭**
-  * sync 方法作用是**同步等待 Channel 关闭**
-  * 而 addListener 方法是**异步等待 Channel 关闭**
-* pipeline() 方法用于**添加处理器**
-* write() 方法将数据写入
-  * 因为缓冲机制，数据被写入到 Channel 中以后，不会立即被发送
-  * **只有当缓冲满了或者调用了flush()方法后**，才会将数据通过 Channel 发送出去
-* writeAndFlush() 方法将数据写入并**立即发送（刷出）**
+- close() 可以用来**关闭Channel**
+- closeFuture() 用来**处理 Channel 的关闭**
+  - sync 方法作用是**同步等待 Channel 关闭**
+  - 而 addListener 方法是**异步等待 Channel 关闭**
+- pipeline() 方法用于**添加处理器**
+- write() 方法将数据写入
+  - 因为缓冲机制，数据被写入到 Channel 中以后，不会立即被发送
+  - **只有当缓冲满了或者调用了flush()方法后**，才会将数据通过 Channel 发送出去
+- writeAndFlush() 方法将数据写入并**立即发送（刷出）**
 
 #### 1、ChannelFuture
 
@@ -676,7 +674,7 @@ public class ReadClient {
 
 当我们要关闭channel时，可以调用channel.close()方法进行关闭。但是该方法也是一个**异步方法**。真正的关闭操作并不是在调用该方法的线程中执行的，而是**在NIO线程中执行真正的关闭操作。**如果想在channel**真正关闭以后**，执行一些额外的操作，可以选择以下两种方法来实现：
 
-* 通过channel.closeFuture()方法获得对应的ChannelFuture对象，然后调用**sync()方法**阻塞执行操作的线程，等待channel真正关闭后，再执行其他操作，**这些其他操作是在main线程中执行的。**
+- 通过channel.closeFuture()方法获得对应的ChannelFuture对象，然后调用**sync()方法**阻塞执行操作的线程，等待channel真正关闭后，再执行其他操作，**这些其他操作是在main线程中执行的。**
 
 ```java
 // 获得closeFuture对象
@@ -689,7 +687,7 @@ closeFuture.sync();
 System.out.println(Thread.currentThread().getName());
 ```
 
-* 调用**closeFuture.addListener**方法，添加close的后续操作，**这些操作是在NIO线程中完成的。**
+- 调用**closeFuture.addListener**方法，添加close的后续操作，**这些操作是在NIO线程中完成的。**
 
 ```java
 closeFuture.addListener(new ChannelFutureListener() {
@@ -709,24 +707,24 @@ closeFuture.addListener(new ChannelFutureListener() {
 
 > Netty 中的 Future 与 JDK 中的 Future 同名，但是是两个接口，Netty 的 Future 继承自 JDK 的 Future，而 Promise 又对 Netty Future 进行了扩展。
 
-* JDK Future 只能同步等待任务结束（或成功、或失败）才能得到结果
-* Netty Future 可以同步等待任务结束得到结果，也可以异步方式得到结果，但**都是要等任务结束**
-* Netty Promise 不仅有 Netty Future 的功能，而且脱离了任务独立存在，**只作为两个线程间传递结果的容器**
+- JDK Future 只能同步等待任务结束（或成功、或失败）才能得到结果
+- Netty Future 可以同步等待任务结束得到结果，也可以异步方式得到结果，但**都是要等任务结束**
+- Netty Promise 不仅有 Netty Future 的功能，而且脱离了任务独立存在，**只作为两个线程间传递结果的容器**
 
-| 功能/名称    | JDK Future                     | Netty Future                                                 | Netty Promise |
-| ------------ | ------------------------------ | :----------------------------------------------------------- | ------------- |
-| cancel       | 取消任务                       | -                                                            | -             |
-| isCanceled   | 任务是否取消                   | -                                                            | -             |
-| isDone       | 任务是否完成，不能区分成功失败 | -                                                            | -             |
-| get          | 获取任务结果，阻塞等待         | -                                                            | -             |
-| getNow       | -                              | 获取任务结果，非阻塞，还未产生结果时返回 null                | -             |
+| 功能/名称    | JDK Future                     | Netty Future                                                    | Netty Promise |
+| ------------ | ------------------------------ | :-------------------------------------------------------------- | ------------- |
+| cancel       | 取消任务                       | -                                                               | -             |
+| isCanceled   | 任务是否取消                   | -                                                               | -             |
+| isDone       | 任务是否完成，不能区分成功失败 | -                                                               | -             |
+| get          | 获取任务结果，阻塞等待         | -                                                               | -             |
+| getNow       | -                              | 获取任务结果，非阻塞，还未产生结果时返回 null                   | -             |
 | await        | -                              | 等待任务结束，如果任务失败，不会抛异常，而是通过 isSuccess 判断 | -             |
-| sync         | -                              | 等待任务结束，如果任务失败，抛出异常                         | -             |
-| isSuccess    | -                              | 判断任务是否成功                                             | -             |
-| cause        | -                              | 获取失败信息，非阻塞，如果没有失败，返回null                 | -             |
-| addLinstener | -                              | 添加回调，异步接收结果                                       | -             |
-| setSuccess   | -                              | -                                                            | 设置成功结果  |
-| setFailure   | -                              | -                                                            | 设置失败结果  |
+| sync         | -                              | 等待任务结束，如果任务失败，抛出异常                            | -             |
+| isSuccess    | -                              | 判断任务是否成功                                                | -             |
+| cause        | -                              | 获取失败信息，非阻塞，如果没有失败，返回null                    | -             |
+| addLinstener | -                              | 添加回调，异步接收结果                                          | -             |
+| setSuccess   | -                              | -                                                               | 设置成功结果  |
+| setFailure   | -                              | -                                                               | 设置失败结果  |
 
 #### 2、JDK Future
 
@@ -795,9 +793,9 @@ public class NettyFuture {
 
 Netty中的Future对象，可以通过EventLoop的sumbit()方法得到
 
-* 可以通过Future对象的**get方法**，阻塞地获取返回结果
-* 也可以通过**getNow方法**，获取结果，若还没有结果，则返回null，该方法是非阻塞的
-* 还可以通过**future.addListener方法**，在Callable方法执行的线程中，异步获取返回结果
+- 可以通过Future对象的**get方法**，阻塞地获取返回结果
+- 也可以通过**getNow方法**，获取结果，若还没有结果，则返回null，该方法是非阻塞的
+- 还可以通过**future.addListener方法**，在Callable方法执行的线程中，异步获取返回结果
 
 #### 4、Netty Promise
 
@@ -901,10 +899,10 @@ nioEventLoopGroup-2-2 Outbound handler 1
 
 handler需要放入channel的pipeline中，才能根据放入顺序来使用handler
 
-* pipeline的结构是一个带有head与tail指针的双向链表，其中的节点为handler
-  * 要通过ctx.fireChannelRead(msg)等方法，**将当前handler的处理结果传递给下一个handler**
-* 当有**入站**（Inbound）操作时，会从**head开始向后**调用handler，直到handler不是处理Inbound操作为止
-* 当有**出站**（Outbound）操作时，会从**tail开始向前**调用handler，直到handler不是处理Outbound操作为止
+- pipeline的结构是一个带有head与tail指针的双向链表，其中的节点为handler
+  - 要通过ctx.fireChannelRead(msg)等方法，**将当前handler的处理结果传递给下一个handler**
+- 当有**入站**（Inbound）操作时，会从**head开始向后**调用handler，直到handler不是处理Inbound操作为止
+- 当有**出站**（Outbound）操作时，会从**tail开始向前**调用handler，直到handler不是处理Outbound操作为止
 
 **具体结构如下：**
 
@@ -912,11 +910,11 @@ handler需要放入channel的pipeline中，才能根据放入顺序来使用hand
 
 #### 2、OutboundHandler
 
-* **socketChannel.writeAndFlush()**
+- **socketChannel.writeAndFlush()**
 
 当handler中调用该方法进行写操作时，会触发Outbound操作，**此时是从tail向前寻找OutboundHandler**
 
-* **ctx.writeAndFlush()**
+- **ctx.writeAndFlush()**
 
 当handler中调用该方法进行写操作时，会触发Outbound操作，**此时是从当前handler向前寻找OutboundHandler**
 
@@ -1052,8 +1050,8 @@ ByteBuf buffer = ByteBufAllocator.DEFAULT.heapBuffer(16);
 ByteBuf buffer = ByteBufAllocator.DEFAULT.directBuffer(16);
 ```
 
-* 直接内存创建和销毁的代价昂贵，但读写性能高（少一次内存复制），适合配合池化功能一起用。
-* 直接内存对 GC 压力小，因为这部分内存不受 JVM 垃圾回收的管理，但也要注意及时主动释放，否则会造成内存泄漏，最终可能会导致内存溢出。
+- 直接内存创建和销毁的代价昂贵，但读写性能高（少一次内存复制），适合配合池化功能一起用。
+- 直接内存对 GC 压力小，因为这部分内存不受 JVM 垃圾回收的管理，但也要注意及时主动释放，否则会造成内存泄漏，最终可能会导致内存溢出。
 
 **验证**
 
@@ -1075,9 +1073,9 @@ public class ByteBufStudy {
 ```java
 // 使用池化的直接内存
 class io.netty.buffer.PooledUnsafeDirectByteBuf
-// 使用池化的堆内存    
+// 使用池化的堆内存
 class io.netty.buffer.PooledUnsafeHeapByteBuf
-// 使用池化的直接内存    
+// 使用池化的直接内存
 class io.netty.buffer.PooledUnsafeDirectByteBuf
 ```
 
@@ -1085,9 +1083,9 @@ class io.netty.buffer.PooledUnsafeDirectByteBuf
 
 池化的最大意义在于可以**重用** ByteBuf，优点有
 
-* 没有池化，则每次都得创建新的 ByteBuf 实例，这个操作对直接内存代价昂贵，就算是堆内存，也会增加 GC 压力
-* 有了池化，则可以重用池中 ByteBuf 实例，并且采用了与 jemalloc 类似的内存分配算法提升分配效率
-* 高并发时，池化功能更节约内存，减少内存溢出的可能
+- 没有池化，则每次都得创建新的 ByteBuf 实例，这个操作对直接内存代价昂贵，就算是堆内存，也会增加 GC 压力
+- 有了池化，则可以重用池中 ByteBuf 实例，并且采用了与 jemalloc 类似的内存分配算法提升分配效率
+- 高并发时，池化功能更节约内存，减少内存溢出的可能
 
 池化功能是否开启，可以通过下面的系统环境变量来设置：
 
@@ -1095,42 +1093,41 @@ class io.netty.buffer.PooledUnsafeDirectByteBuf
 -Dio.netty.allocator.type={unpooled|pooled}
 ```
 
-* 4.1 以后，**非 Android 平台默认启用池化实现**，Android 平台启用非池化实现
-* 4.1 之前，池化功能还不成熟，默认是非池化实现
+- 4.1 以后，**非 Android 平台默认启用池化实现**，Android 平台启用非池化实现
+- 4.1 之前，池化功能还不成熟，默认是非池化实现
 
 #### 5、组成
 
 ByteBuf主要有以下几个组成部分：
 
-* 最大容量与当前容量
-  * 在构造ByteBuf时，可传入两个参数，分别代表初始容量和最大容量，若未传入第二个参数（最大容量），最大容量默认为`Integer.MAX_VALUE`
-  * 当ByteBuf容量无法容纳所有数据时，会进行扩容操作，若**超出最大容量**，会抛出`java.lang.IndexOutOfBoundsException`异常
-* 读写操作不同于ByteBuffer只用position进行控制，ByteBuf分别由读指针和写指针两个指针控制，进行读写操作时，无需进行模式的切换
-  * 读指针前的部分被称为废弃部分，是已经读过的内容
-  * 读指针与写指针之间的空间称为可读部分
-  * 写指针与当前容量之间的空间称为可写部分
+- 最大容量与当前容量
+  - 在构造ByteBuf时，可传入两个参数，分别代表初始容量和最大容量，若未传入第二个参数（最大容量），最大容量默认为`Integer.MAX_VALUE`
+  - 当ByteBuf容量无法容纳所有数据时，会进行扩容操作，若**超出最大容量**，会抛出`java.lang.IndexOutOfBoundsException`异常
+- 读写操作不同于ByteBuffer只用position进行控制，ByteBuf分别由读指针和写指针两个指针控制，进行读写操作时，无需进行模式的切换
+  - 读指针前的部分被称为废弃部分，是已经读过的内容
+  - 读指针与写指针之间的空间称为可读部分
+  - 写指针与当前容量之间的空间称为可写部分
 
 #### 6、写入
 
-| 方法签名                                                     | 含义                   | 备注                                        |
-| ------------------------------------------------------------ | ---------------------- | ------------------------------------------- |
-| writeBoolean(boolean value)                                  | 写入 boolean 值        | 用一字节 01\|00 代表 true\|false            |
-| writeByte(int value)                                         | 写入 byte 值           |                                             |
-| writeShort(int value)                                        | 写入 short 值          |                                             |
-| writeInt(int value)                                          | 写入 int 值            | Big Endian，即 0x250，写入后 00 00 02 50    |
-| writeIntLE(int value)                                        | 写入 int 值            | Little Endian，即 0x250，写入后 50 02 00 00 |
-| writeLong(long value)                                        | 写入 long 值           |                                             |
-| writeChar(int value)                                         | 写入 char 值           |                                             |
-| writeFloat(float value)                                      | 写入 float 值          |                                             |
-| writeDouble(double value)                                    | 写入 double 值         |                                             |
-| writeBytes(ByteBuf src)                                      | 写入 netty 的 ByteBuf  |                                             |
-| writeBytes(byte[] src)                                       | 写入 byte[]            |                                             |
-| writeBytes(ByteBuffer src)                                   | 写入 nio 的 ByteBuffer |                                             |
+| 方法签名                                                      | 含义                   | 备注                                        |
+| ------------------------------------------------------------- | ---------------------- | ------------------------------------------- |
+| writeBoolean(boolean value)                                   | 写入 boolean 值        | 用一字节 01\|00 代表 true\|false            |
+| writeByte(int value)                                          | 写入 byte 值           |                                             |
+| writeShort(int value)                                         | 写入 short 值          |                                             |
+| writeInt(int value)                                           | 写入 int 值            | Big Endian，即 0x250，写入后 00 00 02 50    |
+| writeIntLE(int value)                                         | 写入 int 值            | Little Endian，即 0x250，写入后 50 02 00 00 |
+| writeLong(long value)                                         | 写入 long 值           |                                             |
+| writeChar(int value)                                          | 写入 char 值           |                                             |
+| writeFloat(float value)                                       | 写入 float 值          |                                             |
+| writeDouble(double value)                                     | 写入 double 值         |                                             |
+| writeBytes(ByteBuf src)                                       | 写入 netty 的 ByteBuf  |                                             |
+| writeBytes(byte[] src)                                        | 写入 byte[]            |                                             |
+| writeBytes(ByteBuffer src)                                    | 写入 nio 的 ByteBuffer |                                             |
 | int writeCharSequence(CharSequence sequence, Charset charset) | 写入字符串             |                                             |
 
-> * 这些方法的未指明返回值的，其返回值都是 ByteBuf，意味着可以链式调用来写入不同的数据
->
-> * **网络传输中，默认习惯是 Big Endian，使用 writeInt(int value)**
+> - 这些方法的未指明返回值的，其返回值都是 ByteBuf，意味着可以链式调用来写入不同的数据
+> - **网络传输中，默认习惯是 Big Endian，使用 writeInt(int value)**
 
 ```java
 public class ByteBufStudy {
@@ -1236,13 +1233,12 @@ read index:0 write index:12 capacity:16
 
 > **扩容规则**
 >
-> * 不指定初始化容量大小，默认值是256字节（`ByteBufAllocator.DEFAULT.directBuffer()`）
->
-> * 如果写入后数据大小未超过 512 字节，则选择下一个 16 的整数倍进行扩容
->   * 例如写入后大小为 12 字节，则扩容后 capacity 是 16 字节
-> * 如果写入后数据大小超过 512 字节，则选择下一个 2的N次方的整数进行扩容
->   * 例如写入后大小为 513 字节，则扩容后 capacity 是 2的十次方，也就是1024 字节
-> * 扩容不能超过 maxCapacity，否则会抛出`java.lang.IndexOutOfBoundsException`异常
+> - 不指定初始化容量大小，默认值是256字节（`ByteBufAllocator.DEFAULT.directBuffer()`）
+> - 如果写入后数据大小未超过 512 字节，则选择下一个 16 的整数倍进行扩容
+>   - 例如写入后大小为 12 字节，则扩容后 capacity 是 16 字节
+> - 如果写入后数据大小超过 512 字节，则选择下一个 2的N次方的整数进行扩容
+>   - 例如写入后大小为 513 字节，则扩容后 capacity 是 2的十次方，也就是1024 字节
+> - 扩容不能超过 maxCapacity，否则会抛出`java.lang.IndexOutOfBoundsException`异常
 
 #### 8、读取
 
@@ -1473,7 +1469,7 @@ public class StudyClient {
 >      // 连接建立时会执行该方法
 >      super.channelActive(ctx);
 >  }
-> 
+>
 >  @Override
 >  public void channelInactive(ChannelHandlerContext ctx) throws Exception {
 >      System.out.println("---channelInactive---");
@@ -1604,26 +1600,26 @@ public class StudyClient {
 
 > 粘包
 
-* 现象（多个消息被粘合到一起接收）
-  * 发送 abc def，接收 abcdef
-* 原因
-  * 应用层
-    * 接收方 ByteBuf 设置太大（Netty 默认 1024）
-  * 传输层-网络层
-    * 滑动窗口：假设发送方 256 bytes 表示一个完整报文，但由于接收方处理不及时且窗口大小足够大（大于256 bytes），这 256 bytes 字节就会缓冲在接收方的滑动窗口中，当滑动窗口中缓冲了多个报文就会粘包
-    * Nagle 算法：会造成粘包
+- 现象（多个消息被粘合到一起接收）
+  - 发送 abc def，接收 abcdef
+- 原因
+  - 应用层
+    - 接收方 ByteBuf 设置太大（Netty 默认 1024）
+  - 传输层-网络层
+    - 滑动窗口：假设发送方 256 bytes 表示一个完整报文，但由于接收方处理不及时且窗口大小足够大（大于256 bytes），这 256 bytes 字节就会缓冲在接收方的滑动窗口中，当滑动窗口中缓冲了多个报文就会粘包
+    - Nagle 算法：会造成粘包
 
 > 半包
 
-* 现象（一个消息被分开接收）
-  * 发送 abcdef，接收 abc def
-* 原因
-  * 应用层
-    * 接收方 ByteBuf 小于实际发送数据量
-  * 传输层-网络层
-    * 滑动窗口：假设接收方的窗口只剩了 128 bytes，发送方的报文大小是 256 bytes，这时接收方窗口中无法容纳发送方的全部报文，发送方只能先发送前 128 bytes，等待 ack 后才能发送剩余部分，这就造成了半包
-  * 数据链路层
-    * MSS 限制：当发送的数据超过 MSS 限制后，会将数据切分发送，就会造成半包
+- 现象（一个消息被分开接收）
+  - 发送 abcdef，接收 abc def
+- 原因
+  - 应用层
+    - 接收方 ByteBuf 小于实际发送数据量
+  - 传输层-网络层
+    - 滑动窗口：假设接收方的窗口只剩了 128 bytes，发送方的报文大小是 256 bytes，这时接收方窗口中无法容纳发送方的全部报文，发送方只能先发送前 128 bytes，等待 ack 后才能发送剩余部分，这就造成了半包
+  - 数据链路层
+    - MSS 限制：当发送的数据超过 MSS 限制后，会将数据切分发送，就会造成半包
 
 > 本质
 
@@ -1631,13 +1627,10 @@ public class StudyClient {
 
 #### 4、解决方案
 
-> * 短链接方式即建立一次连接，发送一个消息，然后断开连接，这样连接建立到连接断开之间就是消息的边界，缺点效率太低
->
-> * 每一条消息采用固定长度，缺点浪费空间
->
-> * 每一条消息采用分隔符，例如 \n，缺点需要转义
->
-> * 每一条消息分为 head 和 body，head 中包含 body 的长度
+> - 短链接方式即建立一次连接，发送一个消息，然后断开连接，这样连接建立到连接断开之间就是消息的边界，缺点效率太低
+> - 每一条消息采用固定长度，缺点浪费空间
+> - 每一条消息采用分隔符，例如 \n，缺点需要转义
+> - 每一条消息分为 head 和 body，head 中包含 body 的长度
 
 ##### 1、短连接
 
@@ -2136,111 +2129,111 @@ public LengthFieldBasedFrameDecoder(
 
 **参数解析**
 
-* `maxFrameLength` **数据最大长度**
-  * 表示数据的最大长度（包括附加信息、长度标识等内容）
-* `lengthFieldOffset` **长度字段的起始偏移量**
-  * 用于指明数据第几个字节开始是用于标识有用数据字节长度的，因为前面可能还有其他附加信息
-* `lengthFieldLength` **长度字段所占字节数**（用于指明有用数据的长度）
-  * 数据中用于表示有用数据长度的标识所占的字节数
-* `lengthAdjustment` **长度表示与有用数据的偏移量**
-  * 用于指明数据长度标识和有用数据之间的距离，因为两者之间还可能有附加信息
-* `initialBytesToStrip` **数据读取起点**
-  * 读取起点，不读取0 到 `initialBytesToStrip` 之间的数据
+- `maxFrameLength` **数据最大长度**
+  - 表示数据的最大长度（包括附加信息、长度标识等内容）
+- `lengthFieldOffset` **长度字段的起始偏移量**
+  - 用于指明数据第几个字节开始是用于标识有用数据字节长度的，因为前面可能还有其他附加信息
+- `lengthFieldLength` **长度字段所占字节数**（用于指明有用数据的长度）
+  - 数据中用于表示有用数据长度的标识所占的字节数
+- `lengthAdjustment` **长度表示与有用数据的偏移量**
+  - 用于指明数据长度标识和有用数据之间的距离，因为两者之间还可能有附加信息
+- `initialBytesToStrip` **数据读取起点**
+  - 读取起点，不读取0 到 `initialBytesToStrip` 之间的数据
 
 **例子**
 
 ```java
 //例子1->长度值仅代表有用数据的长度
-<pre>                                                       
-<b>lengthFieldOffset</b>   = <b>0</b>                       
-<b>lengthFieldLength</b>   = <b>2</b>                       
-lengthAdjustment    = 0                                     
-initialBytesToStrip = 0 (= do not strip header)             
-                                                            
-BEFORE DECODE (14 bytes)         AFTER DECODE (14 bytes)    
+<pre>
+<b>lengthFieldOffset</b>   = <b>0</b>
+<b>lengthFieldLength</b>   = <b>2</b>
+lengthAdjustment    = 0
+initialBytesToStrip = 0 (= do not strip header)
+
+BEFORE DECODE (14 bytes)         AFTER DECODE (14 bytes)
 +--------+----------------+      +--------+----------------+
 | Length | Actual Content |----->| Length | Actual Content |
 | 0x000C | "HELLO, WORLD" |      | 0x000C | "HELLO, WORLD" |
 +--------+----------------+      +--------+----------------+
-</pre>                                                      
+</pre>
 //例子2
-<pre>                                                                    
-lengthFieldOffset   = 0                                                  
-lengthFieldLength   = 2                                                  
-lengthAdjustment    = 0                                                  
-<b>initialBytesToStrip</b> = <b>2</b> (= the length of the Length field) 
-                                                                         
-BEFORE DECODE (14 bytes)         AFTER DECODE (12 bytes)                 
-+--------+----------------+      +----------------+                      
-| Length | Actual Content |----->| Actual Content |                      
-| 0x000C | "HELLO, WORLD" |      | "HELLO, WORLD" |                      
-+--------+----------------+      +----------------+                      
-</pre>           
+<pre>
+lengthFieldOffset   = 0
+lengthFieldLength   = 2
+lengthAdjustment    = 0
+<b>initialBytesToStrip</b> = <b>2</b> (= the length of the Length field)
+
+BEFORE DECODE (14 bytes)         AFTER DECODE (12 bytes)
++--------+----------------+      +----------------+
+| Length | Actual Content |----->| Actual Content |
+| 0x000C | "HELLO, WORLD" |      | "HELLO, WORLD" |
++--------+----------------+      +----------------+
+</pre>
 //例子3->长度值仅代表所有数据的长度
-<pre>                                                                     
-lengthFieldOffset   =  0                                                  
-lengthFieldLength   =  2                                                  
-<b>lengthAdjustment</b>    = <b>-2</b> (= the length of the Length field) 
-initialBytesToStrip =  0                                                  
-                                                                          
-BEFORE DECODE (14 bytes)         AFTER DECODE (14 bytes)                  
-+--------+----------------+      +--------+----------------+              
-| Length | Actual Content |----->| Length | Actual Content |              
-| 0x000E | "HELLO, WORLD" |      | 0x000E | "HELLO, WORLD" |              
-+--------+----------------+      +--------+----------------+              
-</pre>      
+<pre>
+lengthFieldOffset   =  0
+lengthFieldLength   =  2
+<b>lengthAdjustment</b>    = <b>-2</b> (= the length of the Length field)
+initialBytesToStrip =  0
+
+BEFORE DECODE (14 bytes)         AFTER DECODE (14 bytes)
++--------+----------------+      +--------+----------------+
+| Length | Actual Content |----->| Length | Actual Content |
+| 0x000E | "HELLO, WORLD" |      | 0x000E | "HELLO, WORLD" |
++--------+----------------+      +--------+----------------+
+</pre>
 //例子4
-<pre>                                                                                   
-<b>lengthFieldOffset</b>   = <b>2</b> (= the length of Header 1)                        
-<b>lengthFieldLength</b>   = <b>3</b>                                                   
-lengthAdjustment    = 0                                                                 
-initialBytesToStrip = 0                                                                 
-                                                                                        
-BEFORE DECODE (17 bytes)                      AFTER DECODE (17 bytes)                   
-+----------+----------+----------------+      +----------+----------+----------------+  
-| Header 1 |  Length  | Actual Content |----->| Header 1 |  Length  | Actual Content |  
-|  0xCAFE  | 0x00000C | "HELLO, WORLD" |      |  0xCAFE  | 0x00000C | "HELLO, WORLD" |  
-+----------+----------+----------------+      +----------+----------+----------------+  
-</pre>                                                                                  
+<pre>
+<b>lengthFieldOffset</b>   = <b>2</b> (= the length of Header 1)
+<b>lengthFieldLength</b>   = <b>3</b>
+lengthAdjustment    = 0
+initialBytesToStrip = 0
+
+BEFORE DECODE (17 bytes)                      AFTER DECODE (17 bytes)
++----------+----------+----------------+      +----------+----------+----------------+
+| Header 1 |  Length  | Actual Content |----->| Header 1 |  Length  | Actual Content |
+|  0xCAFE  | 0x00000C | "HELLO, WORLD" |      |  0xCAFE  | 0x00000C | "HELLO, WORLD" |
++----------+----------+----------------+      +----------+----------+----------------+
+</pre>
 //例子5
-<pre>                                                                                  
-lengthFieldOffset   = 0                                                                
-lengthFieldLength   = 3                                                                
-<b>lengthAdjustment</b>    = <b>2</b> (= the length of Header 1)                       
-initialBytesToStrip = 0                                                                
-                                                                                       
-BEFORE DECODE (17 bytes)                      AFTER DECODE (17 bytes)                  
-+----------+----------+----------------+      +----------+----------+----------------+ 
-|  Length  | Header 1 | Actual Content |----->|  Length  | Header 1 | Actual Content | 
-| 0x00000C |  0xCAFE  | "HELLO, WORLD" |      | 0x00000C |  0xCAFE  | "HELLO, WORLD" | 
-+----------+----------+----------------+      +----------+----------+----------------+ 
+<pre>
+lengthFieldOffset   = 0
+lengthFieldLength   = 3
+<b>lengthAdjustment</b>    = <b>2</b> (= the length of Header 1)
+initialBytesToStrip = 0
+
+BEFORE DECODE (17 bytes)                      AFTER DECODE (17 bytes)
++----------+----------+----------------+      +----------+----------+----------------+
+|  Length  | Header 1 | Actual Content |----->|  Length  | Header 1 | Actual Content |
+| 0x00000C |  0xCAFE  | "HELLO, WORLD" |      | 0x00000C |  0xCAFE  | "HELLO, WORLD" |
++----------+----------+----------------+      +----------+----------+----------------+
 </pre>
 //例子6
-<pre>                                                                        
-lengthFieldOffset   = 1 (= the length of HDR1)                               
-lengthFieldLength   = 2                                                      
-<b>lengthAdjustment</b>    = <b>1</b> (= the length of HDR2)                 
-<b>initialBytesToStrip</b> = <b>3</b> (= the length of HDR1 + LEN)           
-                                                                             
-BEFORE DECODE (16 bytes)                       AFTER DECODE (13 bytes)       
-+------+--------+------+----------------+      +------+----------------+     
-| HDR1 | Length | HDR2 | Actual Content |----->| HDR2 | Actual Content |     
-| 0xCA | 0x000C | 0xFE | "HELLO, WORLD" |      | 0xFE | "HELLO, WORLD" |     
-+------+--------+------+----------------+      +------+----------------+     
-</pre>    
+<pre>
+lengthFieldOffset   = 1 (= the length of HDR1)
+lengthFieldLength   = 2
+<b>lengthAdjustment</b>    = <b>1</b> (= the length of HDR2)
+<b>initialBytesToStrip</b> = <b>3</b> (= the length of HDR1 + LEN)
+
+BEFORE DECODE (16 bytes)                       AFTER DECODE (13 bytes)
++------+--------+------+----------------+      +------+----------------+
+| HDR1 | Length | HDR2 | Actual Content |----->| HDR2 | Actual Content |
+| 0xCA | 0x000C | 0xFE | "HELLO, WORLD" |      | 0xFE | "HELLO, WORLD" |
++------+--------+------+----------------+      +------+----------------+
+</pre>
 //例子7->长度值仅代表所有数据的长度
-<pre>                                                                        
-lengthFieldOffset   =  1                                                     
-lengthFieldLength   =  2                                                     
+<pre>
+lengthFieldOffset   =  1
+lengthFieldLength   =  2
 <b>lengthAdjustment</b>    = <b>-3</b> (= the length of HDR1 + LEN, negative)
-<b>initialBytesToStrip</b> = <b> 3</b>                                       
-                                                                             
-BEFORE DECODE (16 bytes)                       AFTER DECODE (13 bytes)       
-+------+--------+------+----------------+      +------+----------------+     
-| HDR1 | Length | HDR2 | Actual Content |----->| HDR2 | Actual Content |     
-| 0xCA | 0x0010 | 0xFE | "HELLO, WORLD" |      | 0xFE | "HELLO, WORLD" |     
-+------+--------+------+----------------+      +------+----------------+     
-</pre>   
+<b>initialBytesToStrip</b> = <b> 3</b>
+
+BEFORE DECODE (16 bytes)                       AFTER DECODE (13 bytes)
++------+--------+------+----------------+      +------+----------------+
+| HDR1 | Length | HDR2 | Actual Content |----->| HDR2 | Actual Content |
+| 0xCA | 0x0010 | 0xFE | "HELLO, WORLD" |      | 0xFE | "HELLO, WORLD" |
++------+--------+------+----------------+      +------+----------------+
+</pre>
 
 ```
 
@@ -2532,13 +2525,13 @@ response.content().writeBytes(bytes);
 
 ##### 1、组成要素
 
->* **魔数**：用来在第一时间判定接收的数据是否为无效数据包
->* **版本号**：可以支持协议的升级
->* **序列化算法**：消息正文到底采用哪种序列化及反序列化方式。如：Json、Protobuf、Hessian、Jdk
-> * **指令类型**：是登录、注册、单聊、群聊… 跟业务相关的消息类型
->* **请求序号**：为了双工通信，提供异步能力
->* **正文长度**：有效数据的长度
->* **消息正文**：有效数据
+> - **魔数**：用来在第一时间判定接收的数据是否为无效数据包
+> - **版本号**：可以支持协议的升级
+> - **序列化算法**：消息正文到底采用哪种序列化及反序列化方式。如：Json、Protobuf、Hessian、Jdk
+> - **指令类型**：是登录、注册、单聊、群聊… 跟业务相关的消息类型
+> - **请求序号**：为了双工通信，提供异步能力
+> - **正文长度**：有效数据的长度
+> - **消息正文**：有效数据
 
 ##### 2、自定义编码器与解码器
 
@@ -2623,18 +2616,18 @@ public class MessageCodec extends ByteToMessageCodec<Message> {
 }
 ```
 
-* 编码器与解码器方法源于父类`ByteToMessageCodec`，通过该类可以自定义编码器与解码器，**泛型类型为被编码与被解码的类**。此处使用了自定义类`Message`，代表消息。
+- 编码器与解码器方法源于父类`ByteToMessageCodec`，通过该类可以自定义编码器与解码器，**泛型类型为被编码与被解码的类**。此处使用了自定义类`Message`，代表消息。
 
 ```java
 //继承ByteToMessageCodec
 public class MessageCodec extends ByteToMessageCodec<Message>
 ```
 
-* 编码器**负责将附加信息与正文信息写入到ByteBuf中**，其中附加信息**总字节数最好为2的N次方，不足需要补齐**，正文内容如果为对象，需要通过**序列化**将其放入到ByteBuf中。
+- 编码器**负责将附加信息与正文信息写入到ByteBuf中**，其中附加信息**总字节数最好为2的N次方，不足需要补齐**，正文内容如果为对象，需要通过**序列化**将其放入到ByteBuf中。
 
-* 解码器**负责将ByteBuf中的信息取出，并放入List中**，该List用于将信息传递给下一个Handler。
+- 解码器**负责将ByteBuf中的信息取出，并放入List中**，该List用于将信息传递给下一个Handler。
 
-* 编码测试类
+- 编码测试类
 
 ```java
 public class TestMessageCodec {
@@ -2748,8 +2741,8 @@ channel2.pipeline().addLast(loggingHandler);
 
 但**并不是所有的handler都能通过这种方法来提高复用率的**，例如`LengthFieldBasedFrameDecoder`。如果多个channel中使用同一个LengthFieldBasedFrameDecoder对象，则可能发生如下问题：
 
-* channel1中收到了一个半包，LengthFieldBasedFrameDecoder发现不是一条完整的数据，则没有继续向下传播
-* 此时channel2中也收到了一个半包，**因为两个channel使用了同一个LengthFieldBasedFrameDecoder，存入其中的数据刚好拼凑成了一个完整的数据包**。LengthFieldBasedFrameDecoder让该数据包继续向下传播，**最终引发错误**
+- channel1中收到了一个半包，LengthFieldBasedFrameDecoder发现不是一条完整的数据，则没有继续向下传播
+- 此时channel2中也收到了一个半包，**因为两个channel使用了同一个LengthFieldBasedFrameDecoder，存入其中的数据刚好拼凑成了一个完整的数据包**。LengthFieldBasedFrameDecoder让该数据包继续向下传播，**最终引发错误**
 
 所以可以看到`LengthFieldBasedFrameDecoder`存在线程安全问题，对于`LoggingHandler`并不存在线程安全问题，只是打印详细数据日志。为了提高handler的复用率，同时又避免出现一些并发问题，**Netty中原生的handler中用`@Sharable`注解来标明该handler能否在多个channel中共享。**只有带有该注解，才能通过对象的方式被共享**，否则无法被共享。**
 
@@ -2760,7 +2753,7 @@ channel2.pipeline().addLast(loggingHandler);
 @Sharable
 @SuppressWarnings({ "StringConcatenationInsideStringBufferAppend", "StringBufferReplaceableByString" })
 public class LoggingHandler extends ChannelDuplexHandler {
-  
+
 //LengthFieldBasedFrameDecoder源码->没有Sharable注解
 public class LengthFieldBasedFrameDecoder extends ByteToMessageDecoder {
 ```
@@ -3474,7 +3467,7 @@ public class ChatServer {
 >
 > [netty的@Sharable注解含义 - 简书 (jianshu.com)](https://www.jianshu.com/p/cfe6136a9cb8)
 >
-> [java - Netty @Sharable_个人文章 - SegmentFault 思否](https://segmentfault.com/a/1190000038437243)
+> [java - Netty @Sharable\_个人文章 - SegmentFault 思否](https://segmentfault.com/a/1190000038437243)
 
 **实现效果：**
 
@@ -3573,7 +3566,7 @@ gcreate 群聊1 lisi,wangwu
 >         v = put(key, value);
 >       //此时的v经过put之后仍然是null值
 >     }
-> 
+>
 >     return v;
 > }
 > ```
@@ -3741,28 +3734,28 @@ public class QuitHandler extends ChannelInboundHandlerAdapter {
 
 **原因**
 
-* 网络设备出现故障，例如网卡，机房等，底层的 TCP 连接已经断开了，但应用程序没有感知到，仍然占用着资源
-* 公网网络不稳定，出现丢包，如果连续出现丢包，这时现象就是客户端数据发不出去，服务端也一直收不到数据，会白白地消耗资源
-* 应用程序线程阻塞，无法进行数据读写
+- 网络设备出现故障，例如网卡，机房等，底层的 TCP 连接已经断开了，但应用程序没有感知到，仍然占用着资源
+- 公网网络不稳定，出现丢包，如果连续出现丢包，这时现象就是客户端数据发不出去，服务端也一直收不到数据，会白白地消耗资源
+- 应用程序线程阻塞，无法进行数据读写
 
 **问题**
 
-* 假死的连接占用的资源不能自动释放
-* 向假死的连接发送数据，得到的反馈是发送超时
+- 假死的连接占用的资源不能自动释放
+- 向假死的连接发送数据，得到的反馈是发送超时
 
 > 解决方法
 
 可以添加`IdleStateHandler`对空闲时间进行检测，通过构造函数可以传入三个参数
 
-* readerIdleTimeSeconds 读空闲经过的秒数
-* writerIdleTimeSeconds 写空闲经过的秒数
-* allIdleTimeSeconds 读和写空闲经过的秒数
+- readerIdleTimeSeconds 读空闲经过的秒数
+- writerIdleTimeSeconds 写空闲经过的秒数
+- allIdleTimeSeconds 读和写空闲经过的秒数
 
 当指定时间内未发生读或写事件时，会触发特定事件
 
-* 读空闲会触发`READER_IDLE`
-* 写空闲会触发`WRITE_IDLE`
-* 读和写空闲会触发`ALL_IDEL`
+- 读空闲会触发`READER_IDLE`
+- 写空闲会触发`WRITE_IDLE`
+- 读和写空闲会触发`ALL_IDEL`
 
 服务器端检测读空闲时间
 
@@ -3784,9 +3777,9 @@ ch.pipeline().addLast(new ChannelDuplexHandler() {
 });
 ```
 
-* 使用`IdleStateHandler`进行空闲检测
-* 使用双向处理器`ChannelDuplexHandler`对入站与出站事件进行处理
-  * `IdleStateHandler`中的事件为特殊事件，需要实现`ChannelDuplexHandler`的`userEventTriggered`方法，判断事件类型并自定义处理方式，来对事件进行处理
+- 使用`IdleStateHandler`进行空闲检测
+- 使用双向处理器`ChannelDuplexHandler`对入站与出站事件进行处理
+  - `IdleStateHandler`中的事件为特殊事件，需要实现`ChannelDuplexHandler`的`userEventTriggered`方法，判断事件类型并自定义处理方式，来对事件进行处理
 
 为**避免因非网络等原因引发的READ_IDLE事件**，比如网络情况良好，只是用户本身没有输入数据，这时发生READ_IDLE事件，**直接让服务器断开连接是不可取的**。为避免此类情况，需要在**客户端向服务器发送心跳包**，发送频率要**小于**服务器设置的`IdleTimeSeconds`，一般设置为其值的一半。
 

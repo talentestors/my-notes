@@ -39,7 +39,7 @@ timeline: false
 
 ### 3、说说持久化
 
- 持久化是将程序数据在持久状态和瞬时状态间转换的机制。通俗的讲，就是瞬时数据（比如内存中的数据，是不能永久保存的）持久化为持久数据（比如持久化至数据库中，能够长久保存）。
+持久化是将程序数据在持久状态和瞬时状态间转换的机制。通俗的讲，就是瞬时数据（比如内存中的数据，是不能永久保存的）持久化为持久数据（比如持久化至数据库中，能够长久保存）。
 
 1. 程序产生的数据首先都是在内存。
 2. 内存是不可靠的，一断电数据就没了。
@@ -57,7 +57,7 @@ timeline: false
 
 ### 5、聊聊 ORM
 
- ORM，即 Object-Relational Mapping（对象关系映射），它的作用是在关系型数据库和业务实体对象之间作一个映射，这样，我们在具体的操作业务对象的时候，就不需要再去和复杂的 SQL 语句打交道，只需简单的操作对象的属性和方法。
+ORM，即 Object-Relational Mapping（对象关系映射），它的作用是在关系型数据库和业务实体对象之间作一个映射，这样，我们在具体的操作业务对象的时候，就不需要再去和复杂的 SQL 语句打交道，只需简单的操作对象的属性和方法。
 
 - **jpa**（Java Persistence API）是 java 持久化规范，是 orm 框架的标准，主流 orm 框架都实现了这个标准。
 - **hibernate**：全自动的框架，强大、复杂、笨重、学习成本较高，不够灵活，实现了 jpa 规范。Java Persistence API（Java 持久层 API）
@@ -339,7 +339,7 @@ DTD(Document Type Definition) 即文档类型定义，是一种 XML 约束模式
 
 #### （2）XSD
 
- 文档结构描述 XML Schema Definition 缩写，这种文件同样可以用来定义我们 xml 文件的结构！
+文档结构描述 XML Schema Definition 缩写，这种文件同样可以用来定义我们 xml 文件的结构！
 
 我们看看 pom 文件的 xml 头部：
 
@@ -663,13 +663,13 @@ try (SqlSession sqlSession = sqlSessionFactory.openSession();){
 
 #### （1）SqlSessionFactory
 
- 每个基于 MyBatis 的应用都是以一个 SqlSessionFactory 的实例为核心的。SqlSessionFactory 的实例可以通过 SqlSessionFactoryBuilder 获得。而 SqlSessionFactoryBuilder 则可以从 XML 配置文件或一个预先配置的 Configuration 实例来构建出 SqlSessionFactory 实例。
+每个基于 MyBatis 的应用都是以一个 SqlSessionFactory 的实例为核心的。SqlSessionFactory 的实例可以通过 SqlSessionFactoryBuilder 获得。而 SqlSessionFactoryBuilder 则可以从 XML 配置文件或一个预先配置的 Configuration 实例来构建出 SqlSessionFactory 实例。
 
- SqlSessionFactory 一旦被创建就应该在应用的运行期间一直存在，没有任何理由丢弃它或重新创建另一个实例。 使用 SqlSessionFactory 的最佳实践是在应用运行期间不要重复创建多次，多次重建 SqlSessionFactory 被视为一种代码“坏习惯”。因此 SqlSessionFactory 的最佳作用域是应用作用域。 有很多方法可以做到，最简单的就是使用单例模式。
+SqlSessionFactory 一旦被创建就应该在应用的运行期间一直存在，没有任何理由丢弃它或重新创建另一个实例。 使用 SqlSessionFactory 的最佳实践是在应用运行期间不要重复创建多次，多次重建 SqlSessionFactory 被视为一种代码“坏习惯”。因此 SqlSessionFactory 的最佳作用域是应用作用域。 有很多方法可以做到，最简单的就是使用单例模式。
 
 #### （2）SqlSession
 
- 每个线程都应该有它自己的 SqlSession 实例。SqlSession 的实例不是线程安全的，因此是不能被共享的，所以它的最佳的作用域是请求或方法作用域。 绝对不能将 SqlSession 实例的引用放在一个类的静态域，甚至一个类的实例变量也不行。 也绝不能将 SqlSession 实例的引用放在任何类型的托管作用域中，比如 Servlet 框架中的 HttpSession。 换句话说，每次收到 HTTP 请求，就可以打开一个 SqlSession，返回一个响应后，就关闭它。 这个关闭操作很重要，为了确保每次都能执行关闭操作，你应该把这个关闭操作放到 finally 块中。 下面的示例就是一个确保 SqlSession 关闭的标准模式：
+每个线程都应该有它自己的 SqlSession 实例。SqlSession 的实例不是线程安全的，因此是不能被共享的，所以它的最佳的作用域是请求或方法作用域。 绝对不能将 SqlSession 实例的引用放在一个类的静态域，甚至一个类的实例变量也不行。 也绝不能将 SqlSession 实例的引用放在任何类型的托管作用域中，比如 Servlet 框架中的 HttpSession。 换句话说，每次收到 HTTP 请求，就可以打开一个 SqlSession，返回一个响应后，就关闭它。 这个关闭操作很重要，为了确保每次都能执行关闭操作，你应该把这个关闭操作放到 finally 块中。 下面的示例就是一个确保 SqlSession 关闭的标准模式：
 
 ```java
 try (SqlSession session = sqlSessionFactory.openSession()) {
@@ -804,7 +804,7 @@ try (SqlSession sqlSession = sqlSessionFactory.openSession();){
 
 ![img](./img/1713933015968-f9884fc0-e95b-450b-8911-663164a7836f.png)
 
- 这里很明显使用了动态代理的方式，`sqlSession.getMapper(UserMapper.class);` 帮我们生成一个代理对象，该对象实现了这个接口的方法，具体的数据库操作比如建立连接，创建 statment 等重复性的工作交给框架来处理，唯一需要额外补充的就是 sql 语句了，xml 文件就是在补充这个描述信息，比如具体的 sql，返回值的类型等，框架会根据命名空间自动匹配对应的接口，根据 id 自动匹配接口的方法，不需要我们再做额外的操作。
+这里很明显使用了动态代理的方式，`sqlSession.getMapper(UserMapper.class);` 帮我们生成一个代理对象，该对象实现了这个接口的方法，具体的数据库操作比如建立连接，创建 statment 等重复性的工作交给框架来处理，唯一需要额外补充的就是 sql 语句了，xml 文件就是在补充这个描述信息，比如具体的 sql，返回值的类型等，框架会根据命名空间自动匹配对应的接口，根据 id 自动匹配接口的方法，不需要我们再做额外的操作。
 
 接下来我们就把增删改查全部写一下，感受一下：
 
@@ -954,7 +954,7 @@ public void testAdd(){
 ```java
 /**
  * 新增用户
- * 
+ *
  * @param id
  * @param name
  * @param pws
@@ -1173,12 +1173,12 @@ PRIMARY KEY (`id`)
 insert  into `admin`(`id`,`username`,`password`) values (1,'itnanls','123456'),(2,'itlils','abcdef'),(3,'小微','987654');
 ```
 
- MyBatis 最初配置信息是基于 XML ,映射语句(SQL)也是定义在 XML 中的。而到 MyBatis 3 提供了新的基于注解的配置。不幸的是，Java 注解的的表达力和灵活性十分有限。最强大的 MyBatis 映射并不能用注解来构建，所以这里我们作为了解。
+MyBatis 最初配置信息是基于 XML ,映射语句(SQL)也是定义在 XML 中的。而到 MyBatis 3 提供了新的基于注解的配置。不幸的是，Java 注解的的表达力和灵活性十分有限。最强大的 MyBatis 映射并不能用注解来构建，所以这里我们作为了解。
 
 - sql 类型主要分成 :
 - `@Select`：查询操作注解
 - `@Update`：更新操作注解
-- `@Insert`：插入操作注解  
+- `@Insert`：插入操作注解
 - `@Delete`：删除操作注解
 
 **注意**：利用注解开发就不需要 `mapper.xml` 映射文件了 .
@@ -1395,9 +1395,9 @@ public SqlSessionFactory build(Configuration config) {
 }
 ```
 
- 其实，本质上，无论你做了多少工作，你使用 xml 也好，不使用 xml 也好，最终都是需要一个 Configuration 实例，这里保存了所有的配置项。
+其实，本质上，无论你做了多少工作，你使用 xml 也好，不使用 xml 也好，最终都是需要一个 Configuration 实例，这里保存了所有的配置项。
 
- 当然我们可以独立去使用 Configuration 类构造实例，不使用 xml。
+当然我们可以独立去使用 Configuration 类构造实例，不使用 xml。
 
 例如：
 
@@ -1431,7 +1431,7 @@ configuration.setEnvironment(environment);
 </configuration>
 ```
 
- xml 的解析过程就是将 xml 文件转化为 Configuration 对象，它在启动的时候执行，也就意味着修改配置文件就要重启。所以本环节的重点就到了。
+xml 的解析过程就是将 xml 文件转化为 Configuration 对象，它在启动的时候执行，也就意味着修改配置文件就要重启。所以本环节的重点就到了。
 
 #### （2）配置文件的解析
 
@@ -1486,7 +1486,7 @@ private void parseConfiguration(XNode root) {
 }
 ```
 
- 其实我们看到这里就大致明白了 MyBatis 解析 xml 的时机和方法了。从这里我们也能基本看出来一个配置文件内能使用的标签，以及书写标签的顺序，因为这个解析过程也是有顺序的，我们随便列出几个标签看看配置文件长什么样子：
+其实我们看到这里就大致明白了 MyBatis 解析 xml 的时机和方法了。从这里我们也能基本看出来一个配置文件内能使用的标签，以及书写标签的顺序，因为这个解析过程也是有顺序的，我们随便列出几个标签看看配置文件长什么样子：
 
 ```xml
 <!DOCTYPE configuration
@@ -1566,7 +1566,7 @@ private void mapperElement(XNode parent) throws Exception {
 }
 ```
 
- 这里就是想尽办法，获取 mapper 的配置信息，然后做下一步处理，其实无论是哪一种方式都是会在 Configuration 的 mapperRegistry （mapper 注册器中）中注册一个 mapper。其实就是将 mapper 的 class 信息放在一个名为 knownMappers 的 hashmap 中，以便后续使用。当然他的值一个一个代理工厂，这玩意能帮我们获取一个 mapper 的代理对象，更详细的后续说。
+这里就是想尽办法，获取 mapper 的配置信息，然后做下一步处理，其实无论是哪一种方式都是会在 Configuration 的 mapperRegistry （mapper 注册器中）中注册一个 mapper。其实就是将 mapper 的 class 信息放在一个名为 knownMappers 的 hashmap 中，以便后续使用。当然他的值一个一个代理工厂，这玩意能帮我们获取一个 mapper 的代理对象，更详细的后续说。
 
 ```java
 private final Map<Class<?>, MapperProxyFactory<?>> knownMappers = new HashMap<>();
@@ -1612,7 +1612,7 @@ public <T> void addMapper(Class<T> type) {
   }
 ```
 
- 我们不妨把 MapperProxyFactory 的代码粘贴出来看看，里边维护了一个接口和方法缓存（这个后边会讲，目前他是一个空的 Map），这个代理工厂确实有方法帮我们生成代理对象（newInstance）。我们看到了代理设计模式。
+我们不妨把 MapperProxyFactory 的代码粘贴出来看看，里边维护了一个接口和方法缓存（这个后边会讲，目前他是一个空的 Map），这个代理工厂确实有方法帮我们生成代理对象（newInstance）。我们看到了代理设计模式。
 
 ```java
 public class MapperProxyFactory<T> {
@@ -1647,11 +1647,11 @@ public class MapperProxyFactory<T> {
 
 对与 class 属性的处理
 
- 这个属性我们配置的是一个 class，`<mapper class="com.ydlclass.UserMapper"/>`，对一 class 将来肯定要从注解中解析信息，直接把他的 class 信息注册进去就好了。
+这个属性我们配置的是一个 class，`<mapper class="com.ydlclass.UserMapper"/>`，对一 class 将来肯定要从注解中解析信息，直接把他的 class 信息注册进去就好了。
 
 resource 属性以及 url 属性的处理
 
- 在 resource 属性以及 url 属性中没有看到 configuration.addMapper()这个方法的影子，这两个属性都是以配置文件的方式加载，自然要解析 mapper 配置文件了。
+在 resource 属性以及 url 属性中没有看到 configuration.addMapper()这个方法的影子，这两个属性都是以配置文件的方式加载，自然要解析 mapper 配置文件了。
 
 我们看到了 XMLMapperBuilder 这个类的 `parse()` 方法。很明显这个方法 configurationElement 是用来解析配置文件的。
 
@@ -2252,7 +2252,7 @@ resultType 写成 `java.util.HashMap` 也行，写成 map 也行，说明 MyBati
 </environment>
 ```
 
- 其中为什么写一个 POOLED 就能代表我们使用了什么数据库连接池，其实这也是别名，简单理解就是可以用一个简单的短小的名字替代很长的类的权限定名称。
+其中为什么写一个 POOLED 就能代表我们使用了什么数据库连接池，其实这也是别名，简单理解就是可以用一个简单的短小的名字替代很长的类的权限定名称。
 
 其实：在构造 Configuration 类时，注册了如下的别名。
 
@@ -2410,10 +2410,10 @@ alias 填了的话就以 alias 里的值为准。
 >
 > ```java
 > public class DruidDataSourceFactory implements DataSourceFactory {
-> 
+>
 >  private volatile DataSource dataSource;
 >  private Properties properties;
-> 
+>
 >  static {
 >   try {
 >    Class.forName("com.alibaba.druid.pool.DruidDataSource");
@@ -2421,7 +2421,7 @@ alias 填了的话就以 alias 里的值为准。
 >    throw new RuntimeException("Druid DataSource not found", e);
 >   }
 >  }
-> 
+>
 >  private void initialize() {
 >   try {
 >    dataSource = com.alibaba.druid.pool.DruidDataSourceFactory.createDataSource(properties);
@@ -2431,13 +2431,13 @@ alias 填了的话就以 alias 里的值为准。
 >    throw new RuntimeException("init data source error", e);
 >   }
 >  }
-> 
+>
 >  @Override
 >  public void setProperties(Properties props) {
 >   this.properties = props;
 >   this.dataSource = null;
 >  }
-> 
+>
 >  @Override
 >  public DataSource getDataSource() {
 >   if (dataSource == null) {
@@ -3179,7 +3179,7 @@ public void testSelect2() {
 
 #### （1）懒加载
 
- 通俗的讲就是按需加载，我们需要什么的时候再去进行什么操作。而且先从单表查询，需要时再从关联表去关联查询，能大大提高数据库性能，因为查询单表要比关联查询多张表速度要快。
+通俗的讲就是按需加载，我们需要什么的时候再去进行什么操作。而且先从单表查询，需要时再从关联表去关联查询，能大大提高数据库性能，因为查询单表要比关联查询多张表速度要快。
 
 在 mybatis 中，resultMap 可以实现高级映射(使用 association、collection 实现一对一及一对多映射)，association、collection 具备延迟加载功能。
 

@@ -280,7 +280,13 @@ a:hover {
 button,
 input {
   /* "\5B8B\4F53" 就是宋体的意思 这样浏览器兼容性比较好 */
-  font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53",
+  font-family:
+    Microsoft YaHei,
+    Heiti SC,
+    tahoma,
+    arial,
+    Hiragino Sans GB,
+    "\5B8B\4F53",
     sans-serif;
 }
 
@@ -288,7 +294,13 @@ body {
   /* CSS3 抗锯齿形 让文字显示的更加清晰 */
   -webkit-font-smoothing: antialiased;
   background-color: #fff;
-  font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53",
+  font:
+    12px/1.5 Microsoft YaHei,
+    Heiti SC,
+    tahoma,
+    arial,
+    Hiragino Sans GB,
+    "\5B8B\4F53",
     sans-serif;
   color: #666;
 }

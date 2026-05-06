@@ -12,9 +12,9 @@
 
 那么，消息队列具体实现有哪些呢：
 
-* RabbitMQ  -  性能很强，吞吐量很高，支持多种协议，集群化，消息的可靠执行特性等优势，很适合企业的开发。
-* Kafka - 提供了超高的吞吐量，ms级别的延迟，极高的可用性以及可靠性，而且分布式可以任意扩展。
-* RocketMQ  -  阿里巴巴推出的消息队列，经历过双十一的考验，单机吞吐量高，消息的高可靠性，扩展性强，支持事务等，但是功能不够完整，语言支持性较差。
+- RabbitMQ - 性能很强，吞吐量很高，支持多种协议，集群化，消息的可靠执行特性等优势，很适合企业的开发。
+- Kafka - 提供了超高的吞吐量，ms级别的延迟，极高的可用性以及可靠性，而且分布式可以任意扩展。
+- RocketMQ - 阿里巴巴推出的消息队列，经历过双十一的考验，单机吞吐量高，消息的高可靠性，扩展性强，支持事务等，但是功能不够完整，语言支持性较差。
 
 我们这里，主要讲解的是RabbitMQ消息队列。
 
@@ -124,11 +124,11 @@ sudo rabbitmqctl set_user_tags admin administrator
 
 ![image-20220416103043845](./img/j5kIgD9ZRQiGtd6.jpg)
 
-* **生产者（Publisher）和消费者（Consumer）：** 不用多说了吧。
-* **Channel：** 我们的客户端连接都会使用一个Channel，再通过Channel去访问到RabbitMQ服务器，注意通信协议不是http，而是amqp协议。
-* **Exchange：** 类似于交换机一样的存在，会根据我们的请求，转发给相应的消息队列，每个队列都可以绑定到Exchange上，这样Exchange就可以将数据转发给队列了，可以存在很多个，不同的Exchange类型可以用于实现不同消息的模式。
-* **Queue：** 消息队列本体，生产者所有的消息都存放在消息队列中，等待消费者取出。
-* **Virtual Host：** 有点类似于环境隔离，不同环境都可以单独配置一个Virtual Host，每个Virtual Host可以包含很多个Exchange和Queue，每个Virtual Host相互之间不影响。
+- **生产者（Publisher）和消费者（Consumer）：** 不用多说了吧。
+- **Channel：** 我们的客户端连接都会使用一个Channel，再通过Channel去访问到RabbitMQ服务器，注意通信协议不是http，而是amqp协议。
+- **Exchange：** 类似于交换机一样的存在，会根据我们的请求，转发给相应的消息队列，每个队列都可以绑定到Exchange上，这样Exchange就可以将数据转发给队列了，可以存在很多个，不同的Exchange类型可以用于实现不同消息的模式。
+- **Queue：** 消息队列本体，生产者所有的消息都存放在消息队列中，等待消费者取出。
+- **Virtual Host：** 有点类似于环境隔离，不同环境都可以单独配置一个Virtual Host，每个Virtual Host可以包含很多个Exchange和Queue，每个Virtual Host相互之间不影响。
 
 ### 使用消息队列
 
@@ -214,9 +214,9 @@ sudo rabbitmqctl set_user_tags admin administrator
 
 ![image-20220419150053926](./img/nrWPuoGRTp7F36e.jpg)
 
-* Nack message requeue true：拒绝消息，也就是说不会将消息从消息队列取出，并且重新排队，一次可以拒绝多个消息。
-* Ack message requeue false：确认应答，确认后消息会从消息队列中移除，一次可以确认多个消息。
-* Reject message requeue true/false：也是拒绝此消息，但是可以指定是否重新排队。
+- Nack message requeue true：拒绝消息，也就是说不会将消息从消息队列取出，并且重新排队，一次可以拒绝多个消息。
+- Ack message requeue false：确认应答，确认后消息会从消息队列中移除，一次可以确认多个消息。
+- Reject message requeue true/false：也是拒绝此消息，但是可以指定是否重新排队。
 
 这里我们使用默认的就可以了，这样只会查看消息是啥，但是不会取出，消息依然存在于消息队列中，第二个参数是编码格式，使用默认的就可以了，最后就是要生效的操作数量，选择1就行：
 
@@ -275,10 +275,10 @@ public static void main(String[] args) {
     factory.setUsername("admin");
     factory.setPassword("admin");
     factory.setVirtualHost("/test");
-  
+
  		//创建连接
     try(Connection connection = factory.newConnection()){
-        
+
     }catch (Exception e){
         e.printStackTrace();
     }
@@ -303,24 +303,24 @@ try(Connection connection = factory.newConnection();
 
 其中`queueDeclare`方法的参数如下：
 
-* queue：队列的名称（默认创建后routingKey和队列名称一致）
-* durable：是否持久化。
-* exclusive：是否排他，如果一个队列被声明为排他队列，该队列仅对首次声明它的连接可见，并在连接断开时自动删除。排他队列是基于Connection可见，同一个Connection的不同Channel是可以同时访问同一个连接创建的排他队列，并且，如果一个Connection已经声明了一个排他队列，其他的Connection是不允许建立同名的排他队列的，即使该队列是持久化的，一旦Connection关闭或者客户端退出，该排他队列都会自动被删除。
-* autoDelete：是否自动删除。
-* arguments：设置队列的其他一些参数，这里我们暂时不需要什么其他参数。
+- queue：队列的名称（默认创建后routingKey和队列名称一致）
+- durable：是否持久化。
+- exclusive：是否排他，如果一个队列被声明为排他队列，该队列仅对首次声明它的连接可见，并在连接断开时自动删除。排他队列是基于Connection可见，同一个Connection的不同Channel是可以同时访问同一个连接创建的排他队列，并且，如果一个Connection已经声明了一个排他队列，其他的Connection是不允许建立同名的排他队列的，即使该队列是持久化的，一旦Connection关闭或者客户端退出，该排他队列都会自动被删除。
+- autoDelete：是否自动删除。
+- arguments：设置队列的其他一些参数，这里我们暂时不需要什么其他参数。
 
 其中`queueBind`方法参数如下：
 
-* queue：需要绑定的队列名称。
-* exchange：需要绑定的交换机名称。
-* routingKey：不用多说了吧。
+- queue：需要绑定的队列名称。
+- exchange：需要绑定的交换机名称。
+- routingKey：不用多说了吧。
 
 其中`basicPublish`方法的参数如下：
 
-* exchange: 对应的Exchange名称，我们这里就使用第二个直连交换机。
-* routingKey：这里我们填写绑定时指定的routingKey，其实和之前在管理页面操作一样。
-* props：其他的配置。
-* body：消息本体。
+- exchange: 对应的Exchange名称，我们这里就使用第二个直连交换机。
+- routingKey：这里我们填写绑定时指定的routingKey，其实和之前在管理页面操作一样。
+- props：其他的配置。
+- body：消息本体。
 
 执行完成后，可以在管理页面中看到我们刚刚创建好的消息队列了：
 
@@ -363,10 +363,10 @@ public static void main(String[] args) throws IOException, TimeoutException {
 
 其中`basicConsume`方法参数如下：
 
-* queue  -  消息队列名称，直接指定。
-* autoAck - 自动应答，消费者从消息队列取出数据后，需要跟服务器进行确认应答，当服务器收到确认后，会自动将消息删除，如果开启自动应答，那么消息发出后会直接删除。
-* deliver  -  消息接收后的函数回调，我们可以在回调中对消息进行处理，处理完成后，需要给服务器确认应答。
-* cancel  -  当消费者取消订阅时进行的函数回调，这里暂时用不到。
+- queue - 消息队列名称，直接指定。
+- autoAck - 自动应答，消费者从消息队列取出数据后，需要跟服务器进行确认应答，当服务器收到确认后，会自动将消息删除，如果开启自动应答，那么消息发出后会直接删除。
+- deliver - 消息接收后的函数回调，我们可以在回调中对消息进行处理，处理完成后，需要给服务器确认应答。
+- cancel - 当消费者取消订阅时进行的函数回调，这里暂时用不到。
 
 现在我们启动一下消费者，可以看到立即读取到我们刚刚插入到队列中的数据：
 
@@ -543,7 +543,7 @@ public class TestListener {
 现在我们直接在管理页面发送：
 
 ```json
-{"id":1,"name":"LB"}
+{ "id": 1, "name": "LB" }
 ```
 
 !![image-20220416225912100](./img/3dXbs5naViUMrDO.jpg)](https://tva1.sinaimg.cn/large/e6c9d24ely1h1byhcakabj221m0lwac0.jpg)
@@ -622,7 +622,7 @@ public class RabbitConfiguration {
                 .deadLetterRoutingKey("dl-yyds")   //指定死信RoutingKey
                 .build();
     }
-  
+
   	...
 }
 ```
@@ -700,7 +700,7 @@ public Queue queue(){
 ```java
 @Test
 void publisher() {
-    for (int i = 0; i < 4; i++) 
+    for (int i = 0; i < 4; i++)
         template.convertAndSend("amq.direct", "my-yyds", new User());
 }
 ```
@@ -1107,7 +1107,7 @@ sudo rabbitmqctl start_app
 
 实现复制即可。
 
-***
+---
 
 ## SpringCloud 消息组件
 
@@ -1301,7 +1301,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"    #暴露端点，一会用于提醒刷新
+        include: "*" #暴露端点，一会用于提醒刷新
 ```
 
 然后启动我们的三个服务器，可以看到在管理面板中：

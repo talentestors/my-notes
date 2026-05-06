@@ -132,7 +132,7 @@ MySQL 存储引擎在 MySQL 中扮演着重要角色。研究过 SQL Server 和 
 ![img](./img/1713932335498-85b64b19-6a84-4b92-8606-4621c16b3a02.png)
 
 - my.ini 的部分截图如下：
-![my.ini](./img/1713932335609-47caa9af-b938-42e4-a3bd-8025bc31d19c.png)
+  ![my.ini](./img/1713932335609-47caa9af-b938-42e4-a3bd-8025bc31d19c.png)
 
 配置文件很重要，所谓配置文件就是配置一下你的 mysql 让他成为你想要的的样子，这里可以配置大量的信息，我们放在文档最后的附录。
 
@@ -1338,8 +1338,7 @@ async function insertData(index) {
         userName: "@name(true)",
         nickName: "@cname()",
         email: "@email()",
-        sex: () =>
-          Math.random() <= 0.999 ? (Math.random() > 0.5 ? "男" : "女") : "未知",
+        sex: () => (Math.random() <= 0.999 ? (Math.random() > 0.5 ? "男" : "女") : "未知"),
         loginIp: "@ip()",
         loginDate: "@datetime()",
         password: "@word(5, 10)",
@@ -1750,7 +1749,7 @@ create index idx_user_nick_name on ydl_user(user_name,nick_name,email(7));
 >
 > ```sql
 > CREATE INDEX idx_user_nick on user(user_name,nick_name,email);
-> 
+>
 > -- 更高
 > select nick_name, email from user select user_name='Gary Jose Hall';
 > -- 结果是需要回表查询的
@@ -1966,7 +1965,7 @@ select * from student s, scores sc where s.id = sc.s_id;
 
 #### 3、type 字段
 
-最好到最差备注：掌握以下 10 种常见的即可 
+最好到最差备注：掌握以下 10 种常见的即可
 
 > NULL>system>const>eq_ref>ref>ref_or_null>index_merge>range>index>ALL
 
@@ -2525,13 +2524,13 @@ commit;
 
 mysql 给我们提供了很多有用的日志，这是 mysql 服务层给我们提供的：
 
-| 日志类型     | 写入日志的信息                                               |
-| ------------ | ------------------------------------------------------------ |
-| 二进制日志   | 记录了对 MySQL 数据库执行更改的所有操作                      |
+| 日志类型     | 写入日志的信息                                                        |
+| ------------ | --------------------------------------------------------------------- |
+| 二进制日志   | 记录了对 MySQL 数据库执行更改的所有操作                               |
 | 慢查询日志   | 记录所有执行时间超过 `long_query_time` 秒的所有查询或不使用索引的查询 |
-| 错误日志     | 记录在启动，运行或停止 mysqld 时遇到的问题                   |
-| 通用查询日志 | 记录建立的客户端连接和执行的语句                             |
-| 中继日志     | 从复制主服务器接收的数据更改                                 |
+| 错误日志     | 记录在启动，运行或停止 mysqld 时遇到的问题                            |
+| 通用查询日志 | 记录建立的客户端连接和执行的语句                                      |
+| 中继日志     | 从复制主服务器接收的数据更改                                          |
 
 ### 一、bin log 日志
 
@@ -2550,7 +2549,7 @@ binlog 有两个常用的使用场景：
 - 主从复制：我们会专门有一个章节代领大家搭建一个主从同步的两台 mysql 服务。
 - 数据恢复：通过 mysqlbinlog 工具来恢复数据。
 
-mysql8 中的 binlog 默认是开启的，5.7 默认是关闭的，可以通过参数 log\_bin 控制：
+mysql8 中的 binlog 默认是开启的，5.7 默认是关闭的，可以通过参数 log_bin 控制：
 
 #### 2、数据恢复
 
@@ -2815,7 +2814,7 @@ show slave status \G;
 - **Relay_Log_Pos**：relay log 中已读取的位置偏移量。
 - **Seconds_Behind_Master**: 主从同步延时, 值为 0 为正常情况，正值表示已经出现延迟，数字越大从库落后主库越多。
 
-7.在主库创建一个数据库、创建一张表，执行一些 sql 语句进行测试。
+  7.在主库创建一个数据库、创建一张表，执行一些 sql 语句进行测试。
 
 ##### （3）可能遇到的问题
 

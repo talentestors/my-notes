@@ -1,15 +1,19 @@
 <template>
-  <div :class="{play: isPlay}">
+  <div :class="{ play: isPlay }">
     <ul class="flip">
-      <li class="item" v-for="(item, key) in total + 1" :class="{active: current === key, before: key === before}"
-        :key="item">
+      <li
+        class="item"
+        v-for="(item, key) in total + 1"
+        :class="{ active: current === key, before: key === before }"
+        :key="item"
+      >
         <div class="up">
           <div class="shadow"></div>
-          <div class="inn">{{key}}</div>
+          <div class="inn">{{ key }}</div>
         </div>
         <div class="down">
           <div class="shadow"></div>
-          <div class="inn">{{key}}</div>
+          <div class="inn">{{ key }}</div>
         </div>
       </li>
     </ul>
@@ -21,28 +25,28 @@ export default {
   props: {
     total: {
       type: Number,
-      default: 9
+      default: 9,
     },
     current: {
       type: Number,
-      default: -1
-    }
+      default: -1,
+    },
   },
   data() {
     return {
       before: this.total === this.current ? -1 : this.total,
-      isPlay: false
-    }
+      isPlay: false,
+    };
   },
   watch: {
     current(current, preCurrent) {
-      this.before = preCurrent
+      this.before = preCurrent;
       if (!this.isPlay) {
-        this.isPlay = true
+        this.isPlay = true;
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -97,7 +101,7 @@ $radius: 6px;
       top: 0;
 
       &:after {
-        content: '';
+        content: "";
         position: absolute;
         top: calc(($height - $lineWidth) / 2);
         left: 0;

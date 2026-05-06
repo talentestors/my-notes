@@ -1520,17 +1520,17 @@ mvn archetype:generate -DgroupId=com.xinzhi -DartifactId=test -DarchetypeArtifac
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.xinzhi</groupId>
     <artifactId>parent-project</artifactId>
     <version>1.0.0</version>
-    
+
     <!-- 父模块的打包方式必须为pom -->
     <packaging>pom</packaging>
-    
+
     <!-- 聚合配置 -->
     <modules>
         <module>module-common</module>
@@ -1538,20 +1538,20 @@ mvn archetype:generate -DgroupId=com.xinzhi -DartifactId=test -DarchetypeArtifac
         <module>module-service</module>
         <module>module-web</module>
     </modules>
-    
+
     <!-- 项目属性配置 -->
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        
+
         <!-- 统一管理依赖版本 -->
         <spring.version>5.2.8.RELEASE</spring.version>
         <mysql.version>8.0.21</mysql.version>
         <junit.version>4.13.2</junit.version>
         <mybatis.version>3.5.5</mybatis.version>
     </properties>
-    
+
     <!-- 依赖管理 -->
     <dependencyManagement>
         <dependencies>
@@ -1571,7 +1571,7 @@ mvn archetype:generate -DgroupId=com.xinzhi -DartifactId=test -DarchetypeArtifac
                 <artifactId>spring-web</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-            
+
             <!-- 数据库相关 -->
             <dependency>
                 <groupId>mysql</groupId>
@@ -1583,7 +1583,7 @@ mvn archetype:generate -DgroupId=com.xinzhi -DartifactId=test -DarchetypeArtifac
                 <artifactId>mybatis</artifactId>
                 <version>${mybatis.version}</version>
             </dependency>
-            
+
             <!-- 测试相关 -->
             <dependency>
                 <groupId>junit</groupId>
@@ -1593,7 +1593,7 @@ mvn archetype:generate -DgroupId=com.xinzhi -DartifactId=test -DarchetypeArtifac
             </dependency>
         </dependencies>
     </dependencyManagement>
-    
+
     <!-- 插件管理 -->
     <build>
         <pluginManagement>
@@ -1611,7 +1611,7 @@ mvn archetype:generate -DgroupId=com.xinzhi -DartifactId=test -DarchetypeArtifac
             </plugins>
         </pluginManagement>
     </build>
-    
+
 </project>
 ```
 
@@ -1623,11 +1623,11 @@ mvn archetype:generate -DgroupId=com.xinzhi -DartifactId=test -DarchetypeArtifac
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    
+
     <modelVersion>4.0.0</modelVersion>
-    
+
     <!-- 继承父模块 -->
     <parent>
         <groupId>com.xinzhi</groupId>
@@ -1636,11 +1636,11 @@ mvn archetype:generate -DgroupId=com.xinzhi -DartifactId=test -DarchetypeArtifac
         <!-- 相对路径，指向父模块的pom.xml -->
         <relativePath>../pom.xml</relativePath>
     </parent>
-    
+
     <!-- 子模块的坐标 -->
     <artifactId>module-dao</artifactId>
     <packaging>jar</packaging>
-    
+
     <!-- 子模块的依赖 -->
     <dependencies>
         <!-- 引用父模块中管理的依赖，无需指定版本 -->
@@ -1658,7 +1658,7 @@ mvn archetype:generate -DgroupId=com.xinzhi -DartifactId=test -DarchetypeArtifac
             <scope>test</scope>
         </dependency>
     </dependencies>
-    
+
 </project>
 ```
 
@@ -1675,12 +1675,12 @@ mvn archetype:generate -DgroupId=com.xinzhi -DartifactId=test -DarchetypeArtifac
 
 #### （2）与`<dependencies>`的区别
 
-| 特性 | `<dependencies>` | `<dependencyManagement>` |
-|------|------------------|--------------------------|
-| 是否引入依赖 | 直接引入到项目中 | 只声明，不引入 |
-| 继承性 | 子模块自动继承所有依赖 | 子模块需显式声明才继承 |
-| 版本管理 | 每个依赖都需指定版本 | 统一管理版本，子模块无需指定 |
-| 使用场景 | 项目确实需要的依赖 | 多模块项目的版本统一管理 |
+| 特性         | `<dependencies>`       | `<dependencyManagement>`     |
+| ------------ | ---------------------- | ---------------------------- |
+| 是否引入依赖 | 直接引入到项目中       | 只声明，不引入               |
+| 继承性       | 子模块自动继承所有依赖 | 子模块需显式声明才继承       |
+| 版本管理     | 每个依赖都需指定版本   | 统一管理版本，子模块无需指定 |
+| 使用场景     | 项目确实需要的依赖     | 多模块项目的版本统一管理     |
 
 #### （3）实际应用示例
 
@@ -1697,7 +1697,7 @@ mvn archetype:generate -DgroupId=com.xinzhi -DartifactId=test -DarchetypeArtifac
             <type>pom</type>
             <scope>import</scope>
         </dependency>
-        
+
         <!-- 项目内部模块依赖 -->
         <dependency>
             <groupId>com.xinzhi</groupId>
@@ -1722,7 +1722,7 @@ mvn archetype:generate -DgroupId=com.xinzhi -DartifactId=test -DarchetypeArtifac
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
-    
+
     <!-- 引用项目内其他模块 -->
     <dependency>
         <groupId>com.xinzhi</groupId>

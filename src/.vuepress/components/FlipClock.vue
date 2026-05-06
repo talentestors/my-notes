@@ -12,40 +12,40 @@
 </template>
 
 <script>
-import FlipItem from './FlipItem.vue'
-import { getTimeArr } from './utils'
+import FlipItem from "./FlipItem.vue";
+import { getTimeArr } from "./utils";
 
 export default {
   components: {
-    FlipItem
+    FlipItem,
   },
   data() {
     return {
-      timeArr: getTimeArr()
-    }
+      timeArr: getTimeArr(),
+    };
   },
   mounted() {
-    this.startTimer()
+    this.startTimer();
   },
   beforeDestroy() {
-    this.stopTimer()
+    this.stopTimer();
   },
   methods: {
     startTimer() {
-      this.stopTimer()
+      this.stopTimer();
       this.timer = setTimeout(() => {
-        this.timeArr = getTimeArr()
-        this.startTimer()
-      }, 1000)
+        this.timeArr = getTimeArr();
+        this.startTimer();
+      }, 1000);
     },
     stopTimer() {
-      clearTimeout(this.timer)
-    }
-  }
-}
+      clearTimeout(this.timer);
+    },
+  },
+};
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .clock-container {
   display: flex;
   align-items: center;
@@ -60,7 +60,7 @@ export default {
 
   &::after,
   &::before {
-    content: '';
+    content: "";
     display: block;
     width: 10px;
     height: 10px;

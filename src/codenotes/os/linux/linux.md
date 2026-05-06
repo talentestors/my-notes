@@ -1016,7 +1016,7 @@ ydl.txt: UTF-8 Unicode text
 
 #### 1、yum
 
-*YUM*（yellowdog updater modified）是一个 RPM 系统的自动更新和软件包安装/卸载器。它可以自动计算依赖和找出想要安装的软件包。
+_YUM_（yellowdog updater modified）是一个 RPM 系统的自动更新和软件包安装/卸载器。它可以自动计算依赖和找出想要安装的软件包。
 
 yum 安装软件的流程如下：
 

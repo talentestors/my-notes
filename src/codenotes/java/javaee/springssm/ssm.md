@@ -1039,10 +1039,7 @@ const request = axios.create({
 <template>
   <el-container>
     <el-aside width="790px"
-      ><el-image
-        fit="fill"
-        :src="require('@/assets/image/login_left.png')"
-      ></el-image
+      ><el-image fit="fill" :src="require('@/assets/image/login_left.png')"></el-image
     ></el-aside>
     <el-main>
       <el-card class="box-card login-card">
@@ -1050,10 +1047,7 @@ const request = axios.create({
         <span class="login-tip">welcome 欢迎登陆</span>
         <el-form ref="user" :model="user" label-width="80px">
           <el-form-item label="用户名" prop="username">
-            <el-input
-              v-model="user.username"
-              placeholder="请输入用户"
-            ></el-input>
+            <el-input v-model="user.username" placeholder="请输入用户"></el-input>
           </el-form-item>
           <el-form-item label="密码" prop="password">
             <el-input
@@ -1123,7 +1117,9 @@ export default {
   width: 319px;
   height: 70px;
   font-size: 30px;
-  font-family: PingFangSC-Regular, PingFang SC;
+  font-family:
+    PingFangSC-Regular,
+    PingFang SC;
   font-weight: 400;
   color: #999999;
   line-height: 90px;
@@ -1187,12 +1183,8 @@ import "@/assets/style/common.css";
                 <span>系统管理</span>
               </template>
 
-              <el-menu-item index="1-1" @click="open('user')">
-                用户管理</el-menu-item
-              >
-              <el-menu-item index="1-2" @click="open('role')">
-                角色管理</el-menu-item
-              >
+              <el-menu-item index="1-1" @click="open('user')"> 用户管理</el-menu-item>
+              <el-menu-item index="1-2" @click="open('role')"> 角色管理</el-menu-item>
             </el-sub-menu>
             <el-menu-item index="2">
               <el-icon></el-icon>
@@ -1203,9 +1195,7 @@ import "@/assets/style/common.css";
       </el-row>
     </el-aside>
     <el-container>
-      <el-header
-        v-html="'<button onclick=\'alert(1)\'>我是攻击者的按钮</button>'"
-      ></el-header>
+      <el-header v-html="'<button onclick=\'alert(1)\'>我是攻击者的按钮</button>'"></el-header>
       <!--进行路由跳转-->
       <el-main>
         <router-view />
@@ -2003,7 +1993,7 @@ request.interceptors.request.use(
   function (error) {
     // 对请求错误做些什么
     return Promise.reject(error);
-  }
+  },
 );
 ```
 
@@ -2067,12 +2057,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 **选项式 api 的写法：**
 
 ```html
-<el-form
-  ref="formRef"
-  :rules="loginRules"
-  :model="user"
-  label-width="60px"
-></el-form>
+<el-form ref="formRef" :rules="loginRules" :model="user" label-width="60px"></el-form>
 ```
 
 定义规则，定义在 data 中即可：
@@ -2475,9 +2460,7 @@ for (let key in directives) {
 以后所有的组件都可以使用了。
 
 ```html
-<el-button v-hasPermi="['system:user:edit']" type="primary" :icon="Edit"
-  >编辑</el-button
->
+<el-button v-hasPermi="['system:user:edit']" type="primary" :icon="Edit">编辑</el-button>
 ```
 
 ## 七、日志的处理

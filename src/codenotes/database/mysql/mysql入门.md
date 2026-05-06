@@ -82,51 +82,51 @@ mysql -uroot -p root
 >
 > 1. 启动 MySQL 服务：
 >
->     首先，确保 MySQL 服务器在 WSL 中已经正确启动。你可以使用以下命令来启动 MySQL 服务：
+>    首先，确保 MySQL 服务器在 WSL 中已经正确启动。你可以使用以下命令来启动 MySQL 服务：
 >
->     ```bash
->     sudo service mysql start
->     ```
+>    ```bash
+>    sudo service mysql start
+>    ```
 >
->     或者使用以下命令：
+>    或者使用以下命令：
 >
->     ```bash
->     sudo systemctl start mysql
->     ```
+>    ```bash
+>    sudo systemctl start mysql
+>    ```
 >
 > 2. 检查 MySQL 配置：
 >
->     确保 MySQL 的配置文件中没有错误。MySQL 的配置文件通常位于`/etc/mysql/mysql.conf.d/`目录下。你可以检查该目录下的配置文件，确保 MySQL 的配置是正确的。
+>    确保 MySQL 的配置文件中没有错误。MySQL 的配置文件通常位于`/etc/mysql/mysql.conf.d/`目录下。你可以检查该目录下的配置文件，确保 MySQL 的配置是正确的。
 >
 > 3. 检查 MySQL 套接字文件路径：
 >
->     错误信息中提到了套接字文件路径，确保该路径正确。默认情况下，MySQL 套接字文件的路径是`/var/run/mysqld/mysqld.sock`，但也可能因配置不同而有所不同。你可以在 MySQL 配置文件中查找套接字文件的路径，然后将其与错误信息中的路径进行比较。
+>    错误信息中提到了套接字文件路径，确保该路径正确。默认情况下，MySQL 套接字文件的路径是`/var/run/mysqld/mysqld.sock`，但也可能因配置不同而有所不同。你可以在 MySQL 配置文件中查找套接字文件的路径，然后将其与错误信息中的路径进行比较。
 >
 > 4. 确保 MySQL 正在运行：
 >
->     使用以下命令检查 MySQL 服务器是否正在运行：
+>    使用以下命令检查 MySQL 服务器是否正在运行：
 >
->     ```bash
->     sudo service mysql status
->     ```
+>    ```bash
+>    sudo service mysql status
+>    ```
 >
->     或者
+>    或者
 >
->     ```bash
->     sudo systemctl status mysql
->     ```
+>    ```bash
+>    sudo systemctl status mysql
+>    ```
 >
->     如果 MySQL 没有运行，你可以尝试重新启动它：
+>    如果 MySQL 没有运行，你可以尝试重新启动它：
 >
->     ```bash
->     sudo service mysql restart
->     ```
+>    ```bash
+>    sudo service mysql restart
+>    ```
 >
->     或者
+>    或者
 >
->     ```bash
->     sudo systemctl restart mysql
->     ```
+>    ```bash
+>    sudo systemctl restart mysql
+>    ```
 >
 > 如果上述步骤没有解决问题，你可能需要更多的信息来排除问题。你可以查看 MySQL 的错误日志，通常位于 MySQL 的数据目录下，以查看更多有关连接问题的信息。如果问题仍然存在，你可能需要检查 WSL 的网络配置以确保 MySQL 可以通过套接字连接。
 
@@ -536,33 +536,33 @@ desc authors;
 
 - 修改表之添加列:`ALTER TABLE 表名 add (列名 列类型，...，列名 列类型);`
 
-    ```sql
-    alter table author add (hobby varchar(20),address varchar(50));
-    ```
+  ```sql
+  alter table author add (hobby varchar(20),address varchar(50));
+  ```
 
 - 修改表之修改列类型:`ALTER TABLE 表名 MODIFY 列名 列的新类型;`
 
-    ```sql
-    alter table author modify address varchar(100);
-    ```
+  ```sql
+  alter table author modify address varchar(100);
+  ```
 
 - 修改表之列名称列类型一起修改:`ALTER TABLE 表名 CHANGE 原列名 新列名 列名类型;`
 
-    ```sql
-    alter table author change address addr varchar(60);
-    ```
+  ```sql
+  alter table author change address addr varchar(60);
+  ```
 
 - 修改表之删除列:`ALTER TABLE 表名 DROP 列名;`
 
-    ```sql
-    alter table author drop addr;
-    ```
+  ```sql
+  alter table author drop addr;
+  ```
 
 - 修改表之修改表名:`ALTER TABLE 表名 RENAME TO 新表名`
 
-    ```sql
-    alter table author rename authors;
-    ```
+  ```sql
+  alter table author rename authors;
+  ```
 
 - 删除表：
 
@@ -830,63 +830,63 @@ select * from student where name like '张%';
 
 - 升序: ascend
 
-    ```sql
-    select * form 表名 order by 列名 asc;     asc为默认值可以不写
-    ```
+  ```sql
+  select * form 表名 order by 列名 asc;     asc为默认值可以不写
+  ```
 
 - 降序:descend
 
-    ```sql
-    select * from 表名 order by 列名 desc;
-    ```
+  ```sql
+  select * from 表名 order by 列名 desc;
+  ```
 
 - 使用多列作为排序条件： 当第一列排序条件相同时，根据第二列排序条件排序(当第二列依旧相同时可视情况根据第三例条件排序)：
 
-    ```sql
-    select * from 表名 order by 列名1 asc, 列名2 desc;
-    ```
+  ```sql
+  select * from 表名 order by 列名1 asc, 列名2 desc;
+  ```
 
-    意思是当列名 1 的值相同时按照列名 2 的值降序排。
+  意思是当列名 1 的值相同时按照列名 2 的值降序排。
 
 #### 3、聚合函数
 
 - 1.count：查询满足条件的记录行数，后边可以跟 where 条件：
 
-    如果使用的列值为空，不会进行统计，
+  如果使用的列值为空，不会进行统计，
 
-    我们如果统计真实的表记录条数，最好不要用可以为空的列：
+  我们如果统计真实的表记录条数，最好不要用可以为空的列：
 
-    count(\*) count(id) count(1)
+  count(\*) count(id) count(1)
 
-    ```sql
-    select count(列名) from 表名;
+  ```sql
+  select count(列名) from 表名;
 
-    select max(age) from student where id > 5;
-    ```
+  select max(age) from student where id > 5;
+  ```
 
 - 2.max：查询满足条件的记录中的最大值，后边可以跟 where 条件：
 
-    ```sql
-    select max(列名) from 表名;
-    ```
+  ```sql
+  select max(列名) from 表名;
+  ```
 
 - 3.min：查询满足条件的记录中的最大值，后边可以跟 where 条件：
 
-    ```sql
-    select min(列名) from 表名;
-    ```
+  ```sql
+  select min(列名) from 表名;
+  ```
 
 - 4.sum：查询满足条件的记录中的值的和，后边可以跟 where 条件：
 
-    ```sql
-    select sum(列名) from 表名;
-    ```
+  ```sql
+  select sum(列名) from 表名;
+  ```
 
 - 5.avg：查询满足条件的记录中的值的平均数，后边可以跟 where 条件：
 
-    ```sql
-    select avg(列名) from 表名;
-    ```
+  ```sql
+  select avg(列名) from 表名;
+  ```
 
 #### 4、分组查询
 
@@ -1389,7 +1389,7 @@ SELECT NULLIF('abc','abcd');    #返回abc
 
 - `CASE [test] WHEN[val1] THEN [result]...ELSE [default] END`：
 
-    如果 test 和 valN 相等，则返回 resultN，否则返回 default
+  如果 test 和 valN 相等，则返回 resultN，否则返回 default
 
 创建表和数据如下：
 

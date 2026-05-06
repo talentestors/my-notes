@@ -6,11 +6,6 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true
   },
-  "include": [
-    "src/.vuepress/**/*.ts",
-    "src/.vuepress/**/*.vue"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src/.vuepress/**/*.ts", "src/.vuepress/**/*.vue"],
+  "exclude": ["node_modules"]
 }

@@ -702,7 +702,7 @@ System.out.println(Math.abs(-10)); // 输出10
 >
 > ```java
 > import static java.lang.Math.*;
-> 
+>
 > public class MathExample {
 >     public static void main(String[] args) {
 >         System.out.println("最大值: " + max(5, 10)); // 使用静态导入的 max 方法
@@ -718,12 +718,13 @@ System.out.println(Math.abs(-10)); // 输出10
 > ```java
 > import static java.lang.Math.PI;
 > import static System.out; // 导入 System.out
-> 
+>
 > public class MathExample {
 >     public static void main(String[] args) {
 >         out.println("圆周率: " + PI); // 使用静态导入的 PI 常量
 >     }
 > }
+> ```
 
 ### 2、BigDecimal
 

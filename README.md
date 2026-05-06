@@ -28,13 +28,13 @@ Build:
 
 Update:
 
-- `pnpm run docs:update-package`  
+- `pnpm run docs:update-package`
 
 > [!TIP]
 > If Node.js memory is not enough, you can set the environment variable
-> 
+>
 > `NODE_OPTIONS=--max_old_space_size=4096`
-> 
+>
 > or
-> 
+>
 > `NODE_OPTIONS=--max_old_space_size=8192`

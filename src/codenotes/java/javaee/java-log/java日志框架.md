@@ -2634,13 +2634,13 @@ Let us begin by discussing the initialization steps that logback follows to try 
 
 就可以了，下面咱们逐一分析各个参数。
 
-| className    | 想配置访问日志？这就必须得写成这样。                                                                                         |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| directory    | 这个东西是日志文件放置的目录，在 tomcat 下面有个 logs 文件夹，那里面是专门放置日志文件的，当然你也可以修改，我就给改成了 D:\ |
-| prefix       | 这个是日志文件的名称前缀，我的日志名称为 localhost_access_log.2007-09-22.txt，前面的前缀就是这个 localhost_access_log        |
-| suffix       | 这就是后缀名啦，可以改成别的                                                                                                 |
-| pattern      | 这个是最主要的参数了，具体的咱们下面讲，这个参数的内容比较丰富。                                                             |
-| resolveHosts | 如果这个值是 true 的话，tomcat 会将这个服务器 IP 地址通过 DNS 转换为主机名，如果是 false，就直接写服务器 IP 地址啦           |
+| className    | 想配置访问日志？这就必须得写成这样。                                                                                          |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| directory    | 这个东西是日志文件放置的目录，在 tomcat 下面有个 logs 文件夹，那里面是专门放置日志文件的，当然你也可以修改，我就给改成了 D:\  |
+| prefix       | 这个是日志文件的名称前缀，我的日志名称为 localhost_access_log.2007-09-22.txt，前面的前缀就是这个 localhost_access_log         |
+| suffix       | 这就是后缀名啦，可以改成别的                                                                                                  |
+| pattern      | 这个是最主要的参数了，具体的咱们下面讲，这个参数的内容比较丰富。                                                              |
+| resolveHosts | 如果这个值是 true 的话，tomcat 会将这个服务器 IP 地址通过 DNS 转换为主机名，如果是 false，就直接写服务器 IP 地址啦            |
 
 To use logback-access with Tomcat, after downloading the logback distribution, place the files _logback-core-1.3.0-alpha10.jar_ and _logback-access-1.3.0-alpha10.jar_ under `$TOMCAT_HOME/lib/` directory, where `$TOMCAT_HOME` is the folder where you have installed Tomcat.
 

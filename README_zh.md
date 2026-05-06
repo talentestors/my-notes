@@ -28,14 +28,14 @@ corepack enable
 
 更新：
 
-- `pnpm run docs:update-package`  
+- `pnpm run docs:update-package`
 
 > [!TIP]
 >
 > 如果nodejs缓存不够，可以设置环境变量
-> 
+>
 > `NODE_OPTIONS=--max_old_space_size=4096`
 >
 > 或者
-> 
+>
 > `NODE_OPTIONS=--max_old_space_size=8192`

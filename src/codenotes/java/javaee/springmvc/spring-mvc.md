@@ -42,9 +42,9 @@ timeline: false
 首先用户的请求会到达 Servlet，然后根据请求调用相应的 JavaBean，并把所有的显示结果交给 JSP 去完成，这样的模式我们就称为 MVC 模式：
 
 - **M 代表 模型（Model）**
-    模型是什么呢？ 完成具体的业务，进行数据的查询。
+  模型是什么呢？ 完成具体的业务，进行数据的查询。
 - **V 代表 视图（View）**
-    视图是什么呢？ 就是用来做展示的，比如我们学过的 JSP 技术，用来展示模型中的数据。
+  视图是什么呢？ 就是用来做展示的，比如我们学过的 JSP 技术，用来展示模型中的数据。
 - **C 代表 控制器（controller）** 控制器是什么？ 控制器的作用就是搜集页面传来的原始数据，或者调用模型获得数据交给视图层处理，Servlet 扮演的就是这样的角色。
 
 Spring MVC 的架构
@@ -340,7 +340,7 @@ public class FirstController implements Controller {
 
 ```html
 <body>
-    ${hellomvc}
+  ${hellomvc}
 </body>
 ```
 
@@ -1160,33 +1160,33 @@ http://localhost:8080/app/hellomvc?array=1&array=3
 
 ```html
 <form action="user/queryParam" method="post">
-    排序字段：<br />
-    <input type="text" name="sortField" />
-    <hr />
-    数组：<br />
-    <input type="text" name="ids[0]" /> <br />
-    <input type="text" name="ids[1]" />
-    <hr />
-    user对象：<br />
-    <input type="text" name="user.username" placeholder="姓名" /><br />
-    <input type="text" name="user.password" placeholder="密码" />
-    <hr />
-    list集合<br />
-    第一个元素：<br />
-    <input type="text" name="userList[0].username" placeholder="姓名" /><br />
-    <input type="text" name="userList[0].password" placeholder="密码" /><br />
-    第二个元素： <br />
-    <input type="text" name="userList[1].username" placeholder="姓名" /><br />
-    <input type="text" name="userList[1].password" placeholder="密码" />
-    <hr />
-    map集合<br />
-    第一个元素：<br />
-    <input type="text" name="userMap['user1'].username" placeholder="姓名" /><br />
-    <input type="text" name="userMap['user1'].password" placeholder="密码" /><br />
-    第二个元素：<br />
-    <input type="text" name="userMap['user2'].username" placeholder="姓名" /><br />
-    <input type="text" name="userMap['user2'].password" placeholder="密码" /><br />
-    <input type="submit" value="提交" />
+  排序字段：<br />
+  <input type="text" name="sortField" />
+  <hr />
+  数组：<br />
+  <input type="text" name="ids[0]" /> <br />
+  <input type="text" name="ids[1]" />
+  <hr />
+  user对象：<br />
+  <input type="text" name="user.username" placeholder="姓名" /><br />
+  <input type="text" name="user.password" placeholder="密码" />
+  <hr />
+  list集合<br />
+  第一个元素：<br />
+  <input type="text" name="userList[0].username" placeholder="姓名" /><br />
+  <input type="text" name="userList[0].password" placeholder="密码" /><br />
+  第二个元素： <br />
+  <input type="text" name="userList[1].username" placeholder="姓名" /><br />
+  <input type="text" name="userList[1].password" placeholder="密码" />
+  <hr />
+  map集合<br />
+  第一个元素：<br />
+  <input type="text" name="userMap['user1'].username" placeholder="姓名" /><br />
+  <input type="text" name="userMap['user1'].password" placeholder="密码" /><br />
+  第二个元素：<br />
+  <input type="text" name="userMap['user2'].username" placeholder="姓名" /><br />
+  <input type="text" name="userMap['user2'].password" placeholder="密码" /><br />
+  <input type="submit" value="提交" />
 </form>
 ```
 
@@ -2434,60 +2434,60 @@ Spring MVC 对 RESTful 应用提供了以下支持
 ```html
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-    const instance = axios.create({
-        baseURL: "http://127.0.0.1:8088/app/",
+  const instance = axios.create({
+    baseURL: "http://127.0.0.1:8088/app/",
+  });
+  // 为给定 ID 的 user 创建请求
+  instance
+    .get("goods")
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
     });
-    // 为给定 ID 的 user 创建请求
-    instance
-        .get("goods")
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
 
-    instance
-        .get("goods/1")
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+  instance
+    .get("goods/1")
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
-    instance
-        .post("goods", {
-            name: "洗发露",
-            price: 25454,
-        })
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+  instance
+    .post("goods", {
+      name: "洗发露",
+      price: 25454,
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
-    instance
-        .put("goods", {
-            name: "洗发露",
-            price: 25454,
-        })
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+  instance
+    .put("goods", {
+      name: "洗发露",
+      price: 25454,
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
-    instance
-        .delete("goods/1")
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+  instance
+    .delete("goods/1")
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 </script>
 ```
 
@@ -2495,45 +2495,45 @@ Spring MVC 对 RESTful 应用提供了以下支持
 
 ```javascript
 $.ajax({
-    type: "GET",
-    url: "http://localhost:8080/springmvc/user/rest/1",
-    dataType: "json",
-    success: function (data) {
-        console.log("get请求！---------------------");
-        console.log(data);
-    },
+  type: "GET",
+  url: "http://localhost:8080/springmvc/user/rest/1",
+  dataType: "json",
+  success: function (data) {
+    console.log("get请求！---------------------");
+    console.log(data);
+  },
 });
 
 $.ajax({
-    type: "DELETE",
-    url: "http://localhost:8080/springmvc/user/rest/1",
-    dataType: "json",
-    success: function (data) {
-        console.log("delete请求！---------------------");
-        console.log(data);
-    },
+  type: "DELETE",
+  url: "http://localhost:8080/springmvc/user/rest/1",
+  dataType: "json",
+  success: function (data) {
+    console.log("delete请求！---------------------");
+    console.log(data);
+  },
 });
 
 $.ajax({
-    type: "put",
-    url: "http://localhost:8080/springmvc/user/rest/1",
-    dataType: "json",
-    data: { id: 12, username: "楠哥", password: "123" },
-    success: function (data) {
-        console.log("get请求！---------------------");
-        console.log(data);
-    },
+  type: "put",
+  url: "http://localhost:8080/springmvc/user/rest/1",
+  dataType: "json",
+  data: { id: 12, username: "楠哥", password: "123" },
+  success: function (data) {
+    console.log("get请求！---------------------");
+    console.log(data);
+  },
 });
 
 $.ajax({
-    type: "post",
-    url: "http://localhost:8080/springmvc/user/rest",
-    dataType: "json",
-    data: { id: 12, username: "楠哥", password: "123" },
-    success: function (data) {
-        console.log("get请求！---------------------");
-        console.log(data);
-    },
+  type: "post",
+  url: "http://localhost:8080/springmvc/user/rest",
+  dataType: "json",
+  data: { id: 12, username: "楠哥", password: "123" },
+  success: function (data) {
+    console.log("get请求！---------------------");
+    console.log(data);
+  },
 });
 ```
 
@@ -2558,8 +2558,8 @@ $.ajax({
 
 ```html
 <form action="" enctype="multipart/form-data" method="post">
-    <input type="file" name="file" />
-    <input type="submit" />
+  <input type="file" name="file" />
+  <input type="submit" />
 </form>
 ```
 
@@ -2643,8 +2643,8 @@ CommonsMultipartFile 的常用方法：
 
 ```html
 <form action="/upload" enctype="multipart/form-data" method="post">
-    <input type="file" name="file" />
-    <input type="submit" value="upload" />
+  <input type="file" name="file" />
+  <input type="submit" value="upload" />
 </form>
 ```
 
@@ -2932,116 +2932,116 @@ public class WebSocketConfig implements WebSocketConfigurer{
 ```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-CN">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>websocket调试页面</title>
-    </head>
-    <body>
-        <div style="float: left; padding: 20px">
-            <strong>location:</strong> <br />
-            <input type="text" id="serverUrl" size="35" value="" /> <br />
-            <button onclick="connect()">connect</button>
-            <button onclick="wsclose()">disConnect</button>
-            <br />
-            <strong>message:</strong> <br />
-            <input id="txtMsg" type="text" size="50" />
-            <br />
-            <button onclick="sendEvent()">发送</button>
-        </div>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>websocket调试页面</title>
+  </head>
+  <body>
+    <div style="float: left; padding: 20px">
+      <strong>location:</strong> <br />
+      <input type="text" id="serverUrl" size="35" value="" /> <br />
+      <button onclick="connect()">connect</button>
+      <button onclick="wsclose()">disConnect</button>
+      <br />
+      <strong>message:</strong> <br />
+      <input id="txtMsg" type="text" size="50" />
+      <br />
+      <button onclick="sendEvent()">发送</button>
+    </div>
 
-        <div
-            style="float: left; margin-left: 20px; padding-left: 20px; width: 350px; border-left: solid 1px #cccccc;"
-        >
-            <strong>消息记录</strong>
-            <div
-                style="border: solid 1px #999999;border-top-color: #CCCCCC;border-left-color: #CCCCCC; padding: 5px;width: 100%;height: 172px;overflow-y: scroll;"
-                id="echo-log"
-            ></div>
-            <button onclick="clearLog()" style="position: relative; top: 3px;">清除消息</button>
-        </div>
-    </body>
-    <!-- 下面是h5原生websocket js写法 -->
-    <script type="text/javascript">
-        let output;
-        let websocket;
+    <div
+      style="float: left; margin-left: 20px; padding-left: 20px; width: 350px; border-left: solid 1px #cccccc;"
+    >
+      <strong>消息记录</strong>
+      <div
+        style="border: solid 1px #999999;border-top-color: #CCCCCC;border-left-color: #CCCCCC; padding: 5px;width: 100%;height: 172px;overflow-y: scroll;"
+        id="echo-log"
+      ></div>
+      <button onclick="clearLog()" style="position: relative; top: 3px;">清除消息</button>
+    </div>
+  </body>
+  <!-- 下面是h5原生websocket js写法 -->
+  <script type="text/javascript">
+    let output;
+    let websocket;
 
-        function connect() {
-            //初始化连接
-            output = document.getElementById("echo-log");
-            let inputNode = document.getElementById("serverUrl");
-            let wsUri = inputNode.value;
-            try {
-                websocket = new WebSocket(wsUri);
-            } catch (ex) {
-                console.log(ex);
-                alert("对不起websocket连接异常");
-            }
+    function connect() {
+      //初始化连接
+      output = document.getElementById("echo-log");
+      let inputNode = document.getElementById("serverUrl");
+      let wsUri = inputNode.value;
+      try {
+        websocket = new WebSocket(wsUri);
+      } catch (ex) {
+        console.log(ex);
+        alert("对不起websocket连接异常");
+      }
 
-            connecting();
-            window.addEventListener("load", connecting, false);
-        }
+      connecting();
+      window.addEventListener("load", connecting, false);
+    }
 
-        function connecting() {
-            websocket.onopen = function (evt) {
-                onOpen(evt);
-            };
-            websocket.onclose = function (evt) {
-                onClose(evt);
-            };
-            websocket.onmessage = function (evt) {
-                onMessage(evt);
-            };
-            websocket.onerror = function (evt) {
-                onError(evt);
-            };
-        }
+    function connecting() {
+      websocket.onopen = function (evt) {
+        onOpen(evt);
+      };
+      websocket.onclose = function (evt) {
+        onClose(evt);
+      };
+      websocket.onmessage = function (evt) {
+        onMessage(evt);
+      };
+      websocket.onerror = function (evt) {
+        onError(evt);
+      };
+    }
 
-        function sendEvent() {
-            let msg = document.getElementById("txtMsg").value;
-            doSend(msg);
-        }
+    function sendEvent() {
+      let msg = document.getElementById("txtMsg").value;
+      doSend(msg);
+    }
 
-        //连接上事件
-        function onOpen(evt) {
-            writeToScreen("CONNECTED");
-            doSend("WebSocket 已经连接成功！");
-        }
+    //连接上事件
+    function onOpen(evt) {
+      writeToScreen("CONNECTED");
+      doSend("WebSocket 已经连接成功！");
+    }
 
-        //关闭事件
-        function onClose(evt) {
-            writeToScreen("连接已经断开！");
-        }
+    //关闭事件
+    function onClose(evt) {
+      writeToScreen("连接已经断开！");
+    }
 
-        //后端推送事件
-        function onMessage(evt) {
-            writeToScreen('<span style="color: blue;">服务器: ' + evt.data + "</span>");
-        }
+    //后端推送事件
+    function onMessage(evt) {
+      writeToScreen('<span style="color: blue;">服务器: ' + evt.data + "</span>");
+    }
 
-        function onError(evt) {
-            writeToScreen('<span style="color: red;">异常信息:</span> ' + evt.data);
-        }
+    function onError(evt) {
+      writeToScreen('<span style="color: red;">异常信息:</span> ' + evt.data);
+    }
 
-        function doSend(message) {
-            writeToScreen("客户端A: " + message);
-            websocket.send(message);
-        }
+    function doSend(message) {
+      writeToScreen("客户端A: " + message);
+      websocket.send(message);
+    }
 
-        //清除div的内容
-        function clearLog() {
-            output.innerHTML = "";
-        }
+    //清除div的内容
+    function clearLog() {
+      output.innerHTML = "";
+    }
 
-        //浏览器主动断开连接
-        function wsclose() {
-            websocket.close();
-        }
+    //浏览器主动断开连接
+    function wsclose() {
+      websocket.close();
+    }
 
-        function writeToScreen(message) {
-            let pre = document.createElement("p");
-            pre.innerHTML = message;
-            output.appendChild(pre);
-        }
-    </script>
+    function writeToScreen(message) {
+      let pre = document.createElement("p");
+      pre.innerHTML = message;
+      output.appendChild(pre);
+    }
+  </script>
 </html>
 ```
 

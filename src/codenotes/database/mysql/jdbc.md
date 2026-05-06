@@ -175,7 +175,7 @@ jdbc:mysql://localhost:3306/ydlclass?serverTimezone=GMT%2B8&useUnicode=true&char
 - Oracle 的连接 URL 编写方式：**jdbc:oracle:thin:@主机名称:oracle 服务端口号:数据库名称**
   - `jdbc:oracle:thin:@localhost:1521:ydlclass`
 
-- SQLServer 的连接 URL 编写方式：**jdbc:sqlserver://主机名称:sqlserver 服务端口号:DatabaseName=数据库名称** 
+- SQLServer 的连接 URL 编写方式：**jdbc:sqlserver://主机名称:sqlserver 服务端口号:DatabaseName=数据库名称**
   - `jdbc:sqlserver://localhost:1433:DatabaseName=ydlclass`
 
 ### 三、用户名和密码
@@ -213,7 +213,7 @@ public void testConnection1() throws Exception{
 }
 ```
 
->  [!TIP]
+> [!TIP]
 >
 > #### 解决 java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
 >
@@ -229,7 +229,7 @@ public void testConnection1() throws Exception{
 > ##### 解决方案
 >
 > ###### 1. 修改 JDBC URL
-> 
+>
 > 在数据库连接字符串中添加 `allowPublicKeyRetrieval=true` 参数，使客户端能够从服务器检索公钥。
 >
 > ```java
@@ -263,7 +263,7 @@ public void testConnection1() throws Exception{
 >
 > ```ini
 > [mysqld]
-> 
+>
 > default_authentication_plugin=mysql_native_password
 > ```
 >
@@ -271,7 +271,7 @@ public void testConnection1() throws Exception{
 >
 > `sudo systemctl restart mysql`
 >
-> 通过以上方法，可以解决 *Public key retrieval is not allowed* 错误，确保成功连接到 MySQL 数据库。
+> 通过以上方法，可以解决 _Public key retrieval is not allowed_ 错误，确保成功连接到 MySQL 数据库。
 
 #### 2、静态代码块
 
@@ -336,7 +336,7 @@ public void testConnection3() throws Exception{
 
 这就不得不提一下 spi 机制，我们仅仅是引入了这个 jar 包，他为什么会自动加载呢？
 
-SPI 全称 *Service Provider Interface*，是 Java 提供的一套用来被第三方实现或者扩展的 API，它可以用来启用框架扩展和替换组件。
+SPI 全称 _Service Provider Interface_，是 Java 提供的一套用来被第三方实现或者扩展的 API，它可以用来启用框架扩展和替换组件。
 
 ![img](./img/1713932324213-5eab2fc8-4f21-476f-bfa9-8c12b6e0d448.png)
 
@@ -1703,9 +1703,9 @@ maximumPoolSize=60
 >
 > ```java
 > public class DBUtil {
-> 
+>
 >     private final static ThreadLocal<Connection> threadLocal = new ThreadLocal<>();
-> 
+>
 >     // 创建数据源
 >     private final static DataSource dataSource;
 >     // 初始化
@@ -1713,7 +1713,7 @@ maximumPoolSize=60
 >         HikariConfig hikariConfig = new HikariConfig("/hikari.properties");
 >         dataSource = new HikariDataSource(hikariConfig);
 >     }
-> 
+>
 >     public static Connection getConnection(){
 >         // 首先从threadLocal中获取
 >         Connection conn = threadLocal.get();
@@ -1732,9 +1732,9 @@ maximumPoolSize=60
 >             }
 >         }
 >         return conn;
-> 
+>
 >     }
-> 
+>
 >         // 关闭所有的资源
 >     public static void closeAll(Connection connection, Statement statement, ResultSet resultSet){
 >         if(connection != null) {
@@ -1745,7 +1745,7 @@ maximumPoolSize=60
 >                 e.printStackTrace();
 >             }
 >         }
-> 
+>
 >         if(statement != null) {
 >             try {
 >                 statement.close();
@@ -1753,7 +1753,7 @@ maximumPoolSize=60
 >                 e.printStackTrace();
 >             }
 >         }
-> 
+>
 >         if(resultSet != null) {
 >             try {
 >                 resultSet.close();
@@ -1762,7 +1762,7 @@ maximumPoolSize=60
 >             }
 >         }
 >     }
-> 
+>
 > }
 > ```
 

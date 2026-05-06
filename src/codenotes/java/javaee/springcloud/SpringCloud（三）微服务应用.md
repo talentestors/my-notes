@@ -8,10 +8,10 @@
 
 回顾我们之前进行权限校验的原理，服务器是如何判定一个请求是来自哪个用户的呢？
 
-* 首先浏览器会向服务端发送请求，访问我们的网站。
-* 服务端收到请求后，会创建一个SESSION ID，并暂时存储在服务端，然后会发送给浏览器作为Cookie保存。
-* 之后浏览器会一直携带此Cookie访问服务器，这样在收到请求后，就能根据携带的Cookie中的SESSION ID判断是哪个用户了。
-* 这样服务端和浏览器之间可以轻松地建立会话了。
+- 首先浏览器会向服务端发送请求，访问我们的网站。
+- 服务端收到请求后，会创建一个SESSION ID，并暂时存储在服务端，然后会发送给浏览器作为Cookie保存。
+- 之后浏览器会一直携带此Cookie访问服务器，这样在收到请求后，就能根据携带的Cookie中的SESSION ID判断是哪个用户了。
+- 这样服务端和浏览器之间可以轻松地建立会话了。
 
 但是我们想一下，我们现在采用的是分布式的系统，那么在用户服务进行登录之后，其他服务比如图书服务和借阅服务，它们会知道用户登录了吗？
 
@@ -96,7 +96,7 @@ spring:
 
 在RestTemplate进行远程调用的时候，由于我们的请求没有携带对应SESSION的Cookie，所以导致验证失败，访问不成功，返回401，所以虽然这种方案看起来比较合理，但是在我们的实际使用中，还是存在一些不便的。
 
-***
+---
 
 ## OAuth 2.0 实现单点登录
 
@@ -181,7 +181,7 @@ spring:
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
-    
+
     <!--  OAuth2.0依赖，不再内置了，所以得我们自己指定一下版本  -->
     <dependency>
         <groupId>org.springframework.cloud</groupId>
@@ -217,7 +217,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin().permitAll();    //使用表单登录
     }
-  
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -226,7 +226,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(encoder)
                 .withUser("test").password(encoder.encode("123456")).roles("USER");
     }
-  
+
   	@Bean   //这里需要将AuthenticationManager注册为Bean，在OAuth配置中使用
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -545,8 +545,8 @@ public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
 这里有两个方案：
 
-* 像之前一样做SESSION统一存储
-* 设置context-path路径，每个服务单独设置，就不会打架了
+- 像之前一样做SESSION统一存储
+- 设置context-path路径，每个服务单独设置，就不会打架了
 
 但是这样依然没法解决服务间调用的问题，所以仅仅依靠单点登陆的模式不太行。
 
@@ -588,8 +588,8 @@ security:
 
 这是由于我们的请求头中没有携带Token信息，现在有两种方式可以访问此资源：
 
-* 在URL后面添加`access_token`请求参数，值为Token值
-* 在请求头中添加`Authorization`，值为`Bearer +Token值`
+- 在URL后面添加`access_token`请求参数，值为Token值
+- 在请求头中添加`Authorization`，值为`Bearer +Token值`
 
 我们先来试试看最简的一种：
 
@@ -735,7 +735,7 @@ public class WebConfiguration {
 ```java
 @FeignClient("user-service")
 public interface UserClient {
-    
+
     @RequestMapping("/user/{uid}")
     User getUserById(@PathVariable("uid") int uid);
 }
@@ -785,13 +785,13 @@ JWT令牌的格式如下：
 
 一个JWT令牌由3部分组成：标头(Header)、有效载荷(Payload)和签名(Signature)。在传输的时候，会将JWT的3部分分别进行Base64编码后用`.`进行连接形成最终需要传输的字符串。
 
-* 标头：包含一些元数据信息，比如JWT签名所使用的加密算法，还有类型，这里统一都是JWT。
-* 有效载荷：包括用户名称、令牌发布时间、过期时间、JWT ID等，当然我们也可以自定义添加字段，我们的用户信息一般都在这里存放。
-* 签名：首先需要指定一个密钥，该密钥仅仅保存在服务器中，保证不能让其他用户知道。然后使用Header中指定的算法对Header和Payload进行base64加密之后的结果通过密钥计算哈希值，然后就得出一个签名哈希。这个会用于之后验证内容是否被篡改。
+- 标头：包含一些元数据信息，比如JWT签名所使用的加密算法，还有类型，这里统一都是JWT。
+- 有效载荷：包括用户名称、令牌发布时间、过期时间、JWT ID等，当然我们也可以自定义添加字段，我们的用户信息一般都在这里存放。
+- 签名：首先需要指定一个密钥，该密钥仅仅保存在服务器中，保证不能让其他用户知道。然后使用Header中指定的算法对Header和Payload进行base64加密之后的结果通过密钥计算哈希值，然后就得出一个签名哈希。这个会用于之后验证内容是否被篡改。
 
 这里还是补充一下一些概念，因为很多东西都是我们之前没有接触过的：
 
-* **Base64：** 就是包括小写字母a-z、大写字母A-Z、数字0-9、符号"+"、"/"一共64个字符的字符集（末尾还有1个或多个`=`用来凑够字节数），任何的符号都可以转换成这个字符集中的字符，这个转换过程就叫做Base64编码，编码之后会生成只包含上述64个字符的字符串。相反，如果需要原本的内容，我们也可以进行Base64解码，回到原有的样子。
+- **Base64：** 就是包括小写字母a-z、大写字母A-Z、数字0-9、符号"+"、"/"一共64个字符的字符集（末尾还有1个或多个`=`用来凑够字节数），任何的符号都可以转换成这个字符集中的字符，这个转换过程就叫做Base64编码，编码之后会生成只包含上述64个字符的字符串。相反，如果需要原本的内容，我们也可以进行Base64解码，回到原有的样子。
 
   ```java
   public void test(){
@@ -799,14 +799,14 @@ JWT令牌的格式如下：
     	//Base64不只是可以对字符串进行编码，任何byte[]数据都可以，编码结果可以是byte[]，也可以是字符串
       String encodeStr = Base64.getEncoder().encodeToString(str.getBytes());
       System.out.println("Base64编码后的字符串："+encodeStr);
-  
+
       System.out.println("解码后的字符串："+new String(Base64.getDecoder().decode(encodeStr)));
   }
   ```
 
   注意Base64不是加密算法，只是一种信息的编码方式而已。
 
-* **加密算法：** 加密算法分为对称加密和非对称加密，其中**对称加密（Symmetric Cryptography）**比较好理解，就像一把锁配了两把钥匙一样，这两把钥匙你和别人都有一把，然后你们直接传递数据，都会把数据用锁给锁上，就算传递的途中有人把数据窃取了，也没办法解密，因为钥匙只有你和对方有，没有钥匙无法进行解密，但是这样有个问题，既然解密的关键在于钥匙本身，那么如果有人不仅窃取了数据，而且对方那边的治安也不好，于是顺手就偷走了钥匙，那你们之间发的数据不就凉凉了吗。
+- **加密算法：** 加密算法分为对称加密和非对称加密，其中**对称加密（Symmetric Cryptography）**比较好理解，就像一把锁配了两把钥匙一样，这两把钥匙你和别人都有一把，然后你们直接传递数据，都会把数据用锁给锁上，就算传递的途中有人把数据窃取了，也没办法解密，因为钥匙只有你和对方有，没有钥匙无法进行解密，但是这样有个问题，既然解密的关键在于钥匙本身，那么如果有人不仅窃取了数据，而且对方那边的治安也不好，于是顺手就偷走了钥匙，那你们之间发的数据不就凉凉了吗。
 
   因此，**非对称加密（Asymmetric Cryptography）**算法出现了，它并不是直接生成一把钥匙，而是生成一个公钥和一个私钥，私钥只能由你保管，而公钥交给对方或是你要发送的任何人都行，现在你需要把数据传给对方，那么就需要使用私钥进行加密，但是，这个数据只能使用对应的公钥进行解密，相反，如果对方需要给你发送数据，那么就需要用公钥进行加密，而数据只能使用私钥进行解密，这样的话就算对方的公钥被窃取，那么别人发给你的数据也没办法解密出来，因为需要私钥才能解密，而只有你才有私钥。
 
@@ -814,7 +814,7 @@ JWT令牌的格式如下：
 
   对称加密和非对称加密都有很多的算法，比如对称加密，就有：DES、IDEA、RC2，非对称加密有：RSA、DAS、ECC
 
-* **不可逆加密算法：** 常见的不可逆加密算法有MD5, HMAC, SHA-1, SHA-224, SHA-256, SHA-384, 和SHA-512, 其中SHA-224、SHA-256、SHA-384，和SHA-512我们可以统称为SHA2加密算法，SHA加密算法的安全性要比MD5更高，而SHA2加密算法比SHA1的要高，其中SHA后面的数字表示的是加密后的字符串长度，SHA1默认会产生一个160位的信息摘要。经过不可逆加密算法得到的加密结果，是无法解密回去的，也就是说加密出来是什么就是什么了。本质上，其就是一种哈希函数，用于对一段信息产生摘要，以**防止被篡改**。
+- **不可逆加密算法：** 常见的不可逆加密算法有MD5, HMAC, SHA-1, SHA-224, SHA-256, SHA-384, 和SHA-512, 其中SHA-224、SHA-256、SHA-384，和SHA-512我们可以统称为SHA2加密算法，SHA加密算法的安全性要比MD5更高，而SHA2加密算法比SHA1的要高，其中SHA后面的数字表示的是加密后的字符串长度，SHA1默认会产生一个160位的信息摘要。经过不可逆加密算法得到的加密结果，是无法解密回去的，也就是说加密出来是什么就是什么了。本质上，其就是一种哈希函数，用于对一段信息产生摘要，以**防止被篡改**。
 
   实际上这种算法就常常被用作信息摘要计算，同样的数据通过同样的算法计算得到的结果肯定也一样，而如果数据被修改，那么计算的结果肯定就不一样了。
 
@@ -892,7 +892,7 @@ security:
 
 ![image-20230307000101304](./img/4wFZx8kNY5WHnvy.png)
 
-***
+---
 
 ## Redis与分布式
 
@@ -908,8 +908,8 @@ security:
 
 这样的好处肯定是显而易见的：
 
-* 实现了读写分离，提高了性能。
-* 在写少读多的场景下，我们甚至可以安排很多个从节点，这样就能够大幅度的分担压力，并且就算挂掉一个，其他的也能使用。
+- 实现了读写分离，提高了性能。
+- 在写少读多的场景下，我们甚至可以安排很多个从节点，这样就能够大幅度的分担压力，并且就算挂掉一个，其他的也能使用。
 
 那么我们现在就来尝试实现一下，这里我们还是在Windows下进行测试，打开Redis文件夹，我们要开启两个Redis服务器，修改配置文件`redis.windows.conf`：
 
@@ -1319,7 +1319,7 @@ public static void main(String[] args) {
 
 注意，如果用于存放锁的Redis服务器挂了，那么肯定是会出问题的，这个时候我们就可以使用RedLock，它的思路是，在多个Redis服务器上保存锁，只需要超过半数的Redis服务器获取到锁，那么就真的获取到锁了，这样就算挂掉一部分节点，也能保证正常运行，这里就不做演示了。
 
-***
+---
 
 ## MySQL与分布式
 
@@ -1360,7 +1360,7 @@ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 现在我们重启一下MySQL服务：
 
 ```sh
-sudo systemctl restart mysql.service 
+sudo systemctl restart mysql.service
 ```
 
 现在我们首先来配置主库，主库只需要为我们刚刚创建好的用户分配一个主从复制的权限即可：
@@ -1447,11 +1447,11 @@ create table test  (
 
 那么问题来了，怎么个分散法？
 
-* **垂直拆分：** 我们的表和数据库都可以进行垂直拆分，所谓垂直拆分，就是将数据库中所有的表，按照业务功能拆分到各个数据库中（是不是感觉跟前面两章的学习的架构对应起来了）而对于一张表，也可以通过外键之类的机制，将其拆分为多个表。
+- **垂直拆分：** 我们的表和数据库都可以进行垂直拆分，所谓垂直拆分，就是将数据库中所有的表，按照业务功能拆分到各个数据库中（是不是感觉跟前面两章的学习的架构对应起来了）而对于一张表，也可以通过外键之类的机制，将其拆分为多个表。
 
   ![image-20220414204703883](./img/mnJO4hBwDAkRcMi.jpg)
 
-* **水平拆分：** 水平拆分针对的不是表，而是数据，我们可以让很多个具有相同表的数据库存放一部分数据，相当于是将数据分散存储在各个节点上。
+- **水平拆分：** 水平拆分针对的不是表，而是数据，我们可以让很多个具有相同表的数据库存放一部分数据，相当于是将数据分散存储在各个节点上。
 
   ![image-20220414205222383](./img/AdS5hrH2O1l8iqv.jpg)
 
@@ -1479,7 +1479,7 @@ create table test  (
         <artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>
         <version>5.1.0</version>
     </dependency>
-  
+
     <dependency>
         <groupId>org.mybatis.spring.boot</groupId>
         <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -1623,7 +1623,7 @@ class ShardingJdbcTestApplicationTests {
     void contextLoads() {
         for (int i = 0; i < 10; i++) {
             //这里ID自动生成1-10，然后插入数据库
-            mapper.addUser(new User(i, "xxx", "ccc"));   
+            mapper.addUser(new User(i, "xxx", "ccc"));
         }
     }
 
@@ -1648,8 +1648,8 @@ class ShardingJdbcTestApplicationTests {
 
 分库完成之后，接着我们来看分表，比如现在我们的数据库中有`test_0`和`test_1`两张表，表结构一样，但是我们也是希望能够根据id取模运算的结果分别放到这两个不同的表中，实现思路其实是差不多的，这里首先需要介绍一下两种表概念：
 
-* **逻辑表：** 相同结构的水平拆分数据库（表）的逻辑名称，是 SQL 中表的逻辑标识。 例：订单数据根据主键尾数拆分为 10 张表，分别是 `t_order_0` 到 `t_order_9`，他们的逻辑表名为 `t_order`
-* **真实表：** 在水平拆分的数据库中真实存在的物理表。 即上个示例中的 `t_order_0` 到 `t_order_9`
+- **逻辑表：** 相同结构的水平拆分数据库（表）的逻辑名称，是 SQL 中表的逻辑标识。 例：订单数据根据主键尾数拆分为 10 张表，分别是 `t_order_0` 到 `t_order_9`，他们的逻辑表名为 `t_order`
+- **真实表：** 在水平拆分的数据库中真实存在的物理表。 即上个示例中的 `t_order_0` 到 `t_order_9`
 
 现在我们就以一号数据库为例，那么我们在里面创建上面提到的两张表，之前的那个`test`表删不删都可以，就当做不存在就行了：
 
@@ -1777,8 +1777,8 @@ allow-range-query-with-inline-sharding: true
 
 比如我们之前创建过学生信息表、图书借阅表、图书管理表，所有的信息都会有一个ID作为主键，并且这个ID有以下要求：
 
-* 为了区别于其他的数据，这个ID必须是全局唯一的。
-* 主键应该尽可能的保持有序，这样会大大提升索引的查询效率。
+- 为了区别于其他的数据，这个ID必须是全局唯一的。
+- 主键应该尽可能的保持有序，这样会大大提升索引的查询效率。
 
 那么我们在分布式系统下，如何保证ID的生成满足上面的需求呢？
 
@@ -1795,7 +1795,7 @@ allow-range-query-with-inline-sharding: true
 
    但是它并不满足我们上面的第二个要求，也就是说我们需要尽可能的保证有序，而这里我们得到的都是一些无序的ID。
 
-2. **雪花算法（Snowflake）：** 
+2. **雪花算法（Snowflake）：**
 
    我们来看雪花算法，它会生成一个一个64bit大小的整型的ID，int肯定是装不下了。
 
@@ -1977,7 +1977,6 @@ class ShardingJdbcTestApplicationTests {
 可以看到，当我们执行插入操作时，会直接向db0进行操作，而读取操作是会根据我们的配置，选择db1进行操作。
 
 至此，微服务应用章节到此结束。
-
 
 ————————————————
 版权声明：本文为柏码知识库版权所有，禁止一切未经授权的转载、发布、出售等行为，违者将被追究法律责任。

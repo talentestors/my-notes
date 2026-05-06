@@ -359,9 +359,9 @@ public class TestParam {
 ```java
 public final void connect(
                 final SocketAddress remoteAddress, final SocketAddress localAddress, final ChannelPromise promise) {
-    
+
     ...
-        
+
     // Schedule connect timeout.
     // 设置超时时间，通过option方法传入的CONNECT_TIMEOUT_MILLIS参数进行设置
     int connectTimeoutMillis = config().getConnectTimeoutMillis();
@@ -383,9 +383,9 @@ public final void connect(
             }
         }, connectTimeoutMillis, TimeUnit.MILLISECONDS);
     }
-    
+
     ...
-        
+
 }
 ```
 
@@ -553,7 +553,6 @@ new ServerBootstrap().childOption(ChannelOption.ALLOCATOR, new PooledByteBufAllo
 ```
 
 - `ByteBufAllocator`类型
-
   - 池化并使用直接内存
 
   ```java
