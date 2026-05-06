@@ -1,4 +1,28 @@
-# 微服务应用
+---
+# 当前页面内容标题
+title: SpringCloud（三）微服务应用
+# 当前页面图标
+icon: spring
+# 分类
+category:
+  - javaee
+  - spring
+  - springcloud
+# 标签
+tag:
+  - spring
+  - springcloud
+  - 微服务
+sticky: false
+# 是否收藏在博客主题的文章列表中，当填入数字时，数字越大，排名越靠前。
+star: false
+# 是否将该文章添加至文章列表中
+article: false
+# 目录顺序
+order: 3
+# 是否将该文章添加至时间线中
+timeline: false
+---
 
 前面我们已经完成了SpringCloudAlibaba的学习，我们对一个微服务项目的架构体系已经有了一定的了解，那么本章我们将在应用层面继续探讨微服务。
 

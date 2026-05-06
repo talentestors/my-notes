@@ -286,6 +286,34 @@ export const zhSidebar = sidebar({
               icon: "spring",
               link: "springssm/ssm.md",
             },
+            {
+              text: "SpringCloud",
+              icon: "spring",
+              collapsible: true,
+              prefix: "/codenotes/java/javaee/springcloud/",
+              children: [
+                {
+                  text: "1、微服务基础",
+                  icon: "spring",
+                  link: "SpringCloud（一）微服务基础.md",
+                },
+                {
+                  text: "2、微服务进阶",
+                  icon: "spring",
+                  link: "SpringCloud（二）微服务进阶.md",
+                },
+                {
+                  text: "3、微服务应用",
+                  icon: "spring",
+                  link: "SpringCloud（三）微服务应用.md",
+                },
+                {
+                  text: "4、消息队列",
+                  icon: "spring",
+                  link: "SpringCloud（四）消息队列.md",
+                },
+              ],
+            },
           ],
         },
         {

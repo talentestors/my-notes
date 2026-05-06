@@ -1,4 +1,28 @@
-# 微服务进阶
+---
+# 当前页面内容标题
+title: SpringCloud（二）微服务进阶
+# 当前页面图标
+icon: spring
+# 分类
+category:
+  - javaee
+  - spring
+  - springcloud
+# 标签
+tag:
+  - spring
+  - springcloud
+  - 微服务
+sticky: false
+# 是否收藏在博客主题的文章列表中，当填入数字时，数字越大，排名越靠前。
+star: false
+# 是否将该文章添加至文章列表中
+article: false
+# 目录顺序
+order: 2
+# 是否将该文章添加至时间线中
+timeline: false
+---
 
 前面我们了解了微服务的一套解决方案，但是它是基于Netflix的解决方案，实际上我们发现，很多框架都已经停止维护了，来看看目前我们所认识到的SpringCloud各大组件的维护情况：
 

@@ -1,10 +1,34 @@
+---
+# 当前页面内容标题
+title: SpringCloud（一）微服务基础
+# 当前页面图标
+icon: spring
+# 分类
+category:
+  - javaee
+  - spring
+  - springcloud
+# 标签
+tag:
+  - spring
+  - springcloud
+  - 微服务
+sticky: false
+# 是否收藏在博客主题的文章列表中，当填入数字时，数字越大，排名越靠前。
+star: false
+# 是否将该文章添加至文章列表中
+article: false
+# 目录顺序
+order: 1
+# 是否将该文章添加至时间线中
+timeline: false
+---
+
 > [!TIP]
 >
 > 课程链接：<https://www.bilibili.com/video/BV1AL4y1j7RY>
 
 ![image-20230306225143443](./img/XeofrwYMN5GQnlC.png)
-
-# 微服务基础
 
 **注意：** 此阶段学习推荐的电脑配置，至少配备4核心CPU（主频3.0Ghz以上）+16GB内存，否则卡到你怀疑人生。
 
