@@ -178,7 +178,7 @@ export default hopeTheme({
       indices: ["lib-yuhiri"],
     },
     icon: {
-      assets: "//at.alicdn.com/t/c/font_4545815_4tp4gjuvoul.css",
+      assets: "//at.alicdn.com/t/c/font_4545815_rf1lihy9227.css",
     },
     // search: {
     //   //多语言支持

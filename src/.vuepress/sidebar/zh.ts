@@ -395,6 +395,42 @@ export const zhSidebar = sidebar({
       ],
     },
     {
+      text: "中间件",
+      icon: "middleware",
+      collapsible: true,
+      prefix: "/codenotes/middleware/",
+      children: [
+        {
+          text: "RocketMQ",
+          icon: "rocketmq",
+          collapsible: true,
+          prefix: "/codenotes/middleware/rocketmq/",
+          children: [
+            {
+              text: "1. RocketMQ概述",
+              icon: "rocketmq",
+              link: "01-rocketmq概述.md",
+            },
+            {
+              text: "2. RocketMQ安装与启动",
+              icon: "rocketmq",
+              link: "02-rocketmq安装与启动.md",
+            },
+            {
+              text: "3. RocketMQ工作原理",
+              icon: "rocketmq",
+              link: "03-rocketmq工作原理.md",
+            },
+            {
+              text: "4. RocketMQ应用",
+              icon: "rocketmq",
+              link: "04-rocketmq应用.md",
+            },
+          ],
+        },
+      ],
+    },
+    {
       text: "Linux入门",
       icon: "linux",
       link: "/codenotes/os/linux/linux.md",
