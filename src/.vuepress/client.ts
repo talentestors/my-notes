@@ -5,6 +5,8 @@ import ElementPlus, {
   ZINDEX_INJECTION_KEY,
 } from "element-plus";
 import "element-plus/dist/index.css";
+// 引入霞鹜文楷字体
+import "@chinese-fonts/lxgwwenkai/dist/LXGWWenKai-Medium/result.css";
 
 export default defineClientConfig({
   enhance: ({ app, router, siteData }) => {

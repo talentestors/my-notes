@@ -13,6 +13,18 @@
 .vp-dropdown-title {
   color: #666666;
 }
+strong,
+b {
+  text-shadow: 0.4px 0 0 currentColor;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-shadow: 0.5px 0 0 currentColor;
+}
 a.header-anchor::before {
   content: "¶" !important;
   position: absolute !important;
