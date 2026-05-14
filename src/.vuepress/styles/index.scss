@@ -17,7 +17,7 @@ strong,
 b {
   text-shadow: 0.4px 0 0 currentColor;
 }
-h1,
+h1:not(#main-title),
 h2,
 h3,
 h4,
