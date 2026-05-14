@@ -436,7 +436,7 @@ export const zhSidebar = sidebar({
       link: "/codenotes/os/linux/linux.md",
     },
     {
-      text: "Linux入门",
+      text: "开源许可证",
       icon: "book",
       link: "/codenotes/others/open-source-license.md",
     },
@@ -457,12 +457,12 @@ export const zhSidebar = sidebar({
       ],
     },
   ],
-  // 开源项目的侧边栏
-  // "/projects/": [
-  //   {
-  //     text: "🤖 chat AI合集",
-  //     collapsible: true,
-  //     link: "/projects/chatai/",
-  //   },
-  // ],
+  // 开源项目的侧边栏（基于目录结构自动生成）
+  "/projects/": "structure",
+  // 资源宝库的侧边栏（基于目录结构自动生成）
+  "/resources/": "structure",
+  // 数据结构与算法的侧边栏（基于目录结构自动生成）
+  "/algorithms/": "structure",
+  // 快速导航的侧边栏（基于目录结构自动生成）
+  "/quicknav/": "structure",
 });
