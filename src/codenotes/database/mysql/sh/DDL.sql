@@ -9,7 +9,7 @@ create table author(
 );
 
 -- 创建图书表
-create table if not exists `stazxrDB`.`book`(
+create table if not exists `me_yuhiriDB`.`book`(
 	`id` int primary key auto_increment,
 	`name` varchar(50) not null,
 	`bar_code` varchar(30) not null unique,

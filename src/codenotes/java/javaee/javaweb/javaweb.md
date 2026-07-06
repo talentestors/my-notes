@@ -1249,19 +1249,19 @@ ENV.put("/index.do",new IndexServlet());
  <servlets>
   <servlet>
    <url>/user</url>
-   <servlet-class>cn.stazxr.controller.UserServlet</servlet-class>
+   <servlet-class>me.yuhiri.controller.UserServlet</servlet-class>
   </servlet>
   <servlet>
    <url>/login</url>
-   <servlet-class>cn.stazxr.controller.LoginServlet</servlet-class>
+   <servlet-class>me.yuhiri.controller.LoginServlet</servlet-class>
   </servlet>
   <servlet>
    <url>/register</url>
-   <servlet-class>cn.stazxr.controller.RegisterServlet</servlet-class>
+   <servlet-class>me.yuhiri.controller.RegisterServlet</servlet-class>
   </servlet>
   <servlet>
    <url>/index</url>
-   <servlet-class>cn.stazxr.controller.IndexServlet</servlet-class>
+   <servlet-class>me.yuhiri.controller.IndexServlet</servlet-class>
   </servlet>
  </servlets>
 </web-app>
@@ -3594,7 +3594,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.HashMap" %>
-<%@ page import="cn.stazxr.Student" %>
+<%@ page import="me.yuhiri.Student" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>

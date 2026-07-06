@@ -11,9 +11,7 @@ const __dirname = getDirname(import.meta.url);
  * Vite 8 (Rolldown-backed) 的 `chunkSizeWarningLimit` 配置不生效，
  * reporter 插件硬编码了 1024KB 阈值。通过 customLogger 拦截该消息。
  */
-const SILENCED_PATTERNS = [
-  "Some chunks are larger than",
-];
+const SILENCED_PATTERNS = ["Some chunks are larger than"];
 
 function shouldSilence(msg: string): boolean {
   return typeof msg === "string" && SILENCED_PATTERNS.some((p) => msg.includes(p));

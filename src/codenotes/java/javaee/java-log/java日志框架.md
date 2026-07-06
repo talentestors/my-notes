@@ -1521,11 +1521,11 @@ SLF4J 日志门面主要提供两大功能：
 （2）编写代码
 
 ```java
-public class cn.stazxr.TestSlf4j {
+public class me.yuhiri.TestSlf4j {
 
     // 声明日志对象
     public final static Logger LOGGER =
-            LoggerFactory.getLogger(cn.stazxr.TestSlf4j.class);
+            LoggerFactory.getLogger(me.yuhiri.TestSlf4j.class);
     @Test
     public void testSlfSimple()  {
         //打印日志信息

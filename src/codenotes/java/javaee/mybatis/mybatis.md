@@ -2467,7 +2467,7 @@ alias 填了的话就以 alias 里的值为准。
 > （3）改变 `mybaits-config.xml`
 >
 > ```xml
-> <typeAlias type="cn.stazxr.dataSource.DruidDataSourceFactory" alias="DRUID"/>
+> <typeAlias type="me.yuhiri.dataSource.DruidDataSourceFactory" alias="DRUID"/>
 > ...
 > <dataSource type="DRUID">
 >  <property name="driverClassName" value="${driver}"/>
