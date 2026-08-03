@@ -25,16 +25,16 @@ const logger: any = {
   },
   warn(msg: string, _options?: any) {
     if (shouldSilence(msg)) return;
-    this.hasWarned = true;
+    logger.hasWarned = true;
     console.warn(msg);
   },
   warnOnce(msg: string, _options?: any) {
     if (shouldSilence(msg)) return;
-    this.hasWarned = true;
+    logger.hasWarned = true;
     console.warn(msg);
   },
   error(msg: string, _options?: any) {
-    this.hasWarned = true;
+    logger.hasWarned = true;
     console.error(msg);
   },
   clearScreen(_type?: string) {},
